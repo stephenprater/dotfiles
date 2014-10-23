@@ -7,7 +7,7 @@ Acumen devs dotfiles based on [Zach Holman](https://github.com/holman)'s [dotfil
 Run this:
 
 ```sh
-git clone https://github.com/therubymug/dotfiles.git ~/.dotfiles
+git clone https://github.com/acumenbrands/dotfiles.git ~/.dotfiles
 cd ~/.dotfiles
 script/bootstrap
 ```
