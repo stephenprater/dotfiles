@@ -6,7 +6,8 @@ export SOURCE_DIR=$HOME/src
 
 # all of our zsh files
 typeset -U config_files
-config_files=($DOTHOME/**/*.zsh)
+setopt extended_glob
+config_files=($DOTHOME/(^plugins/)#*zsh)
 
 # load the path files
 for file in ${(M)config_files:#*/path.zsh}

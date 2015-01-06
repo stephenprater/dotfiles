@@ -29,6 +29,6 @@ augroup END
 map Q :qa
 
 " sourcing .vimrc.local should ALWAYS BE LAST
-if filereadable(expand('~/.vimrc.local'))
-  source ~/.vimrc.local
+if filereadable(expand('~/.nvimrc.local'))
+  source ~/.nvimrc.local
 endif

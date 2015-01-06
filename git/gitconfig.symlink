@@ -41,3 +41,8 @@
         autosquash = true
 [include]
         path = ~/.gitconfig.local
+[user]
+	email = me@stephenprater.com
+	name = Stephen Prater
+[github]
+	user = stephenprater
