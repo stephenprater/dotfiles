@@ -3,6 +3,7 @@ unbind l
 unbind %
 
 set -g prefix C-b
+set -g escape-time 10
 bind-key C-a last-window
 
 bind | split-window -h
@@ -57,6 +58,9 @@ bind -n C-k run "(tmux display-message -p '#{pane_current_command}' | grep -iqE 
 bind -n C-l run "(tmux display-message -p '#{pane_current_command}' | grep -iqE '(^|\/)vim$' && tmux send-keys C-l) || tmux select-pane -R"
 bind -n C-\ run "(tmux display-message -p '#{pane_current_command}' | grep -iqE '(^|\/)vim$' && tmux send-keys 'C-\\'') || tmux select-pane -l"
 
-set-option -g default-command "reattach-to-user-namespace -l zsh"
+#set-option -g default-command "reattach-to-user-namespace -l zsh"
 
-new-session
+bind C-c run "tmux save-buffer - | reattach-to-user-namespace pbcopy"
+bind C-v run "reattach-to-user-namespace pbpaste | tmux load-buffer - && tmux paste-buffer"
+
+#new-session
