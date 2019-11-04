@@ -1,0 +1,8 @@
+apiendpoint = "https://api.holepunch.io"
+apikey = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1NjU0MDA4NjEsIm5iZiI6MTU2NTQwMDg2MSwianRpIjoiYzkxNGI0NzgtNWFiMS00MTA5LWIzN2YtOTQyMWU0ZDRmM2I2IiwiZXhwIjoxNTY3OTkyODYxLCJpZGVudGl0eSI6IjhkODA5MWFhLWM1ZWMtNGYyYy1hZjIxLTRiYTFmZjgyNDE4NSIsInR5cGUiOiJyZWZyZXNoIn0.henLeYwzFYJukh5gYNS-nNBBOajEbab-qzklkEguSxo"
+baseurl = "http://holepunch.io"
+crashreporting = true
+loglevel = "ERROR"
+privatekeypath = "~/.ssh/id_rsa"
+publickeypath = "~/.ssh/id_rsa.pub"
+sshendpoint = "ssh://api.holepunch.io:22"

@@ -1,0 +1,14 @@
+snippet schema
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "required": [$1],
+  "properties": {
+    "_embedded": {
+      "type": "object"
+    }
+  },
+  "additionalProperties": ${2:false}
+}
+endsnippet
+

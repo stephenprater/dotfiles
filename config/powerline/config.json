@@ -1,0 +1,6 @@
+{
+	"common": {
+		"paths": [ "~/.config/powerline/segments" ],
+		"log_level": "DEBUG"
+	}
+}

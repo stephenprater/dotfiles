@@ -1,0 +1,249 @@
+{
+  "yank": {
+    "%2FUsers%2Fstephenprater%2Fsrc%2Fuserland%2Fholepunch": [
+      "def __ini"
+    ]
+  },
+  "lists": {
+    "%2FUsers%2Fstephenprater": [
+      "files",
+      "mru"
+    ],
+    "%2FUsers%2Fstephenprater%2Fsrc%2Fstephenprater": [
+      "mru"
+    ],
+    "%2FUsers%2Fstephenprater%2Fsrc%2F8thlight%2Feb": [
+      "market",
+      "ac",
+      "outline",
+      "services",
+      "actions",
+      "dia",
+      "exte",
+      "marks",
+      "service",
+      "diag"
+    ],
+    "%2FUsers%2Fstephenprater%2Fsrc%2Fuserland%2Fuserland-cloud": [
+      "referesnces"
+    ],
+    "%2FUsers%2Fstephenprater%2Fsrc%2F8thlight%2Fspring": [
+      "seri",
+      "comm",
+      "command"
+    ]
+  },
+  "mru": {
+    "%2FUsers%2Fstephenprater": [
+      "init.",
+      "init"
+    ],
+    "%2FUsers%2Fstephenprater%2Fsrc%2Fstephenprater": [
+      "init",
+      "ini"
+    ],
+    "%2FUsers%2Fstephenprater%2Fsrc%2F8thlight%2Feb": [
+      "coces",
+      "ini",
+      "settin",
+      "coc-set",
+      "langu",
+      "coc-se",
+      "coc-",
+      "log",
+      "scratch",
+      "init"
+    ],
+    "%2FUsers%2Fstephenprater%2Fsrc%2Fuserland%2Fholepunch": [
+      "coc-set"
+    ],
+    "%2FUsers%2Fstephenprater%2Fsrc%2Fuserland%2Fuserland-cloud": [
+      "init"
+    ],
+    "%2FUsers%2Fstephenprater%2Fsrc%2F8thlight%2Fissues": [
+      "coc-setting",
+      "init",
+      "config",
+      "bu"
+    ],
+    "%2FUsers%2Fstephenprater%2Fsrc%2F8thlight%2Fduper": [
+      "init.vim",
+      "color",
+      "init"
+    ],
+    "%2FUsers%2Fstephenprater%2Fsrc%2F8thlight%2Fspring": [
+      "init"
+    ],
+    "%2FUsers%2Fstephenprater%2F": {
+      "dotfiles%2Fconfig": [
+        "invit"
+      ],
+      "dotfiles": [
+        "init"
+      ],
+      "dotfiles%2Fzsh": [
+        "init"
+      ]
+    },
+    "%2FUsers%2Fstephenprater%2Fsrc%2Fstephenprater%2Fimgcat": [
+      "nvim",
+      "imgcat",
+      "ex",
+      "colors",
+      "init",
+      "colortest"
+    ],
+    "%2FUsers%2Fstephenprater%2Fsrc%2F8thlight%2Frxjs": [
+      "init"
+    ]
+  },
+  "grep": {
+    "%2FUsers%2Fstephenprater%2Fsrc%2Fstephenprater": [
+      "cursed",
+      "conflict"
+    ],
+    "%2FUsers%2Fstephenprater%2F": {
+      "dotfiles%2Fzsh": [
+        "Darwin"
+      ]
+    }
+  },
+  "files": {
+    "%2FUsers%2Fstephenprater%2Fsrc%2Fstephenprater": [
+      "j:",
+      ":q",
+      "source"
+    ],
+    "%2FUsers%2Fstephenprater%2Fsrc%2F8thlight%2Feb": [
+      "eb",
+      "help coc",
+      "help",
+      "CocSe",
+      "coc-s",
+      "airl",
+      "coc",
+      "fac",
+      "my",
+      "mylist",
+      "exer",
+      "scra",
+      "compre",
+      "bugg",
+      "stats_t",
+      "_mixin",
+      "anagram"
+    ],
+    "%2FUsers%2Fstephenprater%2Fsrc%2Fuserland%2Fholepunch": [
+      "coc-se"
+    ],
+    "%2FUsers%2Fstephenprater%2Fsrc%2Fuserland%2Fuserland-cloud": [
+      "servicebox"
+    ],
+    "%2FUsers%2Fstephenprater%2Fsrc%2F8thlight%2Fissues": [
+      "init",
+      "is",
+      "cli_te",
+      "coc-estti",
+      "format",
+      "issues",
+      "formatt",
+      "cli",
+      "mix",
+      "config",
+      "buggy"
+    ],
+    "%2FUsers%2Fstephenprater%2Fsrc%2F8thlight%2Fduper": [
+      "pathe",
+      "dupergat",
+      "app",
+      "result",
+      "gather",
+      "detaile"
+    ],
+    "%2FUsers%2Fstephenprater%2Fsrc%2F8thlight%2Fspring": [
+      "pop"
+    ],
+    "%2FUsers%2Fstephenprater%2F": {
+      "dotfiles": [
+        "alias.zs",
+        "alias",
+        "zshrc",
+        "gitigni",
+        "Nord.tm"
+      ],
+      "dotfiles%2Fplugins": [
+        ".zshrc"
+      ],
+      "dotfiles%2Fzsh": [
+        "Nord",
+        "init"
+      ]
+    },
+    "%2FUsers%2Fstephenprater%2Fsrc%2Fstephenprater%2Fimgcat": [
+      "init",
+      "us",
+      "colortest",
+      "color",
+      ".tmux"
+    ]
+  },
+  "tags": {
+    "%2FUsers%2Fstephenprater%2Fsrc%2Fstephenprater": [
+      "ReplaceMotion"
+    ],
+    "%2FUsers%2Fstephenprater%2Fsrc%2F8thlight%2Fissues": [
+      "two",
+      "center"
+    ]
+  },
+  "marketplace": {
+    "%2FUsers%2Fstephenprater%2Fsrc%2F8thlight%2Feb": [
+      "ts",
+      "java"
+    ]
+  },
+  "actions": {
+    "%2FUsers%2Fstephenprater%2Fsrc%2F8thlight%2Feb": [
+      "]|"
+    ]
+  },
+  "buffers": {
+    "%2FUsers%2Fstephenprater%2Fsrc%2F8thlight%2Feb": [
+      "ie"
+    ],
+    "%2FUsers%2Fstephenprater%2Fsrc%2F8thlight%2Fissues": [
+      "test",
+      "format_",
+      "coc-sett"
+    ],
+    "%2FUsers%2Fstephenprater%2Fsrc%2Fstephenprater%2Fstephenprater": {
+      "github": {
+        "io": [
+          "bugg",
+          "term"
+        ]
+      }
+    },
+    "%2FUsers%2Fstephenprater%2Fsrc%2F8thlight%2Fduper": [
+      "init"
+    ],
+    "%2FUsers%2Fstephenprater%2F": {
+      "dotfiles%2Fzsh": [
+        "docker"
+      ],
+      "dotfiles%2Fplugins": [
+        "batcon",
+        "nord"
+      ]
+    },
+    "%2FUsers%2Fstephenprater%2Fsrc%2Fstephenprater%2Fimgcat": [
+      ".gitc"
+    ]
+  },
+  "commands": {
+    "%2FUsers%2Fstephenprater%2Fsrc%2F8thlight%2Fspring": [
+      "import",
+      "java"
+    ]
+  }
+}

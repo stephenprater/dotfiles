@@ -1,0 +1,74 @@
+[alias]
+        br = branch
+        ci = commit
+        co = checkout
+        cp = cherry-pick
+        l = log --color --graph --pretty=format:'%Cred%h%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+        lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+        ln = log --pretty=format:'%Cblue%h %Cred* %C(yellow)%s'
+        pruneremote = remote prune origin
+        reset-authors = commit --amend --reset-author -CHEAD
+        ri = rebase --interactive
+        st = status
+        tr = log --graph --oneline --decorate --color
+        tree = log --graph --oneline --decorate --color --all
+        squash = !sh -c 'git commit -m \"squash! $(git log -1 --format='\\''%s'\\'' $@)\"' -
+        fixup = !sh -c 'git commit -m \"fixup! $(git log -1 --format='\\''%s'\\'' $@)\"' -
+        rmbranch = "!f(){ git branch -d ${1} && git push origin --delete ${1}; };f"
+        smoke = !"LAST_TAG=$(git describe --abbrev=0 --tags) && git log --pretty=format:\"%an: %s\" $LAST_TAG..head | sort | uniq"
+        snapshot = !git stash save "snapshot: $(date)" && git stash apply "stash@{0}"
+        add-untracked = !"git status --porcelain | awk '/\\?\\?/{ print $2 }' | xargs git add"
+        unpulled = !"PROJ_BRANCH=$(git symbolic-ref HEAD | sed 's|refs/heads/||') && git fetch && git log HEAD..origin/$PROJ_BRANCH"
+        unpushed = !"PROJ_BRANCH=$(git symbolic-ref HEAD | sed 's|refs/heads/||') && git log origin/$PROJ_BRANCH..HEAD"
+        wip = !"git add -A . && git status && git commit -am '@WIP [ci skip]'"
+	s = status
+        whoops = !sh -c 'git add -u && git commit --amend --reuse-message=HEAD'
+        cleanup = "!git branch --merged | grep -v '\\*\\|master\\|develop' | xargs -I % sh -c 'git branch -d % && git push origin --delete %'"
+        theirs = "!f() { git reset --hard origin/$1 }"
+        prunetags = "!git tag -l | xargs git tag -d && git fetch -t"
+        up = "!git fetch && git rebase --autostash FETCH_HEAD"
+        clean-remotes = "!git fetch -p && for branch in `git branch -vv | grep ': gone]' | awk '{print $1}'`; do git branch -D $branch; done"
+[branch]
+        autosetuprebase = always
+[color]
+        ui = auto
+[core]
+	excludesfile = $HOME/.gitignore
+        editor = /usr/local/bin/nvim
+        whitespace = warn
+        pager = "diff-so-fancy | less --tabs=4 -RFX"
+[help]
+        autocorrect = 10
+[interactive]
+        singlekey = true
+[merge]
+        summary = true
+        tool = diffconflicts
+[push]
+        default = tracking
+[rebase]
+        autosquash = true
+[include]
+        path = ~/.gitconfig.local
+[user]
+	email = me@stephenprater.com
+	name = Stephen Prater
+[github]
+        user = stephenprater
+[mergetool "diffconflicts"]
+        cmd = nvim -c DiffConflicts "$MERGED" "$BASE" "$LOCAL" "$REMOTE"
+        trustExitCode = true
+        keepBackup = false
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path =
+[mergetool "sourcetree"]
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[filter "lfs"]
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+[commit]
+        template = $HOME/.stCommitMsg

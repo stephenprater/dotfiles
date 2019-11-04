@@ -1,0 +1,36 @@
+{
+  "browsers": [
+    {
+      "name": "chrome",
+      "re": {},
+      "type": "chrome",
+      "profile": "/Users/stephenprater/.config/browser-launcher2/chrome-60.0.3112.113_8a2610742f64e",
+      "command": "/Applications/Google Chrome.app",
+      "version": "60.0.3112.113"
+    },
+    {
+      "name": "firefox",
+      "re": {},
+      "type": "firefox",
+      "profile": true,
+      "command": "/Applications/Firefox.app/Contents/MacOS/firefox-bin",
+      "version": "44.0.2"
+    },
+    {
+      "name": "phantomjs",
+      "re": {},
+      "type": "phantom",
+      "headless": true,
+      "profile": false,
+      "command": "phantomjs",
+      "version": "2.0.0"
+    },
+    {
+      "name": "safari",
+      "type": "safari",
+      "profile": false,
+      "command": "/Applications/Safari.app",
+      "version": "10.1.2"
+    }
+  ]
+}

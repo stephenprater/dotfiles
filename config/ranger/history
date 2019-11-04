@@ -1,0 +1,34 @@
+search s
+rename Screenshot 2014-12-16 22.52.15.png
+move 
+mkdir models
+mkdir factories
+mkdir news
+mkdir helpers
+mkdir controllers/news
+find 
+
+rename AWS_SECRET_ACCESS_KEY
+copy
+copy AWS_SECRET_KEY
+mkdir hal
+mkdir transformer
+mkdir middleware
+rename lib/j
+rename hal
+rename 
+rename transformer
+rename elasticsearch_ elasticsearch
+rename elasticsearch
+open_with 
+rename pan.go
+rename merge_strategies
+rename merge_strategies strategies
+rename strategies
+search log
+search Document
+mkdir consul_client
+rename consul.j2.hcl
+delete
+rename consul.yml
+open_with Pr

@@ -1,0 +1,28 @@
+{
+    "codeLens.enable": true,
+    "python.linting.enabled": true,
+    "python.linting.pylintEnabled": false,
+    "python.linting.flake8Enabled": true,
+    "python.linting.mypyEnabled": true,
+    "elixir.enable": true,
+    "elixirLS.dialyzerEnabled": true,
+    "elixir.trace.server": "verbose",
+    "languageserver": {
+        "golang": {
+            "command": "gopls",
+            "rootPatterns": [
+                "go.mod"
+            ],
+            "filetypes": [
+                "go"
+            ]
+        }
+    },
+    "list.insertMappings": {
+        "<C-p>": "call:CocNextList",
+        "<C-n>": "call:CocPrevList"
+    },
+    "list.normalMappings": {
+        "D": "action:delete"
+    }
+}

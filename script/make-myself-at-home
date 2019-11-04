@@ -1,0 +1,28 @@
+#!/usr/bin/zsh
+#
+#
+ln -s $DOTHOME/config $HOME/.config
+
+if [[ $(uname -a | grep "Darwin") ]]; then
+  ln -s $DOTHOME/config/chunkwm/skhdrc .skhdrc
+  ln -s $DOTHOME/config/chunkwm/chunkwmrc .chunkwmrc
+fi
+
+if [[ $(uname -a | grep "Linux") ]]; then
+fi
+
+
+# Not everybody plays nice with XDG
+ln -s $DOTHOME/config/ctags.d/ .ctags.d
+ln -s $DOTHOME/config/spacemacs .spacemacs
+ln -s $DOTHOME/config/dlv .dlv
+
+ln -s $DOTHOME/tcolors .tcolors
+ln -s $DOTHOME/terminfo .terminfo
+ln -s $DOTHOME/tldrc .tldrc
+
+ln -s $DOTHOME/config/tmux/tmux.conf .tmux.conf
+ls -s $DOTHOME/config/ruby/pryrc .pryrc
+
+ln -s $DOTHOME/zsh.profile .zprofile
+ln -s $DOTHOME/zshrc .zshrc

@@ -7,7 +7,7 @@ export SOURCE_DIR=$HOME/src
 # all of our zsh files
 typeset -U config_files
 setopt extended_glob
-config_files=($DOTHOME/(^plugins/)#*zsh)
+config_files=($DOTHOME/(^(plugins)/)#*zsh)
 
 # load the path files
 for file in ${(M)config_files:#*/path.zsh}
@@ -25,6 +25,22 @@ done
 autoload -U compinit
 compinit
 
+zstyle ':completion:*:options' auto-description '%d'
+zstyle ':completion:*:options' description 'yes'
+zstyle ':completion:*:(rm|cp):*' ignore-line yes
+zstyle ':completion:*' list-colors
+zstyle ':completion:*' menu select
+zstyle ':completion:*' group-name ''
+zstyle ':completion:*' verbose true
+zstyle ':completion:*:descriptions' format '%F{green}Completions for %B%d%b%f'
+zstyle ':completion:*:messages' format '%d'
+zstyle ':completion:*:warnings' format 'No matches for: %d'
+zstyle ':completion:*:corrections' format '%B%d (errors: %e)%b'
+zstyle ':completion:*:approximate:*' original true
+zstyle ':completion:*:approximate:*' prompt 'Approximate to: %e'
+
+setopt menucomplete
+
 # load every completion after autocomplete loads
 for file in ${(M)config_files:#*/completion.zsh}
 do
@@ -33,13 +49,74 @@ done
 
 unset config_files
 
-# set cd autocompletion to commonly visited directories
-cdpath=(. ~ ~/src $SOURCE_DIR)
-
 # chruby!
 [[ ! -a /usr/local/opt/chruby/share/chruby/chruby.sh ]] || source /usr/local/opt/chruby/share/chruby/chruby.sh
 [[ ! -a /usr/local/opt/chruby/share/chruby/auto.sh ]] || source /usr/local/opt/chruby/share/chruby/auto.sh
 
-# import local zsh customizations, if present
-zrcl="$HOME/.zshrc.local"
-[[ ! -a $zrcl ]] || source $zrcl
+# Java!
+export JAVA_HOME=$(/usr/libexec/java_home)
+
+# JavaSCRIIIIPT!
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+export PATH="$HOME/.yarn/bin:$PATH"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# Python!
+export PATH="$PYENV_ROOT/bin:$PATH"
+export PATH="$HOME/.pyenv/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+
+# Docker
+alias dc="$(which docker-compose)"
+
+# Bash completions!
+autoload -U +X bashcompinit && bashcompinit
+
+complete -o nospace -C /usr/local/bin/vault vault
+
+# set cd autocompletion to commonly visited directories
+setopt auto_cd
+cdpath=(. ~/src $SOURCE_DIR/8thlight $SOURCE_DIR/stephenprater)
+fpath=(path/to/zsh-completions/src $fpath)
+
+zmodload -i zsh/parameter
+
+compctl -/ -S '' -W "($SOURCE_DIR $SOURCE_DIR/8thlight)" mux
+
+autoload -U edit-command-line
+autoload -U colors
+zle -N edit-command-line
+bindkey -M vicmd 'e' edit-command-line
+bindkey -M vicmd ':' executed-named-command
+
+
+# Configure the Prompt
+setopt prompt_subst
+
+export POWERLINE_COMMAND=$(pyenv root)/versions/3.7.0/bin/powerline
+export POWERLINE_CONFIG_COMMAND=$(pyenv root)/versions/3.7.0/bin/powerline-config
+$(pyenv root)/versions/3.7.0/bin/powerline-daemon -q
+
+autoload -U promptinit; promptinit
+
+# Use EXA instead of LS
+export EXA_COLORS="uu=38;5;239:ur=38;5;16:gr=38;5;16:tr=38;5;16:uw=32:sn=38;5;240:sb=38;5;240:da=38;5;242"
+
+
+export EDITOR=nvim
+export COMPOSE_HTTP_TIMEOUT=10000
+export HOST_IP=$(ipconfig getifaddr en0)
+export GOPATH=$HOME/golang
+export GOROOT=/usr/local/opt/go/libexec
+export PATH=$PATH:$GOPATH/bin:$GOROOT/bin:$DOTHOME/script
+
+# Load Environment Credenials from Keybase
+if [ ! -f $DOTHOME/zsh/credentials.zsh ]; then
+  cp $KEYBASE/credentials.zsh $DOTHOME/zsh/credentials.zsh
+  source $DOTHOME/zsh/credentials.zsh
+fi
+
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

@@ -1,0 +1,3099 @@
+{
+  "coc-python|global": {
+    "INTERPRETERS_CACHE_v3_CondaEnvFileService": [],
+    "INTERPRETERS_CACHE_v3_CondaEnvService": [],
+    "/usr/local/bin/python.v3": {
+      "data": {
+        "architecture": 3,
+        "path": "/usr/local/bin/python",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "2.7.16-final",
+          "major": 2,
+          "minor": 7,
+          "patch": 16,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "2.7.16-final"
+        },
+        "sysPrefix": "/usr/local/Cellar/python@2/2.7.16/Frameworks/Python.framework/Versions/2.7",
+        "fileHash": "aec3308c1df5958c1cf7049283e2eeac6a41a58e229c289b5c963f776b5508da0cc29690f05a8ec9fc61bea9724207d6a623ade67305100f161574e6f29ae368"
+      },
+      "expiry": 1572134231314
+    },
+    "/usr/bin/python.v3": {
+      "data": {
+        "architecture": 3,
+        "path": "/usr/bin/python",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "2.7.10-final",
+          "major": 2,
+          "minor": 7,
+          "patch": 10,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "2.7.10-final"
+        },
+        "sysPrefix": "/System/Library/Frameworks/Python.framework/Versions/2.7",
+        "fileHash": "441d3e1d0c688fd2b62ea6ea61d63744b88c5addec8868483f20d94cf43bb18ed61ef7249230e2e98bf35d8c194cd07d30df9fc5ca46c6bf380aa5cd50332186"
+      },
+      "expiry": 1572134231404
+    },
+    "/usr/bin/python2.7.v3": {
+      "data": {
+        "architecture": 3,
+        "path": "/usr/bin/python2.7",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "2.7.10-final",
+          "major": 2,
+          "minor": 7,
+          "patch": 10,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "2.7.10-final"
+        },
+        "sysPrefix": "/System/Library/Frameworks/Python.framework/Versions/2.7",
+        "fileHash": "cc87d9b7be17021c081e6cb0ded3c20714f50fceaa6594a549b739782d68633c4f68b9505f990760e3e928bbfe80e079c8fab577c7eb689742b01679a55a771c"
+      },
+      "expiry": 1572134231403
+    },
+    "/usr/local/bin/python3.7.v3": {
+      "data": {
+        "architecture": 3,
+        "path": "/usr/local/bin/python3.7",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.7.2-final",
+          "major": 3,
+          "minor": 7,
+          "patch": 2,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.7.2-final"
+        },
+        "sysPrefix": "/usr/local/Cellar/python/3.7.2_2/Frameworks/Python.framework/Versions/3.7",
+        "fileHash": "2358002e541349ab5afa2d65be8620f5df08fed8a73b285563b8b79830bf2fe8c8ace3c67a29da5501c5e28c0337289d8154cb5f0adf2b4f22be7ee48882d0ad"
+      },
+      "expiry": 1572134231398
+    },
+    "/usr/local/bin/python3.v3": {
+      "data": {
+        "architecture": 3,
+        "path": "/usr/local/bin/python3",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.7.2-final",
+          "major": 3,
+          "minor": 7,
+          "patch": 2,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.7.2-final"
+        },
+        "sysPrefix": "/usr/local/Cellar/python/3.7.2_2/Frameworks/Python.framework/Versions/3.7",
+        "fileHash": "180a341f58253ae496555776e2694090d2020a0ecdf46770346fce2f5d0604f134f238c27dcc8c4a60a5d67e1a605fa85c2a334eac68e7e5c571305f3c34962a"
+      },
+      "expiry": 1572134231400
+    },
+    "/Users/stephenprater/.pyenv/shims/python.v3": {
+      "data": {
+        "architecture": 3,
+        "path": "/Users/stephenprater/.pyenv/shims/python",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.7.0-final",
+          "major": 3,
+          "minor": 7,
+          "patch": 0,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.7.0-final"
+        },
+        "sysPrefix": "/Users/stephenprater/.pyenv/versions/3.7.0",
+        "fileHash": "b56bf0d970a32a22cbbce45e978713a9fdef5f04b174b62f9f2b73099fa31d1d7d728a920cb2a4030146d890089d9896e1990a1d982d000dbc4821c9576411d7"
+      },
+      "expiry": 1572134231394
+    },
+    "/usr/local/bin/python2.v3": {
+      "data": {
+        "architecture": 3,
+        "path": "/usr/local/bin/python2",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "2.7.16-final",
+          "major": 2,
+          "minor": 7,
+          "patch": 16,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "2.7.16-final"
+        },
+        "sysPrefix": "/usr/local/Cellar/python@2/2.7.16/Frameworks/Python.framework/Versions/2.7",
+        "fileHash": "34a9ea9a543b30c45aa8a3b3a92e584e6a812ad21276ca40949ed6b2bd8b8760310d5422bd16f39d31b4ecbc6c36d56fefc5150a175033a18c4d1b5daa9c646a"
+      },
+      "expiry": 1572134231407
+    },
+    "/usr/local/bin/python2.7.v3": {
+      "data": {
+        "architecture": 3,
+        "path": "/usr/local/bin/python2.7",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "2.7.16-final",
+          "major": 2,
+          "minor": 7,
+          "patch": 16,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "2.7.16-final"
+        },
+        "sysPrefix": "/usr/local/Cellar/python@2/2.7.16/Frameworks/Python.framework/Versions/2.7",
+        "fileHash": "2cf2a9cbda979027040efc3c33532ac8c3999e57d21299eaaf37c7ca18386de2ee257f17df6254a67129d50f6695b00ac75e4b4c1d863acc393ce1cf73e9bd52"
+      },
+      "expiry": 1572134231406
+    },
+    "/Users/stephenprater/.pyenv/shims/python3.7.v3": {
+      "data": {
+        "architecture": 3,
+        "path": "/Users/stephenprater/.pyenv/shims/python3.7",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.7.0-final",
+          "major": 3,
+          "minor": 7,
+          "patch": 0,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.7.0-final"
+        },
+        "sysPrefix": "/Users/stephenprater/.pyenv/versions/3.7.0",
+        "fileHash": "7e91d3f134deeba9e7b69b1d6ec502a881a4d6edac7aa9f0cd43264bd92cfb7cf9a97bce5bd25ece417303622a95fc028453bd6728d173d67cd9d1c6469db9e5"
+      },
+      "expiry": 1572134231402
+    },
+    "/Users/stephenprater/.pyenv/shims/python3.v3": {
+      "data": {
+        "architecture": 3,
+        "path": "/Users/stephenprater/.pyenv/shims/python3",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.7.0-final",
+          "major": 3,
+          "minor": 7,
+          "patch": 0,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.7.0-final"
+        },
+        "sysPrefix": "/Users/stephenprater/.pyenv/versions/3.7.0",
+        "fileHash": "b97369bec9e5577591f79820bc5129d7a5240513070e73f758270e27e965eccae107cfc96585f348bcc482d0c2e740690f268a6d6f682dcf7fe7151c7099029c"
+      },
+      "expiry": 1572134231391
+    },
+    "/Users/stephenprater/.pyenv/versions/momblish/bin/python.v3": {
+      "data": {
+        "architecture": 3,
+        "path": "/Users/stephenprater/.pyenv/versions/momblish/bin/python",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.7.0-final",
+          "major": 3,
+          "minor": 7,
+          "patch": 0,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.7.0-final"
+        },
+        "sysPrefix": "/Users/stephenprater/.pyenv/versions/momblish",
+        "fileHash": "60276289e994e337992d55228480abf4b370e27e1e8f3da758c45e2a761ce1a7378ff090b069ceafd51609edf22dbc5e07447a74a45480cca086f85b6d7392e9"
+      },
+      "expiry": 1572134231577
+    },
+    "/Users/stephenprater/.pyenv/versions/holepunch/bin/python3.v3": {
+      "data": {
+        "architecture": 3,
+        "path": "/Users/stephenprater/.pyenv/versions/holepunch/bin/python3",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.7.0-final",
+          "major": 3,
+          "minor": 7,
+          "patch": 0,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.7.0-final"
+        },
+        "sysPrefix": "/Users/stephenprater/.pyenv/versions/holepunch",
+        "fileHash": "091d67325bfc6c65c44f6f9307965642110c01a9c21a093b261b17f6444f816f8490c558c276e72120892b9e60d06c29403e5810db05dfed342d3dda8616daa3"
+      },
+      "expiry": 1572134231576
+    },
+    "/Users/stephenprater/.pyenv/versions/holepunch/bin/python.v3": {
+      "data": {
+        "architecture": 3,
+        "path": "/Users/stephenprater/.pyenv/versions/holepunch/bin/python",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.7.0-final",
+          "major": 3,
+          "minor": 7,
+          "patch": 0,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.7.0-final"
+        },
+        "sysPrefix": "/Users/stephenprater/.pyenv/versions/holepunch",
+        "fileHash": "cf020c2915c141dc2ce4bdfc5153122753ba65e3100ec529a2d057a489dcee0a55644c6f5c32460e7242e21edbc923283fb73ffae905a820d64135c91cdd18e6"
+      },
+      "expiry": 1572134231579
+    },
+    "/Users/stephenprater/.pyenv/versions/dumont/bin/python3.v3": {
+      "data": {
+        "architecture": 3,
+        "path": "/Users/stephenprater/.pyenv/versions/dumont/bin/python3",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.7.0-final",
+          "major": 3,
+          "minor": 7,
+          "patch": 0,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.7.0-final"
+        },
+        "sysPrefix": "/Users/stephenprater/.pyenv/versions/dumont",
+        "fileHash": "e8523110d985356a5c66e536af09e202c35091ae8d3ff610c5567cb20158505bd20674baff4cf70df91042d4f9a98a3a805fb72ea1dca6f9fec8c427b37c128c"
+      },
+      "expiry": 1572134231572
+    },
+    "/Users/stephenprater/.pyenv/versions/dumont/bin/python.v3": {
+      "data": {
+        "architecture": 3,
+        "path": "/Users/stephenprater/.pyenv/versions/dumont/bin/python",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.7.0-final",
+          "major": 3,
+          "minor": 7,
+          "patch": 0,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.7.0-final"
+        },
+        "sysPrefix": "/Users/stephenprater/.pyenv/versions/dumont",
+        "fileHash": "93289198aaea07484b6c9de11e4b2d7a7deee2e88c945a2e925769c489b9e293f2d3086363eadc4bb3125e7372db1af49dacee58afee8d6f2deb9833ce2fe019"
+      },
+      "expiry": 1572134231581
+    },
+    "/Users/stephenprater/.pyenv/versions/3.4.4/bin/python3.4.v3": {
+      "data": {
+        "architecture": 3,
+        "path": "/Users/stephenprater/.pyenv/versions/3.4.4/bin/python3.4",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.4.4-final",
+          "major": 3,
+          "minor": 4,
+          "patch": 4,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.4.4-final"
+        },
+        "sysPrefix": "/Users/stephenprater/.pyenv/versions/3.4.4",
+        "fileHash": "f50a6fa52e90bcbd6560a3c84dc1eda7453986b15dbd6e2c4e8987b3a9737c6b4dbcd0895681f609d01907ed40462bcb8b3c8c4cad320cd19397935a272d9816"
+      },
+      "expiry": 1572134231590
+    },
+    "/Users/stephenprater/.pyenv/versions/3.7.0/bin/python3.7.v3": {
+      "data": {
+        "architecture": 3,
+        "path": "/Users/stephenprater/.pyenv/versions/3.7.0/bin/python3.7",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.7.0-final",
+          "major": 3,
+          "minor": 7,
+          "patch": 0,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.7.0-final"
+        },
+        "sysPrefix": "/Users/stephenprater/.pyenv/versions/3.7.0",
+        "fileHash": "ed6c61d29bffc7feaf327393ef20044bf159990c4faaeaf0694e3512ca7ee9b22b52699452be9875284219a557664a3cc261c0489bd23268482a5c96bbff6e15"
+      },
+      "expiry": 1572134231584
+    },
+    "/Users/stephenprater/.pyenv/versions/3.7.0/bin/python3.v3": {
+      "data": {
+        "architecture": 3,
+        "path": "/Users/stephenprater/.pyenv/versions/3.7.0/bin/python3",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.7.0-final",
+          "major": 3,
+          "minor": 7,
+          "patch": 0,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.7.0-final"
+        },
+        "sysPrefix": "/Users/stephenprater/.pyenv/versions/3.7.0",
+        "fileHash": "0843437f60b3722dbb5144600f77b017dc908ad94c79d50ab385b45d13d312d8ea845899cd1f74a7a2ead4fa5efecd46d96293d79e0ac53891a48f48768e1caa"
+      },
+      "expiry": 1572134231586
+    },
+    "/Users/stephenprater/.pyenv/versions/3.7.0/bin/python.v3": {
+      "data": {
+        "architecture": 3,
+        "path": "/Users/stephenprater/.pyenv/versions/3.7.0/bin/python",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.7.0-final",
+          "major": 3,
+          "minor": 7,
+          "patch": 0,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.7.0-final"
+        },
+        "sysPrefix": "/Users/stephenprater/.pyenv/versions/3.7.0",
+        "fileHash": "dc9fee3240dbf8d4ac88ce6d1f6fc57feff37520bed79aa3a916c04b445a703b5fcbe9b7de5bb4b02de6927fd274e0d3a4f0fc660adf6ee6f5bd0034d459cf71"
+      },
+      "expiry": 1572134231587
+    },
+    "/Users/stephenprater/.pyenv/versions/3.4.4/bin/python3.v3": {
+      "data": {
+        "architecture": 3,
+        "path": "/Users/stephenprater/.pyenv/versions/3.4.4/bin/python3",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.4.4-final",
+          "major": 3,
+          "minor": 4,
+          "patch": 4,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.4.4-final"
+        },
+        "sysPrefix": "/Users/stephenprater/.pyenv/versions/3.4.4",
+        "fileHash": "176a9ee861985df54108c01c8c6c6d1ba2a5e9bd8eeae80c091d5793267666cd53244560c1c224df2c1e001e1f9621e73356a0e3d493c37c4d219148d88dae72"
+      },
+      "expiry": 1572134231588
+    },
+    "/Users/stephenprater/.pyenv/versions/3.4.4/bin/python.v3": {
+      "data": {
+        "architecture": 3,
+        "path": "/Users/stephenprater/.pyenv/versions/3.4.4/bin/python",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.4.4-final",
+          "major": 3,
+          "minor": 4,
+          "patch": 4,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.4.4-final"
+        },
+        "sysPrefix": "/Users/stephenprater/.pyenv/versions/3.4.4",
+        "fileHash": "89d26f9d769aacb4317285359e29f0377533b36e0083309e8c6beb72db02b048cb0b347f7073fd0b35445079a20390558efd12193f405594d8d8e75bc94bc8dd"
+      },
+      "expiry": 1572134231591
+    },
+    "/Users/stephenprater/.pyenv/versions/2.7.15/bin/python2.7.v3": {
+      "data": {
+        "architecture": 3,
+        "path": "/Users/stephenprater/.pyenv/versions/2.7.15/bin/python2.7",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "2.7.15-final",
+          "major": 2,
+          "minor": 7,
+          "patch": 15,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "2.7.15-final"
+        },
+        "sysPrefix": "/Users/stephenprater/.pyenv/versions/2.7.15",
+        "fileHash": "fa9d031167560a2fe420e4780dc14958f3e02a87da33799fc1d8678df982efd6eec2c6abcd03cfb694394b71776cb19de53da60dec318c517368c0700b653a96"
+      },
+      "expiry": 1572134231592
+    },
+    "/Users/stephenprater/.pyenv/versions/2.7.15/bin/python2.v3": {
+      "data": {
+        "architecture": 3,
+        "path": "/Users/stephenprater/.pyenv/versions/2.7.15/bin/python2",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "2.7.15-final",
+          "major": 2,
+          "minor": 7,
+          "patch": 15,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "2.7.15-final"
+        },
+        "sysPrefix": "/Users/stephenprater/.pyenv/versions/2.7.15",
+        "fileHash": "ae3b1fa05c78f74c98ed5c3df26e16dfb49455c4c60dbb9747fa4e7b3094c127af5333c4346ec1320ee23d23174ab199cfee1dfc4e3726e388a7fff3a5c4e2e0"
+      },
+      "expiry": 1572134231594
+    },
+    "/Users/stephenprater/.pyenv/versions/2.7.15/bin/python.v3": {
+      "data": {
+        "architecture": 3,
+        "path": "/Users/stephenprater/.pyenv/versions/2.7.15/bin/python",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "2.7.15-final",
+          "major": 2,
+          "minor": 7,
+          "patch": 15,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "2.7.15-final"
+        },
+        "sysPrefix": "/Users/stephenprater/.pyenv/versions/2.7.15",
+        "fileHash": "b1fba805f630869191c7797dc5dfe41cd548470de9e84a1f678e33196dad4be0445072e6db9ef8f70af39b20fbe54cf0007669c60805f6f852dacf52f2a7d401"
+      },
+      "expiry": 1572134231596
+    },
+    "INTERPRETERS_CACHE_v3_CurrentPathService": [
+      {
+        "architecture": 3,
+        "path": "/Users/stephenprater/.pyenv/versions/3.7.0/bin/python3.7",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.7.0-final",
+          "major": 3,
+          "minor": 7,
+          "patch": 0,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.7.0-final"
+        },
+        "sysPrefix": "/Users/stephenprater/.pyenv/versions/3.7.0",
+        "fileHash": "ed6c61d29bffc7feaf327393ef20044bf159990c4faaeaf0694e3512ca7ee9b22b52699452be9875284219a557664a3cc261c0489bd23268482a5c96bbff6e15",
+        "type": "Unknown"
+      },
+      {
+        "architecture": 3,
+        "path": "/Users/stephenprater/.pyenv/versions/3.7.0/bin/python3",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.7.0-final",
+          "major": 3,
+          "minor": 7,
+          "patch": 0,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.7.0-final"
+        },
+        "sysPrefix": "/Users/stephenprater/.pyenv/versions/3.7.0",
+        "fileHash": "0843437f60b3722dbb5144600f77b017dc908ad94c79d50ab385b45d13d312d8ea845899cd1f74a7a2ead4fa5efecd46d96293d79e0ac53891a48f48768e1caa",
+        "type": "Unknown"
+      },
+      {
+        "architecture": 3,
+        "path": "/Users/stephenprater/.pyenv/versions/3.7.0/bin/python",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.7.0-final",
+          "major": 3,
+          "minor": 7,
+          "patch": 0,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.7.0-final"
+        },
+        "sysPrefix": "/Users/stephenprater/.pyenv/versions/3.7.0",
+        "fileHash": "dc9fee3240dbf8d4ac88ce6d1f6fc57feff37520bed79aa3a916c04b445a703b5fcbe9b7de5bb4b02de6927fd274e0d3a4f0fc660adf6ee6f5bd0034d459cf71",
+        "type": "Unknown"
+      },
+      {
+        "architecture": 3,
+        "path": "/Users/stephenprater/.pyenv/versions/3.7.0/bin/python",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.7.0-final",
+          "major": 3,
+          "minor": 7,
+          "patch": 0,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.7.0-final"
+        },
+        "sysPrefix": "/Users/stephenprater/.pyenv/versions/3.7.0",
+        "fileHash": "dc9fee3240dbf8d4ac88ce6d1f6fc57feff37520bed79aa3a916c04b445a703b5fcbe9b7de5bb4b02de6927fd274e0d3a4f0fc660adf6ee6f5bd0034d459cf71",
+        "type": "Unknown"
+      }
+    ],
+    "/Users/stephenprater/.pyenv/versions/neovim2/bin/python2.v3": {
+      "data": {
+        "architecture": 3,
+        "path": "/Users/stephenprater/.pyenv/versions/neovim2/bin/python2",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "2.7.15-final",
+          "major": 2,
+          "minor": 7,
+          "patch": 15,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "2.7.15-final"
+        },
+        "sysPrefix": "/Users/stephenprater/.pyenv/versions/neovim2",
+        "fileHash": "9175d7467ad5e26bb5cf806f2b75f104f3ff071c5004b0542351b971edc8131435048f00ef57ab8ae50342ae88734fb3a6ceb916f719b62f7f774e8aaea2c985"
+      },
+      "expiry": 1572134231571
+    },
+    "/Users/stephenprater/.pyenv/versions/neovim2/bin/python2.7.v3": {
+      "data": {
+        "architecture": 3,
+        "path": "/Users/stephenprater/.pyenv/versions/neovim2/bin/python2.7",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "2.7.15-final",
+          "major": 2,
+          "minor": 7,
+          "patch": 15,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "2.7.15-final"
+        },
+        "sysPrefix": "/Users/stephenprater/.pyenv/versions/neovim2",
+        "fileHash": "1236e96da2219ca6e380f6e6f88f4700d565808be606b9f47f35d965f08768f998ec3f85e01c0d090f44520927c8a7abbef1f80a154f2bab03c46bc928bfc2ba"
+      },
+      "expiry": 1572134231567
+    },
+    "/Users/stephenprater/.pyenv/versions/neovim2/bin/python.v3": {
+      "data": {
+        "architecture": 3,
+        "path": "/Users/stephenprater/.pyenv/versions/neovim2/bin/python",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "2.7.15-final",
+          "major": 2,
+          "minor": 7,
+          "patch": 15,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "2.7.15-final"
+        },
+        "sysPrefix": "/Users/stephenprater/.pyenv/versions/neovim2",
+        "fileHash": "959c750ebc9b0d3f4ca9c924a7ca1150ba65aaee51fa242b03dc6aa55672f07a583473150cdeeccc6120cae5506ac5de8757be7d313977f26c6679807d5eb2a7"
+      },
+      "expiry": 1572134231574
+    },
+    "/Users/stephenprater/.pyenv/versions/momblish/bin/python3.v3": {
+      "data": {
+        "architecture": 3,
+        "path": "/Users/stephenprater/.pyenv/versions/momblish/bin/python3",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.7.0-final",
+          "major": 3,
+          "minor": 7,
+          "patch": 0,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.7.0-final"
+        },
+        "sysPrefix": "/Users/stephenprater/.pyenv/versions/momblish",
+        "fileHash": "a9fa71a2dea71c3948a0d56b217cc1020b323644ea30a9c64856eda7c17b7562a0dfd4685bd1a3a78acad32c9aeefb5e78125cb08b5b76eef389db8f431b0c85"
+      },
+      "expiry": 1572134231569
+    },
+    "INTERPRETERS_CACHE_v3_KnownPathsService": [
+      {
+        "architecture": 3,
+        "path": "/Users/stephenprater/.pyenv/shims/python",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.7.0-final",
+          "major": 3,
+          "minor": 7,
+          "patch": 0,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.7.0-final"
+        },
+        "sysPrefix": "/Users/stephenprater/.pyenv/versions/3.7.0",
+        "fileHash": "b56bf0d970a32a22cbbce45e978713a9fdef5f04b174b62f9f2b73099fa31d1d7d728a920cb2a4030146d890089d9896e1990a1d982d000dbc4821c9576411d7",
+        "type": "Unknown"
+      },
+      {
+        "architecture": 3,
+        "path": "/Users/stephenprater/.pyenv/shims/python3",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.7.0-final",
+          "major": 3,
+          "minor": 7,
+          "patch": 0,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.7.0-final"
+        },
+        "sysPrefix": "/Users/stephenprater/.pyenv/versions/3.7.0",
+        "fileHash": "b97369bec9e5577591f79820bc5129d7a5240513070e73f758270e27e965eccae107cfc96585f348bcc482d0c2e740690f268a6d6f682dcf7fe7151c7099029c",
+        "type": "Unknown"
+      },
+      {
+        "architecture": 3,
+        "path": "/Users/stephenprater/.pyenv/shims/python3.7",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.7.0-final",
+          "major": 3,
+          "minor": 7,
+          "patch": 0,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.7.0-final"
+        },
+        "sysPrefix": "/Users/stephenprater/.pyenv/versions/3.7.0",
+        "fileHash": "7e91d3f134deeba9e7b69b1d6ec502a881a4d6edac7aa9f0cd43264bd92cfb7cf9a97bce5bd25ece417303622a95fc028453bd6728d173d67cd9d1c6469db9e5",
+        "type": "Unknown"
+      },
+      {
+        "architecture": 3,
+        "path": "/usr/local/bin/python",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "2.7.16-final",
+          "major": 2,
+          "minor": 7,
+          "patch": 16,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "2.7.16-final"
+        },
+        "sysPrefix": "/usr/local/Cellar/python@2/2.7.16/Frameworks/Python.framework/Versions/2.7",
+        "fileHash": "aec3308c1df5958c1cf7049283e2eeac6a41a58e229c289b5c963f776b5508da0cc29690f05a8ec9fc61bea9724207d6a623ade67305100f161574e6f29ae368",
+        "type": "Unknown"
+      },
+      {
+        "architecture": 3,
+        "path": "/usr/local/bin/python2",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "2.7.16-final",
+          "major": 2,
+          "minor": 7,
+          "patch": 16,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "2.7.16-final"
+        },
+        "sysPrefix": "/usr/local/Cellar/python@2/2.7.16/Frameworks/Python.framework/Versions/2.7",
+        "fileHash": "34a9ea9a543b30c45aa8a3b3a92e584e6a812ad21276ca40949ed6b2bd8b8760310d5422bd16f39d31b4ecbc6c36d56fefc5150a175033a18c4d1b5daa9c646a",
+        "type": "Unknown"
+      },
+      {
+        "architecture": 3,
+        "path": "/usr/local/bin/python2.7",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "2.7.16-final",
+          "major": 2,
+          "minor": 7,
+          "patch": 16,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "2.7.16-final"
+        },
+        "sysPrefix": "/usr/local/Cellar/python@2/2.7.16/Frameworks/Python.framework/Versions/2.7",
+        "fileHash": "2cf2a9cbda979027040efc3c33532ac8c3999e57d21299eaaf37c7ca18386de2ee257f17df6254a67129d50f6695b00ac75e4b4c1d863acc393ce1cf73e9bd52",
+        "type": "Unknown"
+      },
+      {
+        "architecture": 3,
+        "path": "/usr/local/bin/python3",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.7.2-final",
+          "major": 3,
+          "minor": 7,
+          "patch": 2,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.7.2-final"
+        },
+        "sysPrefix": "/usr/local/Cellar/python/3.7.2_2/Frameworks/Python.framework/Versions/3.7",
+        "fileHash": "180a341f58253ae496555776e2694090d2020a0ecdf46770346fce2f5d0604f134f238c27dcc8c4a60a5d67e1a605fa85c2a334eac68e7e5c571305f3c34962a",
+        "type": "Unknown"
+      },
+      {
+        "architecture": 3,
+        "path": "/usr/local/bin/python3.7",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.7.2-final",
+          "major": 3,
+          "minor": 7,
+          "patch": 2,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.7.2-final"
+        },
+        "sysPrefix": "/usr/local/Cellar/python/3.7.2_2/Frameworks/Python.framework/Versions/3.7",
+        "fileHash": "2358002e541349ab5afa2d65be8620f5df08fed8a73b285563b8b79830bf2fe8c8ace3c67a29da5501c5e28c0337289d8154cb5f0adf2b4f22be7ee48882d0ad",
+        "type": "Unknown"
+      },
+      {
+        "architecture": 3,
+        "path": "/usr/bin/python",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "2.7.10-final",
+          "major": 2,
+          "minor": 7,
+          "patch": 10,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "2.7.10-final"
+        },
+        "sysPrefix": "/System/Library/Frameworks/Python.framework/Versions/2.7",
+        "fileHash": "441d3e1d0c688fd2b62ea6ea61d63744b88c5addec8868483f20d94cf43bb18ed61ef7249230e2e98bf35d8c194cd07d30df9fc5ca46c6bf380aa5cd50332186",
+        "type": "Unknown"
+      },
+      {
+        "architecture": 3,
+        "path": "/usr/bin/python2.7",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "2.7.10-final",
+          "major": 2,
+          "minor": 7,
+          "patch": 10,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "2.7.10-final"
+        },
+        "sysPrefix": "/System/Library/Frameworks/Python.framework/Versions/2.7",
+        "fileHash": "cc87d9b7be17021c081e6cb0ded3c20714f50fceaa6594a549b739782d68633c4f68b9505f990760e3e928bbfe80e079c8fab577c7eb689742b01679a55a771c",
+        "type": "Unknown"
+      },
+      {
+        "architecture": 3,
+        "path": "/Users/stephenprater/.pyenv/shims/python",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.7.0-final",
+          "major": 3,
+          "minor": 7,
+          "patch": 0,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.7.0-final"
+        },
+        "sysPrefix": "/Users/stephenprater/.pyenv/versions/3.7.0",
+        "fileHash": "b56bf0d970a32a22cbbce45e978713a9fdef5f04b174b62f9f2b73099fa31d1d7d728a920cb2a4030146d890089d9896e1990a1d982d000dbc4821c9576411d7",
+        "type": "Unknown"
+      },
+      {
+        "architecture": 3,
+        "path": "/Users/stephenprater/.pyenv/shims/python3",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.7.0-final",
+          "major": 3,
+          "minor": 7,
+          "patch": 0,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.7.0-final"
+        },
+        "sysPrefix": "/Users/stephenprater/.pyenv/versions/3.7.0",
+        "fileHash": "b97369bec9e5577591f79820bc5129d7a5240513070e73f758270e27e965eccae107cfc96585f348bcc482d0c2e740690f268a6d6f682dcf7fe7151c7099029c",
+        "type": "Unknown"
+      },
+      {
+        "architecture": 3,
+        "path": "/Users/stephenprater/.pyenv/shims/python3.7",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.7.0-final",
+          "major": 3,
+          "minor": 7,
+          "patch": 0,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.7.0-final"
+        },
+        "sysPrefix": "/Users/stephenprater/.pyenv/versions/3.7.0",
+        "fileHash": "7e91d3f134deeba9e7b69b1d6ec502a881a4d6edac7aa9f0cd43264bd92cfb7cf9a97bce5bd25ece417303622a95fc028453bd6728d173d67cd9d1c6469db9e5",
+        "type": "Unknown"
+      },
+      {
+        "architecture": 3,
+        "path": "/usr/local/bin/python",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "2.7.16-final",
+          "major": 2,
+          "minor": 7,
+          "patch": 16,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "2.7.16-final"
+        },
+        "sysPrefix": "/usr/local/Cellar/python@2/2.7.16/Frameworks/Python.framework/Versions/2.7",
+        "fileHash": "aec3308c1df5958c1cf7049283e2eeac6a41a58e229c289b5c963f776b5508da0cc29690f05a8ec9fc61bea9724207d6a623ade67305100f161574e6f29ae368",
+        "type": "Unknown"
+      },
+      {
+        "architecture": 3,
+        "path": "/usr/local/bin/python2",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "2.7.16-final",
+          "major": 2,
+          "minor": 7,
+          "patch": 16,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "2.7.16-final"
+        },
+        "sysPrefix": "/usr/local/Cellar/python@2/2.7.16/Frameworks/Python.framework/Versions/2.7",
+        "fileHash": "34a9ea9a543b30c45aa8a3b3a92e584e6a812ad21276ca40949ed6b2bd8b8760310d5422bd16f39d31b4ecbc6c36d56fefc5150a175033a18c4d1b5daa9c646a",
+        "type": "Unknown"
+      },
+      {
+        "architecture": 3,
+        "path": "/usr/local/bin/python2.7",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "2.7.16-final",
+          "major": 2,
+          "minor": 7,
+          "patch": 16,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "2.7.16-final"
+        },
+        "sysPrefix": "/usr/local/Cellar/python@2/2.7.16/Frameworks/Python.framework/Versions/2.7",
+        "fileHash": "2cf2a9cbda979027040efc3c33532ac8c3999e57d21299eaaf37c7ca18386de2ee257f17df6254a67129d50f6695b00ac75e4b4c1d863acc393ce1cf73e9bd52",
+        "type": "Unknown"
+      },
+      {
+        "architecture": 3,
+        "path": "/usr/local/bin/python3",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.7.2-final",
+          "major": 3,
+          "minor": 7,
+          "patch": 2,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.7.2-final"
+        },
+        "sysPrefix": "/usr/local/Cellar/python/3.7.2_2/Frameworks/Python.framework/Versions/3.7",
+        "fileHash": "180a341f58253ae496555776e2694090d2020a0ecdf46770346fce2f5d0604f134f238c27dcc8c4a60a5d67e1a605fa85c2a334eac68e7e5c571305f3c34962a",
+        "type": "Unknown"
+      },
+      {
+        "architecture": 3,
+        "path": "/usr/local/bin/python3.7",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.7.2-final",
+          "major": 3,
+          "minor": 7,
+          "patch": 2,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.7.2-final"
+        },
+        "sysPrefix": "/usr/local/Cellar/python/3.7.2_2/Frameworks/Python.framework/Versions/3.7",
+        "fileHash": "2358002e541349ab5afa2d65be8620f5df08fed8a73b285563b8b79830bf2fe8c8ace3c67a29da5501c5e28c0337289d8154cb5f0adf2b4f22be7ee48882d0ad",
+        "type": "Unknown"
+      },
+      {
+        "architecture": 3,
+        "path": "/usr/bin/python",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "2.7.10-final",
+          "major": 2,
+          "minor": 7,
+          "patch": 10,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "2.7.10-final"
+        },
+        "sysPrefix": "/System/Library/Frameworks/Python.framework/Versions/2.7",
+        "fileHash": "441d3e1d0c688fd2b62ea6ea61d63744b88c5addec8868483f20d94cf43bb18ed61ef7249230e2e98bf35d8c194cd07d30df9fc5ca46c6bf380aa5cd50332186",
+        "type": "Unknown"
+      },
+      {
+        "architecture": 3,
+        "path": "/usr/bin/python2.7",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "2.7.10-final",
+          "major": 2,
+          "minor": 7,
+          "patch": 10,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "2.7.10-final"
+        },
+        "sysPrefix": "/System/Library/Frameworks/Python.framework/Versions/2.7",
+        "fileHash": "cc87d9b7be17021c081e6cb0ded3c20714f50fceaa6594a549b739782d68633c4f68b9505f990760e3e928bbfe80e079c8fab577c7eb689742b01679a55a771c",
+        "type": "Unknown"
+      }
+    ],
+    "/Users/stephenprater/.pyenv/versions/neovim3/bin/python3.v3": {
+      "data": {
+        "architecture": 3,
+        "path": "/Users/stephenprater/.pyenv/versions/neovim3/bin/python3",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.7.0-final",
+          "major": 3,
+          "minor": 7,
+          "patch": 0,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.7.0-final"
+        },
+        "sysPrefix": "/Users/stephenprater/.pyenv/versions/neovim3",
+        "fileHash": "239aa8f58ce28a1704755e933419cf60bfb6f1cde16c97301fbbd0f48d0f7025074cfe3c99d47dc3cb057bd63c6f960961a88c6ec7f85bdb5da2e8e376304c69"
+      },
+      "expiry": 1572134231564
+    },
+    "/Users/stephenprater/.pyenv/versions/neovim3/bin/python.v3": {
+      "data": {
+        "architecture": 3,
+        "path": "/Users/stephenprater/.pyenv/versions/neovim3/bin/python",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.7.0-final",
+          "major": 3,
+          "minor": 7,
+          "patch": 0,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.7.0-final"
+        },
+        "sysPrefix": "/Users/stephenprater/.pyenv/versions/neovim3",
+        "fileHash": "8ed3ff499c43d7e975110a7a956f7006690942e5cd7328518e33d05d579f917c1362121dfec54cbb97411c063d34302957f9adfe9c61f97caed0d4bc7739a03a"
+      },
+      "expiry": 1572134231566
+    },
+    "INTERPRETERS_CACHE_v3_VirtualEnvService": [
+      {
+        "architecture": 3,
+        "path": "/Users/stephenprater/.pyenv/versions/2.7.15/bin/python",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "2.7.15-final",
+          "major": 2,
+          "minor": 7,
+          "patch": 15,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "2.7.15-final"
+        },
+        "sysPrefix": "/Users/stephenprater/.pyenv/versions/2.7.15",
+        "fileHash": "b1fba805f630869191c7797dc5dfe41cd548470de9e84a1f678e33196dad4be0445072e6db9ef8f70af39b20fbe54cf0007669c60805f6f852dacf52f2a7d401",
+        "envName": "2.7.15",
+        "type": "Pyenv"
+      },
+      {
+        "architecture": 3,
+        "path": "/Users/stephenprater/.pyenv/versions/2.7.15/bin/python2",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "2.7.15-final",
+          "major": 2,
+          "minor": 7,
+          "patch": 15,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "2.7.15-final"
+        },
+        "sysPrefix": "/Users/stephenprater/.pyenv/versions/2.7.15",
+        "fileHash": "ae3b1fa05c78f74c98ed5c3df26e16dfb49455c4c60dbb9747fa4e7b3094c127af5333c4346ec1320ee23d23174ab199cfee1dfc4e3726e388a7fff3a5c4e2e0",
+        "envName": "2.7.15",
+        "type": "Pyenv"
+      },
+      {
+        "architecture": 3,
+        "path": "/Users/stephenprater/.pyenv/versions/2.7.15/bin/python2.7",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "2.7.15-final",
+          "major": 2,
+          "minor": 7,
+          "patch": 15,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "2.7.15-final"
+        },
+        "sysPrefix": "/Users/stephenprater/.pyenv/versions/2.7.15",
+        "fileHash": "fa9d031167560a2fe420e4780dc14958f3e02a87da33799fc1d8678df982efd6eec2c6abcd03cfb694394b71776cb19de53da60dec318c517368c0700b653a96",
+        "envName": "2.7.15",
+        "type": "Pyenv"
+      },
+      {
+        "architecture": 3,
+        "path": "/Users/stephenprater/.pyenv/versions/3.4.4/bin/python",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.4.4-final",
+          "major": 3,
+          "minor": 4,
+          "patch": 4,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.4.4-final"
+        },
+        "sysPrefix": "/Users/stephenprater/.pyenv/versions/3.4.4",
+        "fileHash": "89d26f9d769aacb4317285359e29f0377533b36e0083309e8c6beb72db02b048cb0b347f7073fd0b35445079a20390558efd12193f405594d8d8e75bc94bc8dd",
+        "envName": "3.4.4",
+        "type": "Pyenv"
+      },
+      {
+        "architecture": 3,
+        "path": "/Users/stephenprater/.pyenv/versions/3.4.4/bin/python3",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.4.4-final",
+          "major": 3,
+          "minor": 4,
+          "patch": 4,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.4.4-final"
+        },
+        "sysPrefix": "/Users/stephenprater/.pyenv/versions/3.4.4",
+        "fileHash": "176a9ee861985df54108c01c8c6c6d1ba2a5e9bd8eeae80c091d5793267666cd53244560c1c224df2c1e001e1f9621e73356a0e3d493c37c4d219148d88dae72",
+        "envName": "3.4.4",
+        "type": "Pyenv"
+      },
+      {
+        "architecture": 3,
+        "path": "/Users/stephenprater/.pyenv/versions/3.4.4/bin/python3.4",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.4.4-final",
+          "major": 3,
+          "minor": 4,
+          "patch": 4,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.4.4-final"
+        },
+        "sysPrefix": "/Users/stephenprater/.pyenv/versions/3.4.4",
+        "fileHash": "f50a6fa52e90bcbd6560a3c84dc1eda7453986b15dbd6e2c4e8987b3a9737c6b4dbcd0895681f609d01907ed40462bcb8b3c8c4cad320cd19397935a272d9816",
+        "envName": "3.4.4",
+        "type": "Pyenv"
+      },
+      {
+        "architecture": 3,
+        "path": "/Users/stephenprater/.pyenv/versions/3.7.0/bin/python",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.7.0-final",
+          "major": 3,
+          "minor": 7,
+          "patch": 0,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.7.0-final"
+        },
+        "sysPrefix": "/Users/stephenprater/.pyenv/versions/3.7.0",
+        "fileHash": "dc9fee3240dbf8d4ac88ce6d1f6fc57feff37520bed79aa3a916c04b445a703b5fcbe9b7de5bb4b02de6927fd274e0d3a4f0fc660adf6ee6f5bd0034d459cf71",
+        "envName": "3.7.0",
+        "type": "Pyenv"
+      },
+      {
+        "architecture": 3,
+        "path": "/Users/stephenprater/.pyenv/versions/3.7.0/bin/python3",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.7.0-final",
+          "major": 3,
+          "minor": 7,
+          "patch": 0,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.7.0-final"
+        },
+        "sysPrefix": "/Users/stephenprater/.pyenv/versions/3.7.0",
+        "fileHash": "0843437f60b3722dbb5144600f77b017dc908ad94c79d50ab385b45d13d312d8ea845899cd1f74a7a2ead4fa5efecd46d96293d79e0ac53891a48f48768e1caa",
+        "envName": "3.7.0",
+        "type": "Pyenv"
+      },
+      {
+        "architecture": 3,
+        "path": "/Users/stephenprater/.pyenv/versions/3.7.0/bin/python3.7",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.7.0-final",
+          "major": 3,
+          "minor": 7,
+          "patch": 0,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.7.0-final"
+        },
+        "sysPrefix": "/Users/stephenprater/.pyenv/versions/3.7.0",
+        "fileHash": "ed6c61d29bffc7feaf327393ef20044bf159990c4faaeaf0694e3512ca7ee9b22b52699452be9875284219a557664a3cc261c0489bd23268482a5c96bbff6e15",
+        "envName": "3.7.0",
+        "type": "Pyenv"
+      },
+      {
+        "architecture": 3,
+        "path": "/Users/stephenprater/.pyenv/versions/dumont/bin/python",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.7.0-final",
+          "major": 3,
+          "minor": 7,
+          "patch": 0,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.7.0-final"
+        },
+        "sysPrefix": "/Users/stephenprater/.pyenv/versions/dumont",
+        "fileHash": "93289198aaea07484b6c9de11e4b2d7a7deee2e88c945a2e925769c489b9e293f2d3086363eadc4bb3125e7372db1af49dacee58afee8d6f2deb9833ce2fe019",
+        "envName": "dumont",
+        "type": "Venv"
+      },
+      {
+        "architecture": 3,
+        "path": "/Users/stephenprater/.pyenv/versions/dumont/bin/python3",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.7.0-final",
+          "major": 3,
+          "minor": 7,
+          "patch": 0,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.7.0-final"
+        },
+        "sysPrefix": "/Users/stephenprater/.pyenv/versions/dumont",
+        "fileHash": "e8523110d985356a5c66e536af09e202c35091ae8d3ff610c5567cb20158505bd20674baff4cf70df91042d4f9a98a3a805fb72ea1dca6f9fec8c427b37c128c",
+        "envName": "dumont",
+        "type": "Venv"
+      },
+      {
+        "architecture": 3,
+        "path": "/Users/stephenprater/.pyenv/versions/holepunch/bin/python",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.7.0-final",
+          "major": 3,
+          "minor": 7,
+          "patch": 0,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.7.0-final"
+        },
+        "sysPrefix": "/Users/stephenprater/.pyenv/versions/holepunch",
+        "fileHash": "cf020c2915c141dc2ce4bdfc5153122753ba65e3100ec529a2d057a489dcee0a55644c6f5c32460e7242e21edbc923283fb73ffae905a820d64135c91cdd18e6",
+        "envName": "holepunch",
+        "type": "Venv"
+      },
+      {
+        "architecture": 3,
+        "path": "/Users/stephenprater/.pyenv/versions/holepunch/bin/python3",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.7.0-final",
+          "major": 3,
+          "minor": 7,
+          "patch": 0,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.7.0-final"
+        },
+        "sysPrefix": "/Users/stephenprater/.pyenv/versions/holepunch",
+        "fileHash": "091d67325bfc6c65c44f6f9307965642110c01a9c21a093b261b17f6444f816f8490c558c276e72120892b9e60d06c29403e5810db05dfed342d3dda8616daa3",
+        "envName": "holepunch",
+        "type": "Venv"
+      },
+      {
+        "architecture": 3,
+        "path": "/Users/stephenprater/.pyenv/versions/momblish/bin/python",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.7.0-final",
+          "major": 3,
+          "minor": 7,
+          "patch": 0,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.7.0-final"
+        },
+        "sysPrefix": "/Users/stephenprater/.pyenv/versions/momblish",
+        "fileHash": "60276289e994e337992d55228480abf4b370e27e1e8f3da758c45e2a761ce1a7378ff090b069ceafd51609edf22dbc5e07447a74a45480cca086f85b6d7392e9",
+        "envName": "momblish",
+        "type": "Venv"
+      },
+      {
+        "architecture": 3,
+        "path": "/Users/stephenprater/.pyenv/versions/momblish/bin/python3",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.7.0-final",
+          "major": 3,
+          "minor": 7,
+          "patch": 0,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.7.0-final"
+        },
+        "sysPrefix": "/Users/stephenprater/.pyenv/versions/momblish",
+        "fileHash": "a9fa71a2dea71c3948a0d56b217cc1020b323644ea30a9c64856eda7c17b7562a0dfd4685bd1a3a78acad32c9aeefb5e78125cb08b5b76eef389db8f431b0c85",
+        "envName": "momblish",
+        "type": "Venv"
+      },
+      {
+        "architecture": 3,
+        "path": "/Users/stephenprater/.pyenv/versions/neovim2/bin/python",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "2.7.15-final",
+          "major": 2,
+          "minor": 7,
+          "patch": 15,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "2.7.15-final"
+        },
+        "sysPrefix": "/Users/stephenprater/.pyenv/versions/neovim2",
+        "fileHash": "959c750ebc9b0d3f4ca9c924a7ca1150ba65aaee51fa242b03dc6aa55672f07a583473150cdeeccc6120cae5506ac5de8757be7d313977f26c6679807d5eb2a7",
+        "envName": "neovim2",
+        "type": "Pyenv"
+      },
+      {
+        "architecture": 3,
+        "path": "/Users/stephenprater/.pyenv/versions/neovim2/bin/python2",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "2.7.15-final",
+          "major": 2,
+          "minor": 7,
+          "patch": 15,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "2.7.15-final"
+        },
+        "sysPrefix": "/Users/stephenprater/.pyenv/versions/neovim2",
+        "fileHash": "9175d7467ad5e26bb5cf806f2b75f104f3ff071c5004b0542351b971edc8131435048f00ef57ab8ae50342ae88734fb3a6ceb916f719b62f7f774e8aaea2c985",
+        "envName": "neovim2",
+        "type": "Pyenv"
+      },
+      {
+        "architecture": 3,
+        "path": "/Users/stephenprater/.pyenv/versions/neovim2/bin/python2.7",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "2.7.15-final",
+          "major": 2,
+          "minor": 7,
+          "patch": 15,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "2.7.15-final"
+        },
+        "sysPrefix": "/Users/stephenprater/.pyenv/versions/neovim2",
+        "fileHash": "1236e96da2219ca6e380f6e6f88f4700d565808be606b9f47f35d965f08768f998ec3f85e01c0d090f44520927c8a7abbef1f80a154f2bab03c46bc928bfc2ba",
+        "envName": "neovim2",
+        "type": "Pyenv"
+      },
+      {
+        "architecture": 3,
+        "path": "/Users/stephenprater/.pyenv/versions/neovim3/bin/python",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.7.0-final",
+          "major": 3,
+          "minor": 7,
+          "patch": 0,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.7.0-final"
+        },
+        "sysPrefix": "/Users/stephenprater/.pyenv/versions/neovim3",
+        "fileHash": "8ed3ff499c43d7e975110a7a956f7006690942e5cd7328518e33d05d579f917c1362121dfec54cbb97411c063d34302957f9adfe9c61f97caed0d4bc7739a03a",
+        "envName": "neovim3",
+        "type": "Venv"
+      },
+      {
+        "architecture": 3,
+        "path": "/Users/stephenprater/.pyenv/versions/neovim3/bin/python3",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.7.0-final",
+          "major": 3,
+          "minor": 7,
+          "patch": 0,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.7.0-final"
+        },
+        "sysPrefix": "/Users/stephenprater/.pyenv/versions/neovim3",
+        "fileHash": "239aa8f58ce28a1704755e933419cf60bfb6f1cde16c97301fbbd0f48d0f7025074cfe3c99d47dc3cb057bd63c6f960961a88c6ec7f85bdb5da2e8e376304c69",
+        "envName": "neovim3",
+        "type": "Venv"
+      },
+      {
+        "architecture": 3,
+        "path": "/Users/stephenprater/.pyenv/versions/userland/bin/python",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.7.0-final",
+          "major": 3,
+          "minor": 7,
+          "patch": 0,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.7.0-final"
+        },
+        "sysPrefix": "/Users/stephenprater/.pyenv/versions/userland",
+        "fileHash": "1d2c44ea07e5cd08b672cd8b965d90736ae081f1523e0b7a26caadcebb6f768fe90a60dac8ca165cec15ef4ec199f098f8ba094974f47c278369af6a09e68d9e",
+        "envName": "userland",
+        "type": "Pyenv"
+      },
+      {
+        "architecture": 3,
+        "path": "/Users/stephenprater/.pyenv/versions/userland/bin/python3",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.7.0-final",
+          "major": 3,
+          "minor": 7,
+          "patch": 0,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.7.0-final"
+        },
+        "sysPrefix": "/Users/stephenprater/.pyenv/versions/userland",
+        "fileHash": "b337d258b6740521dfc5c9ce30ded478514fa8f9f179ebc7bb59c563815292e92b3ffb977e3c083a010b0546dc93d61fe65c871dedd85bb8d4e4291c3089d1cd",
+        "envName": "userland",
+        "type": "Pyenv"
+      },
+      {
+        "architecture": 3,
+        "path": "/Users/stephenprater/.pyenv/versions/userland/bin/python3.7",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.7.0-final",
+          "major": 3,
+          "minor": 7,
+          "patch": 0,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.7.0-final"
+        },
+        "sysPrefix": "/Users/stephenprater/.pyenv/versions/userland",
+        "fileHash": "f5a73d75afaf13af7795722217d203a0107bd799d7d4aa675276ab09ff32618f933a81527b496e923549f0bfff6b73839084bae080001a645823845456666c20",
+        "envName": "userland",
+        "type": "Pyenv"
+      }
+    ],
+    "/Users/stephenprater/.pyenv/versions/3.7.0/envs/holepunch/bin/python.v3": {
+      "data": {
+        "architecture": 3,
+        "path": "/Users/stephenprater/.pyenv/versions/3.7.0/envs/holepunch/bin/python",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.7.0-final",
+          "major": 3,
+          "minor": 7,
+          "patch": 0,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.7.0-final"
+        },
+        "sysPrefix": "/Users/stephenprater/.pyenv/versions/3.7.0/envs/holepunch",
+        "fileHash": "7ddce3df5aa4cce7b2dd42d20e8f22c76a6a3bc6ca1d3f7062dfe5647a19bf7e86d8270775cf5b163fe1750585e51123b0aaba832d84ab731b1fc1ce05b8f4a0"
+      },
+      "expiry": 1570554518780
+    },
+    "PipEnvInformation": [
+      {
+        "pythonPath": "/Users/stephenprater/.pyenv/versions/3.7.0/envs/holepunch/bin/python",
+        "workspaceFolder": "/Users/stephenprater/src/userland/holepunch",
+        "envName": "holepunch"
+      },
+      {
+        "pythonPath": "/Users/stephenprater/.local/share/virtualenvs/holepunch-kt6xb9Yp/bin/python",
+        "workspaceFolder": "/Users/stephenprater/src/userland/holepunch",
+        "envName": "holepunch"
+      }
+    ],
+    "InterpreterAutoSeletionRule-workspaceEnvs": {
+      "architecture": 3,
+      "path": "/Users/stephenprater/.local/share/virtualenvs/holepunch-kt6xb9Yp/bin/python",
+      "version": {
+        "options": {
+          "loose": false,
+          "includePrerelease": false
+        },
+        "loose": false,
+        "raw": "3.7.2-final",
+        "major": 3,
+        "minor": 7,
+        "patch": 2,
+        "prerelease": [
+          "final"
+        ],
+        "build": [],
+        "version": "3.7.2-final"
+      },
+      "sysPrefix": "/Users/stephenprater/.local/share/virtualenvs/holepunch-kt6xb9Yp/bin/..",
+      "fileHash": "0449c9595c91dfdb9d643629ad23c0c8ccdfb901fb8d74e169aeaa4df730dbdde6b9b5c50caba0bd43226251f8b30c3242113057178c9676e7ceca8ab7512193",
+      "type": "PipEnv",
+      "pipEnvWorkspaceFolder": "/Users/stephenprater/src/userland/holepunch"
+    },
+    "InterpreterAutoSeletionRule-currentPath": {
+      "architecture": 3,
+      "path": "/usr/local/opt/python/bin/python3.7",
+      "version": {
+        "options": {
+          "loose": false,
+          "includePrerelease": false
+        },
+        "loose": false,
+        "raw": "3.7.2-final",
+        "major": 3,
+        "minor": 7,
+        "patch": 2,
+        "prerelease": [
+          "final"
+        ],
+        "build": [],
+        "version": "3.7.2-final"
+      },
+      "sysPrefix": "/usr/local/Cellar/python/3.7.2_2/Frameworks/Python.framework/Versions/3.7",
+      "fileHash": "2c59eeb91697e08f9512baddc06529065c254cc54d3c2ac3e0cf3d5133462d6db5b7b473dc308a2a167bbc8718c6a92825f81f3fcde721fcd24a54d9f9d2b6fc",
+      "type": "Unknown",
+      "cachedEntry": true
+    },
+    "preferredGlobalPyInterpreter": {
+      "architecture": 3,
+      "path": "/usr/local/bin/python3",
+      "version": {
+        "options": {
+          "loose": false,
+          "includePrerelease": false
+        },
+        "loose": false,
+        "raw": "3.7.2-final",
+        "major": 3,
+        "minor": 7,
+        "patch": 2,
+        "prerelease": [
+          "final"
+        ],
+        "build": [],
+        "version": "3.7.2-final"
+      },
+      "sysPrefix": "/usr/local/Cellar/python/3.7.2_2/Frameworks/Python.framework/Versions/3.7",
+      "fileHash": "84a50be19239ecfe5678fb4a8499c27ce0a87e071ac1e00caa449a1d9130f3c87fa712783d29d71edf4a622958fdb2d6127f5187e8b7940bfde98d471faeabce",
+      "type": "Unknown",
+      "displayName": "Python 3.7.2 64-bit"
+    },
+    "/Users/stephenprater/.pyenv/versions/3.7.0/envs/holepunch/bin/python.interpreter.displayName.v7": {
+      "data": {
+        "displayName": "Python 3.7.0 64-bit ('holepunch': pipenv)",
+        "hash": "7ddce3df5aa4cce7b2dd42d20e8f22c76a6a3bc6ca1d3f7062dfe5647a19bf7e86d8270775cf5b163fe1750585e51123b0aaba832d84ab731b1fc1ce05b8f4a0-859dfc3a52e1fc865a82eef0a87c5201"
+      },
+      "expiry": 1570554519633
+    },
+    "/Users/stephenprater/.pyenv/versions/2.7.15/bin/python.interpreter.displayName.v7": {
+      "data": {
+        "displayName": "Python 2.7.15 64-bit ('2.7.15': pyenv)",
+        "hash": "364033b66162d6a311fdd9e0e33fcf4bc14e4eddf330db990cf5c87191cab9be9100e27a519428ad227aa689bbca1fdf8fa693d62dd952ce688e71273c819488-45e1b1d0762641862a8061004bf95095"
+      },
+      "expiry": 1570554519333
+    },
+    "/Users/stephenprater/.pyenv/versions/3.4.4/bin/python.interpreter.displayName.v7": {
+      "data": {
+        "displayName": "Python 3.4.4 64-bit ('3.4.4': pyenv)",
+        "hash": "320c1113571f29405fb051f97626f43d034535fd552d4095ac9e6a394b3f99f1ac8fec522a3a7155f0dea184a444e81a7cf7e953a6cebd1181a9f39a28ac975f-80511c56fd404974b8b6a920b27d761a"
+      },
+      "expiry": 1570554519336
+    },
+    "/Users/stephenprater/.pyenv/versions/3.7.0/bin/python.interpreter.displayName.v7": {
+      "data": {
+        "displayName": "Python 3.7.0 64-bit ('3.7.0': pyenv)",
+        "hash": "758f6b4e2d5dd67a08a1c2b73c2910777c92208addcf811db4da98336f4fada8179d4d6abbd8c73005c081aa5afbcf7989042673308e22df900f0dfa25a43919-df6f564ec59bd91cff0493585d6f03da"
+      },
+      "expiry": 1570554519339
+    },
+    "/Users/stephenprater/.pyenv/versions/dumont/bin/python.interpreter.displayName.v7": {
+      "data": {
+        "displayName": "Python 3.7.0 64-bit ('dumont': venv)",
+        "hash": "941a86e3107ee7c0ab5b68b1ca157cc3a3e2f8217a9979d46f073d0f69d87159bde9ff3426c5a2ace864afb4dfe0213df1413b148a07ebb9ffacf441ffeb73eb-f9c2ba28fdf7e50fe75720ee0ca6dc24"
+      },
+      "expiry": 1570554519342
+    },
+    "/Users/stephenprater/.pyenv/versions/holepunch/bin/python.interpreter.displayName.v7": {
+      "data": {
+        "displayName": "Python 3.7.0 64-bit ('holepunch': venv)",
+        "hash": "7ddce3df5aa4cce7b2dd42d20e8f22c76a6a3bc6ca1d3f7062dfe5647a19bf7e86d8270775cf5b163fe1750585e51123b0aaba832d84ab731b1fc1ce05b8f4a0-f19092a7a57131b1aa7d0470cad5bd2a"
+      },
+      "expiry": 1570554519345
+    },
+    "/Users/stephenprater/.pyenv/versions/momblish/bin/python.interpreter.displayName.v7": {
+      "data": {
+        "displayName": "Python 3.7.0 64-bit ('momblish': venv)",
+        "hash": "dcff094af2b3ef59a8828d7eabd991684bcfa375e4907e1301fbe1d7a921367de94ac0d3a6848c42e18a4a4ded16372dd24fce12d2eed711a473de10dfb63dd6-093ea65d659b08edeebb95280bb98111"
+      },
+      "expiry": 1570554519347
+    },
+    "/Users/stephenprater/.pyenv/versions/neovim2/bin/python.interpreter.displayName.v7": {
+      "data": {
+        "displayName": "Python 2.7.15 64-bit ('neovim2': pyenv)",
+        "hash": "d036d072eebd66be29c81554071d3816cef4ced8557523c579dc2387c3253747478fcccd587ed0431d5e57f9e56482852cb8a6b67cb700c0bc0ceb6e76c043bc-8686cd99b51049bf36ad70f83931e202"
+      },
+      "expiry": 1570554519350
+    },
+    "/Users/stephenprater/.pyenv/versions/neovim3/bin/python.interpreter.displayName.v7": {
+      "data": {
+        "displayName": "Python 3.7.0 64-bit ('neovim3': venv)",
+        "hash": "76155702175d1e5bfc56e15a15137c7348517592d8bb375443727f660464810285af46a73cb26e9dd14b0a217bb2bc4b52a6e8e2f4a28e1b405b7e192c9d3de3-6434fdcc98920d92ef4a8fa3a76dd226"
+      },
+      "expiry": 1570554519354
+    },
+    "/usr/local/bin/python.interpreter.displayName.v7": {
+      "data": {
+        "displayName": "Python 2.7.16 64-bit",
+        "hash": "c61ba4db37a154db883636fd9dd50c284b3949261da5fe398b574b272df894836850745611de3a3cfd399d1520c794b569aa121dace8f7ba783761bc939cb072-ddfc6a177afad4f8e048bb364384b12b"
+      },
+      "expiry": 1571183195892
+    },
+    "/Users/stephenprater/.pyenv/shims/python.interpreter.displayName.v7": {
+      "data": {
+        "displayName": "Python 3.7.0 64-bit",
+        "hash": "ae541e957b48975238c8f6442b4b6cb2e145bb666ae2859aa853351c1471fc488d0469f08202c260d215dde22c2c352f37f9e958dfa7c143dd5f1c65509fd46e-63240254dbaa19b1f21bb9923d3404b3"
+      },
+      "expiry": 1571183195895
+    },
+    "/usr/local/bin/python3.interpreter.displayName.v7": {
+      "data": {
+        "displayName": "Python 3.7.2 64-bit",
+        "hash": "180a341f58253ae496555776e2694090d2020a0ecdf46770346fce2f5d0604f134f238c27dcc8c4a60a5d67e1a605fa85c2a334eac68e7e5c571305f3c34962a-74ccad91426c2c634fbef2893e4aa6cc"
+      },
+      "expiry": 1572134231609
+    },
+    "/usr/bin/python.interpreter.displayName.v7": {
+      "data": {
+        "displayName": "Python 2.7.10 64-bit",
+        "hash": "8c53f253f2ca9a248adfb002109a0e3d1168cdab8f044bbb8676c0aa60d6c1cf350cc1989fd27f1425b8b90b3ac489497a50b7fadb8945348e90c9919bb30a2a-d2332c17ddd3ff28fad6038dfae0a365"
+      },
+      "expiry": 1571183195900
+    },
+    "InterpreterAutoSeletionRule-system": {
+      "architecture": 3,
+      "path": "/usr/local/opt/python/bin/python3.7",
+      "version": {
+        "options": {
+          "loose": false,
+          "includePrerelease": false
+        },
+        "loose": false,
+        "raw": "3.7.2-final",
+        "major": 3,
+        "minor": 7,
+        "patch": 2,
+        "prerelease": [
+          "final"
+        ],
+        "build": [],
+        "version": "3.7.2-final"
+      },
+      "sysPrefix": "/usr/local/Cellar/python/3.7.2_2/Frameworks/Python.framework/Versions/3.7",
+      "fileHash": "2c59eeb91697e08f9512baddc06529065c254cc54d3c2ac3e0cf3d5133462d6db5b7b473dc308a2a167bbc8718c6a92825f81f3fcde721fcd24a54d9f9d2b6fc",
+      "type": "Unknown",
+      "cachedEntry": true,
+      "displayName": "Python 3.7.2 64-bit"
+    },
+    "/Users/stephenprater/.pyenv/versions/3.7.0/envs/holepunch/bin/python.interpreter.Details.v7": {
+      "data": {
+        "fileHash": "7ddce3df5aa4cce7b2dd42d20e8f22c76a6a3bc6ca1d3f7062dfe5647a19bf7e86d8270775cf5b163fe1750585e51123b0aaba832d84ab731b1fc1ce05b8f4a0",
+        "info": {
+          "architecture": 3,
+          "path": "/Users/stephenprater/.pyenv/versions/3.7.0/envs/holepunch/bin/python",
+          "version": {
+            "options": {
+              "loose": false,
+              "includePrerelease": false
+            },
+            "loose": false,
+            "raw": "3.7.0-final",
+            "major": 3,
+            "minor": 7,
+            "patch": 0,
+            "prerelease": [
+              "final"
+            ],
+            "build": [],
+            "version": "3.7.0-final"
+          },
+          "sysPrefix": "/Users/stephenprater/.pyenv/versions/3.7.0/envs/holepunch",
+          "fileHash": "7ddce3df5aa4cce7b2dd42d20e8f22c76a6a3bc6ca1d3f7062dfe5647a19bf7e86d8270775cf5b163fe1750585e51123b0aaba832d84ab731b1fc1ce05b8f4a0",
+          "type": "PipEnv",
+          "pipEnvWorkspaceFolder": "/Users/stephenprater/src/userland/holepunch",
+          "envName": "holepunch",
+          "displayName": "Python 3.7.0 64-bit ('holepunch': pipenv)",
+          "__store": true
+        }
+      },
+      "expiry": 1570554519640
+    },
+    "/Users/stephenprater/.pyenv/versions/2.7.15/bin/python.interpreter.Details.v7": {
+      "data": {
+        "fileHash": "364033b66162d6a311fdd9e0e33fcf4bc14e4eddf330db990cf5c87191cab9be9100e27a519428ad227aa689bbca1fdf8fa693d62dd952ce688e71273c819488",
+        "info": {
+          "architecture": 3,
+          "path": "/Users/stephenprater/.pyenv/versions/2.7.15/bin/python",
+          "version": {
+            "options": {
+              "loose": false,
+              "includePrerelease": false
+            },
+            "loose": false,
+            "raw": "2.7.15-final",
+            "major": 2,
+            "minor": 7,
+            "patch": 15,
+            "prerelease": [
+              "final"
+            ],
+            "build": [],
+            "version": "2.7.15-final"
+          },
+          "sysPrefix": "/Users/stephenprater/.pyenv/versions/2.7.15",
+          "fileHash": "364033b66162d6a311fdd9e0e33fcf4bc14e4eddf330db990cf5c87191cab9be9100e27a519428ad227aa689bbca1fdf8fa693d62dd952ce688e71273c819488",
+          "envName": "2.7.15",
+          "type": "Pyenv",
+          "displayName": "Python 2.7.15 64-bit ('2.7.15': pyenv)"
+        }
+      },
+      "expiry": 1570554519443
+    },
+    "/Users/stephenprater/.pyenv/versions/3.4.4/bin/python.interpreter.Details.v7": {
+      "data": {
+        "fileHash": "320c1113571f29405fb051f97626f43d034535fd552d4095ac9e6a394b3f99f1ac8fec522a3a7155f0dea184a444e81a7cf7e953a6cebd1181a9f39a28ac975f",
+        "info": {
+          "architecture": 3,
+          "path": "/Users/stephenprater/.pyenv/versions/3.4.4/bin/python",
+          "version": {
+            "options": {
+              "loose": false,
+              "includePrerelease": false
+            },
+            "loose": false,
+            "raw": "3.4.4-final",
+            "major": 3,
+            "minor": 4,
+            "patch": 4,
+            "prerelease": [
+              "final"
+            ],
+            "build": [],
+            "version": "3.4.4-final"
+          },
+          "sysPrefix": "/Users/stephenprater/.pyenv/versions/3.4.4",
+          "fileHash": "320c1113571f29405fb051f97626f43d034535fd552d4095ac9e6a394b3f99f1ac8fec522a3a7155f0dea184a444e81a7cf7e953a6cebd1181a9f39a28ac975f",
+          "envName": "3.4.4",
+          "type": "Pyenv",
+          "displayName": "Python 3.4.4 64-bit ('3.4.4': pyenv)"
+        }
+      },
+      "expiry": 1570554519450
+    },
+    "/Users/stephenprater/.pyenv/versions/3.7.0/bin/python.interpreter.Details.v7": {
+      "data": {
+        "fileHash": "758f6b4e2d5dd67a08a1c2b73c2910777c92208addcf811db4da98336f4fada8179d4d6abbd8c73005c081aa5afbcf7989042673308e22df900f0dfa25a43919",
+        "info": {
+          "architecture": 3,
+          "path": "/Users/stephenprater/.pyenv/versions/3.7.0/bin/python",
+          "version": {
+            "options": {
+              "loose": false,
+              "includePrerelease": false
+            },
+            "loose": false,
+            "raw": "3.7.0-final",
+            "major": 3,
+            "minor": 7,
+            "patch": 0,
+            "prerelease": [
+              "final"
+            ],
+            "build": [],
+            "version": "3.7.0-final"
+          },
+          "sysPrefix": "/Users/stephenprater/.pyenv/versions/3.7.0",
+          "fileHash": "758f6b4e2d5dd67a08a1c2b73c2910777c92208addcf811db4da98336f4fada8179d4d6abbd8c73005c081aa5afbcf7989042673308e22df900f0dfa25a43919",
+          "envName": "3.7.0",
+          "type": "Pyenv",
+          "displayName": "Python 3.7.0 64-bit ('3.7.0': pyenv)"
+        }
+      },
+      "expiry": 1570554519456
+    },
+    "/Users/stephenprater/.pyenv/versions/dumont/bin/python.interpreter.Details.v7": {
+      "data": {
+        "fileHash": "941a86e3107ee7c0ab5b68b1ca157cc3a3e2f8217a9979d46f073d0f69d87159bde9ff3426c5a2ace864afb4dfe0213df1413b148a07ebb9ffacf441ffeb73eb",
+        "info": {
+          "architecture": 3,
+          "path": "/Users/stephenprater/.pyenv/versions/dumont/bin/python",
+          "version": {
+            "options": {
+              "loose": false,
+              "includePrerelease": false
+            },
+            "loose": false,
+            "raw": "3.7.0-final",
+            "major": 3,
+            "minor": 7,
+            "patch": 0,
+            "prerelease": [
+              "final"
+            ],
+            "build": [],
+            "version": "3.7.0-final"
+          },
+          "sysPrefix": "/Users/stephenprater/.pyenv/versions/dumont",
+          "fileHash": "941a86e3107ee7c0ab5b68b1ca157cc3a3e2f8217a9979d46f073d0f69d87159bde9ff3426c5a2ace864afb4dfe0213df1413b148a07ebb9ffacf441ffeb73eb",
+          "envName": "dumont",
+          "type": "Venv",
+          "displayName": "Python 3.7.0 64-bit ('dumont': venv)"
+        }
+      },
+      "expiry": 1570554519463
+    },
+    "/Users/stephenprater/.pyenv/versions/holepunch/bin/python.interpreter.Details.v7": {
+      "data": {
+        "fileHash": "7ddce3df5aa4cce7b2dd42d20e8f22c76a6a3bc6ca1d3f7062dfe5647a19bf7e86d8270775cf5b163fe1750585e51123b0aaba832d84ab731b1fc1ce05b8f4a0",
+        "info": {
+          "architecture": 3,
+          "path": "/Users/stephenprater/.pyenv/versions/holepunch/bin/python",
+          "version": {
+            "options": {
+              "loose": false,
+              "includePrerelease": false
+            },
+            "loose": false,
+            "raw": "3.7.0-final",
+            "major": 3,
+            "minor": 7,
+            "patch": 0,
+            "prerelease": [
+              "final"
+            ],
+            "build": [],
+            "version": "3.7.0-final"
+          },
+          "sysPrefix": "/Users/stephenprater/.pyenv/versions/holepunch",
+          "fileHash": "7ddce3df5aa4cce7b2dd42d20e8f22c76a6a3bc6ca1d3f7062dfe5647a19bf7e86d8270775cf5b163fe1750585e51123b0aaba832d84ab731b1fc1ce05b8f4a0",
+          "envName": "holepunch",
+          "type": "Venv",
+          "displayName": "Python 3.7.0 64-bit ('holepunch': venv)"
+        }
+      },
+      "expiry": 1570554519470
+    },
+    "/Users/stephenprater/.pyenv/versions/momblish/bin/python.interpreter.Details.v7": {
+      "data": {
+        "fileHash": "dcff094af2b3ef59a8828d7eabd991684bcfa375e4907e1301fbe1d7a921367de94ac0d3a6848c42e18a4a4ded16372dd24fce12d2eed711a473de10dfb63dd6",
+        "info": {
+          "architecture": 3,
+          "path": "/Users/stephenprater/.pyenv/versions/momblish/bin/python",
+          "version": {
+            "options": {
+              "loose": false,
+              "includePrerelease": false
+            },
+            "loose": false,
+            "raw": "3.7.0-final",
+            "major": 3,
+            "minor": 7,
+            "patch": 0,
+            "prerelease": [
+              "final"
+            ],
+            "build": [],
+            "version": "3.7.0-final"
+          },
+          "sysPrefix": "/Users/stephenprater/.pyenv/versions/momblish",
+          "fileHash": "dcff094af2b3ef59a8828d7eabd991684bcfa375e4907e1301fbe1d7a921367de94ac0d3a6848c42e18a4a4ded16372dd24fce12d2eed711a473de10dfb63dd6",
+          "envName": "momblish",
+          "type": "Venv",
+          "displayName": "Python 3.7.0 64-bit ('momblish': venv)"
+        }
+      },
+      "expiry": 1570554519477
+    },
+    "/Users/stephenprater/.pyenv/versions/neovim2/bin/python.interpreter.Details.v7": {
+      "data": {
+        "fileHash": "d036d072eebd66be29c81554071d3816cef4ced8557523c579dc2387c3253747478fcccd587ed0431d5e57f9e56482852cb8a6b67cb700c0bc0ceb6e76c043bc",
+        "info": {
+          "architecture": 3,
+          "path": "/Users/stephenprater/.pyenv/versions/neovim2/bin/python",
+          "version": {
+            "options": {
+              "loose": false,
+              "includePrerelease": false
+            },
+            "loose": false,
+            "raw": "2.7.15-final",
+            "major": 2,
+            "minor": 7,
+            "patch": 15,
+            "prerelease": [
+              "final"
+            ],
+            "build": [],
+            "version": "2.7.15-final"
+          },
+          "sysPrefix": "/Users/stephenprater/.pyenv/versions/neovim2",
+          "fileHash": "d036d072eebd66be29c81554071d3816cef4ced8557523c579dc2387c3253747478fcccd587ed0431d5e57f9e56482852cb8a6b67cb700c0bc0ceb6e76c043bc",
+          "envName": "neovim2",
+          "type": "Pyenv",
+          "displayName": "Python 2.7.15 64-bit ('neovim2': pyenv)"
+        }
+      },
+      "expiry": 1570554519484
+    },
+    "/Users/stephenprater/.pyenv/versions/neovim3/bin/python.interpreter.Details.v7": {
+      "data": {
+        "fileHash": "76155702175d1e5bfc56e15a15137c7348517592d8bb375443727f660464810285af46a73cb26e9dd14b0a217bb2bc4b52a6e8e2f4a28e1b405b7e192c9d3de3",
+        "info": {
+          "architecture": 3,
+          "path": "/Users/stephenprater/.pyenv/versions/neovim3/bin/python",
+          "version": {
+            "options": {
+              "loose": false,
+              "includePrerelease": false
+            },
+            "loose": false,
+            "raw": "3.7.0-final",
+            "major": 3,
+            "minor": 7,
+            "patch": 0,
+            "prerelease": [
+              "final"
+            ],
+            "build": [],
+            "version": "3.7.0-final"
+          },
+          "sysPrefix": "/Users/stephenprater/.pyenv/versions/neovim3",
+          "fileHash": "76155702175d1e5bfc56e15a15137c7348517592d8bb375443727f660464810285af46a73cb26e9dd14b0a217bb2bc4b52a6e8e2f4a28e1b405b7e192c9d3de3",
+          "envName": "neovim3",
+          "type": "Venv",
+          "displayName": "Python 3.7.0 64-bit ('neovim3': venv)"
+        }
+      },
+      "expiry": 1570554519490
+    },
+    "/usr/local/bin/python.interpreter.Details.v7": {
+      "data": {
+        "fileHash": "c61ba4db37a154db883636fd9dd50c284b3949261da5fe398b574b272df894836850745611de3a3cfd399d1520c794b569aa121dace8f7ba783761bc939cb072",
+        "info": {
+          "architecture": 3,
+          "path": "/usr/local/bin/python",
+          "version": {
+            "options": {
+              "loose": false,
+              "includePrerelease": false
+            },
+            "loose": false,
+            "raw": "2.7.16-final",
+            "major": 2,
+            "minor": 7,
+            "patch": 16,
+            "prerelease": [
+              "final"
+            ],
+            "build": [],
+            "version": "2.7.16-final"
+          },
+          "sysPrefix": "/usr/local/Cellar/python@2/2.7.16/Frameworks/Python.framework/Versions/2.7",
+          "fileHash": "c61ba4db37a154db883636fd9dd50c284b3949261da5fe398b574b272df894836850745611de3a3cfd399d1520c794b569aa121dace8f7ba783761bc939cb072",
+          "type": "Unknown",
+          "displayName": "Python 2.7.16 64-bit"
+        }
+      },
+      "expiry": 1571183195931
+    },
+    "/Users/stephenprater/.pyenv/shims/python.interpreter.Details.v7": {
+      "data": {
+        "fileHash": "ae541e957b48975238c8f6442b4b6cb2e145bb666ae2859aa853351c1471fc488d0469f08202c260d215dde22c2c352f37f9e958dfa7c143dd5f1c65509fd46e",
+        "info": {
+          "architecture": 3,
+          "path": "/Users/stephenprater/.pyenv/shims/python",
+          "version": {
+            "options": {
+              "loose": false,
+              "includePrerelease": false
+            },
+            "loose": false,
+            "raw": "3.7.0-final",
+            "major": 3,
+            "minor": 7,
+            "patch": 0,
+            "prerelease": [
+              "final"
+            ],
+            "build": [],
+            "version": "3.7.0-final"
+          },
+          "sysPrefix": "/Users/stephenprater/.pyenv/versions/3.7.0",
+          "fileHash": "ae541e957b48975238c8f6442b4b6cb2e145bb666ae2859aa853351c1471fc488d0469f08202c260d215dde22c2c352f37f9e958dfa7c143dd5f1c65509fd46e",
+          "type": "Unknown",
+          "displayName": "Python 3.7.0 64-bit"
+        }
+      },
+      "expiry": 1571183195936
+    },
+    "/usr/local/bin/python3.interpreter.Details.v7": {
+      "data": {
+        "fileHash": "180a341f58253ae496555776e2694090d2020a0ecdf46770346fce2f5d0604f134f238c27dcc8c4a60a5d67e1a605fa85c2a334eac68e7e5c571305f3c34962a",
+        "info": {
+          "architecture": 3,
+          "path": "/usr/local/bin/python3",
+          "version": {
+            "options": {
+              "loose": false,
+              "includePrerelease": false
+            },
+            "loose": false,
+            "raw": "3.7.2-final",
+            "major": 3,
+            "minor": 7,
+            "patch": 2,
+            "prerelease": [
+              "final"
+            ],
+            "build": [],
+            "version": "3.7.2-final"
+          },
+          "sysPrefix": "/usr/local/Cellar/python/3.7.2_2/Frameworks/Python.framework/Versions/3.7",
+          "fileHash": "84a50be19239ecfe5678fb4a8499c27ce0a87e071ac1e00caa449a1d9130f3c87fa712783d29d71edf4a622958fdb2d6127f5187e8b7940bfde98d471faeabce",
+          "type": "Unknown",
+          "cachedEntry": true,
+          "displayName": "Python 3.7.2 64-bit",
+          "__store": true
+        }
+      },
+      "expiry": 1572134231558
+    },
+    "/usr/bin/python.interpreter.Details.v7": {
+      "data": {
+        "fileHash": "8c53f253f2ca9a248adfb002109a0e3d1168cdab8f044bbb8676c0aa60d6c1cf350cc1989fd27f1425b8b90b3ac489497a50b7fadb8945348e90c9919bb30a2a",
+        "info": {
+          "architecture": 3,
+          "path": "/usr/bin/python",
+          "version": {
+            "options": {
+              "loose": false,
+              "includePrerelease": false
+            },
+            "loose": false,
+            "raw": "2.7.10-final",
+            "major": 2,
+            "minor": 7,
+            "patch": 10,
+            "prerelease": [
+              "final"
+            ],
+            "build": [],
+            "version": "2.7.10-final"
+          },
+          "sysPrefix": "/System/Library/Frameworks/Python.framework/Versions/2.7",
+          "fileHash": "8c53f253f2ca9a248adfb002109a0e3d1168cdab8f044bbb8676c0aa60d6c1cf350cc1989fd27f1425b8b90b3ac489497a50b7fadb8945348e90c9919bb30a2a",
+          "type": "Unknown",
+          "displayName": "Python 2.7.10 64-bit"
+        }
+      },
+      "expiry": 1571183195944
+    },
+    "InterpreterAutoSeletionRule-cachedInterpreters": {
+      "architecture": 3,
+      "path": "/usr/local/bin/python3",
+      "version": {
+        "options": {
+          "loose": false,
+          "includePrerelease": false
+        },
+        "loose": false,
+        "raw": "3.7.2-final",
+        "major": 3,
+        "minor": 7,
+        "patch": 2,
+        "prerelease": [
+          "final"
+        ],
+        "build": [],
+        "version": "3.7.2-final"
+      },
+      "sysPrefix": "/usr/local/Cellar/python/3.7.2_2/Frameworks/Python.framework/Versions/3.7",
+      "fileHash": "84a50be19239ecfe5678fb4a8499c27ce0a87e071ac1e00caa449a1d9130f3c87fa712783d29d71edf4a622958fdb2d6127f5187e8b7940bfde98d471faeabce",
+      "type": "Unknown",
+      "cachedEntry": true,
+      "displayName": "Python 3.7.2 64-bit"
+    },
+    "ProposeLSBanner": false,
+    "/Users/stephenprater/.local/share/virtualenvs/holepunch-kt6xb9Yp/bin/python.v3": {
+      "data": {
+        "architecture": 3,
+        "path": "/Users/stephenprater/.local/share/virtualenvs/holepunch-kt6xb9Yp/bin/python",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.7.2-final",
+          "major": 3,
+          "minor": 7,
+          "patch": 2,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.7.2-final"
+        },
+        "sysPrefix": "/Users/stephenprater/.local/share/virtualenvs/holepunch-kt6xb9Yp/bin/..",
+        "fileHash": "0449c9595c91dfdb9d643629ad23c0c8ccdfb901fb8d74e169aeaa4df730dbdde6b9b5c50caba0bd43226251f8b30c3242113057178c9676e7ceca8ab7512193"
+      },
+      "expiry": 1570554519199
+    },
+    "/Users/stephenprater/.local/share/virtualenvs/holepunch-kt6xb9Yp/bin/python.interpreter.displayName.v7": {
+      "data": {
+        "displayName": "Python 3.7.2 64-bit ('holepunch': pipenv)",
+        "hash": "0449c9595c91dfdb9d643629ad23c0c8ccdfb901fb8d74e169aeaa4df730dbdde6b9b5c50caba0bd43226251f8b30c3242113057178c9676e7ceca8ab7512193-cc30a759f664a5755fbfb0c38cb87836"
+      },
+      "expiry": 1570554519329
+    },
+    "/Users/stephenprater/.local/share/virtualenvs/holepunch-kt6xb9Yp/bin/python.interpreter.Details.v7": {
+      "data": {
+        "fileHash": "0449c9595c91dfdb9d643629ad23c0c8ccdfb901fb8d74e169aeaa4df730dbdde6b9b5c50caba0bd43226251f8b30c3242113057178c9676e7ceca8ab7512193",
+        "info": {
+          "architecture": 3,
+          "path": "/Users/stephenprater/.local/share/virtualenvs/holepunch-kt6xb9Yp/bin/python",
+          "version": {
+            "options": {
+              "loose": false,
+              "includePrerelease": false
+            },
+            "loose": false,
+            "raw": "3.7.2-final",
+            "major": 3,
+            "minor": 7,
+            "patch": 2,
+            "prerelease": [
+              "final"
+            ],
+            "build": [],
+            "version": "3.7.2-final"
+          },
+          "sysPrefix": "/Users/stephenprater/.local/share/virtualenvs/holepunch-kt6xb9Yp/bin/..",
+          "fileHash": "0449c9595c91dfdb9d643629ad23c0c8ccdfb901fb8d74e169aeaa4df730dbdde6b9b5c50caba0bd43226251f8b30c3242113057178c9676e7ceca8ab7512193",
+          "type": "PipEnv",
+          "pipEnvWorkspaceFolder": "/Users/stephenprater/src/userland/holepunch",
+          "envName": "holepunch",
+          "displayName": "Python 3.7.2 64-bit ('holepunch': pipenv)"
+        }
+      },
+      "expiry": 1570554519433
+    },
+    "/Users/stephenprater/.pyenv/versions/userland/bin/python3.7.v3": {
+      "data": {
+        "architecture": 3,
+        "path": "/Users/stephenprater/.pyenv/versions/userland/bin/python3.7",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.7.0-final",
+          "major": 3,
+          "minor": 7,
+          "patch": 0,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.7.0-final"
+        },
+        "sysPrefix": "/Users/stephenprater/.pyenv/versions/userland",
+        "fileHash": "f5a73d75afaf13af7795722217d203a0107bd799d7d4aa675276ab09ff32618f933a81527b496e923549f0bfff6b73839084bae080001a645823845456666c20"
+      },
+      "expiry": 1572134231601
+    },
+    "/Users/stephenprater/.pyenv/versions/userland/bin/python.v3": {
+      "data": {
+        "architecture": 3,
+        "path": "/Users/stephenprater/.pyenv/versions/userland/bin/python",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.7.0-final",
+          "major": 3,
+          "minor": 7,
+          "patch": 0,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.7.0-final"
+        },
+        "sysPrefix": "/Users/stephenprater/.pyenv/versions/userland",
+        "fileHash": "1d2c44ea07e5cd08b672cd8b965d90736ae081f1523e0b7a26caadcebb6f768fe90a60dac8ca165cec15ef4ec199f098f8ba094974f47c278369af6a09e68d9e"
+      },
+      "expiry": 1572134231603
+    },
+    "/Users/stephenprater/.pyenv/versions/userland/bin/python3.v3": {
+      "data": {
+        "architecture": 3,
+        "path": "/Users/stephenprater/.pyenv/versions/userland/bin/python3",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.7.0-final",
+          "major": 3,
+          "minor": 7,
+          "patch": 0,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.7.0-final"
+        },
+        "sysPrefix": "/Users/stephenprater/.pyenv/versions/userland",
+        "fileHash": "b337d258b6740521dfc5c9ce30ded478514fa8f9f179ebc7bb59c563815292e92b3ffb977e3c083a010b0546dc93d61fe65c871dedd85bb8d4e4291c3089d1cd"
+      },
+      "expiry": 1572134231604
+    },
+    "/Users/stephenprater/.pyenv/versions/userland/bin/python.interpreter.displayName.v7": {
+      "data": {
+        "displayName": "Python 3.7.0 64-bit ('userland': pyenv)",
+        "hash": "3f79b688ca57e9bfab94e76ebb648a3630a6ace8edada7e181e6d9a039cc555729de36da41ff408e68158440dd24108d0ef6ea4a6d223cada4ba8fa88828aed1-5c586c3ef22791bae92164f0bcd76696"
+      },
+      "expiry": 1570554519356
+    },
+    "/Users/stephenprater/.pyenv/versions/userland/bin/python.interpreter.Details.v7": {
+      "data": {
+        "fileHash": "3f79b688ca57e9bfab94e76ebb648a3630a6ace8edada7e181e6d9a039cc555729de36da41ff408e68158440dd24108d0ef6ea4a6d223cada4ba8fa88828aed1",
+        "info": {
+          "architecture": 3,
+          "path": "/Users/stephenprater/.pyenv/versions/userland/bin/python",
+          "version": {
+            "options": {
+              "loose": false,
+              "includePrerelease": false
+            },
+            "loose": false,
+            "raw": "3.7.0-final",
+            "major": 3,
+            "minor": 7,
+            "patch": 0,
+            "prerelease": [
+              "final"
+            ],
+            "build": [],
+            "version": "3.7.0-final"
+          },
+          "sysPrefix": "/Users/stephenprater/.pyenv/versions/userland",
+          "fileHash": "3f79b688ca57e9bfab94e76ebb648a3630a6ace8edada7e181e6d9a039cc555729de36da41ff408e68158440dd24108d0ef6ea4a6d223cada4ba8fa88828aed1",
+          "envName": "userland",
+          "type": "Pyenv",
+          "displayName": "Python 3.7.0 64-bit ('userland': pyenv)"
+        }
+      },
+      "expiry": 1570554519496
+    },
+    "/Users/stephenprater/.pyenv/shims/python2.v3": {
+      "data": {
+        "architecture": 3,
+        "path": "/Users/stephenprater/.pyenv/shims/python2",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "2.7.15-final",
+          "major": 2,
+          "minor": 7,
+          "patch": 15,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "2.7.15-final"
+        },
+        "sysPrefix": "/Users/stephenprater/.pyenv/versions/2.7.15",
+        "fileHash": "5358e007e47058e77ec46c97983fa2f6893d07997542346eaa21e5f2f16ad58de68582ee61185998eed1bc9c505d7d6b3228b42c3c565ca27c49931ef5012f70"
+      },
+      "expiry": 1565925547289
+    },
+    "/Users/stephenprater/.pyenv/shims/python2.7.v3": {
+      "data": {
+        "architecture": 3,
+        "path": "/Users/stephenprater/.pyenv/shims/python2.7",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "2.7.15-final",
+          "major": 2,
+          "minor": 7,
+          "patch": 15,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "2.7.15-final"
+        },
+        "sysPrefix": "/Users/stephenprater/.pyenv/versions/2.7.15",
+        "fileHash": "ce37aee5eed73f8fe3f0cd9b52a493c76722a68ccaf1fa2b25217c625d3c05fd46efc1c178e6ebe937606243e59e88a56076ef7a0f72df0484476864bd844ca6"
+      },
+      "expiry": 1565925547287
+    },
+    "/Users/stephenprater/.pyenv/shims/python2.interpreter.displayName.v7": {
+      "data": {
+        "displayName": "Python 2.7.15 64-bit",
+        "hash": "5358e007e47058e77ec46c97983fa2f6893d07997542346eaa21e5f2f16ad58de68582ee61185998eed1bc9c505d7d6b3228b42c3c565ca27c49931ef5012f70-98e3fde8251b54ec8a360e11cb31bc82"
+      },
+      "expiry": 1565925547576
+    },
+    "/Users/stephenprater/.pyenv/shims/python2.interpreter.Details.v7": {
+      "data": {
+        "fileHash": "5358e007e47058e77ec46c97983fa2f6893d07997542346eaa21e5f2f16ad58de68582ee61185998eed1bc9c505d7d6b3228b42c3c565ca27c49931ef5012f70",
+        "info": {
+          "architecture": 3,
+          "path": "/Users/stephenprater/.pyenv/shims/python2",
+          "version": {
+            "options": {
+              "loose": false,
+              "includePrerelease": false
+            },
+            "loose": false,
+            "raw": "2.7.15-final",
+            "major": 2,
+            "minor": 7,
+            "patch": 15,
+            "prerelease": [
+              "final"
+            ],
+            "build": [],
+            "version": "2.7.15-final"
+          },
+          "sysPrefix": "/Users/stephenprater/.pyenv/versions/2.7.15",
+          "fileHash": "5358e007e47058e77ec46c97983fa2f6893d07997542346eaa21e5f2f16ad58de68582ee61185998eed1bc9c505d7d6b3228b42c3c565ca27c49931ef5012f70",
+          "type": "Unknown",
+          "displayName": "Python 2.7.15 64-bit"
+        }
+      },
+      "expiry": 1565925547601
+    },
+    "/usr/local/opt/python/bin/python3.7.v3": {
+      "data": {
+        "architecture": 3,
+        "path": "/usr/local/opt/python/bin/python3.7",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.7.2-final",
+          "major": 3,
+          "minor": 7,
+          "patch": 2,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.7.2-final"
+        },
+        "sysPrefix": "/usr/local/Cellar/python/3.7.2_2/Frameworks/Python.framework/Versions/3.7",
+        "fileHash": "2c59eeb91697e08f9512baddc06529065c254cc54d3c2ac3e0cf3d5133462d6db5b7b473dc308a2a167bbc8718c6a92825f81f3fcde721fcd24a54d9f9d2b6fc"
+      },
+      "expiry": 1571183196209
+    }
+  },
+  "coc-python|/Users/stephenprater/src/userland/holepunch": {
+    "INTERPRETERS_CACHE_v3_WorkspaceVirtualEnvService:71f30f9b3536436a8f62344b900ebfef": [],
+    "INTERPRETERS_CACHE_v3_PipEnvService:71f30f9b3536436a8f62344b900ebfef": [
+      {
+        "architecture": 3,
+        "path": "/Users/stephenprater/.local/share/virtualenvs/holepunch-kt6xb9Yp/bin/python",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.7.2-final",
+          "major": 3,
+          "minor": 7,
+          "patch": 2,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.7.2-final"
+        },
+        "sysPrefix": "/Users/stephenprater/.local/share/virtualenvs/holepunch-kt6xb9Yp/bin/..",
+        "fileHash": "0449c9595c91dfdb9d643629ad23c0c8ccdfb901fb8d74e169aeaa4df730dbdde6b9b5c50caba0bd43226251f8b30c3242113057178c9676e7ceca8ab7512193",
+        "type": "PipEnv",
+        "pipEnvWorkspaceFolder": "/Users/stephenprater/src/userland/holepunch"
+      }
+    ],
+    "SelectedPythonPath": "/Users/stephenprater/.pyenv/versions/3.7.0/envs/holepunch/bin/python",
+    "autoSelectedWorkspacePythonInterpreter-/Users/stephenprater/src/userland/holepunch": {
+      "architecture": 3,
+      "path": "/Users/stephenprater/.pyenv/versions/3.7.0/envs/holepunch/bin/python",
+      "version": {
+        "options": {
+          "loose": false,
+          "includePrerelease": false
+        },
+        "loose": false,
+        "raw": "3.7.0-final",
+        "major": 3,
+        "minor": 7,
+        "patch": 0,
+        "prerelease": [
+          "final"
+        ],
+        "build": [],
+        "version": "3.7.0-final"
+      },
+      "sysPrefix": "/Users/stephenprater/.pyenv/versions/3.7.0/envs/holepunch",
+      "fileHash": "7ddce3df5aa4cce7b2dd42d20e8f22c76a6a3bc6ca1d3f7062dfe5647a19bf7e86d8270775cf5b163fe1750585e51123b0aaba832d84ab731b1fc1ce05b8f4a0",
+      "type": "PipEnv",
+      "pipEnvWorkspaceFolder": "/Users/stephenprater/src/userland/holepunch"
+    },
+    "INTERPRETERS_CACHE_v3_WorkspaceVirtualEnvService": [],
+    "INTERPRETERS_CACHE_v3_PipEnvService": [
+      {
+        "architecture": 3,
+        "path": "/Users/stephenprater/.local/share/virtualenvs/holepunch-kt6xb9Yp/bin/python",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.7.2-final",
+          "major": 3,
+          "minor": 7,
+          "patch": 2,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.7.2-final"
+        },
+        "sysPrefix": "/Users/stephenprater/.local/share/virtualenvs/holepunch-kt6xb9Yp/bin/..",
+        "fileHash": "0449c9595c91dfdb9d643629ad23c0c8ccdfb901fb8d74e169aeaa4df730dbdde6b9b5c50caba0bd43226251f8b30c3242113057178c9676e7ceca8ab7512193",
+        "type": "PipEnv",
+        "pipEnvWorkspaceFolder": "/Users/stephenprater/src/userland/holepunch"
+      }
+    ],
+    "INTERPRETERS_CACHE_v3_PipEnvService:132021b2169b59369fa98ad3abc46a77": [],
+    "INTERPRETERS_CACHE_v3_WorkspaceVirtualEnvService:132021b2169b59369fa98ad3abc46a77": [],
+    "INTERPRETERS_CACHE_v3_WorkspaceVirtualEnvService:53e8a403337ec222a7454c36af3a5a3a": [],
+    "INTERPRETERS_CACHE_v3_PipEnvService:53e8a403337ec222a7454c36af3a5a3a": []
+  },
+  "coc-python|/Users/stephenprater/src/userland/private-holes": {
+    "INTERPRETERS_CACHE_v3_WorkspaceVirtualEnvService:3bb958509d3e8c54de7d72371282d1c8": [],
+    "INTERPRETERS_CACHE_v3_PipEnvService:3bb958509d3e8c54de7d72371282d1c8": [],
+    "autoSelectedWorkspacePythonInterpreter-/Users/stephenprater/src/userland/private-holes": {
+      "architecture": 3,
+      "path": "/usr/local/bin/python3",
+      "version": {
+        "options": {
+          "loose": false,
+          "includePrerelease": false
+        },
+        "loose": false,
+        "raw": "3.7.2-final",
+        "major": 3,
+        "minor": 7,
+        "patch": 2,
+        "prerelease": [
+          "final"
+        ],
+        "build": [],
+        "version": "3.7.2-final"
+      },
+      "sysPrefix": "/usr/local/Cellar/python/3.7.2_2/Frameworks/Python.framework/Versions/3.7",
+      "fileHash": "84a50be19239ecfe5678fb4a8499c27ce0a87e071ac1e00caa449a1d9130f3c87fa712783d29d71edf4a622958fdb2d6127f5187e8b7940bfde98d471faeabce",
+      "type": "Unknown",
+      "displayName": "Python 3.7.2 64-bit"
+    },
+    "INTERPRETERS_CACHE_v3_WorkspaceVirtualEnvService": [],
+    "INTERPRETERS_CACHE_v3_PipEnvService": []
+  },
+  "coc-python|/Users/stephenprater/src/userland/discs": {
+    "INTERPRETERS_CACHE_v3_PipEnvService:132021b2169b59369fa98ad3abc46a77": [],
+    "INTERPRETERS_CACHE_v3_WorkspaceVirtualEnvService:132021b2169b59369fa98ad3abc46a77": [],
+    "autoSelectedWorkspacePythonInterpreter-/Users/stephenprater/src/userland/discs": {
+      "architecture": 3,
+      "path": "/usr/local/bin/python3",
+      "version": {
+        "options": {
+          "loose": false,
+          "includePrerelease": false
+        },
+        "loose": false,
+        "raw": "3.7.2-final",
+        "major": 3,
+        "minor": 7,
+        "patch": 2,
+        "prerelease": [
+          "final"
+        ],
+        "build": [],
+        "version": "3.7.2-final"
+      },
+      "sysPrefix": "/usr/local/Cellar/python/3.7.2_2/Frameworks/Python.framework/Versions/3.7",
+      "fileHash": "84a50be19239ecfe5678fb4a8499c27ce0a87e071ac1e00caa449a1d9130f3c87fa712783d29d71edf4a622958fdb2d6127f5187e8b7940bfde98d471faeabce",
+      "type": "Unknown",
+      "displayName": "Python 3.7.2 64-bit"
+    },
+    "INTERPRETERS_CACHE_v3_PipEnvService": [],
+    "INTERPRETERS_CACHE_v3_WorkspaceVirtualEnvService": [],
+    "INTERPRETERS_CACHE_v3_PipEnvService:0243b06dc2a0fa83efdb9b1b696269ca": [],
+    "INTERPRETERS_CACHE_v3_WorkspaceVirtualEnvService:0243b06dc2a0fa83efdb9b1b696269ca": [],
+    "INTERPRETERS_CACHE_v3_WorkspaceVirtualEnvService:71f30f9b3536436a8f62344b900ebfef": [],
+    "INTERPRETERS_CACHE_v3_PipEnvService:71f30f9b3536436a8f62344b900ebfef": [],
+    "SelectedPythonPath": "/Users/stephenprater/.local/share/virtualenvs/holepunch-kt6xb9Yp/bin/python"
+  },
+  "coc-python|/Users/stephenprater/.pyenv/versions/3.7.0/lib/python3.7/site-packages/molecule/lint": {
+    "INTERPRETERS_CACHE_v3_PipEnvService:a63dcef163e588ce0eaffad9428a3d38": [],
+    "INTERPRETERS_CACHE_v3_WorkspaceVirtualEnvService:a63dcef163e588ce0eaffad9428a3d38": [],
+    "autoSelectedWorkspacePythonInterpreter-/Users/stephenprater/.pyenv/versions/3.7.0/lib/python3.7/site-packages/molecule/lint": {
+      "architecture": 3,
+      "path": "/usr/local/bin/python3",
+      "version": {
+        "options": {
+          "loose": false,
+          "includePrerelease": false
+        },
+        "loose": false,
+        "raw": "3.7.2-final",
+        "major": 3,
+        "minor": 7,
+        "patch": 2,
+        "prerelease": [
+          "final"
+        ],
+        "build": [],
+        "version": "3.7.2-final"
+      },
+      "sysPrefix": "/usr/local/Cellar/python/3.7.2_2/Frameworks/Python.framework/Versions/3.7",
+      "fileHash": "84a50be19239ecfe5678fb4a8499c27ce0a87e071ac1e00caa449a1d9130f3c87fa712783d29d71edf4a622958fdb2d6127f5187e8b7940bfde98d471faeabce",
+      "type": "Unknown",
+      "displayName": "Python 3.7.2 64-bit"
+    },
+    "INTERPRETERS_CACHE_v3_PipEnvService": [],
+    "INTERPRETERS_CACHE_v3_WorkspaceVirtualEnvService": []
+  },
+  "coc-python|/Users/stephenprater/.pyenv/versions/3.7.0/lib/python3.7/site-packages/ansible/modules/cloud/misc": {
+    "INTERPRETERS_CACHE_v3_PipEnvService:2f8d1de4507a25d1693ccb025db6962c": [],
+    "INTERPRETERS_CACHE_v3_WorkspaceVirtualEnvService:2f8d1de4507a25d1693ccb025db6962c": [],
+    "autoSelectedWorkspacePythonInterpreter-/Users/stephenprater/.pyenv/versions/3.7.0/lib/python3.7/site-packages/ansible/modules/cloud/misc": {
+      "architecture": 3,
+      "path": "/usr/local/bin/python3",
+      "version": {
+        "options": {
+          "loose": false,
+          "includePrerelease": false
+        },
+        "loose": false,
+        "raw": "3.7.2-final",
+        "major": 3,
+        "minor": 7,
+        "patch": 2,
+        "prerelease": [
+          "final"
+        ],
+        "build": [],
+        "version": "3.7.2-final"
+      },
+      "sysPrefix": "/usr/local/Cellar/python/3.7.2_2/Frameworks/Python.framework/Versions/3.7",
+      "fileHash": "84a50be19239ecfe5678fb4a8499c27ce0a87e071ac1e00caa449a1d9130f3c87fa712783d29d71edf4a622958fdb2d6127f5187e8b7940bfde98d471faeabce",
+      "type": "Unknown",
+      "displayName": "Python 3.7.2 64-bit"
+    },
+    "INTERPRETERS_CACHE_v3_PipEnvService": [],
+    "INTERPRETERS_CACHE_v3_WorkspaceVirtualEnvService": []
+  },
+  "coc-python|/Users/stephenprater/src/hackerrank": {
+    "INTERPRETERS_CACHE_v3_PipEnvService:3744b9ad010888e4ac73344b2879a440": [],
+    "INTERPRETERS_CACHE_v3_WorkspaceVirtualEnvService:3744b9ad010888e4ac73344b2879a440": [],
+    "autoSelectedWorkspacePythonInterpreter-/Users/stephenprater/src/hackerrank": {
+      "architecture": 3,
+      "path": "/usr/local/bin/python3",
+      "version": {
+        "options": {
+          "loose": false,
+          "includePrerelease": false
+        },
+        "loose": false,
+        "raw": "3.7.2-final",
+        "major": 3,
+        "minor": 7,
+        "patch": 2,
+        "prerelease": [
+          "final"
+        ],
+        "build": [],
+        "version": "3.7.2-final"
+      },
+      "sysPrefix": "/usr/local/Cellar/python/3.7.2_2/Frameworks/Python.framework/Versions/3.7",
+      "fileHash": "84a50be19239ecfe5678fb4a8499c27ce0a87e071ac1e00caa449a1d9130f3c87fa712783d29d71edf4a622958fdb2d6127f5187e8b7940bfde98d471faeabce",
+      "type": "Unknown",
+      "displayName": "Python 3.7.2 64-bit"
+    },
+    "INTERPRETERS_CACHE_v3_PipEnvService": [],
+    "INTERPRETERS_CACHE_v3_WorkspaceVirtualEnvService": []
+  },
+  "coc-python|/Users/stephenprater/src/stephenprater/platform-backend": {
+    "INTERPRETERS_CACHE_v3_PipEnvService:333b20146520ebe8e15a25510e1f6607": [],
+    "INTERPRETERS_CACHE_v3_WorkspaceVirtualEnvService:333b20146520ebe8e15a25510e1f6607": [],
+    "INTERPRETERS_CACHE_v3_PipEnvService:b06721935e013f5ec8cf4124a7f3e0b9": [],
+    "INTERPRETERS_CACHE_v3_WorkspaceVirtualEnvService:b06721935e013f5ec8cf4124a7f3e0b9": [],
+    "autoSelectedWorkspacePythonInterpreter-/Users/stephenprater/src/stephenprater/platform-backend": {
+      "architecture": 3,
+      "path": "/usr/local/bin/python3",
+      "version": {
+        "options": {
+          "loose": false,
+          "includePrerelease": false
+        },
+        "loose": false,
+        "raw": "3.7.2-final",
+        "major": 3,
+        "minor": 7,
+        "patch": 2,
+        "prerelease": [
+          "final"
+        ],
+        "build": [],
+        "version": "3.7.2-final"
+      },
+      "sysPrefix": "/usr/local/Cellar/python/3.7.2_2/Frameworks/Python.framework/Versions/3.7",
+      "fileHash": "84a50be19239ecfe5678fb4a8499c27ce0a87e071ac1e00caa449a1d9130f3c87fa712783d29d71edf4a622958fdb2d6127f5187e8b7940bfde98d471faeabce",
+      "type": "Unknown",
+      "displayName": "Python 3.7.2 64-bit"
+    },
+    "INTERPRETERS_CACHE_v3_PipEnvService": [],
+    "INTERPRETERS_CACHE_v3_WorkspaceVirtualEnvService": []
+  },
+  "coc-python|/Users/stephenprater/src/userland/userland-cloud": {
+    "INTERPRETERS_CACHE_v3_WorkspaceVirtualEnvService:53e8a403337ec222a7454c36af3a5a3a": [],
+    "INTERPRETERS_CACHE_v3_PipEnvService": [],
+    "INTERPRETERS_CACHE_v3_PipEnvService:53e8a403337ec222a7454c36af3a5a3a": [],
+    "INTERPRETERS_CACHE_v3_WorkspaceVirtualEnvService": []
+  },
+  "coc-python|/Users/stephenprater/.dotfiles": {
+    "INTERPRETERS_CACHE_v3_PipEnvService": [],
+    "INTERPRETERS_CACHE_v3_WorkspaceVirtualEnvService": []
+  },
+  "coc-python|/Users/stephenprater/.vimbundles/iron.nvim": {
+    "INTERPRETERS_CACHE_v3_WorkspaceVirtualEnvService": [],
+    "INTERPRETERS_CACHE_v3_PipEnvService": []
+  },
+  "coc-python|/Users/stephenprater/src/stephenprater": {
+    "INTERPRETERS_CACHE_v3_WorkspaceVirtualEnvService": [],
+    "INTERPRETERS_CACHE_v3_PipEnvService": []
+  }
+}

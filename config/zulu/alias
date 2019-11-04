@@ -1,0 +1,5 @@
+
+alias run-help=man
+
+alias which-command=whence
+

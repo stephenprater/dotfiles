@@ -2,23 +2,15 @@ fpath=($DOTHOME/functions $fpath)
 
 autoload -U $DOTHOME/functions/*(:t)
 
-source "$DOTHOME/system/shellrc.symlink"
-
 # color term
 export CLICOLOR=1
-export LSCOLORS=Dxfxcxdxbxegedabadacad
-export ZLS_COLORS=$LSCOLORS
+# export LSCOLORS=Dxfxcxdxbxegedabadacad
+# export ZLS_COLORS=$LSCOLORS
 export LC_CTYPE=en_US.UTF-8
 export LESS=FRX
 
 # make with the pretty colors
 autoload colors; colors
-
-# prompt
-PROMPT='%{$fg_bold[green]%}%n@%m%{$reset_color%}:%{$fg_bold[cyan]%}%~%{$reset_color%}$(git_prompt_info "(%s)")%# '
-
-# show non-success exit code in right prompt
-RPROMPT="%(?..{%{$fg[red]%}%?%{$reset_color%}})"
 
 # history
 HISTFILE=~/.zsh_history

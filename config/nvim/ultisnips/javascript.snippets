@@ -1,0 +1,56 @@
+snippet import "import react"
+import React, { PropTypes, Component } from 'react'
+endsnippet
+
+snippet class "js class"
+class ${1} extends Component {
+  render() {
+    return(
+      <div>${2}</div>
+    )
+  }
+}
+endsnippet
+
+snippet dumbcomponent "Component"
+export default class ${1} extends Component<Props, State> {
+  render() {
+    return(
+      <div>${2}</div>
+    )
+  }
+}
+endsnippet
+
+snippet component "Component"
+import React, {PropTypes, Component} from 'react'
+import { connect } from 'react-redux'
+
+function mapStateToProps(state) {
+  return { ...state.${1/([a-z]*)([A-Z]+)/(?1:$1_)\L$2\E/g} }
+}
+
+function mapDispatchToProps(dispatch) {
+  return {}
+}
+
+class ${1} extends Component {
+  render() {
+    return()
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)($1)
+endsnippet
+
+snippet it "It block"
+  it('${1}', () => {
+    expect(${2}).toEqual(${3})
+  })
+endsnippet
+
+snippet describe "describe block"
+  describe('${1}', () => {
+    ${2}
+  })
+endsnippet

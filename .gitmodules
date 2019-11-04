@@ -1,0 +1,24 @@
+[submodule "plugins/zsh-history-substring-search"]
+	path = plugins/zsh-history-substring-search
+	url = git://github.com/zsh-users/zsh-history-substring-search
+[submodule "plugins/zsh-autosuggestions"]
+	path = plugins/zsh-autosuggestions
+	url = git://github.com/tarruda/zsh-autosuggestions
+[submodule "plugins/zsh-syntax-highlighting"]
+	path = plugins/zsh-syntax-highlighting
+	url = git://github.com/zsh-users/zsh-syntax-highlighting.git
+[submodule "powerlevel9k"]
+	path = plugins/powerlevel9k
+	url = git://github.com/Powerlevel9k/powerlevel9k
+[submodule "config/base16-shell"]
+	path = config/base16-shell
+	url = https://github.com/chriskempson/base16-shell.git
+[submodule "plugins/powerlevel9k"]
+	path = plugins/powerlevel9k
+	url = https://github.com/Powerlevel9k/powerlevel9k.git
+[submodule "plugins/spaceship-prompt"]
+	path = plugins/spaceship-prompt
+	url = https://github.com/denysdovhan/spaceship-prompt.git
+[submodule "plugins/powerlevel10k"]
+	path = plugins/powerlevel10k
+	url = https://github.com/romkatv/powerlevel10k.git

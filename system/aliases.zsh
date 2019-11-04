@@ -29,5 +29,7 @@ ut() { tar xvzfp $1; }
 # Mac-Specific #
 ################
 
-alias show_hidden='defaults write com.apple.finder AppleShowAllFiles TRUE; killall Finder'
-alias hide_hidden='defaults write com.apple.finder AppleShowAllFiles FALSE; killall Finder'
+if [[ $(uname -a | grep -i "Darwin") ]]; then
+  alias show_hidden='defaults write com.apple.finder AppleShowAllFiles TRUE; killall Finder'
+  alias hide_hidden='defaults write com.apple.finder AppleShowAllFiles FALSE; killall Finder'
+fi

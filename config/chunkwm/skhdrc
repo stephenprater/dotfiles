@@ -1,0 +1,57 @@
+# screen mode for the focused container
+cmd - return : chunkc tiling::window --toggle fullscreen
+
+# change focus between tiling / floating windows
+# shift + alt - space : chunkc tiling::window --toggle float
+cmd + shift + ctrl - f : chunk tiling::desktop --layout float
+
+# change layout of desktop
+# cmd - e : chunkc tiling::desktop --layout bsp
+# cmd - f : chunkc tiling::desktop --layout monocle
+
+# kill focused window
+cmd + alt - k : chunkc tiling::window --close
+cmd + alt - a : open -nb io.alacritty
+cmd + alt - t : open -nb com.googlecode.iterm2
+cmd + alt - b : /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --new-window
+
+# change focus
+cmd + shift - h : chunkc tiling::window --focus west
+cmd + shift - j : chunkc tiling::window --focus south
+cmd + shift - k : chunkc tiling::window --focus north
+cmd + shift - l : chunkc tiling::window --focus east
+
+cmd - 0x2B : chunkc tiling::window --focus prev
+cmd - 0x2F : chunkc tiling::window --focus next
+
+# allow screen shot
+cmd + shift - 0x2B  : chunkc tiling::monitor -f prev
+cmd + shift - 0x2F  : chunkc tiling::monitor -f next
+cmd + shift - 1 : chunkc tiling::monitor -f 1
+cmd + shift - 2 : chunkc tiling::monitor -f 2
+cmd + shift - 3 : chunkc tiling::monitor -f 3
+cmd + shift - 4 -> : chunkc border::clear
+
+# move focused window
+shift + alt - h : chunkc tiling::window --warp west
+shift + alt - j : chunkc tiling::window --warp south
+shift + alt - k : chunkc tiling::window --warp north
+shift + alt - l : chunkc tiling::window --warp east
+
+cmd - 0x2C : chunkc tiling::desktop --rotate 90
+
+# move focused container to workspace
+# shift + alt - m : chunkc tiling::window --send-to-desktop $(chunkc get _last_active_desktop)
+shift + alt - 0x2B : chunkc tiling::window --send-to-desktop prev
+shift + alt - 0x2F : chunkc tiling::window --send-to-desktop next
+cmd + shift + ctrl - 1: chunkc tiling::window --send-to-monitor 1
+cmd + shift + ctrl - 2: chunkc tiling::window --send-to-monitor 2
+cmd + shift + ctrl - 3: chunkc tiling::window --send-to-monitor 3
+cmd + shift + ctrl - 0x2B : chunkc tiling::window --send-to-monitor prev
+cmd + shift + ctrl - 0x2F : chunkc tiling::window --send-to-monitor next
+# shift + alt - 1 : chunkc tiling::window --send-to-desktop 1
+# shift + alt - 2 : chunkc tiling::window --send-to-desktop 2
+# shift + alt - 3 : chunkc tiling::window --send-to-desktop 3
+# shift + alt - 4 : chunkc tiling::window --send-to-desktop 4
+# shift + alt - 5 : chunkc tiling::window --send-to-desktop 5
+# shift + alt - 6 : chunkc tiling::window --send-to-desktop 6

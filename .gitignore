@@ -1,0 +1,13 @@
+tags
+weechat/logs
+config/hub
+tldrc/*
+.mypy_cache/
+credentials.zsh
+config/nvim/black
+config/yarn/global
+config/coc/extensions
+config/browser-launcher2
+config/.mono/keypairs
+config/plugins
+*.un~

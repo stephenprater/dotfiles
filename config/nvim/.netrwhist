@@ -1,0 +1,11 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =9
+let g:netrw_dirhist_1='/Users/stephenprater/src/goldstar/goldstar/lib/goldstar'
+let g:netrw_dirhist_2='/Users/stephenprater/src/goldstar/goldstar'
+let g:netrw_dirhist_3='/Users/stephenprater/src/goldstar/goldstar/lib'
+let g:netrw_dirhist_4='/Users/stephenprater/src/goldstar/goldstar/lib/goldstar'
+let g:netrw_dirhist_5='/Users/stephenprater/src/goldstar/goldstar/lib/goldstar/cli'
+let g:netrw_dirhist_6='/Users/stephenprater/src/goldstar/goldstar/lib/capistrano/tasks'
+let g:netrw_dirhist_7='/Users/stephenprater/src/8thlight/eb'
+let g:netrw_dirhist_8='/Users/stephenprater/src/8thlight/eb/lib'
+let g:netrw_dirhist_9='/Users/stephenprater/src/8thlight/eb/lib/lists'

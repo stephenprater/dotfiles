@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<XMLReg>
+  <Key Name="HKEY_CURRENT_USER">
+    <Key Name="Software">
+      <Key Name="BricxCC">
+        <Key Name="3.3">
+          <Key Name="Joystick"/>
+          <Key Name="Remote"/>
+        </Key>
+      </Key>
+    </Key>
+  </Key>
+</XMLReg>
