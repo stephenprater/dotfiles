@@ -78,7 +78,7 @@ complete -o nospace -C /usr/local/bin/vault vault
 
 # set cd autocompletion to commonly visited directories
 setopt auto_cd
-cdpath=(. ~/src $SOURCE_DIR/8thlight $SOURCE_DIR/stephenprater)
+cdpath=(. ~/src $SOURCE_DIR/8thlight $SOURCE_DIR/stephenprater $SOURCE_DIR/fandango)
 fpath=(path/to/zsh-completions/src $fpath)
 
 zmodload -i zsh/parameter
@@ -118,5 +118,6 @@ if [ ! -f $DOTHOME/zsh/credentials.zsh ]; then
   source $DOTHOME/zsh/credentials.zsh
 fi
 
+alias help=tldr
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

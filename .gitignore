@@ -11,3 +11,4 @@ config/browser-launcher2
 config/.mono/keypairs
 config/plugins
 *.un~
+*.pem

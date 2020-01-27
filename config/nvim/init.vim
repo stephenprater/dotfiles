@@ -9,6 +9,8 @@ set updatetime=300
 
 "let &runtimepath.=",/Users/stephenprater/src/8thlight/coc.nvim/"
 
+let g:vimspector_enable_mappings = 'HUMAN'
+
 call plug#begin('~/.vimbundles')
 
 "Finding Shit
@@ -32,6 +34,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 "+ coc-elixir	0.1.8	~/.config/coc/extensions/node_modules/coc-elixir
 "+ coc-tsserver	1.4.2	~/.config/coc/extensions/node_modules/coc-tsserver"
 "+ coc-java	1.4.5	~/.config/coc/extensions/node_modules/coc-java
+"* coc-prettier	1.1.11	~/.dotfiles/config/coc/extensions/node_modules/coc-prettier
 
 " I write your plugins
 Plug 'h1mesuke/vim-unittest'
@@ -51,15 +54,15 @@ Plug 'alexgenco/neovim-ruby'
 " Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 
 "Frontend
-"Plug 'kchmck/vim-coffee-script'
-"Plug 'tpope/vim-cucumber'
-"Plug 'tpope/vim-haml'
-"Plug 'wokalski/autocomplete-flow'
-"Plug 'pangloss/vim-javascript'
-"Plug 'mxw/vim-jsx'
-"Plug 'mattn/emmet-vim'
-"Plug 'moll/vim-node'
-"Plug 'Galooshi/vim-import-js'
+Plug 'tpope/vim-haml'
+Plug 'wokalski/autocomplete-flow'
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
+Plug 'mattn/emmet-vim'
+Plug 'moll/vim-node'
+Plug 'Galooshi/vim-import-js'
+Plug 'leafgarland/typescript-vim'
+
 
 "Markdown / Diary
 Plug 'rhysd/vim-gfm-syntax'
@@ -147,7 +150,8 @@ Plug 'norcalli/nvim-colorizer.lua'
 
 "REPL
 Plug 'Vigemus/iron.nvim'
-"
+Plug 'idanarye/vim-vebugger'
+Plug 'puremourning/vimspector'
 
 "TMUX
 Plug 'christoomey/vim-tmux-navigator'
@@ -256,6 +260,10 @@ let g:test#custom_strategies = {'noclearslime': function('NoClearSlime')}
 let g:test#strategy = 'noclearslime'
 let g:test#custom_transformations = { 'docker': function('DockerTransform') }
 let g:test#transformation = 'docker'
+let g:test#javascript#jest#options = {
+  \ 'nearest': '--runInBand --forceExit',
+  \ 'file': '--runInBand --forceExit',
+  \}
 
 let g:utl_cfg_hdl_scm_http = "silent !open -a Firefox '%u#%f'"
 
@@ -276,6 +284,20 @@ let g:coc_common_lists = {
       \ 'mru': { 'args': '-A', 'name': 'History' },
       \ 'lists': { 'args': '', 'name': 'Lists' }
       \}
+
+call textobj#user#plugin('coderegion', {
+      \ 'code': {
+      \   'select-a-function': 'CodeRegionA',
+      \   'select-i-function': 'CodeRegionI',
+      \   'select-a': 'ac',
+      \   'select-i': 'ic',
+      \ },
+      \ })
+
+let g:codefence_eval = {
+      \ 'mmdc': ['mmdc', '-i', '<infile>', '-o', '<outfile>'],
+      \}
+
 
 function! CocPrettyListName(name)
   if has_key(g:coc_common_lists, a:name)
@@ -355,6 +377,8 @@ let g:echodoc#enable_at_startup = 1
 
 let g:terraform_align = 1
 let g:terraform_fmt_on_save = 1
+
+let g:gutentags_exclude_filetypes=['gitcommit','gitrebase']
 
 
 luafile $HOME/.config/nvim/plugins.lua
@@ -758,6 +782,46 @@ function! ListLinks() range
   let l:pattern = "<url:.*$"
   execute a:firstline.",".a:lastline . "lvimgrep /" . l:pattern . "/j" . fnameescape(bufname("%"))
   execute "CocList locationlist"
+endfunction
+
+function! EvalRegion() range
+  " get the first line of the visual selection and look up the evaller based
+  " on the gfm syntax marker
+
+  let evaler = matchstr(getline(a:firstline), ".*$", 3)
+  if has_key(g:codefence_eval, evaler)
+    let infile = tempname()
+    let outfile = tempname()
+    let eval_cmd = []
+    for element in copy(g:codefence_eval[evaler])
+      if element == '<infile>'
+        call add(eval_cmd, infile)
+      elseif element == '<outfile>'
+        call add(eval_cmd, outfile)
+      else
+        call add(eval_cmd, element)
+      endif
+    endfor
+    echo eval_cmd
+    " execute a:firstline + 1 . "," . a:lastline - 1 . "w!" . tempfile
+  else
+    echoerr "No defined interpreter for region type " . evaler
+  endif
+endfunction
+
+function! CodeRegionA()
+  let [startline, startcol] = searchpos('```','nbW')
+  let [endline, endcol] = searchpos('```','neW')
+  return ['V', [0, startline, startcol,0], [0,endline, endcol,0]]
+endfunction
+
+function! CodeRegionI()
+  let [startline, startcol] = searchpos('```','nbW')
+  let [endline, endcol] = searchpos('```','neW')
+  call setpos('.',[0,endline-1,1])
+  normal! $
+  let [_, endline, endcol, _] = getpos('.')
+  return ['v', [0,startline+1, 1,0], [0,endline, endcol,0]]
 endfunction
 "}}}
 "

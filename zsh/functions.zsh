@@ -79,3 +79,13 @@ docker-crun() {
   ${docker_cmd} run ${container_name} bash -c -l "$*"
 }
 
+fan_npm_install() {
+  local name=$(basename "`pwd`")
+  ssh fandango-laptop cd src/fandango/$name && npm install
+  if read -q '?Did that work? (y/n)'; then
+    rsync -av fandango-laptop:src/fandango/$name/node_modules ./node_modules
+    scp fandango-laptop:src/fandango/$name/package-lock.json package-lock.json
+  else
+    echo "Okay stopping"
+  fi
+}

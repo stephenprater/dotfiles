@@ -1,6 +1,6 @@
-commands
-services
 diagnostics
+services
+commands
 extensions
 actions
 marks

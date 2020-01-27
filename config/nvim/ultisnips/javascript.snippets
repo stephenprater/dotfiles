@@ -54,3 +54,21 @@ snippet describe "describe block"
     ${2}
   })
 endsnippet
+
+snippet test "test block"
+  it('${1}', ${2}(${3}) => {
+    expect(true).toEqual(false)
+  })
+endsnippet
+
+snippet beforeEach "beforeEach block"
+    beforeEach(${2}() => {
+      ${3}
+    })
+endsnippet
+
+snippet afterEach "afterEach block"
+    afterEach(${2}() => {
+      ${3}
+    })
+endsnippet

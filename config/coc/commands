@@ -1,3 +1,5 @@
+eslint.executeAutofix
+prettier.formatFile
 java.workspace.compile
 java.action.organizeImports
 java.open.serverLog

@@ -26,7 +26,7 @@ hi!  jsEnvComment              guifg='#843C35' guibg='#322726'
 
 
 " Noise
-hi! jsNoise                   guifg='#443533'
+hi! jsNoise                   guifg='#6A5A4E'
 
 hi! link jsBrackets jsNoise
 hi! link jsFuncParens jsNoise
@@ -163,13 +163,13 @@ hi! jsDestructuringPropertyValue     guifg='#E9DBCC'
 hi! jsDestructuringValueAssignment   guifg='#D8C0B6'
 
 " Control
-hi! jsFuncCall                  guifg='#046CA5'
+hi! jsFuncCall                  guifg='#1398A9'
 
 hi! jsFunction                  guifg='#046397'
 hi! jsArrowFunction             guifg='#046397'
 
 hi! jsReturn                    guifg='#0480A4'
-hi! jsSuper                     guifg='#1398A9'
+hi! jsSuper                     guifg='#046CA5'
 
 hi! jsStatement                 guifg='#26A4AD'
 
