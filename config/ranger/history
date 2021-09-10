@@ -20,7 +20,6 @@ rename
 rename transformer
 rename elasticsearch_ elasticsearch
 rename elasticsearch
-open_with 
 rename pan.go
 rename merge_strategies
 rename merge_strategies strategies
@@ -29,6 +28,9 @@ search log
 search Document
 mkdir consul_client
 rename consul.j2.hcl
-delete
 rename consul.yml
 open_with Pr
+rename chris-chu
+open_with 
+rename jon_griffith
+delete

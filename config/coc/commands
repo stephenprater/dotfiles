@@ -1,3 +1,4 @@
+eslint.showOutputChannel
 eslint.executeAutofix
 prettier.formatFile
 java.workspace.compile

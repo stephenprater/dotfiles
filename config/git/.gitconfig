@@ -20,9 +20,9 @@
         add-untracked = !"git status --porcelain | awk '/\\?\\?/{ print $2 }' | xargs git add"
         unpulled = !"PROJ_BRANCH=$(git symbolic-ref HEAD | sed 's|refs/heads/||') && git fetch && git log HEAD..origin/$PROJ_BRANCH"
         unpushed = !"PROJ_BRANCH=$(git symbolic-ref HEAD | sed 's|refs/heads/||') && git log origin/$PROJ_BRANCH..HEAD"
-        wip = !"git add -A . && git status && git commit -am '@WIP [ci skip]'"
+        wip = !"git add -A . && git status && git commit -am '@WIP [ci skip]' --no-verify"
 	s = status
-        whoops = !sh -c 'git add -u && git commit --amend --reuse-message=HEAD'
+        whoops = !sh -c 'git add -u && git commit --amend --reuse-message=HEAD --no-verify'
         cleanup = "!git branch --merged | grep -v '\\*\\|master\\|develop' | xargs -I % sh -c 'git branch -d % && git push origin --delete %'"
         theirs = "!f() { git reset --hard origin/$1 }"
         prunetags = "!git tag -l | xargs git tag -d && git fetch -t"
@@ -33,14 +33,28 @@
 [color]
         ui = auto
 [core]
-	excludesfile = $HOME/.gitignore
         editor = /usr/local/bin/nvim
         whitespace = warn
-        pager = "diff-so-fancy | less --tabs=4 -RFX"
+[pager]
+        diff = delta
+        log = delta
+        reflog = delta
+        show = delta
 [help]
         autocorrect = 10
 [interactive]
         singlekey = true
+        diffFilter = delta --color-only
+
+[delta]
+        features = side-by-side line-numbers decorations
+        whitepace-error-style = 22 reverse
+
+[delta "decorations"]
+    commit-decoration-style = bold yellow box ul
+    file-style = bold yellow ul
+    file-decoration-style = none
+
 [merge]
         summary = true
         tool = diffconflicts
@@ -55,20 +69,21 @@
 	name = Stephen Prater
 [github]
         user = stephenprater
+
 [mergetool "diffconflicts"]
         cmd = nvim -c DiffConflicts "$MERGED" "$BASE" "$LOCAL" "$REMOTE"
         trustExitCode = true
         keepBackup = false
+
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path =
 [mergetool "sourcetree"]
 	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
+        trustExitCode = true
+
 [filter "lfs"]
 	process = git-lfs filter-process
 	required = true
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
-[commit]
-        template = $HOME/.stCommitMsg

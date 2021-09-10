@@ -13,32 +13,49 @@ let g:vimspector_enable_mappings = 'HUMAN'
 
 call plug#begin('~/.vimbundles')
 
+
 "Finding Shit
 Plug 'jremmen/vim-ripgrep'
-Plug 'scrooloose/nerdtree'
-Plug 'vim-scripts/bufkill.vim'
+Plug 'kyazdani42/nvim-web-devicons'
+Plug 'kyazdani42/nvim-tree.lua'
 Plug 'tpope/vim-projectionist'
 Plug 'duff/vim-bufonly'
 Plug 'tpope/vim-bundler'
 Plug 'justinmk/vim-dirvish'
 Plug 'justinmk/vim-sneak'
+Plug 'ludovicchabant/vim-gutentags'
+" Plug 'nvim-lua/popup.nvim'
+" Plug 'nvim-lua/plenary.nvim'
+" Plug 'nvim-telescope/telescope.nvim'
 
 " Language Server
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-"* coc-yank	1.1.2	~/.config/coc/extensions/node_modules/coc-yank
-"* coc-ultisnips	1.2.3	~/.config/coc/extensions/node_modules/coc-ultisnips
-"* coc-lists	1.3.3	~/.config/coc/extensions/node_modules/coc-lists
-"* coc-marketplace	1.5.0	~/.config/coc/extensions/node_modules/coc-marketplace
-"+ coc-json	1.2.3	~/.config/coc/extensions/node_modules/coc-json
-"+ coc-python	1.2.6	~/.config/coc/extensions/node_modules/coc-python
-"+ coc-elixir	0.1.8	~/.config/coc/extensions/node_modules/coc-elixir
-"+ coc-tsserver	1.4.2	~/.config/coc/extensions/node_modules/coc-tsserver"
-"+ coc-java	1.4.5	~/.config/coc/extensions/node_modules/coc-java
-"* coc-prettier	1.1.11	~/.dotfiles/config/coc/extensions/node_modules/coc-prettier
+
+" Plug 'neovim/nvim-lspconfig'
+" Plug 'kabouzeid/nvim-lspinstall'
+" Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+" Plug 'hrsh7th/nvim-compe'
+
+Plug 'junegunn/fzf', {'dir': '~/.fzf','do': './install --all'}
+Plug 'junegunn/fzf.vim' " needed for previews
+Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
+Plug 'antoinemadec/coc-fzf'
+" * coc-yank	1.1.8	~/.dotfiles/config/coc/extensions/node_modules/coc-yank
+" * coc-eslint	1.3.2	~/.dotfiles/config/coc/extensions/node_modules/coc-eslint
+" * coc-ultisnips	1.2.3	~/.dotfiles/config/coc/extensions/node_modules/coc-ultisnips
+" * coc-lists	1.3.10	~/.dotfiles/config/coc/extensions/node_modules/coc-lists
+" * coc-prettier	1.1.20	~/.dotfiles/config/coc/extensions/node_modules/coc-prettier
+" * coc-rls	1.1.6	~/.dotfiles/config/coc/extensions/node_modules/coc-rls
+" * coc-marketplace	1.8.0	~/.dotfiles/config/coc/extensions/node_modules/coc-marketplace
+" + coc-json	1.2.6	~/.dotfiles/config/coc/extensions/node_modules/coc-json
+" + coc-tsserver	1.4.13	~/.dotfiles/config/coc/extensions/node_modules/coc-tsserver
+" + coc-java	1.5.3	~/.dotfiles/config/coc/extensions/node_modules/coc-java
+" + coc-elixir	0.6.1	~/.dotfiles/config/coc/extensions/node_modules/coc-elixir
+" + coc-python	1.2.13	~/.dotfiles/config/coc/extensions/node_modules/coc-python
+" + coc-omnisharp	0.0.28	~/.dotfiles/config/coc/extensions/node_modules/coc-omnisharp
 
 " I write your plugins
-Plug 'h1mesuke/vim-unittest'
-Plug 'alexgenco/neovim-ruby'
+" Plug 'h1mesuke/vim-unittest'
+" Plug 'alexgenco/neovim-ruby'
 
 "Clojure
 " Plug 'guns/vim-clojure-static'
@@ -52,22 +69,32 @@ Plug 'alexgenco/neovim-ruby'
 " Plug 'Quramy/tsuquyomi'
 " Plug 'leafgarland/typescript-vim'
 " Plug 'Shougo/vimproc.vim', {'do' : 'make'}
+"
 
-"Frontend
-Plug 'tpope/vim-haml'
-Plug 'wokalski/autocomplete-flow'
+" DOTNET
+" Plug 'OmniSharp/omnisharp-vim'
+
+" RUST
+" Plug 'cespare/vim-toml'
+
+""Frontend
+" Plug 'tpope/vim-haml'
+" Plug 'mxw/vim-jsx'
+" Plug 'moll/vim-node'
+" Plug 'Galooshi/vim-import-js'
+" Plug 'leafgarland/typescript-vim'
+" Plug 'kchmck/vim-coffee-script'
+" Plug 'briancollins/vim-jst'
+"
 Plug 'pangloss/vim-javascript'
-Plug 'mxw/vim-jsx'
 Plug 'mattn/emmet-vim'
-Plug 'moll/vim-node'
-Plug 'Galooshi/vim-import-js'
-Plug 'leafgarland/typescript-vim'
-
+Plug 'mvolkmann/vim-js-arrow-function'
 
 "Markdown / Diary
 Plug 'rhysd/vim-gfm-syntax'
 Plug 'nelstrom/vim-markdown-folding'
 Plug 'SidOfc/mkdx'
+Plug 'dkarter/bullets.vim'
 
 "Elixir
 Plug 'elixir-editors/vim-elixir'
@@ -81,8 +108,8 @@ Plug 'nelstrom/vim-textobj-rubyblock'
 " Plug 'joker1007/vim-ruby-heredoc-syntax'
 
 "Java
-Plug 'tpope/vim-classpath'
-Plug 'timjstewart/spring.vim'
+" Plug 'tpope/vim-classpath'
+" Plug 'timjstewart/spring.vim'
 
 "Python
 " Plug 'Shougo/echodoc'
@@ -114,7 +141,7 @@ Plug 'adelarsq/vim-matchit'
 Plug 'jiangmiao/auto-pairs'
 
 "Shortcuts
-Plug 'vim-scripts/swap-parameters'
+Plug 'machakann/vim-swap'
 Plug 'godlygeek/tabular'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-commentary'
@@ -143,15 +170,13 @@ Plug 'vim-scripts/utl.vim'
 Plug 'mattn/calendar-vim'
 Plug 'kana/vim-textobj-syntax'
 Plug 'whiteinge/diffconflicts'
-Plug 'ludovicchabant/vim-gutentags'
 Plug 'tommcdo/vim-ninja-feet'
 Plug 'tommcdo/vim-exchange'
 Plug 'norcalli/nvim-colorizer.lua'
 
 "REPL
 Plug 'Vigemus/iron.nvim'
-Plug 'idanarye/vim-vebugger'
-Plug 'puremourning/vimspector'
+Plug 'mfussenegger/nvim-dap'
 
 "TMUX
 Plug 'christoomey/vim-tmux-navigator'
@@ -201,7 +226,9 @@ set verbosefile=~/verbose.log
 set inccommand=nosplit
 set termguicolors
 
-let &rtp.=",/Users/stephenprater/.vimbundles/neovim-ruby/"
+set completeopt=menuone,noselect
+
+" let &rtp.=",/Users/stephenprater/.vimbundles/neovim-ruby/"
 
 colorscheme nord
 colorscheme detailed_base
@@ -210,12 +237,8 @@ colorscheme detailed_js
 
 "set background=dark
 "colorscheme solarized
-"
-"
 
-"
-let g:python_host_prog = '/Users/stephenprater/.pyenv/versions/neovim2/bin/python'
-let g:python3_host_prog = '/Users/stephenprater/.pyenv/versions/neovim3/bin/python'
+let g:python3_host_prog = '/Users/stephenprater/.asdf/installs/python/3.8.1/bin/python'
 
 hi Italic cterm=italic gui=italic
 
@@ -260,21 +283,28 @@ let g:test#custom_strategies = {'noclearslime': function('NoClearSlime')}
 let g:test#strategy = 'noclearslime'
 let g:test#custom_transformations = { 'docker': function('DockerTransform') }
 let g:test#transformation = 'docker'
+let g:test#javascript#jest#file_pattern = '\v(test|spec)\.(js|jsx|coffee|ts|tsx)$'
 let g:test#javascript#jest#options = {
   \ 'nearest': '--runInBand --forceExit',
   \ 'file': '--runInBand --forceExit',
   \}
 
+let g:test#javascript#karma#file_pattern = '\v(test|spec).*(js|jsx|coffee|ts|tsx)$'
+
 let g:utl_cfg_hdl_scm_http = "silent !open -a Firefox '%u#%f'"
 
 let g:airline_powerline_fonts = 1
 let g:airline_theme = 'nord'
-let g:airline#extensions#coc#enabled = 1
+let g:airline#extensions#coc#enabled = 0
 
 let g:UltiSnipsSnippetDirectories=["/Users/stephenprater/.config/nvim/ultisnips/"]
 let g:UltiSnipsExpandTrigger           = '<C-y>'
 let g:UltiSnipsJumpForwardTrigger      = '<C-a>'
 let g:UltiSnipsJumpBackwardTrigger     = '<C-s>'
+
+let g:coffee_compiler = "./node_modules/.bin/coffee"
+let g:coffee_linter = "./node_modules/./bin/coffeelint"
+
 
 let g:coc_common_lists = {
       \ 'files': {'args': '', 'name': 'Files'},
@@ -282,7 +312,8 @@ let g:coc_common_lists = {
       \ 'grep': { 'args': '', 'name': 'Search'},
       \ 'tags': { 'args': '', 'name': 'Tags'},
       \ 'mru': { 'args': '-A', 'name': 'History' },
-      \ 'lists': { 'args': '', 'name': 'Lists' }
+      \ 'lists': { 'args': '', 'name': 'Lists' },
+      \ 'helptags': { 'args': '', 'name': 'Helptags' }
       \}
 
 call textobj#user#plugin('coderegion', {
@@ -297,6 +328,20 @@ call textobj#user#plugin('coderegion', {
 let g:codefence_eval = {
       \ 'mmdc': ['mmdc', '-i', '<infile>', '-o', '<outfile>'],
       \}
+
+let g:compe = {
+      \'enabled': v:true,
+      \'autocomplete': v:true,
+      \'documentation': v:true,
+      \'source':  {
+        \'path': v:true,
+        \'buffer': v:true,
+        \'calc': v:true,
+        \'nvim_lsp': v:true,
+        \'nvim_lua': v:true,
+        \'ultisnips': v:true,
+        \'emoji': v:true
+      \}}
 
 
 function! CocPrettyListName(name)
@@ -355,7 +400,7 @@ let g:go_metalinter_disabled = ['vet']
 
 let g:ruby_operators = 1
 
-let g:markdown_fenced_languages = ['ruby', 'json', 'javascript']
+let g:markdown_fenced_languages = ['ruby', 'json', 'javascript', 'sql', 'elixir']
 let g:gfm_syntax_highlight_inline_code = 1
 let g:gfm_syntax_emoji_conceal = 1
 let g:mkdx#settings = {
@@ -378,7 +423,14 @@ let g:echodoc#enable_at_startup = 1
 let g:terraform_align = 1
 let g:terraform_fmt_on_save = 1
 
-let g:gutentags_exclude_filetypes=['gitcommit','gitrebase']
+let g:gutentags_ctags_executable = '/usr/local/bin/ctags'
+let g:gutentags_file_list_command = {
+  \ 'markers': {
+    \ '.git': 'git ls-files',
+  \}
+\}
+
+let g:OmniSharp_server_stdio = 1
 
 
 luafile $HOME/.config/nvim/plugins.lua
@@ -415,11 +467,17 @@ autocmd BufRead */log.md call s:EnableLogCommands()
 
 autocmd FileType elixir let b:match_words='do:end,{:},(:),":"'
 
-autocmd BufWritePre * call CocAction('format')
+autocmd BufWritePre elixir call CocAction('format')
+autocmd BufWritePre ruby call CocAction('format')
+autocmd BufWritePre python call CocAction('format')
+autocmd BufWritePre javascript call CocAction('format')
+
+autocmd FileType javascript nmap <leader>b :call JsArrowFnBraceToggle()<CR>
 
 "}}}
 
 "{{{ Custom Commands
+command! -bar -range=% Trim :<line1>,<line2>s/\s\+$//e
 command! -range SendSelectionToTerm :call <SID>SendVisualToTerm()<CR>
 command! QuickFixOpenAll call QuickFixOpenAll()
 command! -range RgVis :call <SID>RgVis()
@@ -440,12 +498,18 @@ command! Tig vsplit | startinsert | terminal tig
 nnoremap <silent> <leader>A :Rg<CR>
 vnoremap <silent> <leader>A :RgVis<CR>
 
-nmap <silent> <M-m> :Utl<CR>
+nmap <silent> <D-CR> :Utl<CR>
 "
 nmap <silent> ,yr :CocList yank<CR>
 nmap <silent> ,tb :TagbarToggle<CR>
 nmap <silent> ,gu :MundoToggle<CR>
-nmap <silent> ,bs :CocList buffers<CR>
+nmap <silent> ,bs :Telescope buffers<CR>
+
+inoremap <silent><expr> <C-n> compe#complete()
+inoremap <silent><expr> <C-y>      compe#confirm('<CR>')
+inoremap <silent><expr> <C-e>     compe#close('<C-e>')
+inoremap <silent><expr> <C-n>     compe#scroll({ 'delta': +4 })
+inoremap <silent><expr> <C-p>     compe#scroll({ 'delta': -4 })
 
 " nmap <C-x> :bd %<CR>
 
@@ -511,25 +575,27 @@ nnoremap <M-j> <C-\><C-n><C-w>j
 nnoremap <M-k> <C-\><C-n><C-w>k
 nnoremap <M-l> <C-\><C-n><C-w>l
 
-nmap <leader>ll :CocList<CR>
-nnoremap <silent> <leader>lh :call CocAction('doHover')<CR>
-nnoremap <silent> <leader>ld <Plug>(coc-definition)
-nnoremap <silent> <leader>lr <Plug>(coc-rename)
-nnoremap <silent> <leader>ls <Plug>(coc-document-symbols)
-nnoremap <silent> <leader>l] <Plug>(coc-references)
-nnoremap <silent> <leader>lf <Plug>(coc-format-selected)
-vnoremap <silent> <leader>lf <Plug>(coc-format-selected)
-nnoremap <silent> <leader>la <Plug>(coc-code-action)
+nmap <leader>lh :lua vim.lsp.buf.hover()<CR>
+nmap <leader>ld :lua vim.lsp.buf.definition()<CR>
+nmap <leader>lr :lua vim.lsp.buf.rename()<CR>
+nmap <leader>ls :lua vim.lsp.buf.document_symbol()<CR>
+nmap <leader>l] :lua vim.lsp.buf.references()
+nmap <leader>la :lua vim.lsp.buf.code_action()
 
-nmap <C-p> :call <SID>coc_list('files')<CR>
+xmap if <Plug>(coc-funcobj-i)
+xmap af <Plug>(coc-funcobj-a)
+omap if <Plug>(coc-funcobj-i)
+omap af <Plug>(coc-funcobj-a)
+
+nmap <C-p> :CocList files<CR>
+
+nmap <leader>m :MarkologyToggle<CR>
 
 nmap <silent> <leader>bc :silent .!bc<CR>
-noremap <silent> <leader>d :.!date<CR>
+noremap <silent> <leader>d :Dirvish %:p<CR>
+noremap <silent> <leader>da :.!date<CR>
 nmap <silent> <leader>di :edit ~/Dropbox/dev-log/log.md<CR>
 
-vnoremap <F6> :call <SID>PrettyPrint()<CR>
-
-" easy out for git_diff_wrapper
 map Q :qa
 
 "}}}
@@ -680,22 +746,6 @@ function! s:_find_buffers_with_type(type)
 endfunction
 "}}}
 
-"{{{ Multiple Cursor Hooks
-" Called once right before you start selecting multiple cursors
-function! Multiple_cursors_before()
-  if exists('g:deoplete#disable_auto_complete')
-    let g:deoplete#disable_auto_complete = 1
-  endif
-endfunction
-
-" Called once only when the multiple selection is canceled (default <Esc>)
-function! Multiple_cursors_after()
-  if exists('g:deoplete#disable_auto_complete')
-    let g:deoplete#disable_auto_complete = 0
-  endif
-endfunction
-"}}}
-
 "{{{ Enable Migration Commands
 function! s:EnableMigrationCommands()
   let l:current_file = expand('%')
@@ -714,46 +764,47 @@ endfunction
 "}}}
 
 "{{{ CocList "next type" naviation
-function! s:coc_get_list(completion_type, ...)
-  let l:coc_keys = keys(g:coc_common_lists)
-  let l:max_index = len(l:coc_keys) - 1
-  let l:current_type = get(a:,1, "")
-  if a:completion_type == 'next'
-    let l:next_index = index(l:coc_keys, l:current_type) + 1
+ function! s:coc_get_list(completion_type, ...)
+   let l:coc_keys = keys(g:coc_common_lists)
+   let l:max_index = len(l:coc_keys) - 1
+   let l:current_type = get(a:,1, "")
+   if a:completion_type == 'next'
+     let l:next_index = index(l:coc_keys, l:current_type) + 1
 
-    if l:next_index > l:max_index
-      return l:coc_keys[0] . ' ' . g:coc_common_lists[l:coc_keys[0]]['args']
-    else
-      return l:coc_keys[l:next_index] . ' ' . g:coc_common_lists[l:coc_keys[l:next_index]]['args']
-    endif
-  elseif a:completion_type == 'prev'
-    let l:prev_index = index(l:coc_keys, l:current_type) - 1
+     if l:next_index > l:max_index
+       return l:coc_keys[0] . ' ' . g:coc_common_lists[l:coc_keys[0]]['args']
+     else
+       return l:coc_keys[l:next_index] . ' ' . g:coc_common_lists[l:coc_keys[l:next_index]]['args']
+     endif
+   elseif a:completion_type == 'prev'
+     let l:prev_index = index(l:coc_keys, l:current_type) - 1
 
-    if l:prev_index < 0
-      return l:coc_keys[0] . ' ' . g:coc_common_lists[l:coc_keys[0]]['args']
-    else
-      return l:coc_keys[l:prev_index] . ' ' . g:coc_common_lists[l:coc_keys[l:prev_index]]['args']
-    endif
-  else
-    return a:completion_type . ' ' . g:coc_common_lists[a:completion_type]['args']
-  end
-endfunction
+     if l:prev_index < 0
+       return l:coc_keys[0] . ' ' . g:coc_common_lists[l:coc_keys[0]]['args']
+     else
+       return l:coc_keys[l:prev_index] . ' ' . g:coc_common_lists[l:coc_keys[l:prev_index]]['args']
+     endif
+   else
+     return a:completion_type . ' ' . g:coc_common_lists[a:completion_type]['args']
+   end
+ endfunction
 
-function! CocNextList(coc_context)
-  call coc#util#close(win_getid(winnr()))
-  execute win_id2win(a:coc_context['winid'])."wincmd w"
-  execute('CocList '.s:coc_get_list('next', a:coc_context['name']))
-endfunction
+ function! CocNextList(coc_context)
+   call nvim_win_close(win_getid(winnr()), 1)
+   execute win_id2win(a:coc_context['winid'])."wincmd w"
+   execute('CocList '.s:coc_get_list('next', a:coc_context['name']))
+ endfunction
 
-function! CocPrevList(coc_context)
-  call coc#util#close(win_getid(winnr()))
-  execute win_id2win(a:coc_context['winid'])."wincmd w"
-  execute('CocList '.s:coc_get_list('prev', a:coc_context['name']))
-endfunction
+ function! CocPrevList(coc_context)
+   call nvim_win_close(win_getid(winnr()), 1)
+   execute win_id2win(a:coc_context['winid'])."wincmd w"
+   execute('CocList '.s:coc_get_list('prev', a:coc_context['name']))
+ endfunction
 
-function! s:coc_list(completion_type)
-  execute('CocList '.s:coc_get_list(a:completion_type))
-endfunction
+ function! s:coc_list(completion_type)
+   execute('CocList '.s:coc_get_list(a:completion_type))
+ endfunction
+
 "}}}
 
 "{{{ Log Functions

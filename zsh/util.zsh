@@ -31,3 +31,12 @@ load_avg() {
   echo $LA
 }
 
+cimebro() {
+  docker-compose -f test-compose.yml down
+  docker-compose -f test-compose.yml run $1
+  docker-compose -f test-compose.yml down
+}
+
+current() {
+  curl http://${1}-containerinfovip.${1}-uswest2.aws/api/v1/byService?env=${1}\&filter=${2} | jq '.'
+}

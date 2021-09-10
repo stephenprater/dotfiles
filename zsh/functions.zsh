@@ -79,13 +79,23 @@ docker-crun() {
   ${docker_cmd} run ${container_name} bash -c -l "$*"
 }
 
-fan_npm_install() {
-  local name=$(basename "`pwd`")
-  ssh fandango-laptop cd src/fandango/$name && npm install
-  if read -q '?Did that work? (y/n)'; then
-    rsync -av fandango-laptop:src/fandango/$name/node_modules ./node_modules
-    scp fandango-laptop:src/fandango/$name/package-lock.json package-lock.json
-  else
-    echo "Okay stopping"
+vpn() {
+  if [[ -z $OP_SESSION_team_8thlight ]]; then
+    eval $(op signin team_8thlight)
   fi
+
+  passwd=$(op get item "Samaritan AD")
+
+  if [[ $? != 0 ]]; then
+    eval $(op signin team_8thlight)
+  fi
+
+  justpass=$(echo $passwd | jq '.details.fields[] | select(.designation=="password").value')
+  echo $justpass | sudo openconnect --protocol=gp https://vpnpia.smchcn.net --servercert pin-sha256:FFStQYmSSlDemefxr/momtuF+OqQhv54SR0zZGIdz2Q= --user=sprater --passwd-on-stdin
+  trap 'reset_routes' EXIT
+}
+
+reset_routes() {
+  repeat 3 sudo route -n flush
+  sudo route add default 10.0.1.1
 }
