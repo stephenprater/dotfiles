@@ -1,5 +1,9 @@
-/Users/stephenprater/src/cars/cars_platform/apps/engine/lib/engine/brightcove/brightcove_video.ex
+/Users/stephenprater/.dotfiles/config/nvim/lua/plugins.lua
+/Users/stephenprater/.dotfiles/config/nvim/init.vim
+/Users/stephenprater/.config/nvim/init.vim
 /Users/stephenprater/src/cars/cars_platform/apps/engine/test/engine/brightcove/brightcove_video_test.exs
+/Users/stephenprater/.dotfiles/zsh/zshrc.symlink
+/Users/stephenprater/src/cars/cars_platform/apps/engine/lib/engine/brightcove/brightcove_video.ex
 /Users/stephenprater/src/cars/cars_platform/apps/engine/lib/engine/utils/external/wp-api/article.ex
 /Users/stephenprater/src/cars/cars_platform/apps/engine/lib/engine/editorial/article/behaviour.ex
 /Users/stephenprater/src/cars/cars_platform/apps/authentication/lib/authentication/social_login/apple/behaviour.ex
@@ -13,7 +17,6 @@
 /Users/stephenprater/src/cars/cars_platform/apps/cars_web/lib/cars_web/views/article_view.ex
 /Users/stephenprater/src/cars/cars_platform/apps/email/lib/email/emails/finance_audit_csvsender.ex
 /Users/stephenprater/src/cars/cars_platform/infrastructure/terraform/modules/cars_platform-security/vars.tf
-/Users/stephenprater/.dotfiles/config/nvim/init.vim
 /Users/stephenprater/src/cars/cars_platform/apps/cars_web/test/cars_web/views/mmy_research_module_test.exs
 /Users/stephenprater/src/cars/cars_platform/apps/cars_web/test/cars_web/views/html_schema/news_article_test.exs
 /Users/stephenprater/src/cars/cars_platform/apps/cars_web/lib/cars_web/views/html_schema/news_article.ex
@@ -40,7 +43,6 @@
 /Users/stephenprater/src/cars/cars_platform/apps/manifold/lib/manifold/sitemap/research_sitemap.ex
 /Users/stephenprater/src/cars/cars_platform/apps/manifold/test/manifold/sitemap/research_sitemap_test.exs
 /Users/stephenprater/src/cars/cars_platform/apps/engine/test/engine/vmd/vmd_test.exs
-/Users/stephenprater/.config/nvim/init.vim
 /Users/stephenprater/src/cars/cars_platform/apps/engine/lib/engine/vmd/body_style.ex
 /Users/stephenprater/src/cars/cars_platform/apps/cars_api/lib/cars_api/graphql/resolvers/vmd.ex
 /Users/stephenprater/src/8thlight/sr_principal_screen/temitope_ayoku/emmannuelle_patricio/prob3/specialties.js
@@ -1114,7 +1116,6 @@
 /Users/stephenprater/src/cars/cars_platform/apps/cars_api/lib/cars_api/controllers/alpha_request_replay_controller.ex
 /Users/stephenprater/.dotfiles/zsh/completion.zsh
 /Users/stephenprater/src/cars/cars_platform/apps/peoplesoft/test/peoplesoft_test.exs
-/Users/stephenprater/.dotfiles/zsh/zshrc.symlink
 /usr/local/lib/asdf.sh
 /Users/stephenprater/.dotfiles/zsh/fpath.zsh
 /Users/stephenprater/.dotfiles/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

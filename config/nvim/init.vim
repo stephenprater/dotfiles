@@ -1,207 +1,9 @@
 syntax on
 filetype plugin indent on
 
-set shell=bash
+set shell=/usr/local/bin/zsh
 set hidden
 set updatetime=300
-
-"{{{ PLUGINS
-
-"let &runtimepath.=",/Users/stephenprater/src/8thlight/coc.nvim/"
-
-let g:vimspector_enable_mappings = 'HUMAN'
-
-call plug#begin('~/.vimbundles')
-
-
-"Finding Shit
-Plug 'jremmen/vim-ripgrep'
-Plug 'kyazdani42/nvim-web-devicons'
-Plug 'kyazdani42/nvim-tree.lua'
-Plug 'tpope/vim-projectionist'
-Plug 'duff/vim-bufonly'
-Plug 'tpope/vim-bundler'
-Plug 'justinmk/vim-dirvish'
-Plug 'justinmk/vim-sneak'
-Plug 'ludovicchabant/vim-gutentags'
-" Plug 'nvim-lua/popup.nvim'
-" Plug 'nvim-lua/plenary.nvim'
-" Plug 'nvim-telescope/telescope.nvim'
-
-" Language Server
-
-" Plug 'neovim/nvim-lspconfig'
-" Plug 'kabouzeid/nvim-lspinstall'
-" Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-" Plug 'hrsh7th/nvim-compe'
-
-Plug 'junegunn/fzf', {'dir': '~/.fzf','do': './install --all'}
-Plug 'junegunn/fzf.vim' " needed for previews
-Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
-Plug 'antoinemadec/coc-fzf'
-" * coc-yank	1.1.8	~/.dotfiles/config/coc/extensions/node_modules/coc-yank
-" * coc-eslint	1.3.2	~/.dotfiles/config/coc/extensions/node_modules/coc-eslint
-" * coc-ultisnips	1.2.3	~/.dotfiles/config/coc/extensions/node_modules/coc-ultisnips
-" * coc-lists	1.3.10	~/.dotfiles/config/coc/extensions/node_modules/coc-lists
-" * coc-prettier	1.1.20	~/.dotfiles/config/coc/extensions/node_modules/coc-prettier
-" * coc-rls	1.1.6	~/.dotfiles/config/coc/extensions/node_modules/coc-rls
-" * coc-marketplace	1.8.0	~/.dotfiles/config/coc/extensions/node_modules/coc-marketplace
-" + coc-json	1.2.6	~/.dotfiles/config/coc/extensions/node_modules/coc-json
-" + coc-tsserver	1.4.13	~/.dotfiles/config/coc/extensions/node_modules/coc-tsserver
-" + coc-java	1.5.3	~/.dotfiles/config/coc/extensions/node_modules/coc-java
-" + coc-elixir	0.6.1	~/.dotfiles/config/coc/extensions/node_modules/coc-elixir
-" + coc-python	1.2.13	~/.dotfiles/config/coc/extensions/node_modules/coc-python
-" + coc-omnisharp	0.0.28	~/.dotfiles/config/coc/extensions/node_modules/coc-omnisharp
-
-" I write your plugins
-" Plug 'h1mesuke/vim-unittest'
-" Plug 'alexgenco/neovim-ruby'
-
-"Clojure
-" Plug 'guns/vim-clojure-static'
-" Plug 'tpope/vim-leiningen'
-" Plug 'tpope/vim-fireplace'
-" Plug 'tpope/vim-sexp-mappings-for-regular-people'
-" Plug 'guns/vim-sexp'
-" Plug 'vim-scripts/paredit.vim'
-"
-" Typescript
-" Plug 'Quramy/tsuquyomi'
-" Plug 'leafgarland/typescript-vim'
-" Plug 'Shougo/vimproc.vim', {'do' : 'make'}
-"
-
-" DOTNET
-" Plug 'OmniSharp/omnisharp-vim'
-
-" RUST
-" Plug 'cespare/vim-toml'
-
-""Frontend
-" Plug 'tpope/vim-haml'
-" Plug 'mxw/vim-jsx'
-" Plug 'moll/vim-node'
-" Plug 'Galooshi/vim-import-js'
-" Plug 'leafgarland/typescript-vim'
-" Plug 'kchmck/vim-coffee-script'
-" Plug 'briancollins/vim-jst'
-"
-Plug 'pangloss/vim-javascript'
-Plug 'mattn/emmet-vim'
-Plug 'mvolkmann/vim-js-arrow-function'
-
-"Markdown / Diary
-Plug 'rhysd/vim-gfm-syntax'
-Plug 'nelstrom/vim-markdown-folding'
-Plug 'SidOfc/mkdx'
-Plug 'dkarter/bullets.vim'
-
-"Elixir
-Plug 'elixir-editors/vim-elixir'
-Plug 'andyl/vim-textobj-elixir'
-
-"Ruby
-Plug 'tpope/vim-rails'
-Plug 'tpope/vim-rake'
-Plug 'vim-ruby/vim-ruby'
-Plug 'nelstrom/vim-textobj-rubyblock'
-" Plug 'joker1007/vim-ruby-heredoc-syntax'
-
-"Java
-" Plug 'tpope/vim-classpath'
-" Plug 'timjstewart/spring.vim'
-
-"Python
-" Plug 'Shougo/echodoc'
-" Plug 'ambv/black'
-" Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
-" Plug 'bps/vim-textobj-python'
-
-"Go
-" Plug 'fatih/vim-go'
-" Plug 'sebdah/vim-delve'
-"
-"Hashicorp
-" Plug 'hashivim/vim-terraform'
-" Plug 'hashivim/vim-consul'
-" Plug 'hashivim/vim-nomadproject'
-" Plug 'hashivim/vim-packer'
-" Plug 'hashivim/vim-vaultproject'
-" Plug 'hashivim/vim-vagrant'
-
-"JQ
-Plug 'vito-c/jq.vim'
-
-"Introspection
-Plug 'majutsushi/tagbar'
-Plug 'jgdavey/vim-blockle'
-Plug 'kana/vim-textobj-user'
-Plug 'tpope/vim-endwise'
-Plug 'adelarsq/vim-matchit'
-Plug 'jiangmiao/auto-pairs'
-
-"Shortcuts
-Plug 'machakann/vim-swap'
-Plug 'godlygeek/tabular'
-Plug 'tpope/vim-abolish'
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-speeddating'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-unimpaired'
-Plug 'dhruvasagar/vim-table-mode'
-
-"UI & Managment
-"Plug 'Floobits/floobits-neovim'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-git'
-Plug 'terryma/vim-multiple-cursors'
-Plug 'henrik/vim-qargs'
-Plug 'tpope/vim-ragtag'
-Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-sleuth'
-Plug 'tpope/vim-rsi'
-Plug 'simnalamburt/vim-mundo'
-Plug 'jeetsukumaran/vim-markology'
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
-Plug 'vim-scripts/utl.vim'
-Plug 'mattn/calendar-vim'
-Plug 'kana/vim-textobj-syntax'
-Plug 'whiteinge/diffconflicts'
-Plug 'tommcdo/vim-ninja-feet'
-Plug 'tommcdo/vim-exchange'
-Plug 'norcalli/nvim-colorizer.lua'
-
-"REPL
-Plug 'Vigemus/iron.nvim'
-Plug 'mfussenegger/nvim-dap'
-
-"TMUX
-Plug 'christoomey/vim-tmux-navigator'
-Plug 'jgdavey/tslime.vim'
-Plug 'tpope/vim-tbone'
-Plug 'janko-m/vim-test'
-Plug 'tpope/vim-dispatch'
-Plug 'roxma/vim-tmux-clipboard'
-
-"Colorschemes
-"Plug 'morhetz/gruvbox'
-Plug 'arcticicestudio/nord-vim'
-Plug 'chrisbra/Colorizer'
-"Plug 'luochen1990/rainbow'
-"Plug 'altercation/vim-colors-solarized'
-"Plug 'chriskempson/tomorrow-theme', { 'rtp': 'vim' }
-"Plug 'noah/vim256-color'
-"Plug 'xolox/vim-misc'
-"Plug 'xolox/vim-colorscheme-switcher'
-
-call plug#end()
-
-"}}}
-"
-"{{{ SET INTERNALS
 runtime macros/matchit.vim
 
 syntax on
@@ -226,7 +28,20 @@ set verbosefile=~/verbose.log
 set inccommand=nosplit
 set termguicolors
 
-set completeopt=menuone,noselect
+set completeopt=menu,menuone,noselect
+
+hi Italic cterm=italic gui=italic
+
+"{{{ PLUGINS
+
+"let &runtimepath.=",/Users/stephenprater/src/8thlight/coc.nvim/"
+
+let g:vimspector_enable_mappings = 'HUMAN'
+
+luafile ~/.config/nvim/lua/plugins.lua
+luafile ~/.config/nvim/lua/settings.lua
+
+"{{{ SET INTERNALS
 
 " let &rtp.=",/Users/stephenprater/.vimbundles/neovim-ruby/"
 
@@ -235,33 +50,21 @@ colorscheme detailed_base
 colorscheme detailed_ruby
 colorscheme detailed_js
 
-"set background=dark
-"colorscheme solarized
-
-let g:python3_host_prog = '/Users/stephenprater/.asdf/installs/python/3.8.1/bin/python'
-
-hi Italic cterm=italic gui=italic
-
+highlight Pmenu guifg=#D8DEE9 guibg=#333333
 "}}}
 
 "{{{ CONFIGURE PLUGINS
-let g:rainbow_active = 1
+"
 
-let g:rainbow_conf = {
-\  'ctermfgs': [ 'brown', 'darkblue', 'darkgray', 'darkgreen', 'darkcyan', 'yellow', 'darkmagenta',
-\              'brown', 'gray', 'black', 'darkmagenta', 'darkblue', 'darkgreen', 'darkcyan', 'darkgray'],
-\  'guifgs': [ 'RoyalBlue3', 'SeaGreen3', 'DarkOrchid3', 'firebrick3', 'RoyalBlue3', 'SeaGreen3',
-\               'DarkOrchid3', 'firebrick3', 'RoyalBlue3', 'SeaGreen3', 'DarkOrchid3', 'firebrick3',
-\               'RoyalBlue3', 'SeaGreen3', 'DarkOrchid3', 'firebrick3'],
-\  'operators': '_,_',
-\  'parentheses': ['start=/(/ end=/)/ fold', 'start=/\[/ end=/\]/ fold', 'start=/{/ end=/}/ fold']
-\ }
+let g:bullets_enabled_file_types = [ 'markdown' ]
 
 let g:user_emmet_install_global = 0
 
 let g:mundo_right = 1
 
 let g:markology_enable = 0
+
+let g:python3_host_prog = '/Users/stephenprater/.asdf/installs/python/3.8.1/bin/python'
 
 function! NoClearSlime(cmd) abort
   call Send_to_Tmux(a:cmd . "\n")
@@ -306,15 +109,13 @@ let g:coffee_compiler = "./node_modules/.bin/coffee"
 let g:coffee_linter = "./node_modules/./bin/coffeelint"
 
 
-let g:coc_common_lists = {
-      \ 'files': {'args': '', 'name': 'Files'},
-      \ 'buffers': { 'args': '',  'name': 'Buffers'},
-      \ 'grep': { 'args': '', 'name': 'Search'},
-      \ 'tags': { 'args': '', 'name': 'Tags'},
-      \ 'mru': { 'args': '-A', 'name': 'History' },
-      \ 'lists': { 'args': '', 'name': 'Lists' },
-      \ 'helptags': { 'args': '', 'name': 'Helptags' }
-      \}
+let g:fzf_common_lists = [
+      \ ['files', {'args': '', 'name': 'Files'}],
+      \ ['buffers', { 'args': '',  'name': 'Buffers'}],
+      \ ['history-files', { 'args': '-A', 'name': 'History' }],
+      \ ['rg', { 'args': '', 'name': 'Grep'}],
+      \ ['tags', { 'args': '', 'name': 'Tags'}],
+      \]
 
 call textobj#user#plugin('coderegion', {
       \ 'code': {
@@ -329,42 +130,40 @@ let g:codefence_eval = {
       \ 'mmdc': ['mmdc', '-i', '<infile>', '-o', '<outfile>'],
       \}
 
-let g:compe = {
-      \'enabled': v:true,
-      \'autocomplete': v:true,
-      \'documentation': v:true,
-      \'source':  {
-        \'path': v:true,
-        \'buffer': v:true,
-        \'calc': v:true,
-        \'nvim_lsp': v:true,
-        \'nvim_lua': v:true,
-        \'ultisnips': v:true,
-        \'emoji': v:true
-      \}}
-
-
-function! CocPrettyListName(name)
-  if has_key(g:coc_common_lists, a:name)
-    return g:coc_common_lists[a:name]['name']
-  else
-    return a:name
-  endif
+function! FzfNextList()
+  let l:buf = nvim_get_current_buf()
+  let l:name = nvim_buf_get_var(l:buf, "fzf")["name"]
+  execute ":q"
+  execute "sleep 100m"
+  for l:list_idx in range(len(g:fzf_common_lists))
+    if g:fzf_common_lists[l:list_idx][0] == l:name
+      if l:list_idx - 1 > len(g:fzf_common_lists)
+        execute g:fzf_common_lists[0][1]["name"]
+      else
+        execute g:fzf_common_lists[l:list_idx + 1][1]["name"]
+      endif
+    endif
+  endfor
 endfunction
 
-function! CocStatusLine(...)
-  if &filetype == "list"
-    let w:airline_section_a = '%{CocPrettyListName(get(b:list_status, "name"))}'
-    let w:airline_section_b = '%{get(g:, "coc_list_loading_status", "")}'
-    let w:airline_section_c = '(%L/%{get(b:list_status, "total", "")})'
-    let w:airline_section_x = '%{get(b:list_status, "cwd", "")} %l/%L%*'
-  endif
+function! FzfPrevList()
+  let l:buf = nvim_get_current_buf()
+  let l:name = nvim_buf_get_var(l:buf, "fzf")["name"]
+  execute ":q"
+  execute "sleep 100m"
+  for l:list_idx in range(len(g:fzf_common_lists))
+    if g:fzf_common_lists[l:list_idx][0] == l:name
+      if l:list_idx < 0
+        execute g:fzf_common_lists[0][1]["name"]
+      else
+        execute g:fzf_common_lists[l:list_idx - 1][1]["name"]
+      endif
+    endif
+  endfor
 endfunction
-call airline#remove_statusline_func('CocStatusLine')
-call airline#add_statusline_func('CocStatusLine')
 
-hi! default link CocCodeLens SpecialComment
-hi! CocFloating guibg='#1B2126'
+let g:fzf_lsp_timeout = 1000
+let g:fzf_layout = { 'down': '30%' }
 
 let g:ruby_heredoc_syntax_filetypes = {
         \ "jq" : {
@@ -433,8 +232,6 @@ let g:gutentags_file_list_command = {
 let g:OmniSharp_server_stdio = 1
 
 
-luafile $HOME/.config/nvim/plugins.lua
-
 "}}}
 
 "{{{ Autocommands
@@ -453,9 +250,6 @@ autocmd FileType ruby let b:surround_114 = "do \r end"
 
 autocmd FileType python let b:docker_prefix='docker-compose run --service-ports web'
 autocmd FileType python setlocal completeopt-=preview
-autocmd FileType python call SemshiCustom()
-autocmd BufWritePre *.py Black
-autocmd BufWritePost *.py Semshi enable
 
 autocmd BufWritePre *.yml silent! %s#\($\n\s*\)\+\%$##
 
@@ -464,15 +258,35 @@ autocmd BufNewFile,BufRead *.hcl set filetype=terraform
 autocmd FileType json syntax match Comment +\/\/.\+$+
 
 autocmd BufRead */log.md call s:EnableLogCommands()
+autocmd BufRead */log.md lua require('cmp').setup.buffer { enabled = false }
 
 autocmd FileType elixir let b:match_words='do:end,{:},(:),":"'
 
-autocmd BufWritePre elixir call CocAction('format')
-autocmd BufWritePre ruby call CocAction('format')
-autocmd BufWritePre python call CocAction('format')
-autocmd BufWritePre javascript call CocAction('format')
+autocmd BufWritePre elixir lua vim.lsp.buf.formatting()
+autocmd BufWritePre ruby lua vim.lsp.buf.formatting()
+autocmd BufWritePre python lua vim.lsp.buf.formatting()
+autocmd BufWritePre javascript lua vim.lsp.buf.formatting()
 
 autocmd FileType javascript nmap <leader>b :call JsArrowFnBraceToggle()<CR>
+
+autocmd FileType elixir TSBufEnable highlight
+autocmd FileType elixir TSBufEnable rainbow
+autocmd FileType elixir TSBufEnable incremental_selection
+autocmd FileType elixir TSBufEnable lsp_interop
+autocmd FileType elixir TSBufEnable move
+autocmd FileType elixir TSBufEnable select
+autocmd FileType elixir TSBufEnable indent
+autocmd FileType elixir TSBufEnable matchup
+
+autocmd FileType python TSBufEnable highlight
+autocmd FileType python TSBufEnable rainbow
+autocmd FileType python TSBufEnable incremental_selection
+autocmd FileType python TSBufEnable lsp_interop
+autocmd FileType python TSBufEnable move
+autocmd FileType python TSBufEnable select
+autocmd FileType python TSBufEnable indent
+autocmd FileType python TSBufEnable matchup
+
 
 "}}}
 
@@ -492,6 +306,9 @@ command! -bang -nargs=* Search call fzf#vim#ag(<q-args>, <bang>0)
 " autocloses the window when the process ends
 
 command! Tig vsplit | startinsert | terminal tig
+
+
+command! TSReset write | edit | TSBufEnable highlight
 "}}}
 
 "{{{ Maps
@@ -503,13 +320,7 @@ nmap <silent> <D-CR> :Utl<CR>
 nmap <silent> ,yr :CocList yank<CR>
 nmap <silent> ,tb :TagbarToggle<CR>
 nmap <silent> ,gu :MundoToggle<CR>
-nmap <silent> ,bs :Telescope buffers<CR>
-
-inoremap <silent><expr> <C-n> compe#complete()
-inoremap <silent><expr> <C-y>      compe#confirm('<CR>')
-inoremap <silent><expr> <C-e>     compe#close('<C-e>')
-inoremap <silent><expr> <C-n>     compe#scroll({ 'delta': +4 })
-inoremap <silent><expr> <C-p>     compe#scroll({ 'delta': -4 })
+nmap <silent> ,bs :Buffers<CR>
 
 " nmap <C-x> :bd %<CR>
 
@@ -544,7 +355,12 @@ noremap ]p :bp<CR>
 noremap ]} :tabnext<CR>
 noremap ]{ :tabprev<CR>
 
-tnoremap <Esc> <C-\><C-n>
+au TermOpen * tnoremap <Esc> <C-\><C-n>
+au FileType fzf tunmap <Esc>
+au FileType fzf tnoremap <buffer> <C-p> <C-\><C-n>:call FzfNextList()<CR>
+au FileType fzf tnoremap <buffer> <C-n> <C-\><C-n>:call FzfPrevList()<CR>
+
+nmap <C-p> :Files<CR>
 
 imap jj <ESC>
 
@@ -558,7 +374,6 @@ map <silent> ,tp :tp<CR>
 
 nmap ,sp :call HighlightGroup()<cr>
 nmap ,ss :call SynStack()<cr>
-nmap dsar :silent call DeleteSurroundingBlock()<CR>
 
 noremap ,ts :TmuxSend <C-r><C-w>
 noremap <leader>p :call Send_to_Tmux('pry ' . expand('<cword>') . '')
@@ -578,16 +393,13 @@ nnoremap <M-l> <C-\><C-n><C-w>l
 nmap <leader>lh :lua vim.lsp.buf.hover()<CR>
 nmap <leader>ld :lua vim.lsp.buf.definition()<CR>
 nmap <leader>lr :lua vim.lsp.buf.rename()<CR>
+nmap <leader>l? :lua vim.lsp.buf.signature_help()<CR>
+nmap <leader>l] :References<CR>
+nmap <leader>la :CodeActions<CR>
+nmap <leader>lx :lua vim.lsp.diagnostic.show_line_diagnostics({focusable=false})<CR>
+
 nmap <leader>ls :lua vim.lsp.buf.document_symbol()<CR>
-nmap <leader>l] :lua vim.lsp.buf.references()
-nmap <leader>la :lua vim.lsp.buf.code_action()
 
-xmap if <Plug>(coc-funcobj-i)
-xmap af <Plug>(coc-funcobj-a)
-omap if <Plug>(coc-funcobj-i)
-omap af <Plug>(coc-funcobj-a)
-
-nmap <C-p> :CocList files<CR>
 
 nmap <leader>m :MarkologyToggle<CR>
 
@@ -600,7 +412,6 @@ map Q :qa
 
 "}}}
 
-"{{{ Abbreviations
 au FileType ruby ab edn end
 au FileType ruby ab bpry require 'pry'; binding.pry
 au FileType python ab bpry breakpoint()
@@ -609,6 +420,7 @@ au FileType python ab pdb import pdb; pdb.set_trace()
 au FileType elixir ab edn end
 au FileType elixir ab bpry require IEx; IEx.pry
 
+"{{{ Abbreviations
 ab recieve receive
 ab schema$ "$schema": "http://json-schema.org/draft-06/schema#",
 "}}}
@@ -633,32 +445,6 @@ function! ReplaceMotion(type)
   let @@ = reg_save
 endfunction
 
-
-function! DeleteSurroundingBlock()
-  let l:old_pos = getpos('.')
-  let s:comment_escape = '\v^[^#]*'
-  let s:block_openers = '\zs(<def>|<if>|<do>|<module>|<class>)'
-  let s:start_pattern = s:comment_escape . s:block_openers
-  let s:end_pattern = s:comment_escape . '\zs<end>'
-  let s:skip_pattern = 'getline(".") =~ "\\v\\S\\s<(if|unless)>\\s\\S"'
-
-  let s:flags = 'W'
-
-  call searchpair(s:start_pattern,'',s:end_pattern, s:flags, s:skip_pattern)
-  let end_pos = line('.')
-
-  " Jump to match
-  normal %
-  let start_pos = line('.')
-
-  execute 'silent ' . end_pos . 'd'
-  execute 'silent ' . start_pos . 'd'
-  normal =ir
-
-  call setpos('.', l:old_pos)
-endfunction
-
-"}}}
 
 "{{{ Ag
 function! s:RgVis()
@@ -702,48 +488,6 @@ function! CopyMatches() range
   silent execute 'u'
 endfunction
 
-" Append modeline after last line in buffer.
-" Use substitute() instead of printf() to handle '%%s' modeline in LaTeX
-" files.
-function! AppendModeline()
-  let l:modeline = printf(" vim: set ts=%d sw=%d tw=%d %set :",
-        \ &tabstop, &shiftwidth, &textwidth, &expandtab ? '' : 'no')
-  let l:modeline = substitute(&commentstring, "%s", l:modeline, "")
-  call append(line("$"), l:modeline)
-endfunction
-
-function! s:_find_buffers_with_var(varname, expr)
-    let l:results = []
-    for l:bni in range(1, bufnr("$"))
-        if !bufexists(l:bni)
-            continue
-        endif
-        let l:bvar = getbufvar(l:bni, "")
-        if empty(a:varname)
-            call add(l:results, l:bni)
-        elseif has_key(l:bvar, a:varname) && empty(a:expr)
-            call add(l:results, l:bni)
-        elseif has_key(l:bvar, a:varname) && l:bvar[a:varname] =~ a:expr
-            call add(l:results, l:bni)
-        endif
-    endfor
-    return l:results
-endfunction
-
-
-function! s:_find_buffers_with_type(type)
-    let l:results = []
-    for l:bni in range(1, bufnr("$"))
-        if !bufexists(l:bni)
-            continue
-        endif
-        let l:bvar = getbufvar(l:bni, "&filetype")
-        if l:bvar =~ a:type
-            call add(l:results, l:bni)
-        endif
-    endfor
-    return l:results
-endfunction
 "}}}
 
 "{{{ Enable Migration Commands
@@ -762,50 +506,39 @@ function! s:Migrate(direction, migration)
   exe 'Dispatch bundle exec rake db:migrate:'. a:direction
 endfunction
 "}}}
+"
+function! s:fzf_miniyank(put_before, fullscreen) abort
+    function! Sink(opt, line) abort
+        let l:key = substitute(a:line, ' .*', '', '')
+        if empty(a:line) | return | endif
+        let l:yanks = miniyank#read()[l:key]
+        call miniyank#drop(l:yanks, a:opt)
+    endfunction
 
-"{{{ CocList "next type" naviation
- function! s:coc_get_list(completion_type, ...)
-   let l:coc_keys = keys(g:coc_common_lists)
-   let l:max_index = len(l:coc_keys) - 1
-   let l:current_type = get(a:,1, "")
-   if a:completion_type == 'next'
-     let l:next_index = index(l:coc_keys, l:current_type) + 1
+    let l:put_action = a:put_before ? 'P' : 'p'
+    let l:name = a:put_before ? 'YanksBefore' : 'YanksAfter'
+    let l:spec = {}
+    let l:spec['source'] = map(miniyank#read(), {k,v -> k.' '.join(v[0], '\n')})
+    let l:spec['sink'] = {val -> Sink(l:put_action, val)}
+    let l:spec['options'] = '--no-sort --prompt="Yanks-'.l:put_action.'> "'
+    call fzf#run(fzf#wrap(l:name, l:spec, a:fullscreen))
+endfunction
 
-     if l:next_index > l:max_index
-       return l:coc_keys[0] . ' ' . g:coc_common_lists[l:coc_keys[0]]['args']
-     else
-       return l:coc_keys[l:next_index] . ' ' . g:coc_common_lists[l:coc_keys[l:next_index]]['args']
-     endif
-   elseif a:completion_type == 'prev'
-     let l:prev_index = index(l:coc_keys, l:current_type) - 1
+function! s:fzf_symbols(put_before, fullscreen) abort
+    function! Sink(opt, line) abort
+        let l:key = substitute(a:line, ' .*', '', '')
+        if empty(a:line) | return | endif
+        let l:yanks = luaeval("vim.lsp.buf.document_symbol()")
+        call miniyank#drop(l:yanks, a:opt)
+    endfunction
 
-     if l:prev_index < 0
-       return l:coc_keys[0] . ' ' . g:coc_common_lists[l:coc_keys[0]]['args']
-     else
-       return l:coc_keys[l:prev_index] . ' ' . g:coc_common_lists[l:coc_keys[l:prev_index]]['args']
-     endif
-   else
-     return a:completion_type . ' ' . g:coc_common_lists[a:completion_type]['args']
-   end
- endfunction
+endfunction
 
- function! CocNextList(coc_context)
-   call nvim_win_close(win_getid(winnr()), 1)
-   execute win_id2win(a:coc_context['winid'])."wincmd w"
-   execute('CocList '.s:coc_get_list('next', a:coc_context['name']))
- endfunction
+command! -bang YanksBefore call s:fzf_miniyank(1, <bang>0)
+command! -bang YanksAfter call s:fzf_miniyank(0, <bang>0)
 
- function! CocPrevList(coc_context)
-   call nvim_win_close(win_getid(winnr()), 1)
-   execute win_id2win(a:coc_context['winid'])."wincmd w"
-   execute('CocList '.s:coc_get_list('prev', a:coc_context['name']))
- endfunction
-
- function! s:coc_list(completion_type)
-   execute('CocList '.s:coc_get_list(a:completion_type))
- endfunction
-
-"}}}
+nmap ,yr :YanksAfter<CR>
+nmap ,yr :YanksBefore<CR>
 
 "{{{ Log Functions
 "
@@ -896,12 +629,5 @@ function! SynStack()
   endif
   echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
 endfunc
-
-function! SemshiCustom()
-  hi clear semshiSelected
-  hi semshiSelected guifg='#CF7B43'
-endfunction
 "}}}
 
-
-" vim: set ts=2 sw=2 tw=78 et fdm=marker:

@@ -23,6 +23,7 @@ hi! Float     guifg='#C99147'
 "" Labels and Variables / Deep Sea
 hi! Identifier guifg='#469870'
 hi! Function   guifg='#75B47A'
+hi! TSSymbol  guifg='#20806A'
 "
 "" Control Flow / Clear Water
 hi! Statement     guifg='#046CA5'

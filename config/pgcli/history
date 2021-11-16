@@ -5487,3 +5487,2169 @@
 
 # 2021-09-09 14:25:21.630703
 +\q
+
+# 2021-09-13 09:22:19.601250
++\d videos
+
+# 2021-09-13 09:22:24.561858
++use engine_dev
+
+# 2021-09-13 09:22:26.957949
++\d videos
+
+# 2021-09-13 09:22:39.062642
++\d brightcove_video
+
+# 2021-09-14 10:10:26.158961
++use engine_dev
+
+# 2021-09-14 10:10:28.509402
++select * from brightcove_video;
+
+# 2021-09-14 10:10:34.280156
++\q
+
+# 2021-09-15 10:33:53.478885
++use engine_dev
+
+# 2021-09-15 10:37:45.476387
++select * from brightcove_video;
+
+# 2021-09-15 12:27:54.089076
++insert into brightcove_video (6174494827001,1578086878,HyOJ1bP6,221346,2021 Nissan Rogue: First Impressions — Cars.com,19732,https://cf-images.us-east-1.prod.boltdns.net/v1/static/1578086878/35e99435-3d83-408f-b1af-80c225c3c581/dce345b9-8d8e-48de-a0ca-bfb196274c69/1920x1080/match/image.jpg,2020-07-23T21:18:56.944Z,"{2021,2021 nissan rogue,3play_processed,asian,cars,mh,nissan,review,rogue,suv}",069ae15a-0fd7-48be-a323-c3db8347fd8c)
+
+# 2021-09-15 12:28:40.818333
++insert into brightcove_video ("6174494827001","1578086878","HyOJ1bP6",221346,"2021 Nissan Rogue: First Impressions — Cars.com",19732,"https://cf-images.us-east-1.prod.boltdns.net/v1/static/1578086878/35e99435-3d83-408f-b1af-80c225c3c581/dce345b9-8d8e-48de-a0ca-bfb196274c69/1920x1080/match/image.jpg,2020-07-23T21:18:56.944Z",{2021,2021 nissan rogue,3play_processed,asian,cars,mh,nissan,review,rogue,suv})
+
+# 2021-09-15 12:28:50.133993
++\d brightcove_video
+
+# 2021-09-15 12:29:55.790090
++insert into brightcove_video ('6174494827001','1578086878','HyOJ1bP6',221346,'2021 Nissan Rogue: First Impressions — Cars.com',19732,'https://cf-images.us-east-1.prod.boltdns.net/v1/static/1578086878/35e99435-3d83-408f-b1af-80c225c3c581/dce345b9-8d8e-48de-a0ca-bfb196274c69/1920x1080/match/image.jpg,2020-07-23T21:18:56.944Z',{2021,2021 nissan rogue,3play_processed,asian,cars,mh,nissan,review,rogue,suv})
+
+# 2021-09-15 12:30:08.029041
++insert into brightcove_video values ('6174494827001','1578086878','HyOJ1bP6',221346,'2021 Nissan Rogue: First Impressions — Cars.com',19732,'https://cf-images.us-east-1.prod.boltdns.net/v1/static/1578086878/35e99435-3d83-408f-b1af-80c225c3c581/dce345b9-8d8e-48de-a0ca-bfb196274c69/1920x1080/match/image.jpg,2020-07-23T21:18:56.944Z',{2021,2021 nissan rogue,3play_processed,asian,cars,mh,nissan,review,rogue,suv})
+
+# 2021-09-15 12:30:41.566908
++insert into brightcove_video values ('6174494827001','1578086878','HyOJ1bP6',221346,'2021 Nissan Rogue: First Impressions — Cars.com',19732,'https://cf-images.us-east-1.prod.boltdns.net/v1/static/1578086878/35e99435-3d83-408f-b1af-80c225c3c581/dce345b9-8d8e-48de-a0ca-bfb196274c69/1920x1080/match/image.jpg,2020-07-23T21:18:56.944Z',{"2021","2021","nissan rogue","3play_processed","asian","cars","mh","nissan","review","rogue","suv"})
+
+# 2021-09-15 12:30:59.443991
++insert into brightcove_video values ('6174494827001','1578086878','HyOJ1bP6',221346,'2021 Nissan Rogue: First Impressions — Cars.com',19732,'https://cf-images.us-east-1.prod.boltdns.net/v1/static/1578086878/35e99435-3d83-408f-b1af-80c225c3c581/dce345b9-8d8e-48de-a0ca-bfb196274c69/1920x1080/match/image.jpg,2020-07-23T21:18:56.944Z',array("2021","2021","nissan rogue","3play_processed","asian","cars","mh","nissan","review","rogue","suv"))
+
+# 2021-09-15 12:32:07.508102
++insert into brightcove_video values ('6174494827001','1578086878','HyOJ1bP6',221346,'2021 Nissan Rogue: First Impressions — Cars.com',19732,'https://cf-images.us-east-1.prod.boltdns.net/v1/static/1578086878/35e99435-3d83-408f-b1af-80c225c3c581/dce345b9-8d8e-48de-a0ca-bfb196274c69/1920x1080/match/image.jpg,2020-07-23T21:18:56.944Z',array["2021","2021","nissan rogue","3play_processed","asian","cars","mh","nissan","review","rogue","suv"])
+
+# 2021-09-15 12:32:19.387672
++insert into brightcove_video values ('6174494827001','1578086878','HyOJ1bP6',221346,'2021 Nissan Rogue: First Impressions — Cars.com',19732,'https://cf-images.us-east-1.prod.boltdns.net/v1/static/1578086878/35e99435-3d83-408f-b1af-80c225c3c581/dce345b9-8d8e-48de-a0ca-bfb196274c69/1920x1080/match/image.jpg,2020-07-23T21:18:56.944Z',aray[2021","2021","nissan rogue","3play_processed","asian","cars","mh","nissan","review","rogue","suv"])
+
+# 2021-09-15 12:33:16.167126
++insert into brightcove_video values ('6174494827001','1578086878','HyOJ1bP6',221346,'2021 Nissan Rogue: First Impressions — Cars.com',19732,'https://cf-images.us-east-1.prod.boltdns.net/v1/static/1578086878/35e99435-3d83-408f-b1af-80c225c3c581/dce345b9-8d8e-48de-a0ca-bfb196274c69/1920x1080/match/image.jpg,2020-07-23T21:18:56.944Z',aray['2021','2021','nissan rogue','3play_processed','asian','cars','mh','nissan','review','rogue','suv])
+
+# 2021-09-15 12:33:26.731121
++insert into brightcove_video values ('6174494827001','1578086878','HyOJ1bP6',221346,'2021 Nissan Rogue: First Impressions — Cars.com',19732,'https://cf-images.us-east-1.prod.boltdns.net/v1/static/1578086878/35e99435-3d83-408f-b1af-80c225c3c581/dce345b9-8d8e-48de-a0ca-bfb196274c69/1920x1080/match/image.jpg,2020-07-23T21:18:56.944Z',['2021','2021','nissan rogue','3play_processed','asian','cars','mh','nissan','review','rogue','suv'])
+
+# 2021-09-15 12:33:34.683572
++insert into brightcove_video values ('6174494827001','1578086878','HyOJ1bP6',221346,'2021 Nissan Rogue: First Impressions — Cars.com',19732,'https://cf-images.us-east-1.prod.boltdns.net/v1/static/1578086878/35e99435-3d83-408f-b1af-80c225c3c581/dce345b9-8d8e-48de-a0ca-bfb196274c69/1920x1080/match/image.jpg,2020-07-23T21:18:56.944Z',array['2021','2021','nissan rogue','3play_processed','asian','cars','mh','nissan','review','rogue','suv'])
+
+# 2021-09-15 12:33:43.503844
++insert into brightcove_video values ('6174494827001','1578086878','HyOJ1bP6',221346,'2021 Nissan Rogue: First Impressions — Cars.com',19732,'https://cf-images.us-east-1.prod.boltdns.net/v1/static/1578086878/35e99435-3d83-408f-b1af-80c225c3c581/dce345b9-8d8e-48de-a0ca-bfb196274c69/1920x1080/match/image.jpg,2020-07-23T21:18:56.944Z',array['2021','2021','nissan rogue','3play_processed','asian','cars','mh','nissan','review','rogue','suv'], uuid())
+
+# 2021-09-15 12:36:41.931537
++insert into brightcove_video values ('6174494827001','1578086878','HyOJ1bP6',221346,'2021 Nissan Rogue: First Impressions — Cars.com',19732,'https://cf-images.us-east-1.prod.boltdns.net/v1/static/1578086878/35e99435-3d83-408f-b1af-80c225c3c581/dce345b9-8d8e-48de-a0ca-bfb196274c69/1920x1080/match/image.jpg,2020-07-23T21:18:56.944Z',array['2021','2021','nissan rogue','3play_processed','asian','cars','mh','nissan','review','rogue','suv'], uuid_generate_v4())
+
+# 2021-09-15 12:42:28.986643
++insert into brightcove_video values ('6174494827001','1578086878','HyOJ1bP6',221346,'2021 Nissan Rogue: First Impressions — Cars.com',19732,'https://cf-images.us-east-1.prod.boltdns.net/v1/static/1578086878/35e99435-3d83-408f-b1af-80c225c3c581/dce345b9-8d8e-48de-a0ca-bfb196274c69/1920x1080/match/image.jpg,2020-07-23T21:18:56.944Z',array(['2021','2021','nissan rogue','3play_processed','asian','cars','mh','nissan','review','rogue','suv']), uuid_generate_v4())
+
+# 2021-09-15 12:42:42.599471
++insert into brightcove_video values ('6174494827001','1578086878','HyOJ1bP6',221346,'2021 Nissan Rogue: First Impressions — Cars.com',19732,'https://cf-images.us-east-1.prod.boltdns.net/v1/static/1578086878/35e99435-3d83-408f-b1af-80c225c3c581/dce345b9-8d8e-48de-a0ca-bfb196274c69/1920x1080/match/image.jpg,2020-07-23T21:18:56.944Z',array['2021','2021','nissan rogue','3play_processed','asian','cars','mh','nissan','review','rogue','suv'], uuid_generate_v4())
+
+# 2021-09-15 12:42:51.858073
++\d brightcove_video
+
+# 2021-09-15 12:43:19.983532
++insert into brightcove_video values ('6174494827001','1578086878','HyOJ1bP6',221346,'2021 Nissan Rogue: First Impressions — Cars.com',19732,'https://cf-images.us-east-1.prod.boltdns.net/v1/static/1578086878/35e99435-3d83-408f-b1af-80c225c3c581/dce345b9-8d8e-48de-a0ca-bfb196274c69/1920x1080/match/image.jpg,2020-07-23T21:18:56.944Z',NOW(), array['2021','2021','nissan rogue','3play_processed','asian','cars','mh','nissan','review','rogue','suv'], uuid_generate_v4())
+
+# 2021-09-15 12:43:31.425087
++select * from brightcove_video;
+
+# 2021-09-15 13:09:29.096427
++exit
+
+# 2021-09-15 14:47:33.592513
++select * from cities;
+
+# 2021-09-15 14:47:46.574429
++use engine_dev
+
+# 2021-09-15 14:47:49.004352
++select * from cities;
+
+# 2021-09-15 15:05:29.907392
++\q
+
+# 2021-09-17 09:06:37.712692
++use engine_dev
+
+# 2021-09-17 09:06:41.459064
++select * from users;
+
+# 2021-09-17 11:17:23.178549
++select * from brightcove_video;
+
+# 2021-09-17 11:17:34.136262
++delete from brightcove_video;
+
+# 2021-09-17 11:19:13.328080
++\q
+
+# 2021-09-21 12:38:48.536480
++refresh materialized view base_trims_mv;
+
+# 2021-09-21 12:38:52.225506
++use engine_dev
+
+# 2021-09-21 12:38:53.148173
++refresh materialized view base_trims_mv;
+
+# 2021-09-21 12:38:54.880511
++\x
+
+# 2021-09-21 12:38:55.724933
++\q
+
+# 2021-10-05 09:10:21.151683
++use engine_dev
+
+# 2021-10-05 09:10:22.997268
++\d
+
+# 2021-10-05 09:10:36.532687
++select * from leads;
+
+# 2021-10-05 09:10:43.258553
++\di leads
+
+# 2021-10-05 09:10:48.996404
++\d leads
+
+# 2021-10-05 09:25:30.887450
++\q
+
+# 2021-10-05 10:42:23.615947
++use engine_dev
+
+# 2021-10-05 10:42:28.362713
++select * from leads;
+
+# 2021-10-05 10:42:46.632997
++select * from leads where city == 'Cheney'
+
+# 2021-10-05 10:42:50.009092
++select * from leads where city = 'Cheney'
+
+# 2021-10-05 13:38:23.220337
++\q
+
+# 2021-10-05 14:01:42.142883
++/use engine_dev
+
+# 2021-10-05 14:01:49.523219
++use engine_dev
+
+# 2021-10-05 14:02:29.484137
++COPY leads from '/Users/stephenprater/Downloads/prater.csv'
+
+# 2021-10-05 14:02:44.369425
++\copy
+
+# 2021-10-05 14:02:49.059944
++help \copy
+
+# 2021-10-05 14:02:50.454566
++help
+
+# 2021-10-05 14:02:51.377594
++q
+
+# 2021-10-05 14:02:56.541950
++\?
+
+# 2021-10-05 14:04:13.313857
++\copy leads from '/Users/stephenprater/Downloads/prater/csv'
+
+# 2021-10-05 14:04:18.648355
++\copy leads from '/Users/stephenprater/Downloads/prater.csv'
+
+# 2021-10-05 14:04:31.708643
++\copy leads from '/Users/stephenprater/Downloads/prater.csv' with csv
+
+# 2021-10-05 14:04:52.914752
++\copy leads from '/Users/stephenprater/Downloads/prater.csv' with (format csv)
+
+# 2021-10-05 14:04:58.595934
++\q
+
+# 2021-10-05 14:06:59.988847
++use engine_dev
+
+# 2021-10-05 14:07:02.428777
++\d leads
+
+# 2021-10-05 14:17:04.008184
++\q
+
+# 2021-10-05 15:13:20.544037
++\?
+
+# 2021-10-05 15:17:51.823868
++\n
+
+# 2021-10-05 15:17:53.016750
++\dn
+
+# 2021-10-05 15:17:54.985418
++\q
+
+# 2021-10-05 15:18:25.147839
++\d leads_import
+
+# 2021-10-05 15:18:49.561321
++\copy leads_import from '/Users/stephenprater/Downloads/prater.csv' with (format csv)
+
+# 2021-10-05 15:20:17.977495
++\q
+
+# 2021-10-06 15:16:01.266563
++use engine_dev
+
+# 2021-10-06 15:16:06.542111
++select * from business_partners;
+
+# 2021-10-06 15:16:35.051096
++\d leads_import
+
+# 2021-10-06 15:16:40.721198
++\q
+
+# 2021-10-06 15:25:20.827648
++use engine_dev
+
+# 2021-10-06 15:25:24.235366
++\d leads_import
+
+# 2021-10-06 15:25:36.126605
++drop table leads_import;
+
+# 2021-10-06 15:25:39.209811
++\q
+
+# 2021-10-06 15:30:21.385771
++select * from leads;
+
+# 2021-10-06 15:30:25.806457
++select * from leads_import;
+
+# 2021-10-06 15:30:32.422707
++select * from leads;
+
+# 2021-10-06 15:30:37.530283
++use engine_dev
+
+# 2021-10-06 15:30:39.004447
++select * from leads_import;
+
+# 2021-10-06 15:30:51.097625
++select * from leads_import where city = "Cheney";
+
+# 2021-10-06 15:30:56.553986
++select * from leads_import where city = 'Cheney';
+
+# 2021-10-07 07:36:42.874520
++\di import_leads
+
+# 2021-10-07 07:36:49.094999
++\d leads_import
+
+# 2021-10-07 07:37:26.209670
++select ip, source_url from leads_import
+
+# 2021-10-07 07:37:34.377799
++select ip_address, source_url from leads_import;
+
+# 2021-10-07 07:46:01.961257
++\d leads_import
+
+# 2021-10-07 07:46:13.142411
++select source from leads_import;
+
+# 2021-10-07 07:46:18.148940
++\d leads_import
+
+# 2021-10-07 07:46:32.786763
++select platform from leads_import;
+
+# 2021-10-07 07:47:51.380491
++select count(id) from leads_import;
+
+# 2021-10-07 07:56:05.335317
++select * from zip_codes;
+
+# 2021-10-07 07:58:48.241399
++select * from ip_geographic_mappings;
+
+# 2021-10-07 07:58:56.768919
++\q
+
+# 2021-10-07 08:04:22.983760
++use engine_dev
+
+# 2021-10-07 08:04:26.807104
++\d ip_geographic_mappings
+
+# 2021-10-07 08:18:59.312533
++select * from leads;
+
+# 2021-10-07 08:19:16.840697
++select * from leads_import where first_name = "Stephen"
+
+# 2021-10-07 08:19:20.879789
++select * from leads_import where first_name = 'Stephen'
+
+# 2021-10-07 08:19:29.879192
++select * from leads_import where last_name = 'Prater'
+
+# 2021-10-07 08:19:34.525301
++\x
+
+# 2021-10-07 08:19:35.640934
++select * from leads_import where last_name = 'Prater'
+
+# 2021-10-07 08:20:20.505833
++\q
+
+# 2021-10-07 08:23:30.509271
++select * from ip_geographic_mappings limit 100;
+
+# 2021-10-07 08:23:46.314262
++select count(id) from ip_geographic_mappings;
+
+# 2021-10-07 08:23:52.546466
++select count(cidr) from ip_geographic_mappings;
+
+# 2021-10-07 08:24:16.532864
++use engine_dev
+
+# 2021-10-07 08:24:26.387139
++select * from leads_import limit 1;
+
+# 2021-10-07 08:24:32.204090
++select ip from leads_import limit 10;
+
+# 2021-10-07 08:24:37.142810
++select ip_address from leads_import limit 10;
+
+# 2021-10-07 08:25:53.862155
++select * from ip_geographic_mappings where '107.77.237.84' << cidr;
+
+# 2021-10-07 08:27:09.250318
++select * from ip_geographic_mappings where '174.250.14.2' << cidr;
+
+# 2021-10-07 08:27:43.720237
++select ip_address from leads where city = 'Cheney' limit 100
+
+# 2021-10-07 08:27:51.697349
++select count(id) from leads;
+
+# 2021-10-07 08:28:12.421001
++select * from ip_geographic_mappings where '67.143.192.149' << cidr;
+
+# 2021-10-07 08:28:54.980653
++select * from ip_geographic_mappings where centroid_latitude = 37.751 and centroid_longitude = -97.822;
+
+# 2021-10-07 08:29:12.543475
++select count(cidr) from ip_geographic_mappings where centroid_latitude = 37.751 and centroid_longitude = -97.822;
+
+# 2021-10-07 08:29:25.064408
++select count(cidr) from ip_geographic_mappings;
+
+# 2021-10-07 08:29:29.756095
++\q
+
+# 2021-10-07 08:32:31.092443
++select * from zip_codes where centroid = "0101000020E6100000F853E3A59B7458C0E3A59BC420E04240";
+
+# 2021-10-07 08:32:40.618774
++select * from zip_codes where centroid = '0101000020E6100000F853E3A59B7458C0E3A59BC420E04240';
+
+# 2021-10-07 08:32:51.061043
++select * from zip_codes where city = "Cheney";
+
+# 2021-10-07 08:32:55.097899
++select * from zip_codes where city = 'Cheney';
+
+# 2021-10-07 08:44:29.937649
++\q
+
+# 2021-10-13 09:09:39.272356
++select * from listings;
+
+# 2021-10-13 09:09:42.612804
++use engine_dev
+
+# 2021-10-13 09:09:48.214926
++select * from listings;
+
+# 2021-10-13 09:10:38.650280
++\d
+
+# 2021-10-13 09:11:01.734452
++\d inventory_displays
+
+# 2021-10-13 09:11:14.006558
++select * from inventory_displays limit 1;
+
+# 2021-10-13 09:11:15.987367
++\x
+
+# 2021-10-13 09:11:17.110856
++select * from inventory_displays limit 1;
+
+# 2021-10-13 09:12:11.096702
++select * from listings inner join inventory on inventory.id = listings.inventory_id inner join inventory_displays ON inventory_displays.inventory_id = inventory.id limit 1;
+
+# 2021-10-13 09:12:21.729379
++select image_urls from listings inner join inventory on inventory.id = listings.inventory_id inner join inventory_displays ON inventory_displays.inventory_id = inventory.id limit 1;
+
+# 2021-10-13 09:12:25.394949
++select image_urls from listings inner join inventory on inventory.id = listings.inventory_id inner join inventory_displays ON inventory_displays.inventory_id = inventory.id;
+
+# 2021-10-13 09:12:48.029515
++select image_urls from listings inner join inventory on inventory.id = listings.inventory_id inner join inventory_displays ON inventory_displays.inventory_id = inventory.id where LENGTH(inventory_displays.image_urls) > 0
+
+# 2021-10-13 09:12:56.749359
++select image_urls from listings inner join inventory on inventory.id = listings.inventory_id inner join inventory_displays ON inventory_displays.inventory_id = inventory.id where LENGTH(array::inventory_displays.image_urls) > 0
+
+# 2021-10-13 09:13:07.538419
++select image_urls from listings inner join inventory on inventory.id = listings.inventory_id inner join inventory_displays ON inventory_displays.inventory_id = inventory.id where LENGTH(inventory_displays.image_urls::array) > 0
+
+# 2021-10-13 09:13:14.705824
++select image_urls from listings inner join inventory on inventory.id = listings.inventory_id inner join inventory_displays ON inventory_displays.inventory_id = inventory.id where LENGTH(inventory_displays.image_urls as array) > 0
+
+# 2021-10-13 09:13:45.259063
++select image_urls from listings inner join inventory on inventory.id = listings.inventory_id inner join inventory_displays ON inventory_displays.inventory_id = inventory.id where LENGTH(inventory_displays.image_url::varchar[]) > 0
+
+# 2021-10-13 09:13:53.763711
++select image_urls from listings inner join inventory on inventory.id = listings.inventory_id inner join inventory_displays ON inventory_displays.inventory_id = inventory.id where LENGTH(inventory_displays.image_urls::varchar[]) > 0
+
+# 2021-10-13 09:14:30.428458
++select image_urls from listings inner join inventory on inventory.id = listings.inventory_id inner join inventory_displays ON inventory_displays.inventory_id = inventory.id where ARRAY_LENGTH(inventory_displays.image_urls::varchar[]) > 0
+
+# 2021-10-13 09:14:37.470727
++select image_urls from listings inner join inventory on inventory.id = listings.inventory_id inner join inventory_displays ON inventory_displays.inventory_id = inventory.id where ARRAY_LENGTH(inventory_displays.image_urls) > 0
+
+# 2021-10-13 09:14:51.061334
++\d inventory_displays
+
+# 2021-10-13 09:14:57.710962
++\x
+
+# 2021-10-13 09:14:58.677650
++\d inventory_displays
+
+# 2021-10-13 09:15:32.224413
++select image_urls from listings inner join inventory on inventory.id = listings.inventory_id inner join inventory_displays ON inventory_displays.inventory_id = inventory.id where ARRAY_LENGTH(inventory_displays.image_urls, 1) > 0
+
+# 2021-10-13 09:16:14.783851
++select * from inventory_displays limit 1;
+
+# 2021-10-13 09:16:16.032430
++\x
+
+# 2021-10-13 09:16:16.842845
++select * from inventory_displays limit 1;
+
+# 2021-10-13 09:16:33.380283
++\q
+
+# 2021-10-13 09:31:32.258632
++use engine_dev
+
+# 2021-10-13 09:31:37.072804
++select * from dealer_product_features;
+
+# 2021-10-13 09:31:44.712279
++\d dealer_product_features
+
+# 2021-10-13 09:31:55.186163
++select * from product_features;
+
+# 2021-10-13 09:31:58.729664
++\d product_features;
+
+# 2021-10-13 09:32:09.901033
++select * from products;
+
+# 2021-10-13 09:32:31.287620
++select * from features;
+
+# 2021-10-13 09:36:02.834827
++select * from dealer_product_features;
+
+# 2021-10-13 09:36:13.105063
++\x
+
+# 2021-10-13 09:36:15.917276
++select * from dealer_product_features limit 1;
+
+# 2021-10-13 09:36:52.391732
++select * from features;
+
+# 2021-10-13 09:37:17.873808
++\x
+
+# 2021-10-13 09:37:18.940976
++select * from features;
+
+# 2021-10-13 09:54:17.478379
++\q
+
+# 2021-10-13 10:11:01.183083
++use engine_dev
+
+# 2021-10-13 10:11:06.965200
++select * from dealer_product_features
+
+# 2021-10-13 10:11:35.866339
++select * from dealer_product_features where feature_config>@photo_limit = 3
+
+# 2021-10-13 10:11:58.490696
++select * from dealer_product_features where feature_config -> photo_limit = 3
+
+# 2021-10-13 10:12:03.541743
++select * from dealer_product_features where feature_config -> 'photo_limit' = 3
+
+# 2021-10-13 10:12:17.851254
++select * from dealer_product_features where (feature_config -> 'photo_limit')::int = 3
+
+# 2021-10-13 10:12:26.142860
++select * from dealer_product_features where (feature_config -> 'photo_limit')::int is not null
+
+# 2021-10-13 10:12:31.430994
++select * from dealer_product_features where (feature_config -> 'photo_limit') is not null
+
+# 2021-10-13 10:12:44.075516
++select * from dealer_product_features where (feature_config -> 'photo_limit')
+
+# 2021-10-13 10:12:53.617492
++select * from dealer_product_features where (feature_config -> 'photo_limit') is not NULL
+
+# 2021-10-13 10:13:14.159350
++select * from dealer_product_features where (feature_config -> 'photo_limit')::null
+
+# 2021-10-13 10:13:18.692603
++select * from dealer_product_features where (feature_config -> 'photo_limit') is not NULL
+
+# 2021-10-13 10:14:31.762789
++select * from dealer_product_features where (feature_config ->> 'photo_limit')
+
+# 2021-10-13 10:14:35.475774
++select * from dealer_product_features where (feature_config ->> 'photo_limit') is not null;
+
+# 2021-10-13 10:15:00.809591
++select * from dealer_product_features inner join features on features.id = dealer_product_features.id where (feature_config ->> 'photo_limit') is not null;
+
+# 2021-10-13 10:15:08.921611
++select * from dealer_product_features inner join features on features.id = product_features.id where (feature_config ->> 'photo_limit') is not null;
+
+# 2021-10-13 10:15:19.384603
++select * from dealer_product_features inner join features on features.id = dealer_product_features.product_feature_id where (feature_config ->> 'photo_limit') is not null;
+
+# 2021-10-13 10:15:42.739337
++select * from dealer_product_features inner join product_features on product_features.id = dealer_product_features.product_feature_id = dealer_product_features.product_feature_id where (feature_config ->> 'photo_limit') is not null;
+
+# 2021-10-13 10:15:50.940409
++select * from dealer_product_features inner join product_features on product_features.id = dealer_product_features.product_feature_id where (feature_config ->> 'photo_limit') is not null;
+
+# 2021-10-13 10:16:11.179947
++select config, features.* from dealer_product_features inner join product_features on product_features.id = dealer_product_features.product_feature_id inner join features ON features.id = product_features.feature_id where (feature_config ->> 'photo_limit') is not null;
+
+# 2021-10-13 10:16:25.614210
++select config, features.code, features.name from dealer_product_features inner join product_features on product_features.id = dealer_product_features.product_feature_id inner join features ON features.id = product_features.feature_id where (feature_config ->> 'photo_limit') is not null;
+
+# 2021-10-13 10:16:35.109506
++select features.code, features.name from dealer_product_features inner join product_features on product_features.id = dealer_product_features.product_feature_id inner join features ON features.id = product_features.feature_id where (feature_config ->> 'photo_limit') is not null;
+
+# 2021-10-13 10:16:50.062475
++select config ->> 'photo_limit', features.code, features.name from dealer_product_features inner join product_features on product_features.id = dealer_product_features.product_feature_id inner join features ON features.id = product_features.feature_id where (feature_config ->> 'photo_limit') is not null;
+
+# 2021-10-13 10:24:29.667523
++exit
+
+# 2021-10-13 11:14:19.600021
++select * from dealers;
+
+# 2021-10-13 11:14:26.427073
++use engine_dev
+
+# 2021-10-13 11:14:27.574639
++select * from dealers;
+
+# 2021-10-13 11:14:31.254022
++\x
+
+# 2021-10-13 11:14:35.449439
++select * from dealers limit 1;
+
+# 2021-10-13 11:15:16.176086
++select * from brands;
+
+# 2021-10-13 11:15:19.404182
++\di
+
+# 2021-10-13 11:26:07.317209
++select * from dealers limit 1;
+
+# 2021-10-14 09:14:06.063265
++\d dealers;
+
+# 2021-10-14 09:14:19.663625
++select * from dealers limit 1;
+
+# 2021-10-14 09:14:21.341633
++\x
+
+# 2021-10-14 09:14:22.958434
++select * from dealers limit 1;
+
+# 2021-10-14 09:21:15.627358
++select * from product_features;
+
+# 2021-10-14 09:21:39.553619
++select * from features;
+
+# 2021-10-14 09:21:54.079115
++\x
+
+# 2021-10-14 09:21:54.946417
++select * from features;
+
+# 2021-10-14 11:06:28.658114
++select * from features where name like '%CPO%'
+
+# 2021-10-14 11:07:31.162516
++select * from features where name like '%CPO%';
+
+# 2021-10-14 11:14:01.109218
++/copy select * from features where name like '%CPO%';
+
+# 2021-10-14 11:14:17.758845
++\copy select * from features where name like '%CPO%'
+
+# 2021-10-14 11:15:10.799805
++\pager pbcopy
+
+# 2021-10-14 11:15:25.818782
++select * from features where name like '%CPO%'
+
+# 2021-10-14 11:17:16.767874
++\copy to program 'pbcopy' select * from features where name like '%CPO%'
+
+# 2021-10-14 11:20:17.644496
++\?
+
+# 2021-10-14 11:20:26.172032
++\pager pbcopy
+
+# 2021-10-14 11:20:30.313042
++select * from features where name like '%CPO%';
+
+# 2021-10-14 11:20:42.652273
++\pager pbcopy select * from features where name like '%CPO%'
+
+# 2021-10-14 11:20:46.873794
++\pager
+
+# 2021-10-14 11:23:15.093187
++\g
+
+# 2021-10-14 11:23:20.142779
++\q
+
+# 2021-10-14 11:24:38.503576
++\pager pbcopy
+
+# 2021-10-14 11:24:41.584778
++select * from features where name like '%CPO%';
+
+# 2021-10-14 11:41:23.514430
++select status from dealers limit 10;
+
+# 2021-10-14 11:43:30.706455
++select count(id) from dealers;
+
+# 2021-10-14 11:44:02.048865
++select status from dealers group by status;
+
+# 2021-10-14 11:44:08.293139
++\d dealers;
+
+# 2021-10-14 11:44:12.051115
++\d 
+
+# 2021-10-14 11:44:24.785054
++\d dealers
+
+# 2021-10-14 11:44:35.169377
++select count(id) from dealers;
+
+# 2021-10-14 11:44:41.276971
++select * from dealers limit 1;
+
+# 2021-10-14 11:44:45.699538
++\pager
+
+# 2021-10-14 11:44:46.948607
++select * from dealers limit 1;
+
+# 2021-10-14 11:44:48.759498
++\x
+
+# 2021-10-14 11:44:51.549767
++select * from dealers limit 1;
+
+# 2021-10-14 11:45:11.572144
++select account_status from dealers group by account_status;
+
+# 2021-10-14 11:46:23.820925
++select account_status, count(account_status) from dealers group by account_status;
+
+# 2021-10-14 11:46:55.761844
++\x
+
+# 2021-10-14 11:46:57.121491
++select account_status, count(account_status) from dealers group by account_status;
+
+# 2021-10-14 11:47:02.273102
++\pager pbcopy
+
+# 2021-10-14 11:47:03.622649
++select account_status, count(account_status) from dealers group by account_status;
+
+# 2021-10-14 11:47:18.586079
++\pager pbcopy
+
+# 2021-10-14 11:47:19.845814
++select account_status, count(account_status) from dealers group by account_status;
+
+# 2021-10-14 11:48:06.827713
++\?
+
+# 2021-10-14 11:48:23.185425
++\T
+
+# 2021-10-14 11:49:59.249365
++select account_status, count(account_status) from dealers group by account_status;
+
+# 2021-10-14 11:50:58.334444
++select * from dealers inner join dealer_product_features on dealer_product_features.dealer_id = dealers.id inner join product_features ON product_features.id = dealer_product_features.product_feature_id join features ON features.id = product_features.feature_id where dealers.account_status != "Customer"
+
+# 2021-10-14 11:51:05.499800
++select * from dealers inner join dealer_product_features on dealer_product_features.dealer_id = dealers.id inner join product_features ON product_features.id = dealer_product_features.product_feature_id join features ON features.id = product_features.feature_id where dealers.account_status != 'Customer'
+
+# 2021-10-14 11:58:34.506947
++select * from dealers left join dealer_product_features on dealer_product_features.dealer_id = dealers.id inner join product_features ON product_features.id = dealer_product_features.product_feature_id inner join features ON features.id = product_features.feature_id where dealers.account_status != 'Customer' limit 1;
+
+# 2021-10-14 11:58:37.848020
++\pager
+
+# 2021-10-14 11:58:38.950701
++select * from dealers left join dealer_product_features on dealer_product_features.dealer_id = dealers.id inner join product_features ON product_features.id = dealer_product_features.product_feature_id inner join features ON features.id = product_features.feature_id where dealers.account_status != 'Customer' limit 1;
+
+# 2021-10-14 11:58:40.716235
++\x
+
+# 2021-10-14 11:58:42.471853
++select * from dealers left join dealer_product_features on dealer_product_features.dealer_id = dealers.id inner join product_features ON product_features.id = dealer_product_features.product_feature_id inner join features ON features.id = product_features.feature_id where dealers.account_status != 'Customer' limit 1;
+
+# 2021-10-14 11:59:17.198224
++select * from dealers left join dealer_product_features on dealer_product_features.dealer_id = dealers.id inner join product_features ON product_features.id = dealer_product_features.product_feature_id inner join features ON features.id = product_features.feature_id where dealers.account_status != 'Customer' limit 1 and code != "INVENTORY_PHOTO";
+
+# 2021-10-14 11:59:27.640933
++select * from dealers left join dealer_product_features on dealer_product_features.dealer_id = dealers.id inner join product_features ON product_features.id = dealer_product_features.product_feature_id inner join features ON features.id = product_features.feature_id where dealers.account_status != 'Customer' and code != "INVENTORY_PHOTO" limit 1;
+
+# 2021-10-14 11:59:35.527284
++select * from dealers left join dealer_product_features on dealer_product_features.dealer_id = dealers.id inner join product_features ON product_features.id = dealer_product_features.product_feature_id inner join features ON features.id = product_features.feature_id where dealers.account_status != 'Customer' and code != 'INVENTORY_PHOTO' limit 1;
+
+# 2021-10-14 12:00:20.378865
++select * from dealers left join dealer_product_features on dealer_product_features.dealer_id = dealers.id inner join product_features ON product_features.id = dealer_product_features.product_feature_id inner join features ON features.id = product_features.feature_id where dealers.customer_id = 148271;
+
+# 2021-10-14 12:00:28.478093
++select * from dealers left join dealer_product_features on dealer_product_features.dealer_id = dealers.id inner join product_features ON product_features.id = dealer_product_features.product_feature_id inner join features ON features.id = product_features.feature_id where dealers.customer_id = '148271';
+
+# 2021-10-14 12:00:33.461876
++\x
+
+# 2021-10-14 12:00:40.121916
++select * from dealers left join dealer_product_features on dealer_product_features.dealer_id = dealers.id inner join product_features ON product_features.id = dealer_product_features.product_feature_id inner join features ON features.id = product_features.feature_id where dealers.customer_id = '148271';
+
+# 2021-10-14 12:00:43.070445
++\x
+
+# 2021-10-14 12:00:44.250804
++select * from dealers left join dealer_product_features on dealer_product_features.dealer_id = dealers.id inner join product_features ON product_features.id = dealer_product_features.product_feature_id inner join features ON features.id = product_features.feature_id where dealers.customer_id = '148271';
+
+# 2021-10-14 12:01:27.757712
++select feature.name, feature.code, dealer_product_features.feature_config from dealers left join dealer_product_features on dealer_product_features.dealer_id = dealers.id inner join product_features ON product_features.id = dealer_product_features.product_feature_id inner join features ON features.id = product_features.feature_id where dealers.customer_id = '148271';
+
+# 2021-10-14 12:01:41.076550
++select features.name, features.code, dealer_product_features.feature_config from dealers left join dealer_product_features on dealer_product_features.dealer_id = dealers.id inner join product_features ON product_features.id = dealer_product_features.product_feature_id inner join features ON features.id = product_features.feature_id where dealers.customer_id = '148271';
+
+# 2021-10-14 13:24:51.484965
++a
+
+# 2021-10-14 13:25:34.652102
++select * from dealers;
+
+# 2021-10-14 13:25:39.309113
++select count(id) from dealers;
+
+# 2021-10-14 13:25:47.679107
++select account_status, count(account_status) from dealers group by account_status;
+
+# 2021-10-14 13:28:28.509468
++select * from listings where id = uuid('8e021d91-151e-4b07-9ed7-3b0df6291262')
+
+# 2021-10-14 13:28:29.827416
++\x
+
+# 2021-10-14 13:28:30.681124
++select * from listings where id = uuid('8e021d91-151e-4b07-9ed7-3b0df6291262')
+
+# 2021-10-14 13:28:58.897379
++select * from listings inner join inventory ON inventory.id = listings.inventory_id where id = uuid('8e021d91-151e-4b07-9ed7-3b0df6291262')
+
+# 2021-10-14 13:29:06.466518
++select * from listings inner join inventory ON inventory.id = listings.inventory_id where listings.id = uuid('8e021d91-151e-4b07-9ed7-3b0df6291262')
+
+# 2021-10-14 13:29:42.695369
++select dealer.* from listings inner join inventory ON inventory.id = listings.inventory_id inner join dealers ON dealers.id = inventory.dealer_id inventory.dealer_idwhere listings.id = uuid('8e021d91-151e-4b07-9ed7-3b0df6291262')
+
+# 2021-10-14 13:29:57.433917
++select dealer.* from listings inner join inventory ON inventory.id = listings.inventory_id inner join dealers ON dealers.id = inventory.dealer_id where listings.id = uuid('8e021d91-151e-4b07-9ed7-3b0df6291262')
+
+# 2021-10-14 13:30:14.938973
++select dealers.* from listings inner join inventory ON inventory.id = listings.inventory_id inner join dealers ON dealers.id = inventory.dealer_id where listings.id = uuid('8e021d91-151e-4b07-9ed7-3b0df6291262')
+
+# 2021-10-14 13:30:34.075190
++select features.name, features.code, dealer_product_features.feature_config from dealers left join dealer_product_features on dealer_product_features.dealer_id = dealers.id inner join product_features ON product_features.id = dealer_product_features.product_feature_id inner join features ON features.id = product_features.feature_id where dealers.customer_id = '5975';
+
+# 2021-10-14 13:30:38.226599
++\pager
+
+# 2021-10-14 13:30:39.340589
++select features.name, features.code, dealer_product_features.feature_config from dealers left join dealer_product_features on dealer_product_features.dealer_id = dealers.id inner join product_features ON product_features.id = dealer_product_features.product_feature_id inner join features ON features.id = product_features.feature_id where dealers.customer_id = '5975';
+
+# 2021-10-14 13:31:32.081954
++select * from dealer_product_features inner join dealers ON dealers.id = dealer_product_features.dealer_id where dealer.customer_id = '5975'
+
+# 2021-10-14 13:31:36.289094
++select * from dealer_product_features inner join dealers ON dealers.id = dealer_product_features.dealer_id where dealers.customer_id = '5975'
+
+# 2021-10-14 13:33:42.817868
++select product_feature.config from dealer_product_features inner join features on features.id = dealer_product_features.product_feature_id inner join product_features ON product_features.id = dealer_product_features.product_feature_id
+
+# 2021-10-14 13:33:46.070586
++\d product_features;
+
+# 2021-10-14 13:34:33.906075
++select features.name, dealer_product_features.config from dealer_product_features inner join features on features.id = dealer_product_features.product_feature_id limit 1;
+
+# 2021-10-14 13:34:45.887309
++\d dealer_product_features
+
+# 2021-10-14 13:35:08.805161
++select features.name, dealer_product_features.feature_config from dealer_product_features inner join features on features.id = dealer_product_features.product_feature_id limit 1;
+
+# 2021-10-14 13:35:16.105015
++select features.name, dealer_product_features.feature_config from dealer_product_features inner join features on features.id = dealer_product_features.product_feature_id;
+
+# 2021-10-14 13:35:38.290528
++select features.name, dealer_product_features.feature_config from dealer_product_features inner join product_features ON product_features.id = dealer_product_features.product_feature_id inner join features ON features.id = product_features.feature_id;
+
+# 2021-10-14 13:35:47.020151
++select features.name, dealer_product_features.feature_config from dealer_product_features inner join product_features ON product_features.id = dealer_product_features.product_feature_id inner join features ON features.id = product_features.feature_id limit 1;
+
+# 2021-10-14 13:36:42.235555
++select features.name, array_agg(dealer_product_features.feature_config) from dealer_product_features inner join product_features ON product_features.id = dealer_product_features.product_feature_id inner join features ON features.id = product_features.feature_id group by features.name
+
+# 2021-10-14 13:37:03.183562
++explain select features.name, array_agg(dealer_product_features.feature_config) from dealer_product_features inner join product_features ON product_features.id = dealer_product_features.product_feature_id inner join features ON features.id = product_features.feature_id group by features.name
+
+# 2021-10-14 13:37:44.212961
++select * from dealer_product_features limit 1;
+
+# 2021-10-14 13:38:35.063937
++select features.name, features.code, dealer_product_features.feature_config from dealers left join dealer_product_features on dealer_product_features.dealer_id = dealers.id inner join product_features ON product_features.id = dealer_product_features.product_feature_id inner join features ON features.id = product_features.feature_id where dealers.customer_id = '5975';
+
+# 2021-10-14 13:42:20.279258
++select * from dealers where account_status = "Former Customer";
+
+# 2021-10-14 13:42:27.243554
++select * from dealers where account_status = 'Former Customer';
+
+# 2021-10-14 13:42:33.250772
++select * from dealers where account_status = 'Former Customer' limit 1;
+
+# 2021-10-14 13:42:48.393578
++select features.name, features.code, dealer_product_features.feature_config from dealers left join dealer_product_features on dealer_product_features.dealer_id = dealers.id inner join product_features ON product_features.id = dealer_product_features.product_feature_id inner join features ON features.id = product_features.feature_id where dealers.customer_id = '148271';
+
+# 2021-10-14 13:44:33.115685
++SELECT ifc.directory,
++       d.customer_id,
++       i.vin, i.images, id.image_urls,
++       'https://www.cars.com/vehicledetail/' || l.id url
++FROM ingestion_file_configurations ifc, inventory i,
++     dealers d, listings l, inventory_displays id
++WHERE ifc.id = i.ingestion_file_configuration_id
++AND i.dealer_id = d.id
++AND l.inventory_id = i.id
++AND i.id = id.inventory_id
++AND i.images IS NOT NULL
++AND i.images -> 'urls' != '[]'
++AND id.image_urls IS NULL
++AND i.deleted = FALSE
+
+# 2021-10-14 13:45:28.377302
++SELECT ifc.directory,
++COUNT()
++FROM ingestion_file_configurations ifc, inventory i,
++dealers d, listings l, inventory_displays id
++WHERE ifc.id = i.ingestion_file_configuration_id
++AND i.dealer_id = d.id
++AND l.inventory_id = i.id
++AND i.id = id.inventory_id
++AND i.images IS NOT NULL
++AND i.images -> 'urls' != '[]'
++AND id.image_urls IS NULL
++AND i.deleted = FALSE
++GROUP BY ifc.directory
++ORDER BY COUNT() DESC
+
+# 2021-10-14 13:45:48.255128
++SELECT ifc.directory,
++COUNT()
++FROM ingestion_file_configurations ifc, inventory i,
++dealers d, listings l, inventory_displays id
++WHERE ifc.id = i.ingestion_file_configuration_id
++AND i.dealer_id = d.id
++AND l.inventory_id = i.id
++AND i.id = id.inventory_id
++AND i.images IS NOT NULL
++AND i.images -> 'urls' != '[]'
++AND id.image_urls IS NULL
++AND i.deleted = FALSE
++GROUP BY ifc.directory
++ORDER BY COUNT(*) DESC
+
+# 2021-10-14 13:46:04.353655
++SELECT ifc.directory,
++COUNT(*)
++FROM ingestion_file_configurations ifc, inventory i,
++dealers d, listings l, inventory_displays id
++WHERE ifc.id = i.ingestion_file_configuration_id
++AND i.dealer_id = d.id
++AND l.inventory_id = i.id
++AND i.id = id.inventory_id
++AND i.images IS NOT NULL
++AND i.images -> 'urls' != '[]'
++AND id.image_urls IS NULL
++AND i.deleted = FALSE
++GROUP BY ifc.directory
++ORDER BY COUNT(*) DESC
+
+# 2021-10-14 13:47:54.109319
++select count(*) from inventory inner join makes ON makes.id = inventory.make_id where certified_preowned = true and makes.name = 'Toyota'
+
+# 2021-10-14 13:49:39.734240
++select inventor.dealer_id from inventory inner join makes ON makes.id = inventory.make_id inner join dealers ON dealers.id = inventory.dealer_id where certified_preowned = true and makes.name = 'Toyota' group by inventory.dealer_id
+
+# 2021-10-14 13:49:49.851056
++select inventory.dealer_id from inventory inner join makes ON makes.id = inventory.make_id inner join dealers ON dealers.id = inventory.dealer_id where certified_preowned = true and makes.name = 'Toyota' group by inventory.dealer_id
+
+# 2021-10-14 13:50:04.262805
++select count(inventory.dealer_id) from inventory inner join makes ON makes.id = inventory.make_id inner join dealers ON dealers.id = inventory.dealer_id where certified_preowned = true and makes.name = 'Toyota' group by inventory.dealer_id
+
+# 2021-10-14 13:50:46.118139
++select dealers.id, count(inventory.dealer_id) from inventory inner join makes ON makes.id = inventory.make_id inner join dealers ON dealers.id = inventory.dealer_id where certified_preowned = true and makes.name = 'Toyota' group by inventory.dealer_id
+
+# 2021-10-14 13:50:59.715045
++select dealers.id from inventory inner join makes ON makes.id = inventory.make_id inner join dealers ON dealers.id = inventory.dealer_id where certified_preowned = true and makes.name = 'Toyota' group by inventory.dealer_id
+
+# 2021-10-14 13:51:05.969491
++select dealers.id from inventory inner join makes ON makes.id = inventory.make_id inner join dealers ON dealers.id = inventory.dealer_id where certified_preowned = true and makes.name = 'Toyota' group by dealers.id
+
+# 2021-10-14 13:51:37.627571
++select distinct on(dealers.id, dealers.account_status) from inventory inner join makes ON makes.id = inventory.make_id inner join dealers ON dealers.id = inventory.dealer_id where certified_preowned = true and makes.name = 'Toyota'
+
+# 2021-10-14 13:51:47.156701
++select distinct dealers.id, dealers.account_status from inventory inner join makes ON makes.id = inventory.make_id inner join dealers ON dealers.id = inventory.dealer_id where certified_preowned = true and makes.name = 'Toyota'
+
+# 2021-10-14 13:51:53.524610
++\x
+
+# 2021-10-14 13:51:54.684408
++select distinct dealers.id, dealers.account_status from inventory inner join makes ON makes.id = inventory.make_id inner join dealers ON dealers.id = inventory.dealer_id where certified_preowned = true and makes.name = 'Toyota'
+
+# 2021-10-14 13:52:11.884553
++select distinct dealers.id, dealers.account_status from inventory inner join makes ON makes.id = inventory.make_id inner join dealers ON dealers.id = inventory.dealer_id where certified_preowned = true and makes.name = 'Toyota' and dealers.account_status = 'Former Customer';
+
+# 2021-10-14 13:53:02.195494
++select * from dealer_product_features where dealer_product_features.dealer_id in (select distinct dealers.id, dealers.account_status from inventory inner join makes ON makes.id = inventory.make_id inner join dealers ON dealers.id = inventory.dealer_id where certified_preowned = true and makes.name = 'Toyota' and dealers.account_status = 'Former Customer');
+
+# 2021-10-14 13:53:25.437617
++select * from dealer_product_features where dealer_product_features.dealer_id in (select distinct dealers.id, dealers.account_status from inventory inner join makes ON makes.id = inventory.make_id inner join dealers ON dealers'.id = inventory.dealer_id where certified_preowned = true and makes.name = 'Toyota' and dealers.account_status = 'Former Customer');
+
+# 2021-10-14 13:53:40.199642
++select * from dealer_product_features where dealer_product_features.dealer_id in (select distinct dealers.id from inventory inner join makes ON makes.id = inventory.make_id inner join dealers ON dealers.id = inventory.dealer_id where certified_preowned = true and makes.name = 'Toyota' and dealers.account_status = 'Former Customer');
+
+# 2021-10-14 13:54:45.808019
++select dealers.id, features.name from dealer_product_features inner join product_features ON product_features.id = dealer_product_features.product_feature_id inner join features ON features.id = product_features.feature_id where dealer_product_features.dealer_id in (select distinct dealers.id from inventory inner join makes ON makes.id = inventory.make_id inner join dealers ON dealers.id = inventory.dealer_id where certified_preowned = true and makes.name = 'Toyota' and dealers.account_status = 'Former Customer');
+
+# 2021-10-14 13:55:01.929496
++select dealer_product_features.dealer_id, features.name from dealer_product_features inner join product_features ON product_features.id = dealer_product_features.product_feature_id inner join features ON features.id = product_features.feature_id where dealer_product_features.dealer_id in (select distinct dealers.id from inventory inner join makes ON makes.id = inventory.make_id inner join dealers ON dealers.id = inventory.dealer_id where certified_preowned = true and makes.name = 'Toyota' and dealers.account_status = 'Former Customer');
+
+# 2021-10-14 13:55:27.682786
++select dealer_product_features.dealer_id, array_agg(features.name) from dealer_product_features inner join product_features ON product_features.id = dealer_product_features.product_feature_id inner join features ON features.id = product_features.feature_id where dealer_product_features.dealer_id in (select distinct dealers.id from inventory inner join makes ON makes.id = inventory.make_id inner join dealers ON dealers.id = inventory.dealer_id where certified_preowned = true and makes.name = 'Toyota' and dealers.account_status = 'Former Customer') group by dealer_product_features.dealer_id;
+
+# 2021-10-14 13:56:31.458693
++select dealer_product_features.dealer_id, array_agg(features.name) from dealer_product_features left join product_features ON product_features.id = dealer_product_features.product_feature_id left join features ON features.id = product_features.feature_id where dealer_product_features.dealer_id in (select distinct dealers.id from inventory inner join makes ON makes.id = inventory.make_id inner join dealers ON dealers.id = inventory.dealer_id where certified_preowned = true and makes.name = 'Toyota' and dealers.account_status = 'Former Customer') group by dealer_product_features.dealer_id;
+
+# 2021-10-14 14:00:23.169895
++select dealers.dealer_id, array_agg(features.name) from dealers left join dealer_product_features ON dealer_product_features.dealer_id = dealers.id left join product_features ON product_features.id = dealer_product_features.product_feature_id left join features ON features.id = product_features.feature_id where dealers.dealer_id in (select distinct dealers.id from inventory inner join makes ON makes.id = inventory.make_id inner join dealers ON dealers.id = inventory.dealer_id where certified_preowned = true and makes.name = 'Toyota' and dealers.account_status = 'Former Customer') group by dealers.dealer_id;
+
+# 2021-10-14 14:00:34.094506
++select dealers.id, array_agg(features.name) from dealers left join dealer_product_features ON dealer_product_features.dealer_id = dealers.id left join product_features ON product_features.id = dealer_product_features.product_feature_id left join features ON features.id = product_features.feature_id where dealers.dealer_id in (select distinct dealers.id from inventory inner join makes ON makes.id = inventory.make_id inner join dealers ON dealers.id = inventory.dealer_id where certified_preowned = true and makes.name = 'Toyota' and dealers.account_status = 'Former Customer') group by dealers.id;
+
+# 2021-10-14 14:00:51.633141
++select dealers.id, array_agg(features.name) from dealers left join dealer_product_features ON dealer_product_features.dealer_id = dealers.id left join product_features ON product_features.id = dealer_product_features.product_feature_id left join features ON features.id = product_features.feature_id where dealers.id in (select distinct dealers.id from inventory inner join makes ON makes.id = inventory.make_id inner join dealers ON dealers.id = inventory.dealer_id where certified_preowned = true and makes.name = 'Toyota' and dealers.account_status = 'Former Customer') group by dealers.id;
+
+# 2021-10-14 14:01:33.112297
++select dealers.id, array_agg(features.name) from dealers left join dealer_product_features ON dealer_product_features.dealer_id = dealers.id left join product_features ON product_features.id = dealer_product_features.product_feature_id left join features ON features.id = product_features.feature_id where dealers.id in (select distinct dealers.id from inventory inner join makes ON makes.id = inventory.make_id inner join dealers ON dealers.id = inventory.dealer_id where certified_preowned = true and makes.name = 'Toyota' and dealers.account_status = 'Former Customer') group by dealers.id having array_agg(features.name) == [None]
+
+# 2021-10-14 14:01:39.199739
++select dealers.id, array_agg(features.name) from dealers left join dealer_product_features ON dealer_product_features.dealer_id = dealers.id left join product_features ON product_features.id = dealer_product_features.product_feature_id left join features ON features.id = product_features.feature_id where dealers.id in (select distinct dealers.id from inventory inner join makes ON makes.id = inventory.make_id inner join dealers ON dealers.id = inventory.dealer_id where certified_preowned = true and makes.name = 'Toyota' and dealers.account_status = 'Former Customer') group by dealers.id having array_agg(features.name) == []
+
+# 2021-10-14 14:01:47.456335
++select dealers.id, array_agg(features.name) from dealers left join dealer_product_features ON dealer_product_features.dealer_id = dealers.id left join product_features ON product_features.id = dealer_product_features.product_feature_id left join features ON features.id = product_features.feature_id where dealers.id in (select distinct dealers.id from inventory inner join makes ON makes.id = inventory.make_id inner join dealers ON dealers.id = inventory.dealer_id where certified_preowned = true and makes.name = 'Toyota' and dealers.account_status = 'Former Customer') group by dealers.id having array_agg(features.name) == array([])
+
+# 2021-10-14 14:01:50.674910
++select dealers.id, array_agg(features.name) from dealers left join dealer_product_features ON dealer_product_features.dealer_id = dealers.id left join product_features ON product_features.id = dealer_product_features.product_feature_id left join features ON features.id = product_features.feature_id where dealers.id in (select distinct dealers.id from inventory inner join makes ON makes.id = inventory.make_id inner join dealers ON dealers.id = inventory.dealer_id where certified_preowned = true and makes.name = 'Toyota' and dealers.account_status = 'Former Customer') group by dealers.id having array_agg(features.name) == array()
+
+# 2021-10-14 14:03:54.494254
++select dealers.id, array_agg(features.name) from dealers left join dealer_product_features ON dealer_product_features.dealer_id = dealers.id left join product_features ON product_features.id = dealer_product_features.product_feature_id left join features ON features.id = product_features.feature_id where dealers.id in (select distinct dealers.id from inventory inner join makes ON makes.id = inventory.make_id inner join dealers ON dealers.id = inventory.dealer_id where certified_preowned = true and makes.name = 'Toyota' and dealers.account_status = 'Former Customer') group by dealers.id having array_agg(features.name) == '[]'
+
+# 2021-10-14 14:03:59.342315
++select dealers.id, array_agg(features.name) from dealers left join dealer_product_features ON dealer_product_features.dealer_id = dealers.id left join product_features ON product_features.id = dealer_product_features.product_feature_id left join features ON features.id = product_features.feature_id where dealers.id in (select distinct dealers.id from inventory inner join makes ON makes.id = inventory.make_id inner join dealers ON dealers.id = inventory.dealer_id where certified_preowned = true and makes.name = 'Toyota' and dealers.account_status = 'Former Customer') group by dealers.id having array_agg(features.name) = '[]'
+
+# 2021-10-14 14:05:22.278025
++select dealers.id, array_agg(features.name) from dealers left join dealer_product_features ON dealer_product_features.dealer_id = dealers.id left join product_features ON product_features.id = dealer_product_features.product_feature_id left join features ON features.id = product_features.feature_id where dealers.id in (select distinct dealers.id from inventory inner join makes ON makes.id = inventory.make_id inner join dealers ON dealers.id = inventory.dealer_id where certified_preowned = true and makes.name = 'Toyota' and dealers.account_status = 'Former Customer') group by dealers.id having array_agg(features.name) = '{}'
+
+# 2021-10-14 14:05:56.377421
++select array_agg('{}')
+
+# 2021-10-14 14:06:11.800942
++select dealers.id, array_agg(features.name) from dealers left join dealer_product_features ON dealer_product_features.dealer_id = dealers.id left join product_features ON product_features.id = dealer_product_features.product_feature_id left join features ON features.id = product_features.feature_id where dealers.id in (select distinct dealers.id from inventory inner join makes ON makes.id = inventory.make_id inner join dealers ON dealers.id = inventory.dealer_id where certified_preowned = true and makes.name = 'Toyota' and dealers.account_status = 'Former Customer') group by dealers.id
+
+# 2021-10-14 14:06:35.404434
++select dealers.id, dealers.account_status array_agg(features.name) from dealers left join dealer_product_features ON dealer_product_features.dealer_id = dealers.id left join product_features ON product_features.id = dealer_product_features.product_feature_id left join features ON features.id = product_features.feature_id where dealers.id in (select distinct dealers.id from inventory inner join makes ON makes.id = inventory.make_id inner join dealers ON dealers.id = inventory.dealer_id where certified_preowned = true and makes.name = 'Toyota' and dealers.account_status = 'Former Customer') group by dealers.id
+
+# 2021-10-14 14:06:47.452806
++select dealers.id, dealers.account_status, array_agg(features.name) from dealers left join dealer_product_features ON dealer_product_features.dealer_id = dealers.id left join product_features ON product_features.id = dealer_product_features.product_feature_id left join features ON features.id = product_features.feature_id where dealers.id in (select distinct dealers.id from inventory inner join makes ON makes.id = inventory.make_id inner join dealers ON dealers.id = inventory.dealer_id where certified_preowned = true and makes.name = 'Toyota' and dealers.account_status = 'Former Customer') group by dealers.id
+
+# 2021-10-14 14:08:10.647883
++select dealers.id, array_agg(features.name) from dealers left join dealer_product_features ON dealer_product_features.dealer_id = dealers.id left join product_features ON product_features.id = dealer_product_features.product_feature_id left join features ON features.id = product_features.feature_id where dealers.id in (select distinct dealers.id from inventory inner join makes ON makes.id = inventory.make_id inner join dealers ON dealers.id = inventory.dealer_id where certified_preowned = true and makes.name = 'Toyota' and dealers.account_status = 'Former Customer') group by dealers.id having array_agg(features.name) = '{null
+
+# 2021-10-14 14:08:14.450362
++select dealers.id, array_agg(features.name) from dealers left join dealer_product_features ON dealer_product_features.dealer_id = dealers.id left join product_features ON product_features.id = dealer_product_features.product_feature_id left join features ON features.id = product_features.feature_id where dealers.id in (select distinct dealers.id from inventory inner join makes ON makes.id = inventory.make_id inner join dealers ON dealers.id = inventory.dealer_id where certified_preowned = true and makes.name = 'Toyota' and dealers.account_status = 'Former Customer') group by dealers.id having array_agg(features.name) = '{null}'
+
+# 2021-10-14 14:09:02.263365
++select dealers.*, array_agg(features.name) from dealers left join dealer_product_features ON dealer_product_features.dealer_id = dealers.id left join product_features ON product_features.id = dealer_product_features.product_feature_id left join features ON features.id = product_features.feature_id where dealers.id in (select distinct dealers.id from inventory inner join makes ON makes.id = inventory.make_id inner join dealers ON dealers.id = inventory.dealer_id where certified_preowned = true and makes.name = 'Toyota' and dealers.account_status = 'Former Customer') group by dealers.id having array_agg(features.name) = '{null}'
+
+# 2021-10-14 14:09:04.332929
++\x
+
+# 2021-10-14 14:09:05.232994
++select dealers.*, array_agg(features.name) from dealers left join dealer_product_features ON dealer_product_features.dealer_id = dealers.id left join product_features ON product_features.id = dealer_product_features.product_feature_id left join features ON features.id = product_features.feature_id where dealers.id in (select distinct dealers.id from inventory inner join makes ON makes.id = inventory.make_id inner join dealers ON dealers.id = inventory.dealer_id where certified_preowned = true and makes.name = 'Toyota' and dealers.account_status = 'Former Customer') group by dealers.id having array_agg(features.name) = '{null}'
+
+# 2021-10-14 14:09:38.995231
++select dealers.*, array_agg(features.name) from dealers left join dealer_product_features ON dealer_product_features.dealer_id = dealers.id left join product_features ON product_features.id = dealer_product_features.product_feature_id left join features ON features.id = product_features.feature_id where dealers.id in (select distinct dealers.id from inventory inner join makes ON makes.id = inventory.make_id inner join dealers ON dealers.id = inventory.dealer_id where certified_preowned = true and makes.name = 'Toyota' and dealers.account_status != 'Customer') group by dealers.id having array_agg(features.name) = '{null}'
+
+# 2021-10-14 14:09:53.058471
++select dealers.name, dealer.account_status, array_agg(features.name) from dealers left join dealer_product_features ON dealer_product_features.dealer_id = dealers.id left join product_features ON product_features.id = dealer_product_features.product_feature_id left join features ON features.id = product_features.feature_id where dealers.id in (select distinct dealers.id from inventory inner join makes ON makes.id = inventory.make_id inner join dealers ON dealers.id = inventory.dealer_id where certified_preowned = true and makes.name = 'Toyota' and dealers.account_status != 'Customer') group by dealers.id having array_agg(features.name) = '{null}'
+
+# 2021-10-14 14:09:57.174562
++select dealers.name, dealers.account_status, array_agg(features.name) from dealers left join dealer_product_features ON dealer_product_features.dealer_id = dealers.id left join product_features ON product_features.id = dealer_product_features.product_feature_id left join features ON features.id = product_features.feature_id where dealers.id in (select distinct dealers.id from inventory inner join makes ON makes.id = inventory.make_id inner join dealers ON dealers.id = inventory.dealer_id where certified_preowned = true and makes.name = 'Toyota' and dealers.account_status != 'Customer') group by dealers.id having array_agg(features.name) = '{null}'
+
+# 2021-10-14 14:10:53.223398
++\x
+
+# 2021-10-14 14:10:54.236542
++select dealers.name, dealers.account_status, array_agg(features.name) from dealers left join dealer_product_features ON dealer_product_features.dealer_id = dealers.id left join product_features ON product_features.id = dealer_product_features.product_feature_id left join features ON features.id = product_features.feature_id where dealers.id in (select distinct dealers.id from inventory inner join makes ON makes.id = inventory.make_id inner join dealers ON dealers.id = inventory.dealer_id where certified_preowned = true and makes.name = 'Toyota' and dealers.account_status != 'Customer') group by dealers.id having array_agg(features.name) = '{null}'
+
+# 2021-10-14 14:11:35.265023
++select dealers.name, dealers.account_status, array_agg(features.name) from dealers left join dealer_product_features ON dealer_product_features.dealer_id = dealers.id left join product_features ON product_features.id = dealer_product_features.product_feature_id left join features ON features.id = product_features.feature_id where dealers.id in (select distinct dealers.id from inventory inner join dealers ON dealers.id = inventory.dealer_id where certified_preowned = true and dealers.account_status != 'Customer') group by dealers.id having array_agg(features.name) = '{null}'
+
+# 2021-10-14 14:12:48.797602
++select dealers.name, dealers.account_status, array_agg(features.name) from dealers left join dealer_product_features ON dealer_product_features.dealer_id = dealers.id left join product_features ON product_features.id = dealer_product_features.product_feature_id left join features ON features.id = product_features.feature_id where dealers.id in (select distinct dealers.id from inventory inner join dealers ON dealers.id = inventory.dealer_id where certified_preowned = false and used = true and dealers.account_status != 'Customer') group by dealers.id having array_agg(features.name) = '{null}'
+
+# 2021-10-14 14:13:09.013239
++select dealers.name, dealers.account_status, array_agg(features.name) from dealers left join dealer_product_features ON dealer_product_features.dealer_id = dealers.id left join product_features ON product_features.id = dealer_product_features.product_feature_id left join features ON features.id = product_features.feature_id where dealers.id in (select distinct dealers.id from inventory inner join dealers ON dealers.id = inventory.dealer_id where certified_preowned = false and new = true and dealers.account_status != 'Customer') group by dealers.id having array_agg(features.name) = '{null}'
+
+# 2021-10-14 14:13:20.375813
++\d inventory;
+
+# 2021-10-14 14:13:34.651852
++select dealers.name, dealers.account_status, array_agg(features.name) from dealers left join dealer_product_features ON dealer_product_features.dealer_id = dealers.id left join product_features ON product_features.id = dealer_product_features.product_feature_id left join features ON features.id = product_features.feature_id where dealers.id in (select distinct dealers.id from inventory inner join dealers ON dealers.id = inventory.dealer_id where certified_preowned = false and used = false and dealers.account_status != 'Customer') group by dealers.id having array_agg(features.name) = '{null}'
+
+# 2021-10-14 14:14:10.637006
++select dealers.name, dealers.id, dealers.account_status, array_agg(features.name) from dealers left join dealer_product_features ON dealer_product_features.dealer_id = dealers.id left join product_features ON product_features.id = dealer_product_features.product_feature_id left join features ON features.id = product_features.feature_id where dealers.id in (select distinct dealers.id from inventory inner join dealers ON dealers.id = inventory.dealer_id where certified_preowned = false and used = false and dealers.account_status != 'Customer') group by dealers.id having array_agg(features.name) = '{null}'
+
+# 2021-10-14 14:14:30.927173
++select * from inventory where inventory.dealer_id = uuid('25ba770b-49a6-508e-926d-b8f5ea95a016')
+
+# 2021-10-14 14:14:42.302940
++select count(*) from inventory where inventory.dealer_id = uuid('25ba770b-49a6-508e-926d-b8f5ea95a016')
+
+# 2021-10-14 14:15:21.082947
++select inventory.vin, inventory.images, from inventory where inventory.dealer_id = uuid('25ba770b-49a6-508e-926d-b8f5ea95a016')
+
+# 2021-10-14 14:15:26.957361
++select inventory.vin, inventory.images from inventory where inventory.dealer_id = uuid('25ba770b-49a6-508e-926d-b8f5ea95a016')
+
+# 2021-10-14 14:16:09.076941
++select dealers.name, dealers.id, dealers.account_status, array_agg(features.name) from dealers left join dealer_product_features ON dealer_product_features.dealer_id = dealers.id left join product_features ON product_features.id = dealer_product_features.product_feature_id left join features ON features.id = product_features.feature_id where dealers.id in (select distinct dealers.id from inventory inner join dealers ON dealers.id = inventory.dealer_id where certified_preowned = false and used = false and dealers.account_status != 'Customer') group by dealers.id having array_agg(features.name) = '{null}'
+
+# 2021-10-14 14:16:21.036408
++select dealers.name, dealers.id, dealers.account_status, array_agg(features.name) from dealers left join dealer_product_features ON dealer_product_features.dealer_id = dealers.id left join product_features ON product_features.id = dealer_product_features.product_feature_id left join features ON features.id = product_features.feature_id where dealers.id in (select distinct dealers.id from inventory inner join dealers ON dealers.id = inventory.dealer_id where certified_preowned = false and used = false and dealers.account_status != 'Former Customer') group by dealers.id having array_agg(features.name) = '{null}'
+
+# 2021-10-14 14:16:40.025662
++select dealers.name, dealers.id, dealers.account_status, array_agg(features.name) from dealers left join dealer_product_features ON dealer_product_features.dealer_id = dealers.id left join product_features ON product_features.id = dealer_product_features.product_feature_id left join features ON features.id = product_features.feature_id where dealers.id in (select distinct dealers.id from inventory inner join dealers ON dealers.id = inventory.dealer_id where certified_preowned = false and used = false) group by dealers.id having array_agg(features.name) = '{null}'
+
+# 2021-10-14 14:17:09.500648
++\d inventory;
+
+# 2021-10-14 14:17:23.665193
++select dealers.name, dealers.id, dealers.account_status, array_agg(features.name) from dealers left join dealer_product_features ON dealer_product_features.dealer_id = dealers.id left join product_features ON product_features.id = dealer_product_features.product_feature_id left join features ON features.id = product_features.feature_id where dealers.id in (select distinct dealers.id from inventory inner join dealers ON dealers.id = inventory.dealer_id where certified_preowned = false and used = false and listed=true) group by dealers.id having array_agg(features.name) = '{null}'
+
+# 2021-10-14 14:18:00.184651
++select dealers.name, dealers.id, dealers.account_status, array_agg(features.name) from dealers left join dealer_product_features ON dealer_product_features.dealer_id = dealers.id left join product_features ON product_features.id = dealer_product_features.product_feature_id left join features ON features.id = product_features.feature_id where dealers.id in (select distinct dealers.id from inventory inner join dealers ON dealers.id = inventory.dealer_id where certified_preowned = false and used = true and listed=true) group by dealers.id having array_agg(features.name) = '{null}'
+
+# 2021-10-14 14:18:18.104639
++select dealers.name, dealers.id, dealers.account_status, array_agg(features.name) from dealers left join dealer_product_features ON dealer_product_features.dealer_id = dealers.id left join product_features ON product_features.id = dealer_product_features.product_feature_id left join features ON features.id = product_features.feature_id where dealers.id in (select distinct dealers.id from inventory inner join dealers ON dealers.id = inventory.dealer_id where certified_preowned = true and listed=true) group by dealers.id having array_agg(features.name) = '{null}'
+
+# 2021-10-14 14:19:22.243051
++select inventory.vin, inventory.images from inventory where dealer_id in (select dealers.name, dealers.id, dealers.account_status, array_agg(features.name) from dealers left join dealer_product_features ON dealer_product_features.dealer_id = dealers.id left join product_features ON product_features.id = dealer_product_features.product_feature_id left join features ON features.id = product_features.feature_id where dealers.id in (select distinct dealers.id from inventory inner join dealers ON dealers.id = inventory.dealer_id where certified_preowned = true and listed=true) group by dealers.id having array_agg(features.name) = '{null}')
+
+# 2021-10-14 14:19:55.881877
++select inventory.vin, inventory.images from inventory where dealer_id in (select dealers.id from dealers left join dealer_product_features ON dealer_product_features.dealer_id = dealers.id left join product_features ON product_features.id = dealer_product_features.product_feature_id left join features ON features.id = product_features.feature_id where dealers.id in (select distinct dealers.id from inventory inner join dealers ON dealers.id = inventory.dealer_id where certified_preowned = true and listed=true) group by dealers.id having array_agg(features.name) = '{null}')
+
+# 2021-10-14 14:20:45.944224
++select inventory.vin, inventory.id from inventory where dealer_id in (select dealers.id from dealers left join dealer_product_features ON dealer_product_features.dealer_id = dealers.id left join product_features ON product_features.id = dealer_product_features.product_feature_id left join features ON features.id = product_features.feature_id where dealers.id in (select distinct dealers.id from inventory inner join dealers ON dealers.id = inventory.dealer_id where certified_preowned = true and listed=true) group by dealers.id having array_agg(features.name) = '{null}') where inventory.images is null;
+
+# 2021-10-14 14:21:01.346299
++select inventory.vin, inventory.id from inventory where dealer_id in (select dealers.id from dealers left join dealer_product_features ON dealer_product_features.dealer_id = dealers.id left join product_features ON product_features.id = dealer_product_features.product_feature_id left join features ON features.id = product_features.feature_id where dealers.id in (select distinct dealers.id from inventory inner join dealers ON dealers.id = inventory.dealer_id where certified_preowned = true and listed=true) group by dealers.id having array_agg(features.name) = '{null}') and inventory.images is null;
+
+# 2021-10-14 14:21:49.710225
++select inventory.vin, listings.id inner join listings on listings.inventory_id = inventory.id from inventory where dealer_id in (select dealers.id from dealers left join dealer_product_features ON dealer_product_features.dealer_id = dealers.id left join product_features ON product_features.id = dealer_product_features.product_feature_id left join features ON features.id = product_features.feature_id where dealers.id in (select distinct dealers.id from inventory inner join dealers ON dealers.id = inventory.dealer_id where certified_preowned = true and listed=true) group by dealers.id having array_agg(features.name) = '{null}') and inventory.images is null;
+
+# 2021-10-14 14:22:38.716303
++\e
+
+# 2021-10-14 14:23:43.618541
++select
++  inventory.vin,
++  listings.id
++from
++  inventory
++inner join listings on listings.inventory_id = inventory.id
++where
++  dealer_id in (
++    select
++      dealers.id
++    from
++      dealers
++      left join dealer_product_features ON dealer_product_features.dealer_id = dealers.id
++      left join product_features ON product_features.id = dealer_product_features.product_feature_id
++      left join features ON features.id = product_features.feature_id
++    where
++      dealers.id in (
++        select
++          distinct dealers.id
++        from
++          inventory
++          inner join dealers ON dealers.id = inventory.dealer_id
++        where
++          certified_preowned = true
++          and listed = true
++      )
++    group by
++      dealers.id
++    having
++      array_agg(features.name) = '{null}'
++  )
++  and inventory.images is null;
+
+# 2021-10-14 14:24:13.746835
++select
++  inventory.vin,
++  listings.id
++from
++  inventory
++inner join listings on listings.inventory_id = inventory.id
++where
++  dealer_id in (
++    select
++      dealers.id
++    from
++      dealers
++      left join dealer_product_features ON dealer_product_features.dealer_id = dealers.id
++      left join product_features ON product_features.id = dealer_product_features.product_feature_id
++      left join features ON features.id = product_features.feature_id
++    where
++      dealers.id in (
++        select
++          distinct dealers.id
++        from
++          inventory
++          inner join dealers ON dealers.id = inventory.dealer_id
++        where
++          certified_preowned = true
++          and listed = true
++      )
++    group by
++      dealers.id
++    having
++      array_agg(features.name) = '{null}'
++  )
++  and inventory.images is null and listed = true;
+
+# 2021-10-14 14:24:18.966805
++select
++  inventory.vin,
++  listings.id
++from
++  inventory
++inner join listings on listings.inventory_id = inventory.id
++where
++  dealer_id in (
++    select
++      dealers.id
++    from
++      dealers
++      left join dealer_product_features ON dealer_product_features.dealer_id = dealers.id
++      left join product_features ON product_features.id = dealer_product_features.product_feature_id
++      left join features ON features.id = product_features.feature_id
++    where
++      dealers.id in (
++        select
++          distinct dealers.id
++        from
++          inventory
++          inner join dealers ON dealers.id = inventory.dealer_id
++        where
++          certified_preowned = true
++          and listed = true
++      )
++    group by
++      dealers.id
++    having
++      array_agg(features.name) = '{null}'
++  )
++  and inventory.images is null and inventory.listed = true;
+
+# 2021-10-14 14:26:51.530859
++select * from dealers where name like "Diablo%";
+
+# 2021-10-14 14:26:57.482884
++select * from dealers where name like 'Diablo%';
+
+# 2021-10-14 14:27:01.971065
++\x
+
+# 2021-10-14 14:27:02.994901
++select * from dealers where name like 'Diablo%';
+
+# 2021-10-14 14:27:40.097544
++select * from dealers left join dealer_product_features on dealer_product_features.dealer_id = dealers.id inner join product_features ON product_features.id = dealer_product_features.product_feature_id inner join features ON features.id = product_features.feature_id where dealers.customer_id = '2432403';
+
+# 2021-10-14 14:28:02.699606
++select dealer.name, features.name from dealers left join dealer_product_features on dealer_product_features.dealer_id = dealers.id inner join product_features ON product_features.id = dealer_product_features.product_feature_id inner join features ON features.id = product_features.feature_id where dealers.customer_id = '2432403';
+
+# 2021-10-14 14:28:12.408505
++select dealers.name, features.name from dealers left join dealer_product_features on dealer_product_features.dealer_id = dealers.id inner join product_features ON product_features.id = dealer_product_features.product_feature_id inner join features ON features.id = product_features.feature_id where dealers.customer_id = '2432403';
+
+# 2021-10-14 14:28:14.906257
++\x
+
+# 2021-10-14 14:28:15.952484
++select dealers.name, features.name from dealers left join dealer_product_features on dealer_product_features.dealer_id = dealers.id inner join product_features ON product_features.id = dealer_product_features.product_feature_id inner join features ON features.id = product_features.feature_id where dealers.customer_id = '2432403';
+
+# 2021-10-14 14:28:30.354020
++select
++  inventory.vin,
++  listings.id
++from
++  inventory
++inner join listings on listings.inventory_id = inventory.id
++where
++  dealer_id in (
++    select
++      dealers.id
++    from
++      dealers
++      left join dealer_product_features ON dealer_product_features.dealer_id = dealers.id
++      left join product_features ON product_features.id = dealer_product_features.product_feature_id
++      left join features ON features.id = product_features.feature_id
++    where
++      dealers.id in (
++        select
++          distinct dealers.id
++        from
++          inventory
++          inner join dealers ON dealers.id = inventory.dealer_id
++        where
++          certified_preowned = true
++          and listed = true
++      )
++    group by
++      dealers.id
++    having
++      array_agg(features.name) = '{null}'
++  )
++  and inventory.images is null and inventory.listed = true;
+
+# 2021-10-14 14:28:56.288726
++select
++from
++  inventory
++inner join listings on listings.inventory_id = inventory.id
++where
++  dealer_id in (
++    select
++      dealers.id
++    from
++      dealers
++      left join dealer_product_features ON dealer_product_features.dealer_id = dealers.id
++      left join product_features ON product_features.id = dealer_product_features.product_feature_id
++      left join features ON features.id = product_features.feature_id
++    where
++      dealers.id in (
++        select
++          distinct dealers.id
++        from
++          inventory
++          inner join dealers ON dealers.id = inventory.dealer_id
++        where
++          certified_preowned = true
++          and listed = true
++      )
++    group by
++      dealers.id
++    having
++      array_agg(features.name) = '{null}'
++  )
++  and inventory.images is null and inventory.listed = true;
+
+# 2021-10-14 14:29:05.003602
++select count(*)
++from
++  inventory
++inner join listings on listings.inventory_id = inventory.id
++where
++  dealer_id in (
++    select
++      dealers.id
++    from
++      dealers
++      left join dealer_product_features ON dealer_product_features.dealer_id = dealers.id
++      left join product_features ON product_features.id = dealer_product_features.product_feature_id
++      left join features ON features.id = product_features.feature_id
++    where
++      dealers.id in (
++        select
++          distinct dealers.id
++        from
++          inventory
++          inner join dealers ON dealers.id = inventory.dealer_id
++        where
++          certified_preowned = true
++          and listed = true
++      )
++    group by
++      dealers.id
++    having
++      array_agg(features.name) = '{null}'
++  )
++  and inventory.images is null and inventory.listed = true;
+
+# 2021-10-14 14:30:10.039082
++select dealers.name, dealers.id, dealers.account_status, array_agg(features.name) from dealers left join dealer_product_features ON dealer_product_features.dealer_id = dealers.id left join product_features ON product_features.id = dealer_product_features.product_feature_id left join features ON features.id = product_features.feature_id where dealers.id in (select distinct dealers.id from inventory inner join dealers ON dealers.id = inventory.dealer_id where certified_preowned = false and used = false) group by dealers.id having array_agg(features.name) = '{null}'
+
+# 2021-10-14 14:30:23.617392
++select dealers.name, dealers.id, dealers.account_status, array_agg(features.name) from dealers left join dealer_product_features ON dealer_product_features.dealer_id = dealers.id left join product_features ON product_features.id = dealer_product_features.product_feature_id left join features ON features.id = product_features.feature_id where dealers.id in (select distinct dealers.id from inventory inner join dealers ON dealers.id = inventory.dealer_id where certified_preowned = true) group by dealers.id having array_agg(features.name) = '{null}'
+
+# 2021-10-14 14:30:40.155525
++select dealers.name, dealers.id, dealers.account_status, array_agg(features.name) from dealers left join dealer_product_features ON dealer_product_features.dealer_id = dealers.id left join product_features ON product_features.id = dealer_product_features.product_feature_id left join features ON features.id = product_features.feature_id where dealers.id in (select distinct dealers.id from inventory inner join dealers ON dealers.id = inventory.dealer_id where certified_preowned = true and listed=true) group by dealers.id having array_agg(features.name) = '{null}'
+
+# 2021-10-14 14:30:44.025217
++\e
+
+# 2021-10-14 14:31:17.011450
++select
++  dealers.name,
++  dealers.id,
++  dealers.account_status,
++  array_agg(features.name)
++from
++  dealers
++  left join dealer_product_features ON dealer_product_features.dealer_id = dealers.id
++  left join product_features ON product_features.id = dealer_product_features.product_feature_id
++  left join features ON features.id = product_features.feature_id
++where
++  dealers.id in (
++    select
++      distinct dealers.id
++    from
++      inventory
++      inner join dealers ON dealers.id = inventory.dealer_id
++    where
++      certified_preowned = true
++      and listed = true
++  )
++group by
++  dealers.id
++having
++  array_agg(features.name) = '{null}'
+
+# 2021-10-14 14:32:02.957902
++select count(*)
++from
++  inventory
++inner join listings on listings.inventory_id = inventory.id
++where
++  dealer_id in (
++    select
++      dealers.id
++    from
++      dealers
++      left join dealer_product_features ON dealer_product_features.dealer_id = dealers.id
++      left join product_features ON product_features.id = dealer_product_features.product_feature_id
++      left join features ON features.id = product_features.feature_id
++    where
++      dealers.id in (
++        select
++          distinct dealers.id
++        from
++          inventory
++          inner join dealers ON dealers.id = inventory.dealer_id
++        where
++          certified_preowned = true
++          and listed = true
++      )
++    group by
++      dealers.id
++    having
++      array_agg(features.name) = '{null}'
++  )
++  and inventory.images is not null and inventory.listed = true;
+
+# 2021-10-14 14:32:19.258992
++select inventory.vin, listing.id
++from
++  inventory
++inner join listings on listings.inventory_id = inventory.id
++where
++  dealer_id in (
++    select
++      dealers.id
++    from
++      dealers
++      left join dealer_product_features ON dealer_product_features.dealer_id = dealers.id
++      left join product_features ON product_features.id = dealer_product_features.product_feature_id
++      left join features ON features.id = product_features.feature_id
++    where
++      dealers.id in (
++        select
++          distinct dealers.id
++        from
++          inventory
++          inner join dealers ON dealers.id = inventory.dealer_id
++        where
++          certified_preowned = true
++          and listed = true
++      )
++    group by
++      dealers.id
++    having
++      array_agg(features.name) = '{null}'
++  )
++  and inventory.images is not null and inventory.listed = true;
+
+# 2021-10-14 14:32:25.243467
++select inventory.vin, listings.id
++from
++  inventory
++inner join listings on listings.inventory_id = inventory.id
++where
++  dealer_id in (
++    select
++      dealers.id
++    from
++      dealers
++      left join dealer_product_features ON dealer_product_features.dealer_id = dealers.id
++      left join product_features ON product_features.id = dealer_product_features.product_feature_id
++      left join features ON features.id = product_features.feature_id
++    where
++      dealers.id in (
++        select
++          distinct dealers.id
++        from
++          inventory
++          inner join dealers ON dealers.id = inventory.dealer_id
++        where
++          certified_preowned = true
++          and listed = true
++      )
++    group by
++      dealers.id
++    having
++      array_agg(features.name) = '{null}'
++  )
++  and inventory.images is not null and inventory.listed = true;
+
+# 2021-10-14 14:33:08.601431
++select inventory.vin, listings.id, inventory.images
++from
++  inventory
++inner join listings on listings.inventory_id = inventory.id
++where
++  dealer_id in (
++    select
++      dealers.id
++    from
++      dealers
++      left join dealer_product_features ON dealer_product_features.dealer_id = dealers.id
++      left join product_features ON product_features.id = dealer_product_features.product_feature_id
++      left join features ON features.id = product_features.feature_id
++    where
++      dealers.id in (
++        select
++          distinct dealers.id
++        from
++          inventory
++          inner join dealers ON dealers.id = inventory.dealer_id
++        where
++          certified_preowned = true
++          and listed = true
++      )
++    group by
++      dealers.id
++    having
++      array_agg(features.name) = '{null}'
++  )
++  and inventory.images is not null and inventory.listed = true;
+
+# 2021-10-14 14:35:06.093001
++select inventory.vin, listings.id
++from
++  inventory
++inner join listings on listings.inventory_id = inventory.id
++where
++  dealer_id in (
++    select
++      dealers.id
++    from
++      dealers
++      left join dealer_product_features ON dealer_product_features.dealer_id = dealers.id
++      left join product_features ON product_features.id = dealer_product_features.product_feature_id
++      left join features ON features.id = product_features.feature_id
++    where
++      dealers.id in (
++        select
++          distinct dealers.id
++        from
++          inventory
++          inner join dealers ON dealers.id = inventory.dealer_id
++        where
++          certified_preowned = true
++          and listed = true
++      )
++    group by
++      dealers.id
++    having
++      array_agg(features.name) = '{null}'
++  )
++  and inventory.listed = true;
+
+# 2021-10-14 14:35:59.156828
++select inventory.vin, listings.id
++from
++  inventory
++inner join listings on listings.inventory_id = inventory.id
++where
++  dealer_id in (
++    select
++      dealers.id
++    from
++      dealers
++      left join dealer_product_features ON dealer_product_features.dealer_id = dealers.id
++      left join product_features ON product_features.id = dealer_product_features.product_feature_id
++      left join features ON features.id = product_features.feature_id
++    where
++      dealers.id in (
++        select
++          distinct dealers.id
++        from
++          inventory
++          inner join dealers ON dealers.id = inventory.dealer_id
++        where
++          certified_preowned = true
++          and listed = true
++      )
++    group by
++      dealers.id
++    having
++      array_agg(features.name) != '{null}'
++  )
++  and inventory.listed = true;
+
+# 2021-10-14 14:36:20.543894
++select inventory.vin, listings.id
++from
++  inventory
++inner join listings on listings.inventory_id = inventory.id
++where
++  dealer_id in (
++    select
++      dealers.id
++    from
++      dealers
++      left join dealer_product_features ON dealer_product_features.dealer_id = dealers.id
++      left join product_features ON product_features.id = dealer_product_features.product_feature_id
++      left join features ON features.id = product_features.feature_id
++    where
++      dealers.id in (
++        select
++          distinct dealers.id
++        from
++          inventory
++          inner join dealers ON dealers.id = inventory.dealer_id
++        where
++          certified_preowned = true
++          and listed = true
++      )
++    group by
++      dealers.id
++    having
++      array_agg(features.name) != '{null}'
++  )
++  and inventory.listed = true order by random() limit 10;
+
+# 2021-10-14 14:37:53.856132
++select
++  dealers.name,
++  dealers.id,
++  dealers.account_status,
++  array_agg(features.name)
++from
++  dealers
++  left join dealer_product_features ON dealer_product_features.dealer_id = dealers.id
++  left join product_features ON product_features.id = dealer_product_features.product_feature_id
++  left join features ON features.id = product_features.feature_id
++where
++  dealers.id in (
++    select
++      distinct dealers.id
++    from
++      inventory
++      inner join dealers ON dealers.id = inventory.dealer_id
++    where
++      certified_preowned = true
++      and listed = true
++  )
++group by
++  dealers.id
++having
++  array_agg(features.name) = '{null}'
+
+# 2021-10-14 14:42:30.350427
++\e
+
+# 2021-10-14 14:42:49.036471
++select
++  dealers.name,
++  dealers.id,
++  dealers.account_status,
++  array_agg(features.name)
++from
++  dealers
++  left join dealer_product_features ON dealer_product_features.dealer_id = dealers.id
++  left join product_features ON product_features.id = dealer_product_features.product_feature_id
++  left join features ON features.id = product_features.feature_id
++where
++  dealers.id in (
++    select
++      distinct dealers.id
++    from
++      inventory
++      inner join dealers ON dealers.id = inventory.dealer_id
++    where
++      certified_preowned = true
++      and listed = true
++  )
++and dealers.account_status != 'Customer'
++group by
++  dealers.id
++having
++  array_agg(features.name) = '{null}'
+
+# 2021-10-14 14:43:06.633985
++select
++  dealers.name,
++  dealers.id,
++  dealers.account_status,
++  array_agg(features.name)
++from
++  dealers
++  left join dealer_product_features ON dealer_product_features.dealer_id = dealers.id
++  left join product_features ON product_features.id = dealer_product_features.product_feature_id
++  left join features ON features.id = product_features.feature_id
++where
++  dealers.id in (
++    select
++      distinct dealers.id
++    from
++      inventory
++      inner join dealers ON dealers.id = inventory.dealer_id
++    where
++      certified_preowned = true
++      and listed = true
++  )
++and dealers.account_status != 'Customer'
++group by
++  dealers.id
++having
++  array_agg(features.name) != '{null}'
+
+# 2021-10-14 14:43:36.984890
++\e
+
+# 2021-10-14 14:43:47.155011
++select
++ count(*)
++from
++  dealers
++  left join dealer_product_features ON dealer_product_features.dealer_id = dealers.id
++  left join product_features ON product_features.id = dealer_product_features.product_feature_id
++  left join features ON features.id = product_features.feature_id
++where
++  dealers.id in (
++    select
++      distinct dealers.id
++    from
++      inventory
++      inner join dealers ON dealers.id = inventory.dealer_id
++    where
++      certified_preowned = true
++      and listed = true
++  )
++and dealers.account_status != 'Customer'
++group by
++  dealers.id
++having
++  array_agg(features.name) != '{null}'
+
+# 2021-10-14 14:44:00.109852
++\e
+
+# 2021-10-14 14:44:46.320891
++select
++  dealers.name,
++  dealers.id,
++  dealers.account_status,
++  array_agg(features.name)
++from
++  dealers
++  left join dealer_product_features ON dealer_product_features.dealer_id = dealers.id
++  left join product_features ON product_features.id = dealer_product_features.product_feature_id
++  left join features ON features.id = product_features.feature_id
++where
++  dealers.id in (
++    select
++      distinct dealers.id
++    from
++      inventory
++      inner join dealers ON dealers.id = inventory.dealer_id
++    where
++      certified_preowned = true
++      and listed = true
++  )
++and dealers.account_status != 'Customer'
++group by
++  dealers.id
++having
++  array_agg(features.name) != '{null}'
+
+# 2021-10-14 14:44:50.179387
++\e
+
+# 2021-10-14 14:45:03.151777
++select count(*) from (
++
++select
++  dealers.name,
++  dealers.id,
++  dealers.account_status,
++  array_agg(features.name)
++from
++  dealers
++  left join dealer_product_features ON dealer_product_features.dealer_id = dealers.id
++  left join product_features ON product_features.id = dealer_product_features.product_feature_id
++  left join features ON features.id = product_features.feature_id
++where
++  dealers.id in (
++    select
++      distinct dealers.id
++    from
++      inventory
++      inner join dealers ON dealers.id = inventory.dealer_id
++    where
++      certified_preowned = true
++      and listed = true
++  )
++and dealers.account_status != 'Customer'
++group by
++  dealers.id
++having
++  array_agg(features.name) != '{null}'
++)
+
+# 2021-10-14 14:45:11.241438
++select count(*) from (
++
++select
++  dealers.name,
++  dealers.id,
++  dealers.account_status,
++  array_agg(features.name)
++from
++  dealers
++  left join dealer_product_features ON dealer_product_features.dealer_id = dealers.id
++  left join product_features ON product_features.id = dealer_product_features.product_feature_id
++  left join features ON features.id = product_features.feature_id
++where
++  dealers.id in (
++    select
++      distinct dealers.id
++    from
++      inventory
++      inner join dealers ON dealers.id = inventory.dealer_id
++    where
++      certified_preowned = true
++      and listed = true
++  )
++and dealers.account_status != 'Customer'
++group by
++  dealers.id
++having
++  array_agg(features.name) != '{null}'
++) thing
+
+# 2021-10-14 14:53:21.583910
++select inventory.vin, listings.id
++from
++  inventory
++inner join listings on listings.inventory_id = inventory.id
++where
++  dealer_id in (
++    select
++      dealers.id
++    from
++      dealers
++      left join dealer_product_features ON dealer_product_features.dealer_id = dealers.id
++      left join product_features ON product_features.id = dealer_product_features.product_feature_id
++      left join features ON features.id = product_features.feature_id
++    where
++      dealers.id in (
++        select
++          distinct dealers.id
++        from
++          inventory
++          inner join dealers ON dealers.id = inventory.dealer_id
++        where
++          certified_preowned = true
++          and listed = true
++      )
++    group by
++      dealers.id
++    having
++      array_agg(features.name) == '{null}'
++  )
++  and inventory.listed = true order by random() limit 10;
+
+# 2021-10-14 14:53:27.794084
++select inventory.vin, listings.id
++from
++  inventory
++inner join listings on listings.inventory_id = inventory.id
++where
++  dealer_id in (
++    select
++      dealers.id
++    from
++      dealers
++      left join dealer_product_features ON dealer_product_features.dealer_id = dealers.id
++      left join product_features ON product_features.id = dealer_product_features.product_feature_id
++      left join features ON features.id = product_features.feature_id
++    where
++      dealers.id in (
++        select
++          distinct dealers.id
++        from
++          inventory
++          inner join dealers ON dealers.id = inventory.dealer_id
++        where
++          certified_preowned = true
++          and listed = true
++      )
++    group by
++      dealers.id
++    having
++      array_agg(features.name) = '{null}'
++  )
++  and inventory.listed = true order by random() limit 10;
+
+# 2021-10-14 14:54:23.774514
++select * from dealers where name like 'Parks%';
+
+# 2021-10-14 14:54:28.916776
++\x
+
+# 2021-10-14 14:54:30.052989
++select * from dealers where name like 'Parks%';
+
+# 2021-10-14 14:55:13.197673
++select * from dealers where id = uuid('a965bdc7-748c-51ec-a2a6-0cc94314184b')
+
+# 2021-10-14 14:55:29.442452
++select * from dealers inner join dealer_phones ON dealer_phones.dealer_id = dealers.id where id = uuid('a965bdc7-748c-51ec-a2a6-0cc94314184b')
+
+# 2021-10-14 14:55:35.201578
++select * from dealers inner join dealer_phones ON dealer_phones.dealer_id = dealers.id where dealers.id = uuid('a965bdc7-748c-51ec-a2a6-0cc94314184b')
+
+# 2021-10-14 14:55:54.744359
++select dealer_phones.* from dealers inner join dealer_phones ON dealer_phones.dealer_id = dealers.id where dealers.id = uuid('a965bdc7-748c-51ec-a2a6-0cc94314184b')
+
+# 2021-10-14 14:58:23.011639
++select * from dealers left join dealer_product_features ON dealer_product_features.dealer_id = dealers.id left join product_features ON product_features.id = dealer_product_features.product_feature_id left join features ON features.id = product_features.feature_id where id = uuid('a965bdc7-748c-51ec-a2a6-0cc94314184b')
+
+# 2021-10-14 14:58:28.613970
++select * from dealers left join dealer_product_features ON dealer_product_features.dealer_id = dealers.id left join product_features ON product_features.id = dealer_product_features.product_feature_id left join features ON features.id = product_features.feature_id where dealers.id = uuid('a965bdc7-748c-51ec-a2a6-0cc94314184b')
+
+# 2021-10-14 14:58:57.877703
++select * from features where name like '%CPO%';
+
+# 2021-10-14 14:59:00.195708
++\x
+
+# 2021-10-14 14:59:01.647108
++select * from features where name like '%CPO%';
+
+# 2021-10-14 15:03:38.024930
++select account_status, count(account_status) from dealers group by account_status;
+
+# 2021-10-14 15:14:47.442475
++select * from dealer_product_features limit 1;
+
+# 2021-10-14 15:14:48.298113
++\x
+
+# 2021-10-14 15:14:49.175511
++select * from dealer_product_features limit 1;
+
+# 2021-10-14 15:15:12.958960
++select * from dealer_product_features order by updated_at desc limit 100;
+
+# 2021-10-15 08:35:48.724022
++\q
+
+# 2021-10-15 08:36:10.839906
++select * from features where name like '%CPO%';
+
+# 2021-10-15 09:40:01.657980
++select * from features inner join product_features on product_features.feature_id = features.id inner join dealer_product_features ON dealer_product_features.product_feature_id = product_features.id where features.name like '%CPO%';
+
+# 2021-10-15 09:40:05.436281
++\x
+
+# 2021-10-15 09:40:06.269445
++select * from features inner join product_features on product_features.feature_id = features.id inner join dealer_product_features ON dealer_product_features.product_feature_id = product_features.id where features.name like '%CPO%';
+
+# 2021-10-15 10:04:28.116199
++select * from products;
+
+# 2021-10-15 10:04:41.088797
++\x
+
+# 2021-10-15 10:04:42.102214
++select * from products;
+
+# 2021-10-15 11:55:24.192888
++select * from features inner join product_features on product_features.feature_id = features.id inner join dealer_product_features ON dealer_product_features.product_feature_id = product_features.id where features.name like '%CPO%';
+
+# 2021-10-15 11:55:49.756216
++select dealer_product_features.feature_config from features inner join product_features on product_features.feature_id = features.id inner join dealer_product_features ON dealer_product_features.product_feature_id = product_features.id where features.name like '%CPO%';
+
+# 2021-10-15 11:56:09.207029
++\d features
+
+# 2021-10-15 11:57:04.939321
++select * from features;
+
+# 2021-10-15 14:59:27.911870
++select * from features where name like '%CPO%';
+
+# 2021-10-15 15:00:42.013947
++\q
+
+# 2021-10-15 15:02:25.715720
++select features.name, feature_config from dealer_product_features inner join features on features.id = dealer_product_features.product_feature_id where (feature_config ->> 'photo_limit') is not null;
+
+# 2021-10-15 15:02:42.353777
++select features.name, feature_config from dealer_product_features inner join features on features.id = dealer_product_features.product_feature_id
+
+# 2021-10-15 15:03:13.459850
++select features.name, feature_config from dealer_product_features inner join product_features ON product_features.id = dealer_product_features.product_feature_id inner join features on features.id = dealer_product_features.product_feature_id where (feature_config ->> 'photo_limit') is not null;
+
+# 2021-10-15 15:03:24.125257
++select features.name, feature_config from dealer_product_features inner join product_features ON product_features.id = dealer_product_features.product_feature_id inner join features on features.id = product_features.feature_id where (feature_config ->> 'photo_limit') is not null;
+
+# 2021-10-15 15:04:10.306742
++select features.name from dealer_product_features inner join product_features ON product_features.id = dealer_product_features.product_feature_id inner join features on features.id = product_features.feature_id where (feature_config ->> 'photo_limit') is not null group by features.name;
+
+# 2021-10-15 15:04:38.194814
++select * from features where name = 'Inventory';
+
+# 2021-10-15 15:04:49.782475
++select * from features where name = 'Dealer Multi Photo';
+
+# 2021-10-15 15:04:57.128638
++select * from features where name = 'New Car Inventory';
+
+# 2021-10-15 15:05:19.201446
++select features.name, array_agg(feature_config ->> 'photo_limit') from dealer_product_features inner join product_features ON product_features.id = dealer_product_features.product_feature_id inner join features on features.id = product_features.feature_id where (feature_config ->> 'photo_limit') is not null group by features.name;
+
+# 2021-10-15 15:05:34.006407
++\x
+
+# 2021-10-15 15:05:34.896074
++select features.name, array_agg(feature_config ->> 'photo_limit') from dealer_product_features inner join product_features ON product_features.id = dealer_product_features.product_feature_id inner join features on features.id = product_features.feature_id where (feature_config ->> 'photo_limit') is not null group by features.name;
+
+# 2021-10-15 15:06:47.941145
++select features.name from dealer_product_features inner join product_features ON product_features.id = dealer_product_features.product_feature_id inner join features on features.id = product_features.feature_id where (feature_config ->> 'photo_limit') is not null group by features.name;
+
+# 2021-10-15 15:06:49.887691
++\x
+
+# 2021-10-15 15:06:50.855233
++select features.name from dealer_product_features inner join product_features ON product_features.id = dealer_product_features.product_feature_id inner join features on features.id = product_features.feature_id where (feature_config ->> 'photo_limit') is not null group by features.name;
+
+# 2021-10-15 15:07:05.502373
++select features.code from dealer_product_features inner join product_features ON product_features.id = dealer_product_features.product_feature_id inner join features on features.id = product_features.feature_id where (feature_config ->> 'photo_limit') is not null group by features.code
+
+# 2021-10-15 15:09:10.377495
++select * from products;
+
+# 2021-10-15 15:09:39.605336
++select * from products where products.name like "%CPO%";
+
+# 2021-10-15 15:09:44.713817
++select * from products where products.name like '%CPO%';
+
+# 2021-10-15 15:10:11.432454
++select feature.name from products inner join product_features ON product_features.product_id = products.id where products.name like '%CPO%';
+
+# 2021-10-15 15:10:14.030066
++select features.name from products inner join product_features ON product_features.product_id = products.id where products.name like '%CPO%';
+
+# 2021-10-15 15:10:23.255251
++select features.name from products inner join product_features ON product_features.product_id = products.id inner join features ON features.id = product_features.feature_id where products.name like '%CPO%';
+
+# 2021-10-15 15:10:45.103266
++select features.name, products.name from products inner join product_features ON product_features.product_id = products.id inner join features ON features.id = product_features.feature_id where products.name like '%CPO%';
+
+# 2021-10-15 15:13:06.470361
++\q
+
+# 2021-10-15 15:15:02.231793
++select * from products where products.name like '%CPO%';
+
+# 2021-10-25 14:52:32.612521
++select * from listings;
+
+# 2021-10-25 14:52:38.281629
++\x
+
+# 2021-10-25 14:52:41.106243
++select * from listings limit 1;
+
+# 2021-10-26 13:42:30.774267
++exit
+
+# 2021-11-02 09:16:32.239971
++\d listings
+
+# 2021-11-02 09:19:58.431283
++mix test apps/engine/test/engine/listings/indices/data_science_fields_index_test.exs:35
+
+# 2021-11-02 09:20:01.024307
++\q
+
+# 2021-11-02 11:27:58.020131
++\d listings
+
+# 2021-11-02 11:28:02.136350
++\q
+
+# 2021-11-03 09:26:54.315680
++\d listings
+
+# 2021-11-03 09:26:56.250713
++\q
+
+# 2021-11-09 12:26:49.695659
++\d list
+
+# 2021-11-09 12:26:51.696543
++\d listings
+
+# 2021-11-11 17:38:51.697586
++select * from adfs_groups;
+
+# 2021-11-11 17:38:57.827867
++select * from admin_roles;
+
+# 2021-11-11 17:42:10.498585
++select * from users;
+
+# 2021-11-11 17:54:48.956206
++exit
+
+# 2021-11-11 18:00:27.022732
++select * from fun_with_flags_toggles;
+
+# 2021-11-11 18:00:31.038665
++select * from feature_flags;
+
+# 2021-11-12 15:13:07.749439
++\d

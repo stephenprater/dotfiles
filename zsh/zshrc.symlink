@@ -68,7 +68,7 @@ complete -o nospace -C /usr/local/bin/vault vault
 
 # set cd autocompletion to commonly visited directories
 setopt auto_cd
-cdpath=(. ~/src $SOURCE_DIR/8thlight $SOURCE_DIR/stephenprater $SOURCE_DIR/smi)
+cdpath=(. ~/src $SOURCE_DIR/8thlight $SOURCE_DIR/stephenprater $SOURCE_DIR/cars)
 fpath=(path/to/zsh-completions/src $fpath)
 
 zmodload -i zsh/parameter
@@ -85,9 +85,9 @@ bindkey -M vicmd ':' executed-named-command
 # Configure the Prompt
 setopt prompt_subst
 
-export POWERLINE_COMMAND=$(pyenv root)/versions/3.7.0/bin/powerline
-export POWERLINE_CONFIG_COMMAND=$(pyenv root)/versions/3.7.0/bin/powerline-config
-$(pyenv root)/versions/3.7.0/bin/powerline-daemon -q
+export POWERLINE_COMMAND=~/.asdf/installs/python/3.7.10/bin/powerline
+export POWERLINE_CONFIG_COMMAND=~/.asdf/installs/python/3.7.10/bin/powerline-config
+~/.asdf/installs/python/3.7.10/bin/powerline-daemon -q
 
 autoload -U promptinit; promptinit
 

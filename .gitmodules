@@ -22,3 +22,9 @@
 [submodule "plugins/powerlevel10k"]
 	path = plugins/powerlevel10k
 	url = https://github.com/romkatv/powerlevel10k.git
+[submodule "config/.emacs.d"]
+	path = config/.emacs.d
+	url = https://github.com/syl20bnr/spacemacs
+[submodule "config/nvim/pack/packer/start/packer.nvim"]
+	path = config/nvim/pack/packer/start/packer.nvim
+	url = https://github.com/wbthomason/packer.nvim

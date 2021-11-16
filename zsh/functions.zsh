@@ -79,7 +79,7 @@ docker-crun() {
   ${docker_cmd} run ${container_name} bash -c -l "$*"
 }
 
-vpn() {
+passwd() {
   if [[ -z $OP_SESSION_team_8thlight ]]; then
     eval $(op signin team_8thlight)
   fi
@@ -91,11 +91,16 @@ vpn() {
   fi
 
   justpass=$(echo $passwd | jq '.details.fields[] | select(.designation=="password").value')
-  echo $justpass | sudo openconnect --protocol=gp https://vpnpia.smchcn.net --servercert pin-sha256:FFStQYmSSlDemefxr/momtuF+OqQhv54SR0zZGIdz2Q= --user=sprater --passwd-on-stdin
-  trap 'reset_routes' EXIT
+  return $justpass
 }
 
 reset_routes() {
   repeat 3 sudo route -n flush
   sudo route add default 10.0.1.1
+}
+
+function proddb() {
+    export DBHOST="cars-platform-11-8.cluster-ro-c8suzedf5vlo.us-east-1.rds.amazonaws.com"
+    export PGPASSWORD=$(aws rds generate-db-auth-token --hostname $DBHOST --port 5432 --username sprater-contractor@cars.com --profile cars_prod)
+    pgcli -h $DBHOST -p 5432 "dbname=cars_platform user=sprater-contractor@cars.com"
 }

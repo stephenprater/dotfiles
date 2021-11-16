@@ -7,7 +7,6 @@ mkdir news
 mkdir helpers
 mkdir controllers/news
 find 
-
 rename AWS_SECRET_ACCESS_KEY
 copy
 copy AWS_SECRET_KEY
@@ -31,6 +30,16 @@ rename consul.j2.hcl
 rename consul.yml
 open_with Pr
 rename chris-chu
-open_with 
 rename jon_griffith
+set show_hidden
+
+shell mv .atom .config/atom
+open_with h
+shell 
+set show_hidden!
+trash
+rename hammerspoon
 delete
+search hammer
+open_with 
+rename .hammerspoon
