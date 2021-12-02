@@ -7653,3 +7653,1101 @@
 
 # 2021-11-12 15:13:07.749439
 +\d
+
+# 2021-11-16 13:15:54.492907
++exit
+
+# 2021-11-16 13:40:57.161398
++\q
+
+# 2021-11-16 13:45:09.071623
++use engine_dev
+
+# 2021-11-16 13:45:21.380750
++\d
+
+# 2021-11-16 13:46:11.072860
++\pager
+
+# 2021-11-16 13:46:22.164486
++\pager none
+
+# 2021-11-16 13:46:26.687812
++\d
+
+# 2021-11-16 13:46:36.450373
++\pager cat
+
+# 2021-11-16 13:46:39.164115
++\d
+
+# 2021-11-16 13:46:55.577978
++\pager bat
+
+# 2021-11-16 13:46:58.109593
++\d
+
+# 2021-11-16 13:48:15.138074
++\q
+
+# 2021-11-16 13:53:24.111246
++\pager echo
+
+# 2021-11-16 13:53:26.488704
++\d
+
+# 2021-11-16 13:53:32.965710
++use engine_dev
+
+# 2021-11-16 13:53:35.205436
++\d
+
+# 2021-11-16 13:53:48.468151
++\pager less
+
+# 2021-11-16 13:53:50.121986
++\d
+
+# 2021-11-16 13:55:02.920003
++select * from makes
+
+# 2021-11-16 13:55:35.557688
++select * from trims;
+
+# 2021-11-16 13:55:45.316823
++\q
+
+# 2021-11-16 13:59:27.056448
++select * from makes;
+
+# 2021-11-16 13:59:36.518472
++select * from models;
+
+# 2021-11-16 13:59:48.895266
++select count(*) from models;
+
+# 2021-11-16 13:59:53.876320
++select count(*) from trims;
+
+# 2021-11-16 13:59:59.388808
++select * from trims limit 1;
+
+# 2021-11-16 14:00:10.189789
++select * from model_years;
+
+# 2021-11-16 14:00:21.911345
++select * from model_years limit 1;
+
+# 2021-11-16 14:00:25.938244
++\x
+
+# 2021-11-16 14:00:26.725861
++select * from model_years limit 1;
+
+# 2021-11-16 14:02:26.473804
++select * from model_years inner join years ON years.id = model_years.year_id limit 1;
+
+# 2021-11-16 14:02:53.643961
++select years.name from model_years inner join years ON years.id = model_years.year_id limit 1;
+
+# 2021-11-16 14:03:14.162086
++select years.name from model_years inner join years ON years.id = model_years.year_id limit 1 left outer join models ON models.id = model_years.model_id;
+
+# 2021-11-16 14:03:20.147268
++select years.name from model_years inner join years ON years.id = model_years.year_id left outer join models ON models.id = model_years.model_id;
+
+# 2021-11-16 14:03:30.994570
++select years.name, models.* from model_years inner join years ON years.id = model_years.year_id left outer join models ON models.id = model_years.model_id;
+
+# 2021-11-16 14:03:41.309500
++select years.name, models.name from model_years inner join years ON years.id = model_years.year_id left outer join models ON models.id = model_years.model_id;
+
+# 2021-11-16 14:03:51.276373
++\x
+
+# 2021-11-16 14:03:52.233021
++select years.name, models.name from model_years inner join years ON years.id = model_years.year_id left outer join models ON models.id = model_years.model_id;
+
+# 2021-11-16 14:04:37.065727
++select years.name, makes.name, models.name, trims.name from model_years inner join years ON years.id = model_years.year_id left outer join models ON models.id = model_years.model_id left outer join trims ON trims.model_year_id = model_years.id left outer join makes ON makes.id = models.make_id;
+
+# 2021-11-16 14:05:01.544670
++select join(years.name, makes.name, models.name, trims.name) from model_years inner join years ON years.id = model_years.year_id left outer join models ON models.id = model_years.model_id left outer join trims ON trims.model_year_id = model_years.id left outer join makes ON makes.id = models.make_id;
+
+# 2021-11-16 14:05:32.112987
++select concat(years.name, makes.name, models.name, trims.name) from model_years inner join years ON years.id = model_years.year_id left outer join models ON models.id = model_years.model_id left outer join trims ON trims.model_year_id = model_years.id left outer join makes ON makes.id = models.make_id;
+
+# 2021-11-16 14:05:50.394973
++select concat_ws(' ', years.name, makes.name, models.name, trims.name) from model_years inner join years ON years.id = model_years.year_id left outer join models ON models.id = model_years.model_id left outer join trims ON trims.model_year_id = model_years.id left outer join makes ON makes.id = models.make_id;
+
+# 2021-11-16 14:06:25.786529
++select concat_ws(' ', years.name, makes.name, models.name, trims.name) from model_years inner join years ON years.id = model_years.year_id left outer join models ON models.id = model_years.model_id left outer join trims ON trims.model_year_id = model_years.id left outer join makes ON makes.id = models.make_id order by makes.name, model.name, trims.name, years.name
+
+# 2021-11-16 14:06:30.016010
++select concat_ws(' ', years.name, makes.name, models.name, trims.name) from model_years inner join years ON years.id = model_years.year_id left outer join models ON models.id = model_years.model_id left outer join trims ON trims.model_year_id = model_years.id left outer join makes ON makes.id = models.make_id order by makes.name, models.name, trims.name, years.name
+
+# 2021-11-16 14:08:18.773557
++select concat_ws(' ', years.name, makes.name, models.name, trims.name) from model_years inner join years ON years.id = model_years.year_id left outer join models ON models.id = model_years.model_id left outer join trims ON trims.model_year_id = model_years.id left outer join makes ON makes.id = models.make_id order by makes.name, models.name, trims.name, years.name limit 100000
+
+# 2021-11-16 14:09:44.960093
++select years.name, makes.name, models.name, trims.name from model_years inner join years ON years.id = model_years.year_id left outer join models ON models.id = model_years.model_id left outer join trims ON trims.model_year_id = model_years.id left outer join makes ON makes.id = models.make_id order by makes.name, models.name, trims.name, years.name limit 100000
+
+# 2021-11-16 14:24:03.750165
++select count(*) from trims;
+
+# 2021-11-16 14:29:59.474875
++select * from model_years inner join years ON years.id = model_years.year_id limit 1;
+
+# 2021-11-16 14:30:03.109941
++select * from model_years inner join years ON years.id = model_years.year_id;
+
+# 2021-11-16 14:30:09.962249
++select years.name from model_years inner join years ON years.id = model_years.year_id;
+
+# 2021-11-16 14:30:16.868770
++select distinct years.name from model_years inner join years ON years.id = model_years.year_id;
+
+# 2021-11-16 14:30:27.691383
++select distinct years.name from model_years inner join years ON years.id = model_years.year_id order by years.name
+
+# 2021-11-16 14:31:03.468754
++select distinct on(years.name, makes.name, models.name, trims.name) from model_years inner join years ON years.id = model_years.year_id left outer join models ON models.id = model_years.model_id left outer join trims ON trims.model_year_id = model_years.id left outer join makes ON makes.id = models.make_id order by makes.name, models.name, trims.name, years.name limit 100000
+
+# 2021-11-16 14:31:09.486640
++select distinct(years.name, makes.name, models.name, trims.name) from model_years inner join years ON years.id = model_years.year_id left outer join models ON models.id = model_years.model_id left outer join trims ON trims.model_year_id = model_years.id left outer join makes ON makes.id = models.make_id order by makes.name, models.name, trims.name, years.name limit 100000
+
+# 2021-11-16 14:34:50.761786
++SELECT DISTINCT(years.name)
++FROM model_years
++INNER JOIN years ON years.id = model_years.year_id
++
++UNION ALL
++
++SELECT DISTINCT(years.name,
++       makes.name,
++       models.name,
++       trims.name)
++FROM model_years
++INNER JOIN years ON years.id = model_years.year_id
++LEFT OUTER JOIN models ON models.id = model_years.model_id
++LEFT OUTER JOIN trims ON trims.model_year_id = model_years.id
++LEFT OUTER JOIN makes ON makes.id = models.make_id
++ORDER BY years.name, 
++         makes.name,
++         models.name,
++         trims.name
+
+# 2021-11-16 14:35:46.749220
++SELECT DISTINCT(years.name)
++FROM model_years
++INNER JOIN years ON years.id = model_years.year_id
++
++UNION ALL
++
++SELECT DISTINCT(years.name,
++       makes.name,
++       models.name,
++       trims.name)
++FROM model_years
++INNER JOIN years ON years.id = model_years.year_id
++LEFT OUTER JOIN models ON models.id = model_years.model_id
++LEFT OUTER JOIN trims ON trims.model_year_id = model_years.id
++LEFT OUTER JOIN makes ON makes.id = models.make_id
++ORDER BY years.name, 
++         makes.name,
++         models.name,
++         trims.nameSELECT years.name
++FROM model_years
++INNER JOIN years ON years.id = model_years.year_id
++
++UNION ALL
++
++SELECT CONCAT_WS(',', years.name,
++       makes.name,
++       models.name,
++       trims.name)
++FROM model_years
++INNER JOIN years ON years.id = model_years.year_id
++LEFT OUTER JOIN models ON models.id = model_years.model_id
++LEFT OUTER JOIN trims ON trims.model_year_id = model_years.id
++LEFT OUTER JOIN makes ON makes.id = models.make_id
++GROUP BY years.name,
++         makes.name,
++         models.name,
++         trims.name
++ORDER BY years.name, 
++         makes.name,
++         models.name,
++         trims.name
+
+# 2021-11-16 14:35:52.397563
++SELECT years.name
++FROM model_years
++INNER JOIN years ON years.id = model_years.year_id
++
++UNION ALL
++
++SELECT CONCAT_WS(',', years.name,
++       makes.name,
++       models.name,
++       trims.name)
++FROM model_years
++INNER JOIN years ON years.id = model_years.year_id
++LEFT OUTER JOIN models ON models.id = model_years.model_id
++LEFT OUTER JOIN trims ON trims.model_year_id = model_years.id
++LEFT OUTER JOIN makes ON makes.id = models.make_id
++GROUP BY years.name,
++         makes.name,
++         models.name,
++         trims.name
++ORDER BY years.name, 
++         makes.name,
++         models.name,
++         trims.name
+
+# 2021-11-16 14:37:17.303719
++select concat_ws(',', years.name, makes.name, models.name, trims.name) from model_years inner join years ON years.id = model_years.year_id left outer join models ON models.id = model_years.model_id left outer join trims ON trims.model_year_id = model_years.id left outer join makes ON makes.id = models.make_id group by years.name, makes.name, models.name, trims.name;
+
+# 2021-11-16 14:37:41.054139
++select concat_ws(',', years.name, makes.name, models.name, trims.name) from model_years inner join years ON years.id = model_years.year_id left outer join models ON models.id = model_years.model_id left outer join trims ON trims.model_year_id = model_years.id left outer join makes ON makes.id = models.make_id group by years.name, makes.name, models.name, trims.name order by makes.name, models.name, trims.name, years.name;
+
+# 2021-11-16 14:37:46.013487
++select concat_ws(' ', years.name, makes.name, models.name, trims.name) from model_years inner join years ON years.id = model_years.year_id left outer join models ON models.id = model_years.model_id left outer join trims ON trims.model_year_id = model_years.id left outer join makes ON makes.id = models.make_id group by years.name, makes.name, models.name, trims.name order by makes.name, models.name, trims.name, years.name;
+
+# 2021-11-16 14:38:10.068752
++select concat_ws(' ', years.name, makes.name, models.name, trims.name) from model_years inner join years ON years.id = model_years.year_id left outer join models ON models.id = model_years.model_id left outer join trims ON trims.model_year_id = model_years.id left outer join makes ON makes.id = models.make_id group by years.name, makes.name, models.name, trims.name order by makes.name, models.name, trims.name, years.name union all select years.name from model_years inner join years on years.id = model_years.year_id;
+
+# 2021-11-16 14:38:55.182748
++select name from (select concat_ws(' ', years.name, makes.name, models.name, trims.name) as name from model_years inner join years ON years.id = model_years.year_id left outer join models ON models.id = model_years.model_id left outer join trims ON trims.model_year_id = model_years.id left outer join makes ON makes.id = models.make_id group by years.name, makes.name, models.name, trims.name order by makes.name, models.name, trims.name, years.name) union all select years.name from model_years inner join years on years.id = model_years.year_id;
+
+# 2021-11-16 14:39:04.655108
++select name from (select concat_ws(' ', years.name, makes.name, models.name, trims.name) as name from model_years inner join years ON years.id = model_years.year_id left outer join models ON models.id = model_years.model_id left outer join trims ON trims.model_year_id = model_years.id left outer join makes ON makes.id = models.make_id group by years.name, makes.name, models.name, trims.name order by makes.name, models.name, trims.name, years.name) all union all select years.name from model_years inner join years on years.id = model_years.year_id;
+
+# 2021-11-16 14:39:21.306203
++select name from (select concat_ws(' ', years.name, makes.name, models.name, trims.name) as name from model_years inner join years ON years.id = model_years.year_id left outer join models ON models.id = model_years.model_id left outer join trims ON trims.model_year_id = model_years.id left outer join makes ON makes.id = models.make_id group by years.name, makes.name, models.name, trims.name order by makes.name, models.name, trims.name, years.name) as full union all select years.name from model_years inner join years on years.id = model_years.year_id;
+
+# 2021-11-16 14:39:30.699679
++select name from (select concat_ws(' ', years.name, makes.name, models.name, trims.name) as name from model_years inner join years ON years.id = model_years.year_id left outer join models ON models.id = model_years.model_id left outer join trims ON trims.model_year_id = model_years.id left outer join makes ON makes.id = models.make_id group by years.name, makes.name, models.name, trims.name order by makes.name, models.name, trims.name, years.name) as full_select union all select years.name from model_years inner join years on years.id = model_years.year_id;
+
+# 2021-11-16 14:39:43.771071
++select name from (select concat_ws(' ', years.name, makes.name, models.name, trims.name) as name from model_years inner join years ON years.id = model_years.year_id left outer join models ON models.id = model_years.model_id left outer join trims ON trims.model_year_id = model_years.id left outer join makes ON makes.id = models.make_id group by years.name, makes.name, models.name, trims.name order by makes.name, models.name, trims.name, years.name) as full_select union all select years.name from model_years inner join years on years.id = model_years.year_id limit 50000;
+
+# 2021-11-16 14:45:38.858949
++WITH full_select (year, make, model, trim) as (
+
+# 2021-11-16 14:45:38.893130
++SELECT years.name,
+
+# 2021-11-16 14:45:38.906588
++       makes.name,
+
+# 2021-11-16 14:45:38.918879
++       models.name,
+
+# 2021-11-16 14:45:38.930827
++       trims.name)
+
+# 2021-11-16 14:45:38.945443
++FROM model_years
+
+# 2021-11-16 14:45:38.964488
++INNER JOIN years ON years.id = model_years.year_id
+
+# 2021-11-16 14:45:38.986962
++LEFT OUTER JOIN models ON models.id = model_years.model_id
+
+# 2021-11-16 14:45:39.009291
++LEFT OUTER JOIN trims ON trims.model_year_id = model_years.id
+
+# 2021-11-16 14:45:39.029054
++LEFT OUTER JOIN makes ON makes.id = models.make_id
+
+# 2021-11-16 14:45:39.044525
++GROUP BY years.name,
+
+# 2021-11-16 14:45:39.056706
++         makes.name,
+
+# 2021-11-16 14:45:39.068583
++         models.name,
+
+# 2021-11-16 14:45:39.080186
++         trims.name
+
+# 2021-11-16 14:45:39.088391
++)
+
+# 2021-11-16 14:45:39.106385
++select name from (
+
+# 2021-11-16 14:45:39.125100
++        select year from full_select group by year
+
+# 2021-11-16 14:45:39.138174
++        union all
+
+# 2021-11-16 14:45:39.159677
++        select concat_ws(' ', year, make) from full_select group by year, make
+
+# 2021-11-16 14:45:39.176000
++        union all
+
+# 2021-11-16 14:45:39.199742
++        select concat_ws(' ', year, make, model) from full_select group by year, make, model
+
+# 2021-11-16 14:45:39.216201
++        union all
+
+# 2021-11-16 14:45:39.243124
++        select concat_ws(' ', year, make, model, trim) from full_select group by year, make, model, trim
+
+# 2021-11-16 14:45:39.260391
++) order by name;
+
+# 2021-11-16 14:45:45.101157
++WITH full_select (year, make, model, trim) as (
+
+# 2021-11-16 14:45:45.121537
++SELECT years.name,
+
+# 2021-11-16 14:45:45.133718
++       makes.name,
+
+# 2021-11-16 14:45:45.146571
++       models.name,
+
+# 2021-11-16 14:45:45.157990
++       trims.name)
+
+# 2021-11-16 14:45:45.168951
++FROM model_years
+
+# 2021-11-16 14:45:45.185745
++INNER JOIN years ON years.id = model_years.year_id
+
+# 2021-11-16 14:45:45.206341
++LEFT OUTER JOIN models ON models.id = model_years.model_id
+
+# 2021-11-16 14:45:45.226976
++LEFT OUTER JOIN trims ON trims.model_year_id = model_years.id
+
+# 2021-11-16 14:45:45.246520
++LEFT OUTER JOIN makes ON makes.id = models.make_id
+
+# 2021-11-16 14:45:45.260042
++GROUP BY years.name,
+
+# 2021-11-16 14:45:45.271769
++         makes.name,
+
+# 2021-11-16 14:45:45.284022
++         models.name,
+
+# 2021-11-16 14:45:45.295524
++         trims.name
+
+# 2021-11-16 14:45:45.303580
++)
+
+# 2021-11-16 14:45:56.126783
++WITH full_select (year, make, model, trim) as (
+
+# 2021-11-16 14:45:56.148911
++SELECT years.name,
+
+# 2021-11-16 14:45:56.160942
++       makes.name,
+
+# 2021-11-16 14:45:56.173230
++       models.name,
+
+# 2021-11-16 14:45:56.184383
++       trims.name
+
+# 2021-11-16 14:45:56.195176
++FROM model_years
+
+# 2021-11-16 14:45:56.212445
++INNER JOIN years ON years.id = model_years.year_id
+
+# 2021-11-16 14:45:56.233202
++LEFT OUTER JOIN models ON models.id = model_years.model_id
+
+# 2021-11-16 14:45:56.254596
++LEFT OUTER JOIN trims ON trims.model_year_id = model_years.id
+
+# 2021-11-16 14:45:56.273901
++LEFT OUTER JOIN makes ON makes.id = models.make_id
+
+# 2021-11-16 14:45:56.287260
++GROUP BY years.name,
+
+# 2021-11-16 14:45:56.299713
++         makes.name,
+
+# 2021-11-16 14:45:56.312399
++         models.name,
+
+# 2021-11-16 14:45:56.324791
++         trims.name
+
+# 2021-11-16 14:45:56.332578
++)
+
+# 2021-11-16 14:46:10.763415
++WITH full_select (year, make, model, trim) as (
+
+# 2021-11-16 14:46:10.782875
++SELECT years.name,
+
+# 2021-11-16 14:46:10.795023
++       makes.name,
+
+# 2021-11-16 14:46:10.806913
++       models.name,
+
+# 2021-11-16 14:46:10.818110
++       trims.name
+
+# 2021-11-16 14:46:10.828503
++FROM model_years
+
+# 2021-11-16 14:46:10.845218
++INNER JOIN years ON years.id = model_years.year_id
+
+# 2021-11-16 14:46:10.864424
++LEFT OUTER JOIN models ON models.id = model_years.model_id
+
+# 2021-11-16 14:46:10.885268
++LEFT OUTER JOIN trims ON trims.model_year_id = model_years.id
+
+# 2021-11-16 14:46:10.904060
++LEFT OUTER JOIN makes ON makes.id = models.make_id
+
+# 2021-11-16 14:46:10.919256
++/* GROUP BY years.name, */
+
+# 2021-11-16 14:46:10.929081
++/*          makes.name, */
+
+# 2021-11-16 14:46:10.939395
++/*          models.name, */
+
+# 2021-11-16 14:46:10.948587
++/*          trims.name */
+
+# 2021-11-16 14:46:10.953789
++)
+
+# 2021-11-16 14:46:46.309229
++WITH full_select (year, make, model, trim) AS (
++SELECT years.name,
++       makes.name,
++              models.name,
++                     trims.name
++                     FROM model_years
++                     INNER JOIN years ON years.id = model_years.year_id
++                     LEFT OUTER JOIN models ON models.id = model_years.model_id
++                     LEFT OUTER JOIN trims ON trims.model_year_id = model_years.id
++                     LEFT OUTER JOIN makes ON makes.id = models.make_id
++                     /* GROUP BY years.name, */
++                     /*          makes.name, */
++                     /*          models.name, */
++                     /*          trims.name */
++                     )
++                     
++                     
++                     
++                     
++                     
++                     
++                     
++                     
++                     
++                     
++                     
++                     
++                     
++                     
++                     
++                     
++                     
++                     
++                     ;
+
+# 2021-11-16 14:46:54.237980
++WITH full_select (year, make, model, trim) AS (
++SELECT years.name,
++       makes.name,
++              models.name,
++                     trims.name
++                     FROM model_years
++                     INNER JOIN years ON years.id = model_years.year_id
++                     LEFT OUTER JOIN models ON models.id = model_years.model_id
++                     LEFT OUTER JOIN trims ON trims.model_year_id = model_years.id
++                     LEFT OUTER JOIN makes ON makes.id = models.make_id
++                     /* GROUP BY years.name, */
++                     /*          makes.name, */
++                     /*          models.name, */
++                     /*          trims.name */
++                     );
+
+# 2021-11-16 14:47:07.880918
++WITH full_select (year, make, model, trim) AS (
++SELECT years.name,
++       makes.name,
++              models.name,
++                     trims.name
++                     FROM model_years
++                     INNER JOIN years ON years.id = model_years.year_id
++                     LEFT OUTER JOIN models ON models.id = model_years.model_id
++                     LEFT OUTER JOIN trims ON trims.model_year_id = model_years.id
++                     LEFT OUTER JOIN makes ON makes.id = models.make_id
++                     GROUP BY years.name,
++                              makes.name,
++                                       models.name,
++                                                trims.name
++                                                );
+
+# 2021-11-16 14:47:32.231515
++WITH full_select (year, make, model, trim) AS (
++SELECT years.name, makes.name, models.name, trims.name
++FROM model_years
++INNER JOIN years ON years.id = model_years.year_id
++LEFT OUTER JOIN models ON models.id = model_years.model_id
++LEFT OUTER JOIN trims ON trims.model_year_id = model_years.id
++LEFT OUTER JOIN makes ON makes.id = models.make_id
++GROUP BY years.name, makes.name, models.name, trims.name
++);
+
+# 2021-11-16 14:47:56.878113
++SELECT years.name, makes.name, models.name, trims.name
++FROM model_years
++INNER JOIN years ON years.id = model_years.year_id
++LEFT OUTER JOIN models ON models.id = model_years.model_id
++LEFT OUTER JOIN trims ON trims.model_year_id = model_years.id
++LEFT OUTER JOIN makes ON makes.id = models.make_id
++GROUP BY years.name, makes.name, models.name, trims.name
++;
+
+# 2021-11-16 14:48:04.321875
++use engine_dev;
+
+# 2021-11-16 14:48:12.236628
++SELECT years.name, makes.name, models.name, trims.name
++FROM model_years
++INNER JOIN years ON years.id = model_years.year_id
++LEFT OUTER JOIN models ON models.id = model_years.model_id
++LEFT OUTER JOIN trims ON trims.model_year_id = model_years.id
++LEFT OUTER JOIN makes ON makes.id = models.make_id
++GROUP BY years.name, makes.name, models.name, trims.name
++;
+
+# 2021-11-16 14:48:22.858429
++WITH full_select (year, make, model, trim) AS (
++SELECT years.name, makes.name, models.name, trims.name
++FROM model_years
++INNER JOIN years ON years.id = model_years.year_id
++LEFT OUTER JOIN models ON models.id = model_years.model_id
++LEFT OUTER JOIN trims ON trims.model_year_id = model_years.id
++LEFT OUTER JOIN makes ON makes.id = models.make_id
++GROUP BY years.name, makes.name, models.name, trims.name
++);
+
+# 2021-11-16 14:48:45.246475
++WITH full_select (year, make, model, trim) AS (
++SELECT years.name, makes.name, models.name, trims.name
++FROM model_years
++INNER JOIN years ON years.id = model_years.year_id
++LEFT OUTER JOIN models ON models.id = model_years.model_id
++LEFT OUTER JOIN trims ON trims.model_year_id = model_years.id
++LEFT OUTER JOIN makes ON makes.id = models.make_id
++);
+
+# 2021-11-16 14:49:14.982239
++WITH full_select AS (
++SELECT years.name, makes.name, models.name, trims.name
++FROM model_years
++INNER JOIN years ON years.id = model_years.year_id
++LEFT OUTER JOIN models ON models.id = model_years.model_id
++LEFT OUTER JOIN trims ON trims.model_year_id = model_years.id
++LEFT OUTER JOIN makes ON makes.id = models.make_id
++GROUP BY years.name, makes.name, models.name, trims.name
++);
+
+# 2021-11-16 14:51:39.327847
++WITH full_select (year, make, model, trim) AS (
++SELECT years.name, makes.name, models.name, trims.name
++FROM model_years
++INNER JOIN years ON years.id = model_years.year_id
++LEFT OUTER JOIN models ON models.id = model_years.model_id
++LEFT OUTER JOIN trims ON trims.model_year_id = model_years.id
++LEFT OUTER JOIN makes ON makes.id = models.make_id
++GROUP BY years.name, makes.name, models.name, trims.name);
+
+# 2021-11-16 14:51:58.532792
++WITH full_select (year, make, model, trim) AS (
++SELECT years.name, makes.name, models.name, trims.name
++FROM model_years
++INNER JOIN years ON years.id = model_years.year_id
++LEFT OUTER JOIN models ON models.id = model_years.model_id
++LEFT OUTER JOIN trims ON trims.model_year_id = model_years.id
++LEFT OUTER JOIN makes ON makes.id = models.make_id
++GROUP BY years.name, makes.name, models.name, trims.name)
++;
+
+# 2021-11-16 14:53:46.862765
++WITH full_select (year, make, model, trim) AS (
++SELECT years.name, makes.name, models.name, trims.name
++FROM model_years
++INNER JOIN years ON years.id = model_years.year_id
++LEFT OUTER JOIN models ON models.id = model_years.model_id
++LEFT OUTER JOIN trims ON trims.model_year_id = model_years.id
++LEFT OUTER JOIN makes ON makes.id = models.make_id
++GROUP BY years.name, makes.name, models.name, trims.name)
++
++
++select name from (
++        select year from full_select group by year
++                union all
++                        select concat_ws(' ', year, make) from full_select group by year, make
++                                union all
++                                        select concat_ws(' ', year, make, model) from full_select group by year, make, model
++                                                union all
++                                                        select concat_ws(' ', year, make, model, trim) from full_select group by year, make, model, trim
++                                                        ) order by name;
+
+# 2021-11-16 14:54:01.159362
++WITH full_select (year, make, model, trim) AS (
++SELECT years.name, makes.name, models.name, trims.name
++FROM model_years
++INNER JOIN years ON years.id = model_years.year_id
++LEFT OUTER JOIN models ON models.id = model_years.model_id
++LEFT OUTER JOIN trims ON trims.model_year_id = model_years.id
++LEFT OUTER JOIN makes ON makes.id = models.make_id
++GROUP BY years.name, makes.name, models.name, trims.name)
++
++
++select name from (
++        select year from full_select group by year
++                union all
++                        select concat_ws(' ', year, make) from full_select group by year, make
++                                union all
++                                        select concat_ws(' ', year, make, model) from full_select group by year, make, model
++                                                union all
++                                                        select concat_ws(' ', year, make, model, trim) from full_select group by year, make, model, trim
++                                                        ) all_elements order by name;
+
+# 2021-11-16 14:54:25.047100
++WITH full_select (year, make, model, trim) AS (
++SELECT years.name, makes.name, models.name, trims.name
++FROM model_years
++INNER JOIN years ON years.id = model_years.year_id
++LEFT OUTER JOIN models ON models.id = model_years.model_id
++LEFT OUTER JOIN trims ON trims.model_year_id = model_years.id
++LEFT OUTER JOIN makes ON makes.id = models.make_id
++GROUP BY years.name, makes.name, models.name, trims.name)
++
++
++select name from (
++        select year as name from full_select group by year
++                union all
++                        select concat_ws(' ', year, make) as name from full_select group by year, make
++                                union all
++                                        select concat_ws(' ', year, make, model) as name from full_select group by year, make, model
++                                                union all
++                                                        select concat_ws(' ', year, make, model, trim) as name from full_select group by year, make, model, trim
++                                                        ) all_elements order by name;
+
+# 2021-11-16 15:15:34.206725
++WITH full_select (year, make, model, trim) AS (
++SELECT years.name, makes.name, models.name, trims.name
++FROM model_years
++INNER JOIN years ON years.id = model_years.year_id
++LEFT OUTER JOIN models ON models.id = model_years.model_id
++LEFT OUTER JOIN trims ON trims.model_year_id = model_years.id
++LEFT OUTER JOIN makes ON makes.id = models.make_id
++GROUP BY years.name, makes.name, models.name, trims.name)
++
++
++select name from (
++        select make as name from full_select group by make
++                union all
++                        select concat_ws(' ', year, make) as name from full_select group by year, make
++                                union all
++                                        select concat_ws(' ', year, make, model) as name from full_select group by year, make, model
++                                                union all
++                                                        select concat_ws(' ', year, make, model, trim) as name from full_select group by year, make, model, trim
++                                                        ) all_elements order by name;
+
+# 2021-11-16 15:16:25.221098
++WITH full_select (year, make, model, trim) AS (
++SELECT years.name, makes.name, models.name, trims.name
++FROM model_years
++INNER JOIN years ON years.id = model_years.year_id
++LEFT OUTER JOIN models ON models.id = model_years.model_id
++LEFT OUTER JOIN trims ON trims.model_year_id = model_years.id
++LEFT OUTER JOIN makes ON makes.id = models.make_id
++GROUP BY years.name, makes.name, models.name, trims.name)
++
++
++select name from (
++        select make as name from full_select group by make
++                union all
++                        select concat_ws(' ', make, year) as name from full_select group by year, make
++                                union all
++                                        select concat_ws(' ', make, model, year) as name from full_select group by year, make, model
++                                                union all
++                                                        select concat_ws(' ', make, model, trim, year) as name from full_select group by year, make, model, trim
++                                                        ) all_elements order by name;
+
+# 2021-11-16 15:17:02.013107
++WITH full_select (year, make, model, trim) AS (
++SELECT years.name, makes.name, models.name, trims.name
++FROM model_years
++INNER JOIN years ON years.id = model_years.year_id
++LEFT OUTER JOIN models ON models.id = model_years.model_id
++LEFT OUTER JOIN trims ON trims.model_year_id = model_years.id
++LEFT OUTER JOIN makes ON makes.id = models.make_id
++GROUP BY years.name, makes.name, models.name, trims.name)
++
++
++select name from (
++        select make as name from full_select group by make
++                union all
++                        select concat_ws(' ', make, model) as name from full_select group by year, make
++                                union all
++                                        select concat_ws(' ', make, model, trim) as name from full_select group by year, make, model
++                                                union all
++                                                        select concat_ws(' ', make, model, trim, year) as name from full_select group by year, make, model, trim
++                                                        ) all_elements order by name;
+
+# 2021-11-16 15:17:27.194904
++WITH full_select (year, make, model, trim) AS (
++SELECT years.name, makes.name, models.name, trims.name
++FROM model_years
++INNER JOIN years ON years.id = model_years.year_id
++LEFT OUTER JOIN models ON models.id = model_years.model_id
++LEFT OUTER JOIN trims ON trims.model_year_id = model_years.id
++LEFT OUTER JOIN makes ON makes.id = models.make_id
++GROUP BY years.name, makes.name, models.name, trims.name)
++
++
++select name from (
++        select make as name from full_select group by make
++                union all
++                        select concat_ws(' ', make, model) as name from full_select group by make, model
++                                union all
++                                        select concat_ws(' ', make, model, trim) as name from full_select group by make, model, trim
++                                                union all
++                                                        select concat_ws(' ', make, model, trim, year) as name from full_select group by make, model, trim, year
++                                                        ) all_elements order by name;
+
+# 2021-11-16 15:19:05.248681
++WITH full_select (year, make, model, trim) AS (
++SELECT years.name, makes.name, models.name, trims.name
++FROM model_years
++INNER JOIN years ON years.id = model_years.year_id
++LEFT OUTER JOIN models ON models.id = model_years.model_id
++LEFT OUTER JOIN trims ON trims.model_year_id = model_years.id where trims.name != "Base"
++LEFT OUTER JOIN makes ON makes.id = models.make_id
++GROUP BY years.name, makes.name, models.name, trims.name)
++
++
++select name from (
++        select make as name from full_select group by make
++                union all
++                        select concat_ws(' ', make, model) as name from full_select group by make, model
++                                union all
++                                        select concat_ws(' ', make, model, trim) as name from full_select group by make, model, trim
++                                                union all
++                                                        select concat_ws(' ', make, model, trim, year) as name from full_select group by make, model, trim, year
++                                                        ) all_elements order by name;
+
+# 2021-11-16 15:19:19.427337
++WITH full_select (year, make, model, trim) AS (
++SELECT years.name, makes.name, models.name, trims.name
++FROM model_years
++INNER JOIN years ON years.id = model_years.year_id
++LEFT OUTER JOIN models ON models.id = model_years.model_id
++LEFT OUTER JOIN trims ON trims.model_year_id = model_years.id AND trims.name != "Base"
++LEFT OUTER JOIN makes ON makes.id = models.make_id
++GROUP BY years.name, makes.name, models.name, trims.name)
++
++
++select name from (
++        select make as name from full_select group by make
++                union all
++                        select concat_ws(' ', make, model) as name from full_select group by make, model
++                                union all
++                                        select concat_ws(' ', make, model, trim) as name from full_select group by make, model, trim
++                                                union all
++                                                        select concat_ws(' ', make, model, trim, year) as name from full_select group by make, model, trim, year
++                                                        ) all_elements order by name;
+
+# 2021-11-16 15:19:33.499882
++WITH full_select (year, make, model, trim) AS (
++SELECT years.name, makes.name, models.name, trims.name
++FROM model_years
++INNER JOIN years ON years.id = model_years.year_id
++LEFT OUTER JOIN models ON models.id = model_years.model_id
++LEFT OUTER JOIN trims ON trims.model_year_id = model_years.id AND trims.name != 'Base'
++LEFT OUTER JOIN makes ON makes.id = models.make_id
++GROUP BY years.name, makes.name, models.name, trims.name)
++
++
++select name from (
++        select make as name from full_select group by make
++                union all
++                        select concat_ws(' ', make, model) as name from full_select group by make, model
++                                union all
++                                        select concat_ws(' ', make, model, trim) as name from full_select group by make, model, trim
++                                                union all
++                                                        select concat_ws(' ', make, model, trim, year) as name from full_select group by make, model, trim, year
++                                                        ) all_elements order by name;
+
+# 2021-11-16 15:20:36.918694
++WITH full_select (year, make, model, trim) AS (
++SELECT years.name, makes.name, models.name, trims.name
++FROM model_years
++INNER JOIN years ON years.id = model_years.year_id
++LEFT OUTER JOIN models ON models.id = model_years.model_id
++LEFT OUTER JOIN trims ON trims.model_year_id = model_years.id AND trims.name != 'Base'
++LEFT OUTER JOIN makes ON makes.id = models.make_id
++GROUP BY years.name, makes.name, models.name, trims.name)
++
++
++select name from (
++        select make as name from full_select group by make
++                union all
++                        select concat_ws(' ', make, model) as name from full_select group by make, model
++                                union all
++                                        select concat_ws(' ', make, model, trim) as name from full_select group by make, model, trim
++                                                union all
++                                                        select concat_ws(' ', make, model, trim, year) as name from full_select group by make, model, trim, year
++                                                        ) all_elements order by name group by name;
+
+# 2021-11-16 15:21:03.192977
++WITH full_select (year, make, model, trim) AS (
++SELECT years.name, makes.name, models.name, trims.name
++FROM model_years
++INNER JOIN years ON years.id = model_years.year_id
++LEFT OUTER JOIN models ON models.id = model_years.model_id
++LEFT OUTER JOIN trims ON trims.model_year_id = model_years.id AND trims.name != 'Base'
++LEFT OUTER JOIN makes ON makes.id = models.make_id
++GROUP BY years.name, makes.name, models.name, trims.name)
++
++
++select name from (
++        select make as name from full_select group by make
++                union all
++                        select concat_ws(' ', make, model) as name from full_select group by make, model
++                                union all
++                                        select concat_ws(' ', make, model, trim) as name from full_select group by make, model, trim
++                                                union all
++                                                        select concat_ws(' ', make, model, trim, year) as name from full_select group by make, model, trim, year
++                                                        ) all_elements group by name order by name;
+
+# 2021-11-16 15:24:12.141935
++select * from listings;
+
+# 2021-11-16 15:24:15.673343
++\x
+
+# 2021-11-16 15:24:16.720388
++select * from listings;
+
+# 2021-11-16 15:24:34.394301
++select * from inventory;
+
+# 2021-11-16 15:26:22.540037
++WITH full_select (year, make, model, trim) AS (
++SELECT years.name, makes.name, models.name, trims.name
++FROM model_years
++INNER JOIN years ON years.id = model_years.year_id
++LEFT OUTER JOIN models ON models.id = model_years.model_id
++LEFT OUTER JOIN trims ON trims.model_year_id = model_years.id AND trims.name != 'Base'
++LEFT OUTER JOIN makes ON makes.id = models.make_id
++INNER JOIN inventory ON makes.id = inventory.make_id
++AND models.id = inventory.model_id
++AND trims.id = inventory.trim_id
++AND model_years.id = inventory.model_year_id
++GROUP BY years.name, makes.name, models.name, trims.name)
++
++
++select name from (
++        select make as name from full_select group by make
++                union all
++                        select concat_ws(' ', make, model) as name from full_select group by make, model
++                                union all
++                                        select concat_ws(' ', make, model, trim) as name from full_select group by make, model, trim
++                                                union all
++                                                        select concat_ws(' ', make, model, trim, year) as name from full_select group by make, model, trim, year
++                                                        ) all_elements group by name order by name;
+
+# 2021-11-16 15:26:42.805585
++select count(*) from listings;
+
+# 2021-11-16 15:26:48.566859
++select count(*) from inventory;
+
+# 2021-11-16 15:29:06.261586
++select makes.name, models.name, model_years.name, trims.name from inventory inner join makes ON makes.id = inventory.make_id inner join model_years ON model_years.id = inventory.model_year_id inner join models ON models.id = inventory.model_id inner join trims ON trims.id = inventory.trim_id
+
+# 2021-11-16 15:29:23.440101
++select makes.name, models.name, years.name, trims.name from inventory inner join makes ON makes.id = inventory.make_id inner join model_years ON model_years.id = inventory.model_year_id inner join models ON models.id = inventory.model_id inner join trims ON trims.id = inventory.trim_id inner join years ON years.id = model_years.year_id
+
+# 2021-11-16 15:29:26.173842
++\x
+
+# 2021-11-16 15:29:27.128691
++select makes.name, models.name, years.name, trims.name from inventory inner join makes ON makes.id = inventory.make_id inner join model_years ON model_years.id = inventory.model_year_id inner join models ON models.id = inventory.model_id inner join trims ON trims.id = inventory.trim_id inner join years ON years.id = model_years.year_id
+
+# 2021-11-16 15:30:01.275354
++select * from inventory;
+
+# 2021-11-16 16:31:58.714837
++select * from inventory inner join model_years ON model_years.id = inventory.model_year_id inner join makes ON makes.id = inventory.make_id inner join models ON models.make_id = makes.id inner join trims ON trims.id = inventory.trim_id;
+
+# 2021-11-16 16:32:57.508431
++select years.name, makes.name, models.name, trim.name from inventory inner join model_years ON model_years.id = inventory.model_year_id inner join years ON years.id = model_years.year_id inner join makes ON makes.id = inventory.make_id inner join models ON models.make_id = makes.id inner join trims ON trims.id = inventory.trim_id;
+
+# 2021-11-16 16:33:06.371210
++select years.name, makes.name, models.name, trims.name from inventory inner join model_years ON model_years.id = inventory.model_year_id inner join years ON years.id = model_years.year_id inner join makes ON makes.id = inventory.make_id inner join models ON models.make_id = makes.id inner join trims ON trims.id = inventory.trim_id;
+
+# 2021-11-16 16:33:42.790241
++select years.name, makes.name, models.name, trims.name from inventory inner join model_years ON model_years.id = inventory.model_year_id inner join years ON years.id = model_years.year_id inner join makes ON makes.id = inventory.make_id inner join models ON models.make_id = makes.id inner join trims ON trims.id = inventory.trim_id limit 50000;
+
+# 2021-11-16 16:37:59.044458
++select count(*) from inventory;
+
+# 2021-11-16 16:39:11.388197
++select years.name, makes.name, models.name, trims.name 
++from inventory 
++inner join model_years ON model_years.id = inventory.model_year_id 
++inner join years ON years.id = model_years.year_id 
++inner join makes ON makes.id = inventory.make_id 
++inner join models ON models.make_id = inventory.model_id
++inner join trims ON trims.id = inventory.trim_id limit 50000
++;
+
+# 2021-11-16 16:39:53.507079
++kselect years.name, makes.name, models.name, trims.name 
++from inventory 
++inner join model_years ON model_years.id = inventory.model_year_id 
++inner join years ON years.id = model_years.year_id 
++inner join makes ON makes.id = inventory.make_id 
++inner join models ON models.id = inventory.model_id
++inner join trims ON trims.id = inventory.trim_id limit 50000
++;
+
+# 2021-11-16 16:39:58.196772
++select years.name, makes.name, models.name, trims.name 
++from inventory 
++inner join model_years ON model_years.id = inventory.model_year_id 
++inner join years ON years.id = model_years.year_id 
++inner join makes ON makes.id = inventory.make_id 
++inner join models ON models.id = inventory.model_id
++inner join trims ON trims.id = inventory.trim_id limit 50000
++;
+
+# 2021-11-16 16:41:46.270700
++with full_inventory_select (year, make, model, trim) as (
++select years.name, makes.name, models.name, trims.name 
++from inventory 
++inner join model_years ON model_years.id = inventory.model_year_id 
++inner join years ON years.id = model_years.year_id 
++inner join makes ON makes.id = inventory.make_id 
++inner join models ON models.id = inventory.model_id
++inner join trims ON trims.id = inventory.trim_id limit 50000
++)
++
++select name from (
++        select make as name from full_inventory_select group by make
++                union all
++                        select concat_ws(' ', make, model) as name from full_inventory_select group by make, model
++                                union all
++                                        select concat_ws(' ', make, model, trim) as name from full_inventory_select group by make, model, trim
++                                                union all
++                                                        select concat_ws(' ', make, model, trim, year) as name from full_inventory_select group by make, model, trim, year
++                                                        ) all_elements group by name order by name
++                                                        ;
+
+# 2021-11-16 16:55:31.585706
++select years.name, makes.name, models.name, trims.name from inventory inner join model_years ON model_years.id = inventory.model_year_id inner join years ON years.id = model_years.year_id inner join makes ON makes.id = inventory.make_id inner join models ON models.make_id = makes.id inner join trims ON trims.id = inventory.trim_id where inventory.listable = true;
+
+# 2021-11-17 08:47:56.249422
++exit
+
+# 2021-11-18 09:35:22.048682
++select * from listings where id = uuid('e13b2950-43f4-44e5-bd1f-824fdfa6bead')
+
+# 2021-11-18 09:35:26.119112
++\x
+
+# 2021-11-18 09:35:27.153360
++select * from listings where id = uuid('e13b2950-43f4-44e5-bd1f-824fdfa6bead')
+
+# 2021-11-18 09:35:44.085214
++select * from listings where id = uuid('31650c0c-0005-462f-ae22-6b4a3e32c517
++')
+
+# 2021-11-18 09:35:55.391995
++select * from listings where listing_tags != '{}'
+
+# 2021-11-18 09:35:57.944975
++\q
+
+# 2021-11-30 15:13:27.736418
++select * from trims;
+
+# 2021-11-30 15:14:39.109176
++select * from trims inner join model_years ON model_years.id = trims.model_year_id inner join models ON models.id = model_years.model_id inner join makes ON makes.id = models.make_id;
+
+# 2021-11-30 15:15:27.293241
++select years.name, trims.name, models.name, makes.name from trims inner join model_years ON model_years.id = trims.model_year_id inner join models ON models.id = model_years.model_id inner join makes ON makes.id = models.make_id inner join years ON years.id = model_years.year_id
+
+# 2021-11-30 15:16:00.109934
++select years.name, trims.name, models.name, makes.name from trims inner join model_years ON model_years.id = trims.model_year_id inner join models ON models.id = model_years.model_id inner join makes ON makes.id = models.make_id inner join years ON years.id = model_years.year_id order by makes.name, models.name, trims.name;
+
+# 2021-11-30 15:16:29.080103
++select years.name, makes.names, models.name, trims.name from trims inner join model_years ON model_years.id = trims.model_year_id inner join models ON models.id = model_years.model_id inner join makes ON makes.id = models.make_id inner join years ON years.id = model_years.year_id order by makes.name, models.name, trims.name;
+
+# 2021-11-30 15:16:34.051208
++select years.name, makes.name, models.name, trims.name from trims inner join model_years ON model_years.id = trims.model_year_id inner join models ON models.id = model_years.model_id inner join makes ON makes.id = models.make_id inner join years ON years.id = model_years.year_id order by makes.name, models.name, trims.name;
+
+# 2021-11-30 15:17:35.060733
++select years.name, makes.name, models.name, trims.name from trims inner join model_years ON model_years.id = trims.model_year_id inner join models ON models.id = model_years.model_id inner join makes ON makes.id = models.make_id inner join years ON years.id = model_years.year_id inner join inventory on inventory.year_id = years.id and inventory.make_id = makes.id and inventory.model_id = models.id and inventory.trim_id = trims.id where inventory.listed = true order by makes.name, models.name, trims.name;
+
+# 2021-11-30 15:19:36.426204
++select * from dealers;
+
+# 2021-11-30 15:20:21.121175
++select inventory.id, years.name, makes.name, models.name, trims.name from trims inner join model_years ON model_years.id = trims.model_year_id inner join models ON models.id = model_years.model_id inner join makes ON makes.id = models.make_id inner join years ON years.id = model_years.year_id inner join inventory on inventory.year_id = years.id and inventory.make_id = makes.id and inventory.model_id = models.id and inventory.trim_id = trims.id where inventory.listed = true order by makes.name, models.name, trims.name;
+
+# 2021-11-30 15:20:41.666714
++select * from inventory where inventory.id = uuid('f1062146-07c1-459f-b337-44030873debb')
+
+# 2021-11-30 15:20:59.936667
++select dealer.* from inventory inner join dealers ON dealers.id = inventory.dealer_id where inventory.id = uuid('f1062146-07c1-459f-b337-44030873debb')
+
+# 2021-11-30 15:21:03.456689
++select dealers.* from inventory inner join dealers ON dealers.id = inventory.dealer_id where inventory.id = uuid('f1062146-07c1-459f-b337-44030873debb')
+
+# 2021-11-30 15:22:04.455735
++select inventory.id, years.name, makes.name, models.name, trims.name from trims inner join model_years ON model_years.id = trims.model_year_id inner join models ON models.id = model_years.model_id inner join makes ON makes.id = models.make_id inner join years ON years.id = model_years.year_id inner join inventory on inventory.year_id = years.id and inventory.make_id = makes.id and inventory.model_id = models.id and inventory.trim_id = trims.id where inventory.listed = true order by makes.name, models.name, trims.name;
+
+# 2021-11-30 15:22:17.731857
++select inventory.id, years.name, makes.name, models.name, trims.name from trims inner join model_years ON model_years.id = trims.model_year_id inner join models ON models.id = model_years.model_id inner join makes ON makes.id = models.make_id inner join years ON years.id = model_years.year_id inner join inventory on inventory.year_id = years.id and inventory.make_id = makes.id and inventory.model_id = models.id and inventory.trim_id = trims.id where inventory.listable = true order by makes.name, models.name, trims.name;
+
+# 2021-11-30 15:23:45.743870
++select * from inventory where stock_number = '66ddf066-1ea7-42a0-a7d1-6e92c5ef2c63'
+
+# 2021-11-30 15:23:48.159715
++\x
+
+# 2021-11-30 15:23:49.252102
++select * from inventory where stock_number = '66ddf066-1ea7-42a0-a7d1-6e92c5ef2c63'
+
+# 2021-12-01 10:35:26.738818
++\q

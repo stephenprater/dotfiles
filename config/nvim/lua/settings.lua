@@ -10,6 +10,11 @@ iron.core.add_repl_definitions{
     mix = {
       command = {"iex", "-S", "mix"}
     }
+  },
+  sql = {
+    pg = {
+      command = {"pgcli", "-h", "0.0.0.0", "-U", "postgres"}
+    }
   }
 }
 
@@ -70,6 +75,7 @@ end
 
 local lualine = require('lualine')
 local lsp_status = require('lsp-status')
+lsp_status.register_progress()
 
 local function lsp_status_segment()
   lsp_status.status()
@@ -130,11 +136,11 @@ local cmp_capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.pro
 require('lspinstall').setup()
 
 
-
 local servers = require('lspinstall').installed_servers()
 for _, server in pairs(servers) do
   require('lspconfig')[server].setup{
-    capabilities = vim.tbl_extend('keep', cmp_capabilities, lsp_status.capabilities)
+    capabilities = vim.tbl_extend('keep', cmp_capabilities, lsp_status.capabilities),
+    on_attach = lsp_status.on_attach
   }
 end
 

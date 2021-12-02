@@ -28,13 +28,16 @@ return require('packer').startup(function()
   use 'vijaymarupudi/nvim-fzf'
   use 'vijaymarupudi/nvim-fzf-commands'
   use 'gfanto/fzf-lsp.nvim'
+  -- RG
+  use 'jremmen/vim-ripgrep'
 
-  -- Tree
+  -- File Navigation
   use {
     'kyazdani42/nvim-tree.lua',
     requires = 'kyazdani42/nvim-web-devicons',
     config = function() require('nvim-tree').setup {} end
   }
+  use 'tpope/vim-projectionist'
 
   -- YankRing
   use 'bfredl/nvim-miniyank'
@@ -65,15 +68,15 @@ return require('packer').startup(function()
   use 'nvim-lualine/lualine.nvim'
   use 'nvim-lua/lsp-status.nvim'
 
-
-  -- junk drawer
-  use 'jremmen/vim-ripgrep'
-
+  -- UI Affordances
   use 'terryma/vim-multiple-cursors'
-  use 'tpope/vim-projectionist'
+  use 'machakann/vim-swap'
+  use 'simnalamburt/vim-mundo'
+  use 'jeetsukumaran/vim-markology'
+  use 'vim-scripts/utl.vim'
+  use 'norcalli/nvim-colorizer.lua'
   use 'duff/vim-bufonly'
   use 'majutsushi/tagbar'
-  use 'machakann/vim-swap'
 
   use 'godlygeek/tabular'
 
@@ -86,21 +89,17 @@ return require('packer').startup(function()
   use 'tpope/vim-repeat'
   use 'tpope/vim-sleuth'
   use 'tpope/vim-rsi'
-  use 'simnalamburt/vim-mundo'
-  use 'jeetsukumaran/vim-markology'
-  use 'vim-scripts/utl.vim'
   use 'mattn/calendar-vim'
   use 'whiteinge/diffconflicts'
   use 'tommcdo/vim-ninja-feet'
   use 'tommcdo/vim-exchange'
-  use 'norcalli/nvim-colorizer.lua'
 
   -- Colorscheme
   use 'arcticicestudio/nord-vim'
 
   -- Elixir
-  -- use 'elixir-editors/vim-elixir'
-  -- use 'andyl/vim-textobj-elixir'
+  use 'elixir-editors/vim-elixir'
+  use 'andyl/vim-textobj-elixir'
 
   -- Debugger
   use 'Vigemus/iron.nvim'

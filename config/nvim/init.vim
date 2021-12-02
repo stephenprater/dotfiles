@@ -302,6 +302,8 @@ command! CreateSpec :execute 'Espec ' . substitute(expand('%:r'), 'app\/', '', '
 
 command! -bang -nargs=* Search call fzf#vim#ag(<q-args>, <bang>0)
 
+command! LspDebug lua vim.lsp.set_log_level("debug"); vim.cmd('terminal tail -f ' .. vim.lsp.get_log_path())
+
 " this needs to call a special function with an on_exit handler that
 " autocloses the window when the process ends
 
