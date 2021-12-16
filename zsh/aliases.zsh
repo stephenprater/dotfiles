@@ -16,6 +16,17 @@ alias cat='bat'
 alias ping='prettyping --nolegend'
 alias ls='exa -la --git'
 
-alias vim=/usr/local/bin/nvim
+if [ -f "/opt/homebrew/bin/bat"]; then
+  alias cat='bat'
+else
+  alias cat='bat-cat'
+fi
+
+if [ -f "/opt/homebrew/bin/nvim"]; then
+  alias vim=/opt/homebrew/bin/nvim
+else
+  alias vim=/usr/bin/nvim
+fi
+
 alias ssh='TERM=xterm-256color ssh'
 alias preview="fzf --preview 'bat --color \"always\" {}'"

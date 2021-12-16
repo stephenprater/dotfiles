@@ -1,0 +1,36 @@
+#!/bin/sh
+
+ln -s $DOTHOME/config $HOME/.config
+
+# Not everybody plays nice with XDG
+ln -s $DOTHOME/config/ctags.d/ .ctags.d
+ln -s $DOTHOME/config/spacemacs .spacemacs
+ln -s $DOTHOME/config/dlv .dlv
+
+ln -s $DOTHOME/tcolors .tcolors
+ln -s $DOTHOME/terminfo .terminfo
+ln -s $DOTHOME/tldrc .tldrc
+
+ln -s $DOTHOME/config/tmux/tmux.conf .tmux.conf
+ls -s $DOTHOME/config/ruby/pryrc .pryrc
+
+ln -s $DOTHOME/zsh.profile .zprofile
+ln -s $DOTHOME/zshrc .zshrc
+
+if [[ $(uname -a | grep "Darwin") ]]; then
+  brew install --cask amethyst
+  brew bundle
+fi
+
+if [ $SPIN ]; then
+  sudo apt purge neovim
+  sudo add-apt-repository ppa:neovim-ppa/unstable
+  sudo apt update && sudo apt install neovim -y
+
+  xargs sudo apt-get install < packages.txt
+  wget https://github.com/dandavison/delta/releases/download/0.11.2/git-delta_0.11.2_amd64.deb
+  dpkg -I git-delta_0.11.2_amd64.deb
+
+  git submodule update
+fi
+

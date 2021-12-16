@@ -1,7 +1,12 @@
 syntax on
 filetype plugin indent on
 
-set shell=/usr/local/bin/zsh
+if(!$SPIN)
+  set shell=/opt/homebrew/bin/zsh
+else
+  set shell=/usr/bin/zsh
+endif
+
 set hidden
 set updatetime=300
 runtime macros/matchit.vim
@@ -64,7 +69,7 @@ let g:mundo_right = 1
 
 let g:markology_enable = 0
 
-let g:python3_host_prog = '/Users/stephenprater/.asdf/installs/python/3.8.1/bin/python'
+let g:python3_host_prog = '/Users/stephenprater/.asdf/installs/python/3.8.10/bin/python'
 
 function! NoClearSlime(cmd) abort
   call Send_to_Tmux(a:cmd . "\n")
@@ -549,6 +554,10 @@ function! s:EnableLogCommands()
   command! -range=% Todos <line1>,<line2>call ListTodos()
   command! -range=% Links <line1>,<line2>call ListLinks()
 endfunction
+
+" function! FiveLs()
+"   append ["launched", "learned", "liked", "lacked", "laud"]
+" endfunction
 
 function! ListFiveLs() range
   call setloclist(0, [])

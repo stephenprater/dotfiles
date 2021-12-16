@@ -6,9 +6,13 @@ tldrc/*
 credentials.zsh
 config/nvim/black
 config/yarn/global
+config/gcloud
+config/shadowenv
+config/dev/logs
 config/coc/extensions
 config/browser-launcher2
 config/.mono/keypairs
+config/spotify-tui/*
 config/plugins
 *.un~
 *.pem

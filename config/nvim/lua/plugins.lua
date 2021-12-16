@@ -3,7 +3,7 @@ return require('packer').startup(function()
 
   -- LSP / Treesitter
   use 'neovim/nvim-lspconfig'
-  use 'kabouzeid/nvim-lspinstall'
+  use 'williamboman/nvim-lsp-installer'
   use { 'nvim-treesitter/nvim-treesitter', run = ":TSUpdate" }
   use 'RRethy/nvim-treesitter-textsubjects'
   use 'nvim-treesitter/playground'

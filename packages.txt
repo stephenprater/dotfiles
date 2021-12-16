@@ -1,0 +1,12 @@
+bat
+exa
+fd-find
+fzf
+httpie
+mmv
+mycli
+nnn
+ripgrep
+inetutils-telnet
+tig
+tldr

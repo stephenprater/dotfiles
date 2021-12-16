@@ -31,3 +31,6 @@
 [submodule "config/emacs.d"]
 	path = config/emacs.d
 	url = https://github.com/syl20bnr/spacemacs
+[submodule "plugins/tmux-powerline"]
+	path = plugins/tmux-powerline
+	url = https://github.com/erikw/tmux-powerline.git

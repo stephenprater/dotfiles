@@ -1,6 +1,14 @@
+if [ -f "/opt/homebrew" ]; then
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
+
+if [ -f "/usr/local" ]; then
+  eval "$(/usr/local/bin/brew shellenv)"
+fi
+
+
 # shortcut to this dotfiles path is $DOTHOME
-export DOTHOME=$HOME/.dotfiles
-export ASDF_DIR=$(brew --prefix asdf)
+export DOTHOME=$HOME/dotfiles
 
 # source folder that we can `scd [tab]` into
 export SOURCE_DIR=$HOME/src
@@ -51,29 +59,17 @@ done
 
 unset config_files
 
-# Java!
-export JAVA_HOME=$(/usr/libexec/java_home)
-
-# Elixir!
-
-export ERL_AFLAGS="-kernel shell_history enabled"
-
-# Docker
-alias dc="$(which docker-compose)"
-
 # Bash completions!
 autoload -U +X bashcompinit && bashcompinit
 
-complete -o nospace -C /usr/local/bin/vault vault
-
 # set cd autocompletion to commonly visited directories
 setopt auto_cd
-cdpath=(. ~/src $SOURCE_DIR/8thlight $SOURCE_DIR/stephenprater $SOURCE_DIR/cars)
+cdpath=(. ~/src $SOURCE_DIR/stephenprater $SOURCE_DIR/github.com/Shopify)
 fpath=(path/to/zsh-completions/src $fpath)
 
 zmodload -i zsh/parameter
 
-compctl -/ -S '' -W "($SOURCE_DIR $SOURCE_DIR/8thlight)" mux
+compctl -/ -S '' -W "($SOURCE_DIR)" mux
 
 autoload -U edit-command-line
 autoload -U colors
@@ -84,10 +80,6 @@ bindkey -M vicmd ':' executed-named-command
 
 # Configure the Prompt
 setopt prompt_subst
-
-export POWERLINE_COMMAND=~/.asdf/installs/python/3.7.10/bin/powerline
-export POWERLINE_CONFIG_COMMAND=~/.asdf/installs/python/3.7.10/bin/powerline-config
-~/.asdf/installs/python/3.7.10/bin/powerline-daemon -q
 
 autoload -U promptinit; promptinit
 
@@ -102,15 +94,22 @@ export GOROOT=/usr/local/opt/go/libexec
 export PATH=$PATH:$GOPATH/bin:$GOROOT/bin:$DOTHOME/script
 
 # Load Environment Credenials from Keybase
-if [ ! -f $DOTHOME/zsh/credentials.zsh ]; then
-  cp $KEYBASE/credentials.zsh $DOTHOME/zsh/credentials.zsh
-  source $DOTHOME/zsh/credentials.zsh
-fi
+# if [ ! -f $DOTHOME/zsh/credentials.zsh ]; then
+#   cp $KEYBASE/credentials.zsh $DOTHOME/zsh/credentials.zsh
+#   source $DOTHOME/zsh/credentials.zsh
+# fi
 
 alias help=tldr
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-source "$(brew --prefix asdf)/asdf.sh"
-fpath=(${ASDF_DIR}/completions $fpath)
+if [ -x "$(command -v brew)"]; then
+  source "$(brew --prefix asdf)/asdf.sh"
+  fpath=(${ASDF_DIR}/completions $fpath)
+fi
 
+[[ -f /opt/dev/sh/chruby/chruby.sh ]] && type chruby >/dev/null 2>&1 || chruby () { source /opt/dev/sh/chruby/chruby.sh; chruby "$@"; }
+
+[ -f /opt/dev/dev.sh ] && source /opt/dev/dev.sh
+
+[[ -x /opt/homebrew/bin/brew ]] && eval $(/opt/homebrew/bin/brew shellenv)
