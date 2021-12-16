@@ -157,16 +157,12 @@ function _G.fzf_files()
 end
 
 local npairs = require('nvim-autopairs')
-local Rule = require('nvim-autopairs.rule')
-
 npairs.setup({
   check_ts = true,
   disable_filetype = { "FZF" },
 })
 
-npairs.add_rules({
-  Rule("do ", "\nend", {"elixir", "ruby"})
-})
+npairs.add_rules(require('nvim-autopairs.rules.endwise-ruby'))
 
 require('nvim-treesitter.configs').setup({
   rainbow = {

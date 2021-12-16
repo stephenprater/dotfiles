@@ -19,7 +19,7 @@ alias ls='exa -la --git'
 if [ -f "/opt/homebrew/bin/bat" ]; then
   alias cat='bat'
 else
-  alias cat='bat-cat'
+  alias cat='batcat'
 fi
 
 if [ -f "/opt/homebrew/bin/nvim" ]; then

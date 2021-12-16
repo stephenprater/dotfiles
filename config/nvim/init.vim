@@ -69,7 +69,9 @@ let g:mundo_right = 1
 
 let g:markology_enable = 0
 
-let g:python3_host_prog = '/Users/stephenprater/.asdf/installs/python/3.8.10/bin/python'
+if(!$SPIN)
+  let g:python3_host_prog = '/Users/stephenprater/.asdf/installs/python/3.8.10/bin/python'
+endif
 
 function! NoClearSlime(cmd) abort
   call Send_to_Tmux(a:cmd . "\n")

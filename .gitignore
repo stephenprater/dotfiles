@@ -14,5 +14,10 @@ config/browser-launcher2
 config/.mono/keypairs
 config/spotify-tui/*
 config/plugins
+config/gh
+config/Code
+config/nvim/plugin/packer_compiled.lua
+config/code-server
+script/exa
 *.un~
 *.pem

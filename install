@@ -1,24 +1,31 @@
 #!/bin/sh
 
 export DOTHOME=$HOME/dotfiles
- 
+
 git submodule update --init
 
-ln -s $DOTHOME/config $HOME/.config
+if [ $SPIN ]; then
+  mv $HOME/.config $HOME/spinconfig
+  ln -s $DOTHOME/config $HOME/.config
+  mv $HOME/spinconfig/* -t $HOME/.config/
+else
+  ln -s $DOTHOME/config $HOME/.config
+fi
 
 # Not everybody plays nice with XDG
 ln -sf $DOTHOME/config/ctags.d/ $HOME/.ctags.d
-ln -sf $DOTHOME/config/spacemacs $HOME/.spacemacs
 ln -sf $DOTHOME/config/dlv $HOME/.dlv
 
 ln -sf $DOTHOME/tcolors $HOME/.tcolors
 ln -sf $DOTHOME/terminfo $HOME/.terminfo
 
 ln -sf $DOTHOME/config/tmux/tmux.conf $HOME/.tmux.conf
+ln -sf $DOTHOME/config/tmux/tmux-powerlinerc $HOME/.tmux-powerlinerc
 ln -sf $DOTHOME/config/ruby/pryrc $HOME/.pryrc
 
 ln -sf $DOTHOME/zsh/zprofile $HOME/.zprofile
 ln -sf $DOTHOME/zsh/zshrc $HOME/.zshrc
+
 
 if [ $(uname -a | grep "Darwin") ]; then
   brew install --cask amethyst
@@ -34,7 +41,16 @@ if [ $SPIN ]; then
   wget https://github.com/dandavison/delta/releases/download/0.11.2/git-delta_0.11.2_amd64.deb
   sudo dpkg -i git-delta_0.11.2_amd64.deb
 
-  wget https://github.com/ogham/exa/releases/download/v0.10.1/exa-linux-x86_64-v0.10.1.zip 
-  unzip exa-linux-x86_64-v0.10.1.zip
+  wget https://github.com/ogham/exa/releases/download/v0.10.1/exa-linux-x86_64-v0.10.1.zip
+  sudo unzip -p exa-linux-x86_64-v0.10.1.zip bin/exa > $DOTHOME/script/exa
+  chomd +x $DOTHOME/script/exa
+
+  tldr -u
+
+  sudo gem install awesome_print
+  sudo gem install solargraph
+
+  nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
+  nvim --headless -c 'LspInstall --sync sorbet' -c 'LspInstall --sync solargraph' -c 'TSInstallSync ruby'
 fi
 
