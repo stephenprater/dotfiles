@@ -16,13 +16,13 @@ alias cat='bat'
 alias ping='prettyping --nolegend'
 alias ls='exa -la --git'
 
-if [ -f "/opt/homebrew/bin/bat"]; then
+if [ -f "/opt/homebrew/bin/bat" ]; then
   alias cat='bat'
 else
   alias cat='bat-cat'
 fi
 
-if [ -f "/opt/homebrew/bin/nvim"]; then
+if [ -f "/opt/homebrew/bin/nvim" ]; then
   alias vim=/opt/homebrew/bin/nvim
 else
   alias vim=/usr/bin/nvim

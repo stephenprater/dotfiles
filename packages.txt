@@ -1,5 +1,4 @@
 bat
-exa
 fd-find
 fzf
 httpie
@@ -10,3 +9,4 @@ ripgrep
 inetutils-telnet
 tig
 tldr
+unzip

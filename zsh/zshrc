@@ -88,7 +88,11 @@ export EXA_COLORS="uu=38;5;239:ur=38;5;16:gr=38;5;16:tr=38;5;16:uw=32:sn=38;5;24
 
 export EDITOR=nvim
 export COMPOSE_HTTP_TIMEOUT=10000
-export HOST_IP=$(ipconfig getifaddr en0)
+
+if [ ! $SPIN ]; then
+  export HOST_IP=$(ipconfig getifaddr en0)
+fi
+
 export GOPATH=$HOME/golang
 export GOROOT=/usr/local/opt/go/libexec
 export PATH=$PATH:$GOPATH/bin:$GOROOT/bin:$DOTHOME/script
@@ -103,7 +107,7 @@ alias help=tldr
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-if [ -x "$(command -v brew)"]; then
+if [[ -x "$(command -v brew)" ]]; then
   source "$(brew --prefix asdf)/asdf.sh"
   fpath=(${ASDF_DIR}/completions $fpath)
 fi
