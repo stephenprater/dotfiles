@@ -6,7 +6,7 @@ fi
 
 # Auto-completion
 # ---------------
-if [ -f "/opt/homebrew/opt/fzf" ]; then
+if [ -d "/opt/homebrew/opt/fzf" ]; then
   [[ $- == *i* ]] && source "/opt/homebrew/opt/fzf/shell/completion.zsh" 2> /dev/null
   source "/opt/homebrew/opt/fzf/shell/key-bindings.zsh"
 else

@@ -4,6 +4,7 @@ config/hub
 tldrc/*
 .mypy_cache/
 credentials.zsh
+Brewfile.lock.json
 config/nvim/black
 config/yarn/global
 config/gcloud
