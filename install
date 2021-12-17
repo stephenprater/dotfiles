@@ -42,15 +42,15 @@ if [ $SPIN ]; then
 
   wget https://github.com/ogham/exa/releases/download/v0.10.1/exa-linux-x86_64-v0.10.1.zip
   sudo unzip -p exa-linux-x86_64-v0.10.1.zip bin/exa > $DOTHOME/script/exa
-  chomd +x $DOTHOME/script/exa
+  chmod +x $DOTHOME/script/exa
 fi
 
 tldr -u
 
 sudo gem install awesome_print
-sudo gem install solargraph
+sudo gem install pry
 
-nvim --headless -u bootstrap.vim -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
+nvim --headless -u $DOTHOME/config/nvim/bootstrap.vim -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
 nvim --headless -c 'LspInstall --sync sorbet' -c 'LspInstall --sync solargraph' -c 'TSInstallSync ruby'
 
 
