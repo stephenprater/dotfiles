@@ -69,6 +69,10 @@ let g:mundo_right = 1
 
 let g:markology_enable = 0
 
+if(!$SPIN)
+  let g:python3_host_prog = '/Users/stephenprater/.asdf/installs/python/3.8.10/bin/python'
+endif
+
 function! NoClearSlime(cmd) abort
   call Send_to_Tmux(a:cmd . "\n")
 endfunction
@@ -99,6 +103,10 @@ let g:test#javascript#karma#file_pattern = '\v(test|spec).*(js|jsx|coffee|ts|tsx
 
 let g:utl_cfg_hdl_scm_http = "silent !open -a Firefox '%u#%f'"
 
+let g:airline_powerline_fonts = 1
+let g:airline_theme = 'nord'
+let g:airline#extensions#coc#enabled = 0
+
 let g:fzf_common_lists = [
       \ ['files', {'args': '', 'name': 'Files'}],
       \ ['buffers', { 'args': '',  'name': 'Buffers'}],
@@ -120,7 +128,7 @@ let g:codefence_eval = {
       \ 'mmdc': ['mmdc', '-i', '<infile>', '-o', '<outfile>'],
       \}
 
-
+function! FzfNextList()
   let l:buf = nvim_get_current_buf()
   let l:name = nvim_buf_get_var(l:buf, "fzf")["name"]
   execute ":q"
@@ -172,21 +180,6 @@ let g:ruby_heredoc_syntax_filetypes = {
 
 
 let g:javascript_plugin_flow = 1
-let g:jsx_ext_required = 0
-
-let g:go_autodetect_gopath = 0
-let g:go_highlight_build_constraints = 1
-let g:go_highlight_extra_types = 1
-let g:go_highlight_fields = 1
-let g:go_highlight_functions = 1
-let g:go_highlight_methods = 1
-let g:go_highlight_operators = 1
-let g:go_highlight_structs = 1
-let g:go_highlight_types = 1
-let g:go_auto_sameids = 1
-let g:go_bin_path = "/Users/stephenprater/golang/bin/"
-let g:go_metalinter_disabled = ['vet']
-
 let g:ruby_operators = 1
 
 let g:markdown_fenced_languages = ['ruby', 'json', 'javascript', 'sql', 'elixir']
@@ -200,27 +193,6 @@ let g:mkdx#settings = {
       \ 'map': { 'prefix': '<leader>', 'enable': 1 }
       \ }
 " because you'll check here again the map for 'toggle checkbox' is <leader>-
-
-
-let g:python_highlight_all = 1
-let g:jedi#pop_on_dot = 0
-let g:jedi#completions_enabled = 0
-let g:jedi#environment_paths = [$HOME . '/.pyenv/versions']
-
-let g:echodoc#enable_at_startup = 1
-
-let g:terraform_align = 1
-let g:terraform_fmt_on_save = 1
-
-let g:gutentags_ctags_executable = '/usr/local/bin/ctags'
-let g:gutentags_file_list_command = {
-  \ 'markers': {
-    \ '.git': 'git ls-files',
-  \}
-\}
-
-let g:OmniSharp_server_stdio = 1
-
 
 "}}}
 
