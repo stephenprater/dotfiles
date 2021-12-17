@@ -55,6 +55,7 @@ nvim --headless -c 'LspInstall --sync sorbet'
 nvim --headless -c 'LspInstall --sync solargraph'
 nvim --headless -c 'LspInstall --sync tsserver'
 nvim --headless -c 'TSInstallSync typescript'
+nvim --headless -c 'TSInstallSync tsx'
 nvim --headless -c 'TSInstallSync ruby'
 
 
