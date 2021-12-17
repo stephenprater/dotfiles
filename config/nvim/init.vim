@@ -69,10 +69,6 @@ let g:mundo_right = 1
 
 let g:markology_enable = 0
 
-if(!$SPIN)
-  let g:python3_host_prog = '/Users/stephenprater/.asdf/installs/python/3.8.10/bin/python'
-endif
-
 function! NoClearSlime(cmd) abort
   call Send_to_Tmux(a:cmd . "\n")
 endfunction
@@ -103,19 +99,6 @@ let g:test#javascript#karma#file_pattern = '\v(test|spec).*(js|jsx|coffee|ts|tsx
 
 let g:utl_cfg_hdl_scm_http = "silent !open -a Firefox '%u#%f'"
 
-let g:airline_powerline_fonts = 1
-let g:airline_theme = 'nord'
-let g:airline#extensions#coc#enabled = 0
-
-let g:UltiSnipsSnippetDirectories=["/Users/stephenprater/.config/nvim/ultisnips/"]
-let g:UltiSnipsExpandTrigger           = '<C-y>'
-let g:UltiSnipsJumpForwardTrigger      = '<C-a>'
-let g:UltiSnipsJumpBackwardTrigger     = '<C-s>'
-
-let g:coffee_compiler = "./node_modules/.bin/coffee"
-let g:coffee_linter = "./node_modules/./bin/coffeelint"
-
-
 let g:fzf_common_lists = [
       \ ['files', {'args': '', 'name': 'Files'}],
       \ ['buffers', { 'args': '',  'name': 'Buffers'}],
@@ -137,7 +120,7 @@ let g:codefence_eval = {
       \ 'mmdc': ['mmdc', '-i', '<infile>', '-o', '<outfile>'],
       \}
 
-function! FzfNextList()
+
   let l:buf = nvim_get_current_buf()
   let l:name = nvim_buf_get_var(l:buf, "fzf")["name"]
   execute ":q"

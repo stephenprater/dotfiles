@@ -50,7 +50,7 @@ tldr -u
 sudo gem install awesome_print
 sudo gem install solargraph
 
-nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
+nvim --headless -u bootstrap.vim -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
 nvim --headless -c 'LspInstall --sync sorbet' -c 'LspInstall --sync solargraph' -c 'TSInstallSync ruby'
 
 
