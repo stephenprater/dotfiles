@@ -135,7 +135,7 @@ local cmp_capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.pro
 
 local lsp_installer = require("nvim-lsp-installer")
 lsp_installer.on_server_ready(function(server)
- require('lspconfig')[server].setup{
+ server:setup{
     capabilities = vim.tbl_extend('keep', cmp_capabilities, lsp_status.capabilities),
     on_attach = lsp_status.on_attach
   }

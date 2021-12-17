@@ -51,7 +51,11 @@ sudo gem install awesome_print
 sudo gem install pry
 
 nvim --headless -u $DOTHOME/config/nvim/bootstrap.vim -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
-nvim --headless -c 'LspInstall --sync sorbet' -c 'LspInstall --sync solargraph' -c 'TSInstallSync ruby'
+nvim --headless -c 'LspInstall --sync sorbet'
+nvim --headless -c 'LspInstall --sync solargraph'
+nvim --headless -c 'LspInstall --sync tsserver'
+nvim --headless -c 'TSInstallSync typescript'
+nvim --headless -c 'TSInstallSync ruby'
 
 
 
