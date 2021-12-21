@@ -96,6 +96,7 @@ fi
 export GOPATH=$HOME/golang
 export GOROOT=/usr/local/opt/go/libexec
 export PATH=$PATH:$GOPATH/bin:$GOROOT/bin:$DOTHOME/script
+export GLOBAL_GEM_PATH=$(gem env gemdir)
 
 # Load Environment Credenials from Keybase
 # if [ ! -f $DOTHOME/zsh/credentials.zsh ]; then
