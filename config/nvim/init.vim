@@ -43,6 +43,11 @@ hi Italic cterm=italic gui=italic
 
 let g:vimspector_enable_mappings = 'HUMAN'
 
+imap <expr> <C-y> vsnip#expandable() ? '<Plug>(vsnip-expand)' : '<C-y>'
+smap <expr> <C-y> vsnip#expandable() ? '<Plug>(vsnip-expand)' : '<C-y>'
+imap <expr> <C-n> vsnip#jumpable(1)  ? '<Plug>(vsnip-jump-next)' : '<C-n>'
+imap <expr> <C-p> vsnip#jumpable(-1) ? '<Plug>(vsnip-jump-prev)' : '<C-p>'
+
 luafile ~/.config/nvim/lua/plugins.lua
 luafile ~/.config/nvim/lua/settings.lua
 
@@ -111,7 +116,7 @@ let g:fzf_common_lists = [
       \ ['files', {'args': '', 'name': 'Files'}],
       \ ['buffers', { 'args': '',  'name': 'Buffers'}],
       \ ['history-files', { 'args': '-A', 'name': 'History' }],
-      \ ['rg', { 'args': '', 'name': 'Grep'}],
+      \ ['rg', { 'args': '', 'name': 'FzfGrep'}],
       \ ['tags', { 'args': '', 'name': 'Tags'}],
       \]
 
@@ -190,7 +195,8 @@ let g:mkdx#settings = {
       \               'update_tree': 2,
       \               'initial_state': ' ' },
       \ 'highlight': { 'enable': 1 },
-      \ 'map': { 'prefix': '<leader>', 'enable': 1 }
+      \ 'map': { 'prefix': '<leader>', 'enable': 1 },
+      \ 'links': { 'fragment' : { 'complete' : 0 } }
       \ }
 " because you'll check here again the map for 'toggle checkbox' is <leader>-
 
@@ -219,8 +225,9 @@ autocmd BufNewFile,BufRead *.hcl set filetype=terraform
 
 autocmd FileType json syntax match Comment +\/\/.\+$+
 
-autocmd BufRead */log.md call s:EnableLogCommands()
-autocmd BufRead */log.md lua require('cmp').setup.buffer { enabled = false }
+autocmd BufRead prater.log call s:EnableLogCommands()
+autocmd BufRead prater.log lua require('cmp').setup.buffer { enabled = false }
+autocmd BufRead prater.log set ft=markdown
 
 autocmd FileType elixir let b:match_words='do:end,{:},(:),":"'
 
@@ -265,7 +272,7 @@ command! CreateSpec :execute 'Espec ' . substitute(expand('%:r'), 'app\/', '', '
 command! -bang -nargs=* Search call fzf#vim#ag(<q-args>, <bang>0)
 
 command! LspDebug lua vim.lsp.set_log_level("debug"); vim.cmd('terminal tail -f ' .. vim.lsp.get_log_path())
-
+command! -bang -nargs=* FzfGrep call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case -- ".shellescape(<q-args>), 1, fzf#vim#with_preview(), <bang>0)
 " this needs to call a special function with an on_exit handler that
 " autocloses the window when the process ends
 
@@ -281,10 +288,11 @@ vnoremap <silent> <leader>A :RgVis<CR>
 
 nmap <silent> <D-CR> :Utl<CR>
 "
-nmap <silent> ,yr :CocList yank<CR>
 nmap <silent> ,tb :TagbarToggle<CR>
 nmap <silent> ,gu :MundoToggle<CR>
 nmap <silent> ,bs :Buffers<CR>
+
+
 
 " nmap <C-x> :bd %<CR>
 
@@ -363,7 +371,6 @@ nmap <leader>la :CodeActions<CR>
 nmap <leader>lx :lua vim.lsp.diagnostic.show_line_diagnostics({focusable=false})<CR>
 
 nmap <leader>ls :lua vim.lsp.buf.document_symbol()<CR>
-
 
 nmap <leader>m :MarkologyToggle<CR>
 
@@ -598,4 +605,6 @@ function! SynStack()
   echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
 endfunc
 "}}}
+"
+
 

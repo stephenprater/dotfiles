@@ -16,6 +16,7 @@ return require('packer').startup(function()
   use 'hrsh7th/cmp-cmdline'
   use 'hrsh7th/nvim-cmp'
   use 'onsails/lspkind-nvim'
+  use 'github/copilot.vim'
 
   -- Snippets
   use 'hrsh7th/vim-vsnip'

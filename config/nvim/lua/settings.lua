@@ -95,7 +95,7 @@ local lspkind = require('lspkind')
 cmp.setup({
   snippet = {
     expand = function(args)
-      vim.fn["UltiSnips#Anon"](args.body)
+      vim.fn["vsnip#anonymous"](args.body)
     end,
   },
   formatting = {
@@ -108,7 +108,7 @@ cmp.setup({
   },
   sources = cmp.config.sources({
     {name = 'nvim_lsp'},
-    {name = 'ultisnips'},
+    {name = 'vsnip'},
     {name = 'buffer'}
   }),
   completion = {
