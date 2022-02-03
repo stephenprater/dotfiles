@@ -37,12 +37,11 @@ if [ $SPIN ]; then
   sudo apt update && sudo apt install neovim -y
 
   xargs sudo apt-get -y install < packages.txt
-  wget https://github.com/dandavison/delta/releases/download/0.11.2/git-delta_0.11.2_amd64.deb
-  sudo dpkg -i git-delta_0.11.2_amd64.deb
 
-  wget https://github.com/ogham/exa/releases/download/v0.10.1/exa-linux-x86_64-v0.10.1.zip
-  sudo unzip -p exa-linux-x86_64-v0.10.1.zip bin/exa > $DOTHOME/script/exa
-  chmod +x $DOTHOME/script/exa
+  nix-env -iA nixpkgs.fzf
+  nix-env -iA nixpkgs.sysz
+  nix-env -iA nixpkgs.delta
+  nix-env -iA nixpkgs.exa
 fi
 
 tldr -u
