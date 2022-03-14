@@ -10,6 +10,7 @@ config/yarn/global
 config/gcloud
 config/shadowenv
 config/dev/logs
+config/dev/isogun
 config/coc/extensions
 config/browser-launcher2
 config/.mono/keypairs
@@ -20,5 +21,8 @@ config/Code
 config/nvim/plugin/packer_compiled.lua
 config/code-server
 script/exa
+config/spin
+config/dev
+config/github-copilot
 *.un~
 *.pem

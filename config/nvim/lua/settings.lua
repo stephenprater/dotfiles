@@ -1,7 +1,32 @@
+local colorizer = require('colorizer')
+colorizer.setup()
+
+local lualine = require('lualine')
+local lsp_status = require('lsp-status')
+lsp_status.register_progress()
+
+local function lsp_status_segment()
+  lsp_status.status()
+end
+
+lualine.setup({
+  theme = 'nord',
+  lualine_y = {
+    'progress',
+    lsp_status_segment
+  }
+})
+
+
 local iron = require('iron')
 
 iron.core.add_repl_definitions{
   ruby = {
+    pry = {
+      command = {"pry"}
+    }
+  },
+  markdown = {
     pry = {
       command = {"pry"}
     }
@@ -27,68 +52,6 @@ iron.core.set_config {
   }
 }
 
-local colorizer = require('colorizer')
-colorizer.setup()
-
-local dap = require('dap')
-
-dap.adapters.elixir = {
-  type = 'executable';
-  command = os.getenv('HOME') .. '/.local/share/nvim/lspinstall/elixir/elixir-ls/debugger.sh'
-}
-
-dap.configurations.elixir = {
-  {
-  type = 'elixir';
-  request = 'launch' ;
-  name = 'mix phx.server';
-  program = 'mix';
-  task = "phx.server";
-  programsArgs = { 'run' };
-  projectDir = "${workspaceFolder}"
-  }
-}
-
-dap.configurations.lua = {
-  {
-    type = 'nlua',
-    request = 'attach',
-    name = "Attach to running Neovim instance",
-    host = function()
-      local value = vim.fn.input('Host [127.0.0.1]: ')
-      if value ~= "" then
-        return value
-      end
-      return '127.0.0.1'
-    end,
-    port = function()
-      local val = tonumber(vim.fn.input('Port: '))
-      assert(val, "Please provide a port number")
-      return val
-    end,
-  }
-}
-
-dap.adapters.nlua = function(callback, config)
-  callback({ type = 'server', host = config.host, port = config.port })
-end
-
-local lualine = require('lualine')
-local lsp_status = require('lsp-status')
-lsp_status.register_progress()
-
-local function lsp_status_segment()
-  lsp_status.status()
-end
-
-lualine.setup({
-  theme = 'nord',
-  lualine_y = {
-    'progress',
-    lsp_status_segment
-  }
-})
-
 local cmp = require 'cmp'
 local lspkind = require('lspkind')
 
@@ -109,7 +72,8 @@ cmp.setup({
   sources = cmp.config.sources({
     {name = 'nvim_lsp'},
     {name = 'vsnip'},
-    {name = 'buffer'}
+    {name = 'buffer'},
+    {name = 'neorg'}
   }),
   completion = {
     completeopt = 'menu,menuone,noinsert',
@@ -162,6 +126,36 @@ npairs.setup({
   disable_filetype = { "FZF" },
 })
 
+local neorg = require('neorg')
+neorg.setup({
+  load = {
+    ["core.defaults"] = {},
+    ["core.norg.concealer"] = {
+      config = {
+        icons = {
+          todo = {
+            undone = {
+              icon = " "
+            }
+          }
+        }
+      }
+    },
+    ["core.norg.completion"] = {
+      config = {
+        engine = "nvim-cmp"
+      }
+    },
+    ["core.norg.dirman"] = {
+      config = {
+        workspaces = {
+          log = "~/log"
+        }
+      }
+    },
+  }
+})
+
 npairs.add_rules(require('nvim-autopairs.rules.endwise-ruby'))
 
 require('nvim-treesitter.configs').setup({
@@ -171,9 +165,15 @@ require('nvim-treesitter.configs').setup({
     max_file_lines = nil
   },
 
+  query_linter = {
+    enable = true,
+    use_virtual_text = true,
+    lint_events = {"BufWrite", "CursorHold"},
+  },
+
   highlight = {
     enable = true,
-    additional_vim_regex_highlighting = true
+    additional_vim_regex_highlighting = true,
   },
 
   textobjects = {

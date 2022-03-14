@@ -34,3 +34,12 @@
 [submodule "plugins/tmux-powerline"]
 	path = plugins/tmux-powerline
 	url = https://github.com/erikw/tmux-powerline.git
+[submodule "config/tmux/tpm"]
+	path = config/tmux/tpm
+	url = https://github.com/tmux-plugins/tpm
+[submodule "config/tmux/plugins/tmux-fzf-url"]
+	path = config/tmux/plugins/tmux-fzf-url
+	url = https://github.com/wfxr/tmux-fzf-url
+[submodule "config/tmux/plugins/tpm"]
+	path = config/tmux/plugins/tpm
+	url = https://github.com/tmux-plugins/tpm

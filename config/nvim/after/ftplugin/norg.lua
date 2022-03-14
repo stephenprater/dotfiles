@@ -7,13 +7,13 @@ require('neorg').setup {
         ["core.highlights"] = {},
         ["core.norg.completion"] = {
             config = {
-                engine = "nvim-compe"
+                engine = "nvim-cmp"
             }
         },
         ["core.norg.dirman"] = { -- Manage your directories with Neorg
             config = {
                 workspaces = {
-                    my_workspace = "/Dropbox/dev-log/"
+                    my_workspace = "~/devlog"
                 }
             }
         }

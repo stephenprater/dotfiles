@@ -35,13 +35,9 @@ set termguicolors
 
 set completeopt=menu,menuone,noselect
 
-hi Italic cterm=italic gui=italic
-
 "{{{ PLUGINS
 
 "let &runtimepath.=",/Users/stephenprater/src/8thlight/coc.nvim/"
-
-let g:vimspector_enable_mappings = 'HUMAN'
 
 imap <expr> <C-y> vsnip#expandable() ? '<Plug>(vsnip-expand)' : '<C-y>'
 smap <expr> <C-y> vsnip#expandable() ? '<Plug>(vsnip-expand)' : '<C-y>'
@@ -61,18 +57,18 @@ colorscheme detailed_ruby
 colorscheme detailed_js
 
 highlight Pmenu guifg=#D8DEE9 guibg=#333333
+hi Italic cterm=italic gui=italic
 "}}}
 
 "{{{ CONFIGURE PLUGINS
 "
-
-let g:bullets_enabled_file_types = [ 'markdown' ]
-
 let g:user_emmet_install_global = 0
 
 let g:mundo_right = 1
 
 let g:markology_enable = 0
+
+let g:tagbar_ctags_bin = '/opt/homebrew/bin/ctags'
 
 if(!$SPIN)
   let g:python3_host_prog = '/Users/stephenprater/.asdf/installs/python/3.8.10/bin/python'
@@ -108,30 +104,12 @@ let g:test#javascript#karma#file_pattern = '\v(test|spec).*(js|jsx|coffee|ts|tsx
 
 let g:utl_cfg_hdl_scm_http = "silent !open -a Firefox '%u#%f'"
 
-let g:airline_powerline_fonts = 1
-let g:airline_theme = 'nord'
-let g:airline#extensions#coc#enabled = 0
-
 let g:fzf_common_lists = [
       \ ['files', {'args': '', 'name': 'Files'}],
       \ ['buffers', { 'args': '',  'name': 'Buffers'}],
       \ ['history-files', { 'args': '-A', 'name': 'History' }],
       \ ['rg', { 'args': '', 'name': 'FzfGrep'}],
-      \ ['tags', { 'args': '', 'name': 'Tags'}],
       \]
-
-call textobj#user#plugin('coderegion', {
-      \ 'code': {
-      \   'select-a-function': 'CodeRegionA',
-      \   'select-i-function': 'CodeRegionI',
-      \   'select-a': 'ac',
-      \   'select-i': 'ic',
-      \ },
-      \ })
-
-let g:codefence_eval = {
-      \ 'mmdc': ['mmdc', '-i', '<infile>', '-o', '<outfile>'],
-      \}
 
 function! FzfNextList()
   let l:buf = nvim_get_current_buf()
@@ -182,24 +160,6 @@ let g:ruby_heredoc_syntax_filetypes = {
         \   "start" : "LIQUID",
         \},
   \}
-
-
-let g:javascript_plugin_flow = 1
-let g:ruby_operators = 1
-
-let g:markdown_fenced_languages = ['ruby', 'json', 'javascript', 'sql', 'elixir']
-let g:gfm_syntax_highlight_inline_code = 1
-let g:gfm_syntax_emoji_conceal = 1
-let g:mkdx#settings = {
-      \ 'checkbox': { 'toggles': [' ', '-', 'x' ],
-      \               'update_tree': 2,
-      \               'initial_state': ' ' },
-      \ 'highlight': { 'enable': 1 },
-      \ 'map': { 'prefix': '<leader>', 'enable': 1 },
-      \ 'links': { 'fragment' : { 'complete' : 0 } }
-      \ }
-" because you'll check here again the map for 'toggle checkbox' is <leader>-
-
 "}}}
 
 "{{{ Autocommands
@@ -228,6 +188,9 @@ autocmd FileType json syntax match Comment +\/\/.\+$+
 autocmd BufRead prater.log call s:EnableLogCommands()
 autocmd BufRead prater.log lua require('cmp').setup.buffer { enabled = false }
 autocmd BufRead prater.log set ft=markdown
+
+autocmd FileType norg setlocal foldmethod=expr foldexpr=nvim_treesitter#foldexpr() tw=80 sw=2
+autocmd FileType norg Copilot disable
 
 autocmd FileType elixir let b:match_words='do:end,{:},(:),":"'
 
@@ -375,11 +338,8 @@ nmap <leader>ls :lua vim.lsp.buf.document_symbol()<CR>
 nmap <leader>m :MarkologyToggle<CR>
 
 nmap <silent> <leader>bc :silent .!bc<CR>
-noremap <silent> <leader>d :Dirvish %:p<CR>
 noremap <silent> <leader>da :.!date<CR>
-nmap <silent> <leader>di :edit ~/Dropbox/dev-log/log.md<CR>
-
-map Q :qa
+nmap <silent> <leader>di :edit ~/log/prater.norg<CR>
 
 "}}}
 
@@ -450,34 +410,9 @@ function! GetVisual()
   return lines
 endfunction
 
-" Copy all the matches from the last search into the unnamed
-" register
-function! CopyMatches() range
-  let hits = []
-  silent execute a:firstline . ',' . a:lastline . 's//\=add(hits, submatch(0))/ge'
-  let @" = join(hits, "\n")
-  silent execute 'u'
-endfunction
-
-"}}}
-
-"{{{ Enable Migration Commands
-function! s:EnableMigrationCommands()
-  let l:current_file = expand('%')
-  if expand('%') !~ 'db/migrate'
-    return
-  endif
-
-  command! RmigrateDown call s:Migrate('down', matchlist(expand('%'), 'db\/migrate\/\([0-9]\+\)_')[1])
-  command! RmigrateUp call s:Migrate('up', matchlist(expand('%'), 'db\/migrate\/\([0-9]\+\)_')[1])
-endfunction
-
-function! s:Migrate(direction, migration)
-  let $VERSION = a:migration
-  exe 'Dispatch bundle exec rake db:migrate:'. a:direction
-endfunction
 "}}}
 "
+"{{{ fzf extensions
 function! s:fzf_miniyank(put_before, fullscreen) abort
     function! Sink(opt, line) abort
         let l:key = substitute(a:line, ' .*', '', '')
@@ -510,78 +445,6 @@ command! -bang YanksAfter call s:fzf_miniyank(0, <bang>0)
 
 nmap ,yr :YanksAfter<CR>
 nmap ,yr :YanksBefore<CR>
-
-"{{{ Log Functions
-"
-function! s:EnableLogCommands()
-  command! -range=% FiveLs <line1>,<line2>call ListFiveLs()
-  command! -range=% Todos <line1>,<line2>call ListTodos()
-  command! -range=% Links <line1>,<line2>call ListLinks()
-endfunction
-
-" function! FiveLs()
-"   append ["launched", "learned", "liked", "lacked", "laud"]
-" endfunction
-
-function! ListFiveLs() range
-  call setloclist(0, [])
-  for theEl in ['launched', 'lacked', 'learned', 'liked', 'laud']
-    execute a:firstline.",".a:lastline . "lvimgrepa /" . l:theEl . "/j" . fnameescape(bufname("%"))
-  endfor
-  execute "CocList locationlist"
-endfunction
-
-function! ListTodos() range
-  let l:pattern = "-\\s\\[[ \\-]\\].*$"
-  execute a:firstline.",".a:lastline . "lvimgrep /" . l:pattern . "/j" . fnameescape(bufname("%"))
-  execute "CocList locationlist"
-endfunction
-
-function! ListLinks() range
-  let l:pattern = "<url:.*$"
-  execute a:firstline.",".a:lastline . "lvimgrep /" . l:pattern . "/j" . fnameescape(bufname("%"))
-  execute "CocList locationlist"
-endfunction
-
-function! EvalRegion() range
-  " get the first line of the visual selection and look up the evaller based
-  " on the gfm syntax marker
-
-  let evaler = matchstr(getline(a:firstline), ".*$", 3)
-  if has_key(g:codefence_eval, evaler)
-    let infile = tempname()
-    let outfile = tempname()
-    let eval_cmd = []
-    for element in copy(g:codefence_eval[evaler])
-      if element == '<infile>'
-        call add(eval_cmd, infile)
-      elseif element == '<outfile>'
-        call add(eval_cmd, outfile)
-      else
-        call add(eval_cmd, element)
-      endif
-    endfor
-    echo eval_cmd
-    " execute a:firstline + 1 . "," . a:lastline - 1 . "w!" . tempfile
-  else
-    echoerr "No defined interpreter for region type " . evaler
-  endif
-endfunction
-
-function! CodeRegionA()
-  let [startline, startcol] = searchpos('```','nbW')
-  let [endline, endcol] = searchpos('```','neW')
-  return ['V', [0, startline, startcol,0], [0,endline, endcol,0]]
-endfunction
-
-function! CodeRegionI()
-  let [startline, startcol] = searchpos('```','nbW')
-  let [endline, endcol] = searchpos('```','neW')
-  call setpos('.',[0,endline-1,1])
-  normal! $
-  let [_, endline, endcol, _] = getpos('.')
-  return ['v', [0,startline+1, 1,0], [0,endline, endcol,0]]
-endfunction
 "}}}
 "
 "}}}

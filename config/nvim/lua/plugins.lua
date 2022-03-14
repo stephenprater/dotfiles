@@ -1,6 +1,8 @@
 return require('packer').startup(function()
   use 'wbthomason/packer.nvim'
 
+  use 'nvim-lua/plenary.nvim'
+
   -- LSP / Treesitter
   use 'neovim/nvim-lspconfig'
   use 'williamboman/nvim-lsp-installer'
@@ -44,10 +46,11 @@ return require('packer').startup(function()
   use 'bfredl/nvim-miniyank'
 
   -- Markdown / Diary
-  use 'rhysd/vim-gfm-syntax'
-  use 'nelstrom/vim-markdown-folding'
-  use 'SidOfc/mkdx'
-  use 'dkarter/bullets.vim'
+  -- use 'rhysd/vim-gfm-syntax'
+  -- use 'SidOfc/mkdx'
+  -- use 'nelstrom/vim-markdown-folding'
+  -- use 'dkarter/bullets.vim'
+  use 'nvim-neorg/neorg'
 
   -- Text Objects / Pairs
   use 'kana/vim-textobj-user'
@@ -91,12 +94,15 @@ return require('packer').startup(function()
   -- Colorscheme
   use 'arcticicestudio/nord-vim'
 
+  -- Nothing is good enough, what is wrong with you?
+  use 'bfredl/nvim-luadev'
+
   -- Elixir
   -- use 'elixir-editors/vim-elixir'
   -- use 'andyl/vim-textobj-elixir'
 
   -- Debugger
-  use 'Vigemus/iron.nvim'
+  use 'hkupty/iron.nvim'
   use 'mfussenegger/nvim-dap'
   use 'jbyuki/one-small-step-for-vimkind'
 

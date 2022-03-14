@@ -21,7 +21,7 @@
         unpulled = !"PROJ_BRANCH=$(git symbolic-ref HEAD | sed 's|refs/heads/||') && git fetch && git log HEAD..origin/$PROJ_BRANCH"
         unpushed = !"PROJ_BRANCH=$(git symbolic-ref HEAD | sed 's|refs/heads/||') && git log origin/$PROJ_BRANCH..HEAD"
         wip = !"git add -A . && git status && git commit -am '@WIP [ci skip]' --no-verify"
-	s = status
+        s = status
         whoops = !sh -c 'git add -u && git commit --amend --reuse-message=HEAD --no-verify'
         cleanup = "!git branch --merged | grep -v '\\*\\|master\\|develop' | xargs -I % sh -c 'git branch -d % && git push origin --delete %'"
         theirs = "!f() { git reset --hard origin/$1 }"
@@ -33,7 +33,7 @@
 [color]
         ui = auto
 [core]
-        editor = /usr/local/bin/nvim
+        editor = /opt/homebrew/bin/nvim
         whitespace = warn
 [pager]
         diff = delta
@@ -51,9 +51,9 @@
         whitepace-error-style = 22 reverse
 
 [delta "decorations"]
-    commit-decoration-style = bold yellow box ul
-    file-style = bold yellow ul
-    file-decoration-style = none
+        commit-decoration-style = bold yellow box ul
+        file-style = bold yellow ul
+        file-decoration-style = none
 
 [merge]
         summary = true
@@ -62,11 +62,12 @@
         default = tracking
 [rebase]
         autosquash = true
+[user]
+        email = me@stephenprater.com
+        name = Stephen Prater
 [include]
         path = ~/.gitconfig.local
-[user]
-	email = me@stephenprater.com
-	name = Stephen Prater
+        path = /Users/stephenprater/.config/dev/gitconfig
 [github]
         user = stephenprater
 
@@ -75,33 +76,11 @@
         trustExitCode = true
         keepBackup = false
 
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path =
-[mergetool "sourcetree"]
-	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-        trustExitCode = true
-
 [filter "lfs"]
-	process = git-lfs filter-process
-	required = true
-	clean = git-lfs clean -- %f
+        process = git-lfs filter-process
+        required = true
+        clean = git-lfs clean -- %f
         smudge = git-lfs smudge -- %f
 
 [includeIf "gitdir:~/src/github.com/Shopify"]
-    path = ~/.devconfig
-
-[credential]
-	helper = 
-	helper = store --file /opt/dev/var/private/git_credential_store
-[diff]
-	algorithm = patience
-[gc]
-	writeCommitGraph = true
-[protocol]
-	version = 2
-[url "https://github.com/Shopify/"]
-	insteadOf = git@github.com:Shopify/
-	insteadOf = git@github.com:shopify/
-	insteadOf = ssh://git@github.com/Shopify/
-	insteadOf = ssh://git@github.com/shopify/
+        path = ~/.devconfig

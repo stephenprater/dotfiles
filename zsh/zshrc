@@ -64,7 +64,7 @@ autoload -U +X bashcompinit && bashcompinit
 
 # set cd autocompletion to commonly visited directories
 setopt auto_cd
-cdpath=(. ~/src $SOURCE_DIR/stephenprater $SOURCE_DIR/github.com/Shopify)
+cdpath=(. ~/src $SOURCE_DIR/github.com/stephenprater $SOURCE_DIR/github.com/Shopify)
 fpath=(path/to/zsh-completions/src $fpath)
 
 zmodload -i zsh/parameter
@@ -107,6 +107,15 @@ export GLOBAL_GEM_PATH=$(gem env gemdir)
 alias help=tldr
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+autoload predict-on
+predict-toggle() {
+  ((predict-on=1-predict-on)) && predict-on || predict-off
+}
+zle -N predict-toggle
+bindkey '' predict-toggle
+zstyle ':predict' toggle true
+zstyle ':predict' verbose true
 
 # if [[ -x "$(command -v brew)" ]]; then
 #   source "$(brew --prefix asdf)/asdf.sh"
