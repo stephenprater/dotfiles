@@ -1,5 +1,8 @@
 return require('packer').startup(function()
   use 'wbthomason/packer.nvim'
+  use 'nvim-lua/plenary.nvim'
+
+  use 'bfredl/nvim-luadev'
 
   use 'nvim-lua/plenary.nvim'
 
@@ -10,6 +13,8 @@ return require('packer').startup(function()
   use 'RRethy/nvim-treesitter-textsubjects'
   use 'nvim-treesitter/playground'
   use 'p00f/nvim-ts-rainbow'
+  use 'jose-elias-alvarez/null-ls.nvim'
+  use 'jose-elias-alvarez/nvim-lsp-ts-utils'
 
   -- Autocomplete
   use 'hrsh7th/cmp-nvim-lsp'
@@ -68,7 +73,7 @@ return require('packer').startup(function()
   -- UI Affordances
   use 'terryma/vim-multiple-cursors'
   use 'machakann/vim-swap'
-  use 'simnalamburt/vim-mundo'
+  use 'mbbill/undotree'
   use 'jeetsukumaran/vim-markology'
   use 'vim-scripts/utl.vim'
   use 'norcalli/nvim-colorizer.lua'
@@ -88,7 +93,6 @@ return require('packer').startup(function()
   use 'tpope/vim-rsi'
   use 'mattn/calendar-vim'
   use 'whiteinge/diffconflicts'
-  use 'tommcdo/vim-ninja-feet'
   use 'tommcdo/vim-exchange'
 
   -- Colorscheme
@@ -104,6 +108,8 @@ return require('packer').startup(function()
   -- Debugger
   use 'hkupty/iron.nvim'
   use 'mfussenegger/nvim-dap'
+  use 'theHamsta/nvim-dap-virtual-text'
+  use 'rcarriga/nvim-dap-ui'
   use 'jbyuki/one-small-step-for-vimkind'
 
   -- Tmux

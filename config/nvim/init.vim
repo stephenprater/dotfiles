@@ -211,6 +211,7 @@ autocmd BufWritePre elixir lua vim.lsp.buf.formatting()
 autocmd BufWritePre ruby lua vim.lsp.buf.formatting()
 autocmd BufWritePre python lua vim.lsp.buf.formatting()
 autocmd BufWritePre javascript lua vim.lsp.buf.formatting()
+autocmd BufWritePre typescript lua vim.lsp.buf.formatting()
 
 autocmd FileType javascript nmap <leader>b :call JsArrowFnBraceToggle()<CR>
 
@@ -232,6 +233,7 @@ autocmd FileType python TSBufEnable select
 autocmd FileType python TSBufEnable indent
 autocmd FileType python TSBufEnable matchup
 
+autocmd Filetype luadev call s:EnableLuaCommands()
 
 "}}}
 
@@ -347,6 +349,12 @@ nmap <leader>la :CodeActions<CR>
 nmap <leader>lx :lua vim.lsp.diagnostic.show_line_diagnostics({focusable=false})<CR>
 
 nmap <leader>ls :lua vim.lsp.buf.document_symbol()<CR>
+
+
+nmap <leader>db :lua require('dap').toggle_breakpoint()<CR>
+nmap <F12> :lua require('dapui').open(); require('dap').continue()<CR>
+
+command! NvimDebug lua require('osv') .launch()
 
 nmap <leader>m :MarkologyToggle<CR>
 

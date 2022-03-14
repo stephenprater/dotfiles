@@ -52,6 +52,85 @@ iron.core.set_config {
   }
 }
 
+local colorizer = require('colorizer')
+colorizer.setup()
+
+local dap = require('dap')
+
+dap.adapters.elixir = {
+  type = 'executable';
+  command = os.getenv('HOME') .. '/.local/share/nvim/lspinstall/elixir/elixir-ls/debugger.sh'
+}
+
+dap.configurations.elixir = {
+  {
+  type = 'elixir';
+  request = 'launch' ;
+  name = 'mix phx.server';
+  program = 'mix';
+  task = "phx.server";
+  programsArgs = { 'run' };
+  projectDir = "${workspaceFolder}"
+  }
+}
+
+dap.configurations.lua = {
+  {
+    type = 'nlua',
+    request = 'attach',
+    name = "Attach to running Neovim instance",
+    host = function()
+      local value = vim.fn.input('Host [127.0.0.1]: ')
+      if value ~= "" then
+        return value
+      end
+      return '127.0.0.1'
+    end,
+    port = function()
+      local val = tonumber(vim.fn.input('Port: '))
+      assert(val, "Please provide a port number")
+      return val
+    end,
+  }
+}
+
+dap.adapters.nlua = function(callback, config)
+  callback({ type = 'server', host = config.host, port = config.port })
+end
+
+require('dap').set_log_level("trace")
+
+dap.adapters["pwa-node"] = require('dap-js').connect
+dap.configurations.typescript = {
+  {
+    type = "pwa-node",
+    request = "attach",
+    name = "Attach",
+    continueOnAttach = true,
+    attachExistingChildren = true,
+    port = 9229
+  },
+}
+
+require('dapui').setup()
+
+
+local lualine = require('lualine')
+local lsp_status = require('lsp-status')
+lsp_status.register_progress()
+
+local function lsp_status_segment()
+  lsp_status.status()
+end
+
+lualine.setup({
+  theme = 'nord',
+  lualine_y = {
+    'progress',
+    lsp_status_segment
+  }
+})
+
 local cmp = require 'cmp'
 local lspkind = require('lspkind')
 
@@ -99,11 +178,54 @@ local cmp_capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.pro
 
 local lsp_installer = require("nvim-lsp-installer")
 lsp_installer.on_server_ready(function(server)
- server:setup{
+  local opts = {
     capabilities = vim.tbl_extend('keep', cmp_capabilities, lsp_status.capabilities),
-    on_attach = lsp_status.on_attach
+    on_attach = function(client, buffer)
+      if server == "tsserver" then
+        client.resolved_capabilities.document_formatting = false
+        client.resolved_capabilities.document_range_formatting = false
+
+        local ts_utils = require("nvim-lsp-ts-utils")
+        ts_utils.setup({})
+        ts_utils.setup_client(client)
+      end
+
+      if server == "solargraph" then
+        client.resolved_capabilities.document_formatting = false
+        client.resolved_capabilities.document_range_formatting = false
+      end
+
+      lsp_status.on_attach(client, buffer)
+    end
   }
+
+  if server.name == "sumneko_lua" then
+    opts.settings = {
+      Lua = {
+        diagnostics = {
+          globals = { 'vim', 'use' }
+        }
+      }
+    }
+  end
+
+  if server.name == "sorbet" then
+    opts.cmd = { "srb", "tc", "--lsp", "--no-config", "--dir", "."}
+  end
+
+  server:setup(opts)
 end)
+
+local null_ls = require("null-ls")
+null_ls.setup({
+  sources = {
+    null_ls.builtins.diagnostics.eslint,
+    null_ls.builtins.code_actions.eslint,
+    null_ls.builtins.formatting.prettier,
+    null_ls.builtins.formatting.rubocop,
+    null_ls.builtins.diagnostics.rubocop
+  },
+})
 
 local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
 for type, icon in pairs(signs) do
