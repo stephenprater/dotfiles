@@ -267,10 +267,10 @@ vnoremap <silent> <leader>A :RgVis<CR>
 nmap <silent> <D-CR> :Utl<CR>
 "
 nmap <silent> ,tb :TagbarToggle<CR>
-nmap <silent> ,gu :MundoToggle<CR>
+nmap <silent> ,gu :UndotreeToggle<CR>
 nmap <silent> ,bs :Buffers<CR>
 
-
+nmap <silent> q: :History:<CR>
 
 " nmap <C-x> :bd %<CR>
 
@@ -466,6 +466,13 @@ command! -bang YanksAfter call s:fzf_miniyank(0, <bang>0)
 
 nmap ,yr :YanksAfter<CR>
 nmap ,yr :YanksBefore<CR>
+
+function! s:EnableLuaCommands()
+  echomsg "Enabling Lua Commands"
+  nmap <buffer> <leader>e <Plug>(Luadev-RunLine)
+  omap <buffer> <leader>e <Plug>(Luadev-Run)
+  nmap <buffer> <leader>w <Plug>(Luadev-RunWord)
+endfunction
 "}}}
 "
 "}}}

@@ -98,8 +98,6 @@ dap.adapters.nlua = function(callback, config)
   callback({ type = 'server', host = config.host, port = config.port })
 end
 
-require('dap').set_log_level("trace")
-
 dap.adapters["pwa-node"] = require('dap-js').connect
 dap.configurations.typescript = {
   {
