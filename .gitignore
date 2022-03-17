@@ -24,5 +24,6 @@ script/exa
 config/spin
 config/dev
 config/github-copilot
+config/pip/pip.conf
 *.un~
 *.pem

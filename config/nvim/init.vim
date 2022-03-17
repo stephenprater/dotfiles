@@ -5,7 +5,20 @@ if(!$SPIN)
   set shell=/opt/homebrew/bin/zsh
 else
   set shell=/usr/bin/zsh
+  let g:clipboard = {
+  \   'name': 'myClipboard',
+  \   'copy': {
+  \      '+': ['tmux', 'load-buffer', '-'],
+  \      '*': ['pbcopy'],
+  \    },
+  \   'paste': {
+  \      '+': ['tmux', 'save-buffer', '-'],
+  \      '*': ['pbpaste'],
+  \   },
+  \   'cache_enabled': 1,
+  \ }
 endif
+
 
 set hidden
 set updatetime=300
