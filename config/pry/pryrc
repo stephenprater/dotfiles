@@ -3,17 +3,8 @@
   load path if File.exists?(path)
 end
 
-gem_path = "/opt/rubies/ruby-2.7.5/lib/ruby/gems/2.7.0"
-
-$: << gem_path  + "/gems/awesome_print-1.9.2/lib/"
-$: << gem_path  + "/gems/pry-remote-0.1.8/lib/"
-$: << gem_path  + "/gems/hashdiff-1.0.1/lib/"
-
-
 require 'awesome_print'
 AwesomePrint.pry!
-
-require 'hashdiff'
 
 def pbcopy(str)
   `echo '#{str.ai(plain: true, index: false)}' | socat - tcp:localhost:2224`

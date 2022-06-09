@@ -11,6 +11,7 @@ return require('packer').startup(function()
   use 'williamboman/nvim-lsp-installer'
   use { 'nvim-treesitter/nvim-treesitter', run = ":TSUpdate" }
   use 'RRethy/nvim-treesitter-textsubjects'
+  use 'RRethy/nvim-treesitter-endwise'
   use 'nvim-treesitter/playground'
   use 'p00f/nvim-ts-rainbow'
   use 'jose-elias-alvarez/null-ls.nvim'
@@ -64,7 +65,6 @@ return require('packer').startup(function()
   use 'tpope/vim-surround'
   use 'tpope/vim-unimpaired'
   use 'tpope/vim-ragtag'
-  use 'windwp/nvim-autopairs'
 
   -- StatusLine
   use 'nvim-lualine/lualine.nvim'

@@ -25,6 +25,9 @@ iron.setup = {
     ruby = {
       pry = {
         command = {"pry"}
+      },
+      bundle = {
+        command = {"bundle", "console"}
       }
     },
     markdown = {
@@ -241,11 +244,6 @@ function _G.fzf_files()
   })
 end
 
-local npairs = require('nvim-autopairs')
-npairs.setup({
-  check_ts = true,
-  disable_filetype = { "FZF" },
-})
 
 local neorg = require('neorg')
 neorg.setup({
@@ -277,13 +275,15 @@ neorg.setup({
   }
 })
 
-npairs.add_rules(require('nvim-autopairs.rules.endwise-ruby'))
-
 require('nvim-treesitter.configs').setup({
   rainbow = {
     enable = true,
     extended_mode = true,
     max_file_lines = nil
+  },
+
+  endwise = {
+    enable = true
   },
 
   query_linter = {

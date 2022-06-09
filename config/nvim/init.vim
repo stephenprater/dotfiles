@@ -115,7 +115,7 @@ let g:test#javascript#jest#options = {
 
 let g:test#javascript#karma#file_pattern = '\v(test|spec).*(js|jsx|coffee|ts|tsx)$'
 
-let g:utl_cfg_hdl_scm_http = "silent !open -a Firefox '%u#%f'"
+let g:utl_cfg_hdl_scm_http = "silent !open -a chrome '%u#%f'"
 
 let g:fzf_common_lists = [
       \ ['files', {'args': '', 'name': 'Files'}],
@@ -376,6 +376,28 @@ au FileType elixir ab bpry require IEx; IEx.pry
 ab recieve receive
 ab schema$ "$schema": "http://json-schema.org/draft-06/schema#",
 "}}}
+"
+" noremap <silent> el <Plug>(Luadev-RunLine)
+" noremap <silent> e :set opfunc=Luadev_run_operator<CR>g@
+" vnoremap <silent> e :call Luadev_run_operator(v:true)<CR>
+
+" thanks to @xolox on stackoverflow
+function! Luadev_run_operator(is_op)
+    let [lnum1, col1] = getpos(a:is_op ? "'<" : "'[")[1:2]
+    let [lnum2, col2] = getpos(a:is_op ? "'>" : "']")[1:2]
+
+    if lnum1 > lnum2
+      let [lnum1, col1, lnum2, col2] = [lnum2, col2, lnum1, col1]
+    endif
+
+    let lines = getline(lnum1, lnum2)
+    if  a:is_op == v:true || lnum1 == lnum2
+        let lines[-1] = lines[-1][: col2 - (&selection == 'inclusive' ? 1 : 2)]
+        let lines[0] = lines[0][col1 - 1:]
+    end
+    let lines =  join(lines, "\n")."\n"
+    call v:lua.require'luadev'.exec(lines)
+endfunction
 
 "{{{ Functions
 "
@@ -458,7 +480,6 @@ function! s:fzf_symbols(put_before, fullscreen) abort
         let l:yanks = luaeval("vim.lsp.buf.document_symbol()")
         call miniyank#drop(l:yanks, a:opt)
     endfunction
-
 endfunction
 
 command! -bang YanksBefore call s:fzf_miniyank(1, <bang>0)

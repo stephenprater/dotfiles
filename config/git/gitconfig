@@ -84,3 +84,5 @@
 
 [includeIf "gitdir:~/src/github.com/Shopify"]
         path = ~/.devconfig
+[init]
+	defaultBranch = main
