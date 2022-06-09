@@ -4,6 +4,10 @@ export DOTHOME=$HOME/dotfiles
 
 git submodule update --init
 
+if [ -f "${HOME}/.nix-profile/etc/profile.d/nix.sh" ]; then
+  source "${HOME}/.nix-profile/etc/profile.d/nix.sh"
+fi
+
 if [ $SPIN ]; then
   mv $HOME/.config $HOME/spinconfig
   ln -s $DOTHOME/config $HOME/.config

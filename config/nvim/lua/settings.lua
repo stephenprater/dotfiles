@@ -20,35 +20,36 @@ lualine.setup({
 
 local iron = require('iron')
 
-iron.core.add_repl_definitions{
-  ruby = {
-    pry = {
-      command = {"pry"}
+iron.setup = {
+  repl_definition = {
+    ruby = {
+      pry = {
+        command = {"pry"}
+      }
+    },
+    markdown = {
+      pry = {
+        command = {"pry"}
+      }
+    },
+    elixir = {
+      mix = {
+        command = {"iex", "-S", "mix"}
+      }
+    },
+    sql = {
+      pg = {
+        command = {"pgcli", "-h", "0.0.0.0", "-U", "postgres"}
+      }
     }
   },
-  markdown = {
-    pry = {
-      command = {"pry"}
+  config = {
+    preferred = {
+      python = "ipython",
+      clojure = "lein",
+      ruby = "pry",
+      elixir = "mix"
     }
-  },
-  elixir = {
-    mix = {
-      command = {"iex", "-S", "mix"}
-    }
-  },
-  sql = {
-    pg = {
-      command = {"pgcli", "-h", "0.0.0.0", "-U", "postgres"}
-    }
-  }
-}
-
-iron.core.set_config {
-  preferred = {
-    python = "ipython",
-    clojure = "lein",
-    ruby = "pry",
-    elixir = "mix"
   }
 }
 
