@@ -4,10 +4,6 @@ export DOTHOME=$HOME/dotfiles
 
 git submodule update --init
 
-if [ -f "${HOME}/.nix-profile/etc/profile.d/nix.sh" ]; then
-  source "${HOME}/.nix-profile/etc/profile.d/nix.sh"
-fi
-
 if [ $SPIN ]; then
   mv $HOME/.config $HOME/spinconfig
   ln -s $DOTHOME/config $HOME/.config
@@ -42,6 +38,10 @@ if [ $SPIN ]; then
 
   xargs sudo apt-get -y install < packages.txt
 
+  if [ -f "${HOME}/.nix-profile/etc/profile.d/nix.sh" ]; then
+    source "${HOME}/.nix-profile/etc/profile.d/nix.sh"
+  fi
+
   nix-env -iA nixpkgs.fzf
   nix-env -iA nixpkgs.sysz
   nix-env -iA nixpkgs.delta
@@ -49,9 +49,6 @@ if [ $SPIN ]; then
 fi
 
 tldr -u
-
-sudo gem install awesome_print
-sudo gem install pry
 
 nvim --headless -u $DOTHOME/config/nvim/bootstrap.vim -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
 nvim --headless -c 'LspInstall --sync sorbet' -c q

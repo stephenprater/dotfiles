@@ -286,6 +286,10 @@ require('nvim-treesitter.configs').setup({
     enable = true
   },
 
+  matchup = {
+    enable = true
+  },
+
   query_linter = {
     enable = true,
     use_virtual_text = true,
