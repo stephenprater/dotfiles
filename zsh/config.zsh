@@ -33,6 +33,8 @@ setopt INC_APPEND_HISTORY SHARE_HISTORY  # adds history incrementally and share 
 setopt HIST_IGNORE_ALL_DUPS  # don't record dupes in history
 setopt HIST_REDUCE_BLANKS
 
+ZSH_AUTOSUGGEST_STRATEGY=(completion history)
+
 # Bindings
 
 # emacs keybindings
@@ -54,3 +56,5 @@ bindkey '^x^e' edit-command-line
 bindkey '\ep' up-line-or-search
 bindkey '\en' down-line-or-search
 bindkey '\ew' kill-region
+
+

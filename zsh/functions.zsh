@@ -98,9 +98,3 @@ reset_routes() {
   repeat 3 sudo route -n flush
   sudo route add default 10.0.1.1
 }
-
-function proddb() {
-    export DBHOST="cars-platform-11-8.cluster-ro-c8suzedf5vlo.us-east-1.rds.amazonaws.com"
-    export PGPASSWORD=$(aws rds generate-db-auth-token --hostname $DBHOST --port 5432 --username sprater-contractor@cars.com --profile cars_prod)
-    pgcli -h $DBHOST -p 5432 "dbname=cars_platform user=sprater-contractor@cars.com"
-}

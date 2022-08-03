@@ -56,6 +56,9 @@ do
   source $file
 done
 
+if [ $SPIN ]; then
+  eval "$(spin completion)"
+fi
 
 unset config_files
 

@@ -1,3 +1,4 @@
+"{{{ set internals
 syntax on
 filetype plugin indent on
 
@@ -19,50 +20,39 @@ else
   \ }
 endif
 
-
+set autoindent
+set autoread
+set backspace=indent,eol,start
+set completeopt=menu,menuone,noselect
+set display=lastline " When lines are cropped at the screen bottom, show as much as possible
+set expandtab
 set hidden
-set updatetime=300
-runtime macros/matchit.vim
-
-syntax on
-filetype plugin indent on
-
+set inccommand=nosplit
+set incsearch
+set laststatus=2    " Always show status line
+set list            " show trailing whitespace and tabs
+set listchars=tab:\|\ ,eol:¬,extends:❯,precedes:❮
+set modelines=5
+set noshowmode
+set number
+set scrolloff=1
+set showcmd
+set showmatch
+set sidescrolloff=5
+set smarttab
+set splitbelow
+set splitright
+set termguicolors
 set timeout
 set timeoutlen=750
 set ttimeoutlen=0
+set undodir=~/.local/state/nvim/undo
+set undofile
+set updatetime=300
+set verbosefile=~/verbose.log
+set visualbell
 set wildmenu
 set wildmode=full
-set number
-set expandtab
-set listchars=tab:\|\ ,eol:¬,extends:❯,precedes:❮
-set visualbell
-set splitright
-set splitbelow
-set noshowmode
-
-set hidden
-
-set verbosefile=~/verbose.log
-set inccommand=nosplit
-set termguicolors
-
-set completeopt=menu,menuone,noselect
-
-"{{{ PLUGINS
-
-"let &runtimepath.=",/Users/stephenprater/src/8thlight/coc.nvim/"
-
-imap <expr> <C-y> vsnip#expandable() ? '<Plug>(vsnip-expand)' : '<C-y>'
-smap <expr> <C-y> vsnip#expandable() ? '<Plug>(vsnip-expand)' : '<C-y>'
-imap <expr> <C-n> vsnip#jumpable(1)  ? '<Plug>(vsnip-jump-next)' : '<C-n>'
-imap <expr> <C-p> vsnip#jumpable(-1) ? '<Plug>(vsnip-jump-prev)' : '<C-p>'
-
-luafile ~/.config/nvim/lua/plugins.lua
-luafile ~/.config/nvim/lua/settings.lua
-
-"{{{ SET INTERNALS
-
-" let &rtp.=",/Users/stephenprater/.vimbundles/neovim-ruby/"
 
 colorscheme nord
 colorscheme detailed_base
@@ -71,16 +61,20 @@ colorscheme detailed_js
 
 highlight Pmenu guifg=#D8DEE9 guibg=#333333
 hi Italic cterm=italic gui=italic
-"}}}
+
+runtime macros/matchit.vim
+
+"{{{ PLUGINS
+
+
+luafile ~/.config/nvim/lua/plugins.lua
+luafile ~/.config/nvim/lua/settings.lua
 
 "{{{ CONFIGURE PLUGINS
 "
 let g:user_emmet_install_global = 0
-
 let g:mundo_right = 1
-
 let g:markology_enable = 0
-
 let g:tagbar_ctags_bin = '/opt/homebrew/bin/ctags'
 
 if(!$SPIN)
@@ -173,6 +167,8 @@ let g:ruby_heredoc_syntax_filetypes = {
         \   "start" : "LIQUID",
         \},
   \}
+
+let g:miniyank_maxitems = 100
 "}}}
 
 "{{{ Autocommands
@@ -197,10 +193,6 @@ autocmd BufWritePre *.yml silent! %s#\($\n\s*\)\+\%$##
 autocmd BufNewFile,BufRead *.hcl set filetype=terraform
 
 autocmd FileType json syntax match Comment +\/\/.\+$+
-
-autocmd BufRead prater.log call s:EnableLogCommands()
-autocmd BufRead prater.log lua require('cmp').setup.buffer { enabled = false }
-autocmd BufRead prater.log set ft=markdown
 
 autocmd FileType norg setlocal foldmethod=expr foldexpr=nvim_treesitter#foldexpr() tw=80 sw=2
 autocmd FileType norg Copilot disable
@@ -240,6 +232,7 @@ autocmd Filetype luadev call s:EnableLuaCommands()
 "{{{ Custom Commands
 command! -bar -range=% Trim :<line1>,<line2>s/\s\+$//e
 command! -range SendSelectionToTerm :call <SID>SendVisualToTerm()<CR>
+
 command! QuickFixOpenAll call QuickFixOpenAll()
 command! -range RgVis :call <SID>RgVis()
 " command! Repl :call REPLOpen(b:irepl)
@@ -258,21 +251,67 @@ command! Tig vsplit | startinsert | terminal tig
 
 
 command! TSReset write | edit | TSBufEnable highlight
+
+command! -bar -range=% Trim :<line1>,<line2>s/\s\+$//e
+command! -bar -range=% NotRocket :<line1>,<line2>s/:\(\w\+\)\s*=>/\1:/ge
+
+
+
 "}}}
 
 "{{{ Maps
+
+" VSnip
+imap <expr> <C-y> vsnip#expandable() ? '<Plug>(vsnip-expand)' : '<C-y>'
+smap <expr> <C-y> vsnip#expandable() ? '<Plug>(vsnip-expand)' : '<C-y>'
+imap <expr> <C-n> vsnip#jumpable(1)  ? '<Plug>(vsnip-jump-next)' : '<C-n>'
+imap <expr> <C-p> vsnip#jumpable(-1) ? '<Plug>(vsnip-jump-prev)' : '<C-p>'
+
+map Y       y$
+nnoremap <silent> <Esc><Esc> :nohls<CR>
+inoremap <C-C> <Esc>`^
+
+cnoremap <C-O> <Up>
+inoremap ø <C-O>o
+inoremap <M-o> <C-O>o
+inoremap <C-A> <C-O>^
+inoremap <C-X><C-@> <C-A>
+cnoremap <C-A> <Home>
+cnoremap <C-X><C-A> <C-A>
+" If at end of a line of spaces, delete back to the previous line.
+" Otherwise, <Left>
+inoremap <silent> <C-B> <C-R>=getline('.')=~'^\s*$'&&col('.')>strlen(getline('.'))?"0\<Lt>C-D>\<Lt>Esc>kJs":"\<Lt>Left>"<CR>
+cnoremap          <C-B> <Left>
+" If at end of line, decrease indent, else <Del>
+inoremap <silent> <C-D> <C-R>=col('.')>strlen(getline('.'))?"\<Lt>C-D>":"\<Lt>Del>"<CR>
+" If at end of line, list matches, else <Del>
+cnoremap   <expr> <C-D> getcmdpos()>strlen(getcmdline())?"\<Lt>C-D>":"\<Lt>Del>"
+" If at end of line, copy character below, else <End>
+inoremap <silent> <C-E> <C-R>=col('.')>strlen(getline('.'))?"\<Lt>C-E>":"\<Lt>End>"<CR>
+" If at end of line, fix indent, else <Right>
+inoremap <silent> <C-F> <C-R>=col('.')>strlen(getline('.'))?"\<Lt>C-F>":"\<Lt>Right>"<CR>
+" if at end of line, open command-line window, else <Right>
+cnoremap <expr> <C-F> getcmdpos()>strlen(getcmdline())?"\<Lt>C-F>":"\<Lt>Right>"
+
+noremap  <F1>   <Esc>
+noremap! <F1>   <Esc>
+
+" Enable TAB indent and SHIFT-TAB unindent
+vnoremap <silent> <TAB> >gv
+vnoremap <silent> <S-TAB> <gv
+
+inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
+
 nnoremap <silent> <leader>A :Rg<CR>
 vnoremap <silent> <leader>A :RgVis<CR>
 
 nmap <silent> <D-CR> :Utl<CR>
-"
+
 nmap <silent> ,tb :TagbarToggle<CR>
 nmap <silent> ,gu :UndotreeToggle<CR>
 nmap <silent> ,bs :Buffers<CR>
 
 nmap <silent> q: :History:<CR>
-
-" nmap <C-x> :bd %<CR>
 
 nmap <silent> <leader>T :TestNearest<CR>
 nmap <silent> <leader>t :TestFile<CR>
@@ -347,14 +386,12 @@ nmap <leader>l? :lua vim.lsp.buf.signature_help()<CR>
 nmap <leader>l] :References<CR>
 nmap <leader>la :CodeActions<CR>
 nmap <leader>lx :lua vim.lsp.diagnostic.show_line_diagnostics({focusable=false})<CR>
-
 nmap <leader>ls :lua vim.lsp.buf.document_symbol()<CR>
-
 
 nmap <leader>db :lua require('dap').toggle_breakpoint()<CR>
 nmap <F12> :lua require('dapui').open(); require('dap').continue()<CR>
 
-command! NvimDebug lua require('osv') .launch()
+command! NvimDebug lua require('osv').launch()
 
 nmap <leader>m :MarkologyToggle<CR>
 
@@ -364,6 +401,8 @@ nmap <silent> <leader>di :edit ~/log/prater.norg<CR>
 
 "}}}
 
+
+"{{{ Abbreviations
 au FileType ruby ab edn end
 au FileType ruby ab bpry require 'pry'; binding.pry
 au FileType python ab bpry breakpoint()
@@ -371,15 +410,12 @@ au FileType python ab rpdb import remote_pdb; remote_pdb.RemotePdb('0.0.0.0', 44
 au FileType python ab pdb import pdb; pdb.set_trace()
 au FileType elixir ab edn end
 au FileType elixir ab bpry require IEx; IEx.pry
-
-"{{{ Abbreviations
 ab recieve receive
-ab schema$ "$schema": "http://json-schema.org/draft-06/schema#",
 "}}}
 "
-" noremap <silent> el <Plug>(Luadev-RunLine)
-" noremap <silent> e :set opfunc=Luadev_run_operator<CR>g@
-" vnoremap <silent> e :call Luadev_run_operator(v:true)<CR>
+noremap <silent> el <Plug>(Luadev-RunLine)
+noremap <silent> e :set opfunc=Luadev_run_operator<CR>g@
+vnoremap <silent> e :call Luadev_run_operator(v:true)<CR>
 
 " thanks to @xolox on stackoverflow
 function! Luadev_run_operator(is_op)
@@ -485,6 +521,10 @@ endfunction
 command! -bang YanksBefore call s:fzf_miniyank(1, <bang>0)
 command! -bang YanksAfter call s:fzf_miniyank(0, <bang>0)
 
+function! Launched() abort
+  exec "vimgrep /📕/ " . expand("%")
+endfunction
+
 nmap ,yr :YanksAfter<CR>
 nmap ,yr :YanksBefore<CR>
 
@@ -517,6 +557,3 @@ function! SynStack()
   echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
 endfunc
 "}}}
-"
-
-

@@ -71,7 +71,7 @@ return require('packer').startup(function()
   use 'nvim-lua/lsp-status.nvim'
 
   -- UI Affordances
-  use 'terryma/vim-multiple-cursors'
+  use 'mg979/vim-visual-multi'
   use 'machakann/vim-swap'
   use 'mbbill/undotree'
   use 'jeetsukumaran/vim-markology'

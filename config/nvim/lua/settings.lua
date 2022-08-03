@@ -1,5 +1,4 @@
-local colorizer = require('colorizer')
-colorizer.setup()
+require('colorizer').setup()
 
 local lualine = require('lualine')
 local lsp_status = require('lsp-status')
@@ -17,7 +16,6 @@ lualine.setup({
   }
 })
 
-
 local iron = require('iron')
 
 iron.setup = {
@@ -30,10 +28,10 @@ iron.setup = {
         command = {"bundle", "console"}
       }
     },
-    markdown = {
-      pry = {
-        command = {"pry"}
-      }
+    js = {
+      node = {
+        command = {"node"}
+      },
     },
     elixir = {
       mix = {
@@ -43,21 +41,21 @@ iron.setup = {
     sql = {
       pg = {
         command = {"pgcli", "-h", "0.0.0.0", "-U", "postgres"}
-      }
+      },
+      my = {
+        command = {"mycli", "-u", "root", "-h", "0.0.0.0" }
+      },
     }
   },
   config = {
     preferred = {
-      python = "ipython",
-      clojure = "lein",
       ruby = "pry",
-      elixir = "mix"
+      elixir = "mix",
+      sql = "my",
+      js = "node",
     }
   }
 }
-
-local colorizer = require('colorizer')
-colorizer.setup()
 
 local dap = require('dap')
 
@@ -94,8 +92,7 @@ dap.configurations.lua = {
       local val = tonumber(vim.fn.input('Port: '))
       assert(val, "Please provide a port number")
       return val
-    end,
-  }
+    end}
 }
 
 dap.adapters.nlua = function(callback, config)
@@ -116,22 +113,6 @@ dap.configurations.typescript = {
 
 require('dapui').setup()
 
-
-local lualine = require('lualine')
-local lsp_status = require('lsp-status')
-lsp_status.register_progress()
-
-local function lsp_status_segment()
-  lsp_status.status()
-end
-
-lualine.setup({
-  theme = 'nord',
-  lualine_y = {
-    'progress',
-    lsp_status_segment
-  }
-})
 
 local cmp = require 'cmp'
 local lspkind = require('lspkind')
@@ -178,14 +159,16 @@ cmp.setup({
 
 local cmp_capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
+local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
+
 local lsp_installer = require("nvim-lsp-installer")
 lsp_installer.on_server_ready(function(server)
   local opts = {
     capabilities = vim.tbl_extend('keep', cmp_capabilities, lsp_status.capabilities),
     on_attach = function(client, buffer)
       if server == "tsserver" then
-        client.resolved_capabilities.document_formatting = false
-        client.resolved_capabilities.document_range_formatting = false
+        client.server_capabilities["textDocument/formatting"] = false
+        client.server_capabilities["documentRange/formatting"] = false
 
         local ts_utils = require("nvim-lsp-ts-utils")
         ts_utils.setup({})
@@ -193,8 +176,19 @@ lsp_installer.on_server_ready(function(server)
       end
 
       if server == "solargraph" then
-        client.resolved_capabilities.document_formatting = false
-        client.resolved_capabilities.document_range_formatting = false
+        client.server_capabilities["textDocument/formatting"] = false
+        client.server_capabilities["documentRange/formatting"] = false
+      end
+
+      if client.supports_method("textDocument/formatting") then
+        vim.api.nvim_clear_autocmds({ group = augroup, buffer = buffer })
+        vim.api.nvim_create_autocmd("BufWritePre", {
+          group = augroup,
+          buffer = buffer,
+          callback = function()
+            vim.lsp.buf.format({bufnr = buffer})
+          end,
+        })
       end
 
       lsp_status.on_attach(client, buffer)
