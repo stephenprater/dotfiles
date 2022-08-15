@@ -38,7 +38,7 @@ ZSH_AUTOSUGGEST_STRATEGY=(completion history)
 # Bindings
 
 # emacs keybindings
-bindkey -e
+bindkey -v
 
 # use incremental search
 bindkey "^R" history-incremental-search-backward
@@ -47,14 +47,18 @@ bindkey "^P" history-search-backward
 bindkey "^A" beginning-of-line
 bindkey "^E" end-of-line
 
+toggle-prompt() p10k display '1'='hide,show'
+zle -N toggle-prompt
+bindkey '^Y' toggle-prompt
+
 # external editor support
-autoload edit-command-line
-zle -N edit-command-line
-bindkey '^x^e' edit-command-line
+# autoload edit-command-line
+# zle -N edit-command-line
+# bindkey '^x^e' edit-command-line
 
 # Partial word history completion
-bindkey '\ep' up-line-or-search
-bindkey '\en' down-line-or-search
-bindkey '\ew' kill-region
+# bindkey '\ep' up-line-or-search
+# bindkey '\en' down-line-or-search
+# bindkey '\ew' kill-region
 
 

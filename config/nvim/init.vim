@@ -385,12 +385,11 @@ nmap <leader>lr :lua vim.lsp.buf.rename()<CR>
 nmap <leader>l? :lua vim.lsp.buf.signature_help()<CR>
 nmap <leader>l] :References<CR>
 nmap <leader>la :CodeActions<CR>
-nmap <leader>lx :lua vim.lsp.diagnostic.show_line_diagnostics({focusable=false})<CR>
+nmap <leader>lx :lua vim.diagnostic.open_float({focusable=false})<CR>
 nmap <leader>ls :lua vim.lsp.buf.document_symbol()<CR>
 
 nmap <leader>db :lua require('dap').toggle_breakpoint()<CR>
-nmap <F12> :lua require('dapui').open(); require('dap').continue()<CR>
-
+command! Debugger lua require('dapui').open(); require('dap').continue()
 command! NvimDebug lua require('osv').launch()
 
 nmap <leader>m :MarkologyToggle<CR>

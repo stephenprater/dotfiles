@@ -1,3 +1,10 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 if [ -f "/opt/homebrew" ]; then
   eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
@@ -6,6 +13,17 @@ if [ -f "/usr/local" ]; then
   eval "$(/usr/local/bin/brew shellenv)"
 fi
 
+if [ -f "/opt/dev/sh/chruby.sh" ] && [ type chruby >/dev/null 2>&1 ] || [ chruby ]; then
+  source /opt/dev/sh/chruby/chruby.sh;
+fi
+
+if [ -f "/opt/dev/dev.sh" ]; then
+  source /opt/dev/dev.sh
+fi
+
+if [ -f ~/.fzf.zsh ]; then
+  source ~/.fzf.zsh
+fi
 
 # shortcut to this dotfiles path is $DOTHOME
 export DOTHOME=$HOME/dotfiles
@@ -56,11 +74,11 @@ do
   source $file
 done
 
-if [ ! $SPIN ]; then
+if [ ! $SPIN ] && [ type spin >/dev/null 2>&1 ]; then
   eval "$(spin completion)"
 fi
 
-unset config_files
+# unset config_files
 
 # Bash completions!
 autoload -U +X bashcompinit && bashcompinit
@@ -71,8 +89,6 @@ cdpath=(. ~/src $SOURCE_DIR/github.com/stephenprater $SOURCE_DIR/github.com/Shop
 fpath=(path/to/zsh-completions/src $fpath)
 
 zmodload -i zsh/parameter
-
-compctl -/ -S '' -W "($SOURCE_DIR)" mux
 
 autoload -U edit-command-line
 autoload -U colors
@@ -99,17 +115,12 @@ fi
 export GOPATH=$HOME/golang
 export GOROOT=/usr/local/opt/go/libexec
 export PATH=$PATH:$GOPATH/bin:$GOROOT/bin:$DOTHOME/script
-export GLOBAL_GEM_PATH=$(gem env gemdir)
 
-# Load Environment Credenials from Keybase
-# if [ ! -f $DOTHOME/zsh/credentials.zsh ]; then
-#   cp $KEYBASE/credentials.zsh $DOTHOME/zsh/credentials.zsh
-#   source $DOTHOME/zsh/credentials.zsh
-# fi
-
-alias help=tldr
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# # Load Environment Credenials from Keybase
+# # if [ ! -f $DOTHOME/zsh/credentials.zsh ]; then
+# #   cp $KEYBASE/credentials.zsh $DOTHOME/zsh/credentials.zsh
+# #   source $DOTHOME/zsh/credentials.zsh
+# # fi
 
 autoload predict-on
 predict-toggle() {
@@ -119,14 +130,3 @@ zle -N predict-toggle
 bindkey '' predict-toggle
 zstyle ':predict' toggle true
 zstyle ':predict' verbose true
-
-# if [[ -x "$(command -v brew)" ]]; then
-#   source "$(brew --prefix asdf)/asdf.sh"
-#   fpath=(${ASDF_DIR}/completions $fpath)
-# fi
-
-[[ -f /opt/dev/sh/chruby/chruby.sh ]] && type chruby >/dev/null 2>&1 || chruby () { source /opt/dev/sh/chruby/chruby.sh; chruby "$@"; }
-
-[ -f /opt/dev/dev.sh ] && source /opt/dev/dev.sh
-
-[[ -x /opt/homebrew/bin/brew ]] && eval $(/opt/homebrew/bin/brew shellenv)
