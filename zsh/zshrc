@@ -13,7 +13,7 @@ if [ -f "/usr/local" ]; then
   eval "$(/usr/local/bin/brew shellenv)"
 fi
 
-if [ -f "/opt/dev/sh/chruby.sh" ] && [ type chruby >/dev/null 2>&1 ] || [ chruby ]; then
+if [ -f "/opt/dev/sh/chruby.sh" ]; then
   source /opt/dev/sh/chruby/chruby.sh;
 fi
 
@@ -74,7 +74,7 @@ do
   source $file
 done
 
-if [ ! $SPIN ] && [ type spin >/dev/null 2>&1 ]; then
+if [ type spin >/dev/null 2>&1 ]; then
   eval "$(spin completion)"
 fi
 
