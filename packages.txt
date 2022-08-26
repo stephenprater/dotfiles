@@ -1,6 +1,5 @@
 bat
 fd-find
-fzf
 httpie
 mmv
 mycli

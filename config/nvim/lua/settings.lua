@@ -186,7 +186,7 @@ lsp_installer.on_server_ready(function(server)
           group = augroup,
           buffer = buffer,
           callback = function()
-            vim.lsp.buf.format({bufnr = buffer})
+            vim.lsp.buf.format({bufnr = buffer, timeout_ms = 2000, async=true})
           end,
         })
       end
