@@ -97,6 +97,8 @@ function! DockerTransform(cmd) abort
   endif
 endfunction
 
+let g:vsnip_snippit_dir = '~/.config/nvim/snippets'
+
 let g:test#custom_strategies = {'noclearslime': function('NoClearSlime')}
 let g:test#strategy = 'noclearslime'
 let g:test#custom_transformations = { 'docker': function('DockerTransform') }
@@ -114,8 +116,9 @@ let g:utl_cfg_hdl_scm_http = "silent !open -a chrome '%u#%f'"
 let g:fzf_common_lists = [
       \ ['files', {'args': '', 'name': 'Files'}],
       \ ['buffers', { 'args': '',  'name': 'Buffers'}],
-      \ ['history-files', { 'args': '-A', 'name': 'History' }],
+      \ ['symbols', { 'args': '', 'name': 'WorkspaceSymbols'}],
       \ ['rg', { 'args': '', 'name': 'FzfGrep'}],
+      \ ['history-files', { 'args': '-A', 'name': 'History' }],
       \]
 
 function! FzfNextList()
@@ -397,6 +400,8 @@ nmap <leader>m :MarkologyToggle<CR>
 nmap <silent> <leader>bc :silent .!bc<CR>
 noremap <silent> <leader>da :.!date<CR>
 nmap <silent> <leader>di :edit ~/log/prater.norg<CR>
+
+iunmap \|
 
 "}}}
 

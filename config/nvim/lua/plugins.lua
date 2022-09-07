@@ -4,11 +4,12 @@ return require('packer').startup(function()
 
   use 'bfredl/nvim-luadev'
 
-  use 'nvim-lua/plenary.nvim'
-
   -- LSP / Treesitter
-  use 'neovim/nvim-lspconfig'
-  use 'williamboman/nvim-lsp-installer'
+  use {
+    'williamboman/mason.nvim',
+    'williamboman/mason-lspconfig.nvim',
+    'neovim/nvim-lspconfig',
+  }
   use { 'nvim-treesitter/nvim-treesitter', run = ":TSUpdate" }
   use 'RRethy/nvim-treesitter-textsubjects'
   use 'RRethy/nvim-treesitter-endwise'
@@ -16,6 +17,13 @@ return require('packer').startup(function()
   use 'p00f/nvim-ts-rainbow'
   use 'jose-elias-alvarez/null-ls.nvim'
   use 'jose-elias-alvarez/nvim-lsp-ts-utils'
+
+  -- Debugger
+  use 'hkupty/iron.nvim'
+  use 'mfussenegger/nvim-dap'
+  use 'theHamsta/nvim-dap-virtual-text'
+  use 'rcarriga/nvim-dap-ui'
+  use 'jbyuki/one-small-step-for-vimkind'
 
   -- Autocomplete
   use 'hrsh7th/cmp-nvim-lsp'
@@ -86,7 +94,9 @@ return require('packer').startup(function()
   use 'tpope/vim-commentary'
   use 'tpope/vim-speeddating'
 
-  use 'tpope/vim-fugitive'
+  -- use 'tpope/vim-fugitive'
+  use 'TimUntersberger/neogit'
+  use 'lewis6991/gitsigns.nvim'
   use 'tpope/vim-git'
   use 'tpope/vim-repeat'
   use 'tpope/vim-sleuth'
@@ -95,22 +105,14 @@ return require('packer').startup(function()
   use 'whiteinge/diffconflicts'
   use 'tommcdo/vim-exchange'
 
+  use 'stevearc/dressing.nvim'
+
   -- Colorscheme
   use 'arcticicestudio/nord-vim'
-
-  -- Nothing is good enough, what is wrong with you?
-  use 'bfredl/nvim-luadev'
 
   -- Elixir
   -- use 'elixir-editors/vim-elixir'
   -- use 'andyl/vim-textobj-elixir'
-
-  -- Debugger
-  use 'hkupty/iron.nvim'
-  use 'mfussenegger/nvim-dap'
-  use 'theHamsta/nvim-dap-virtual-text'
-  use 'rcarriga/nvim-dap-ui'
-  use 'jbyuki/one-small-step-for-vimkind'
 
   -- Tmux
   use 'christoomey/vim-tmux-navigator'

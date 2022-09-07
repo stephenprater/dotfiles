@@ -1,6 +1,5 @@
 require('colorizer').setup()
 
-local lualine = require('lualine')
 local lsp_status = require('lsp-status')
 lsp_status.register_progress()
 
@@ -8,7 +7,7 @@ local function lsp_status_segment()
   lsp_status.status()
 end
 
-lualine.setup({
+require('lualine').setup({
   theme = 'nord',
   lualine_y = {
     'progress',
@@ -16,34 +15,32 @@ lualine.setup({
   }
 })
 
-local iron = require('iron')
-
-iron.setup = {
+require("iron").setup = {
   repl_definition = {
     ruby = {
       pry = {
-        command = {"pry"}
+        command = { "pry" }
       },
       bundle = {
-        command = {"bundle", "console"}
+        command = { "bundle", "console" }
       }
     },
     js = {
       node = {
-        command = {"node"}
+        command = { "node" }
       },
     },
     elixir = {
       mix = {
-        command = {"iex", "-S", "mix"}
+        command = { "iex", "-S", "mix" }
       }
     },
     sql = {
       pg = {
-        command = {"pgcli", "-h", "0.0.0.0", "-U", "postgres"}
+        command = { "pgcli", "-h", "0.0.0.0", "-U", "postgres" }
       },
       my = {
-        command = {"mycli", "-u", "root", "-h", "0.0.0.0" }
+        command = { "mycli", "-u", "root", "-h", "0.0.0.0" }
       },
     }
   },
@@ -59,60 +56,44 @@ iron.setup = {
 
 local dap = require('dap')
 
-dap.adapters.elixir = {
-  type = 'executable';
-  command = os.getenv('HOME') .. '/.local/share/nvim/lspinstall/elixir/elixir-ls/debugger.sh'
-}
-
-dap.configurations.elixir = {
-  {
-  type = 'elixir';
-  request = 'launch' ;
-  name = 'mix phx.server';
-  program = 'mix';
-  task = "phx.server";
-  programsArgs = { 'run' };
-  projectDir = "${workspaceFolder}"
-  }
-}
-
-dap.configurations.lua = {
-  {
-    type = 'nlua',
-    request = 'attach',
-    name = "Attach to running Neovim instance",
-    host = function()
-      local value = vim.fn.input('Host [127.0.0.1]: ')
-      if value ~= "" then
-        return value
-      end
-      return '127.0.0.1'
+dap.adapters = {
+    nlua = function(callback, config)
+      callback({ type = 'server', host = config.host, port = config.port })
     end,
-    port = function()
-      local val = tonumber(vim.fn.input('Port: '))
-      assert(val, "Please provide a port number")
-      return val
-    end}
-}
+    pwa_node = require('dap-js').connect
+  }
 
-dap.adapters.nlua = function(callback, config)
-  callback({ type = 'server', host = config.host, port = config.port })
-end
-
-dap.adapters["pwa-node"] = require('dap-js').connect
-dap.configurations.typescript = {
-  {
-    type = "pwa-node",
-    request = "attach",
-    name = "Attach",
-    continueOnAttach = true,
-    attachExistingChildren = true,
-    port = 9229
-  },
-}
+dap.configurations = {
+    lua = {
+      type = 'nlua',
+      request = 'attach',
+      name = "Attach to running Neovim instance",
+      host = function()
+        local value = vim.fn.input('Host [127.0.0.1]: ')
+        if value ~= "" then
+          return value
+        end
+        return '127.0.0.1'
+      end,
+      port = function()
+        local val = tonumber(vim.fn.input('Port: '))
+        assert(val, "Please provide a port number")
+        return val
+      end
+    },
+    typescript = {
+      {
+        type = "pwa-node",
+        request = "attach",
+        name = "Attach",
+        continueOnAttach = true,
+        attachExistingChildren = true,
+        port = 9229
+      },
+    },
+  }
 
 require('dapui').setup()
-
 
 local cmp = require 'cmp'
 local lspkind = require('lspkind')
@@ -126,16 +107,16 @@ cmp.setup({
   formatting = {
     format = lspkind.cmp_format(
       {
-        with_text=false,
-        max_width=50
+        with_text = false,
+        max_width = 50
       }
     )
   },
   sources = cmp.config.sources({
-    {name = 'nvim_lsp'},
-    {name = 'vsnip'},
-    {name = 'buffer'},
-    {name = 'neorg'}
+    { name = 'nvim_lsp' },
+    { name = 'vsnip' },
+    { name = 'buffer' },
+    { name = 'neorg' }
   }),
   completion = {
     completeopt = 'menu,menuone,noinsert',
@@ -161,56 +142,80 @@ local cmp_capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.pro
 
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
-local lsp_installer = require("nvim-lsp-installer")
-lsp_installer.on_server_ready(function(server)
-  local opts = {
-    capabilities = vim.tbl_extend('keep', cmp_capabilities, lsp_status.capabilities),
-    on_attach = function(client, buffer)
-      if server == "tsserver" then
-        client.server_capabilities["textDocument/formatting"] = false
-        client.server_capabilities["documentRange/formatting"] = false
-
-        local ts_utils = require("nvim-lsp-ts-utils")
-        ts_utils.setup({})
-        ts_utils.setup_client(client)
-      end
-
-      if server == "solargraph" then
-        client.server_capabilities["textDocument/formatting"] = false
-        client.server_capabilities["documentRange/formatting"] = false
-      end
-
-      if client.supports_method("textDocument/formatting") then
-        vim.api.nvim_clear_autocmds({ group = augroup, buffer = buffer })
-        vim.api.nvim_create_autocmd("BufWritePre", {
-          group = augroup,
-          buffer = buffer,
-          callback = function()
-            vim.lsp.buf.format({bufnr = buffer, timeout_ms = 2000, async=true})
-          end,
-        })
-      end
-
-      lsp_status.on_attach(client, buffer)
-    end
+require("mason").setup({
+  keymaps = {
+    help = "?",
+    apply_language_filter = "/",
   }
+})
+require("mason-lspconfig").setup()
 
-  if server.name == "sumneko_lua" then
-    opts.settings = {
-      Lua = {
-        diagnostics = {
-          globals = { 'vim', 'use' }
+require("mason-lspconfig").setup_handlers({
+  function(server_name)
+    local opts = {
+      capabilities = vim.tbl_extend('keep', cmp_capabilities, lsp_status.capabilities),
+      on_attach = function(client, buffer)
+        if server_name == "tsserver" then
+          client.server_capabilities["textDocument/formatting"] = false
+          client.server_capabilities["documentRange/formatting"] = false
+
+          local ts_utils = require("nvim-lsp-ts-utils")
+          ts_utils.setup({})
+          ts_utils.setup_client(client)
+        end
+
+        if client.supports_method("textDocument/formatting") then
+          vim.api.nvim_clear_autocmds({ group = augroup, buffer = buffer })
+          vim.api.nvim_create_autocmd("BufWritePre", {
+            group = augroup,
+            buffer = buffer,
+            callback = function()
+              vim.lsp.buf.format({ bufnr = buffer, timeout_ms = 2000, async = true })
+            end,
+          })
+        end
+
+        lsp_status.on_attach(client)
+      end
+    }
+
+    require("lspconfig")[server_name].setup(opts)
+  end,
+
+  ["sumneko_lua"] = function()
+    require("lspconfig")["sumneko_lua"].setup({
+      settings = {
+        Lua = {
+          runtime = {
+            version = "LuaJIT",
+          },
+          diagnostics = {
+            globals = { 'vim', 'use' }
+          },
+          workspace = {
+            library = vim.api.nvim_get_runtime_file("", true),
+          }
         }
       }
-    }
-  end
+    })
+  end,
 
-  if server.name == "sorbet" then
-    opts.cmd = { "srb", "tc", "--lsp", "--no-config", "--dir", "."}
-  end
+  ["solargraph"] = function()
+    require("lspconfig")["solargraph"].setup({
+      settings = {
+        solargraph = {
+          formatting = false,
+        }
+      }
+    })
+  end,
 
-  server:setup(opts)
-end)
+  ["sorbet"] = function()
+    require("lspconfig")["sorbet"].setup({
+      cmd = { "srb", "tc", "--lsp", "--no-config", "--dir", "." }
+    })
+  end,
+})
 
 local null_ls = require("null-ls")
 null_ls.setup({
@@ -219,7 +224,8 @@ null_ls.setup({
     null_ls.builtins.code_actions.eslint,
     null_ls.builtins.formatting.prettier,
     null_ls.builtins.formatting.rubocop,
-    null_ls.builtins.diagnostics.rubocop
+    null_ls.builtins.diagnostics.rubocop,
+    null_ls.builtins.code_actions.gitsigns,
   },
 })
 
@@ -229,6 +235,8 @@ for type, icon in pairs(signs) do
   vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
 end
 
+require('gitsigns').setup({})
+
 function _G.fzf_files()
   require('fzf-commands').files({
     fzf = function(contents, options)
@@ -237,7 +245,6 @@ function _G.fzf_files()
     end
   })
 end
-
 
 local neorg = require('neorg')
 neorg.setup({
@@ -287,7 +294,7 @@ require('nvim-treesitter.configs').setup({
   query_linter = {
     enable = true,
     use_virtual_text = true,
-    lint_events = {"BufWrite", "CursorHold"},
+    lint_events = { "BufWrite", "CursorHold" },
   },
 
   highlight = {

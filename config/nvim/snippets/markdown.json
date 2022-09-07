@@ -1,0 +1,12 @@
+{
+        "Five Ls": {
+                "prefix": "5l",
+                "body": [
+                        ":rocket: ${1:launched}",
+                        ":book: ${2:learned}",
+                        ":cupid: ${3:liked}",
+                        ":-1: ${4:lacked}",
+                        ":tada: ${5:laud}"
+                ]
+        }
+}

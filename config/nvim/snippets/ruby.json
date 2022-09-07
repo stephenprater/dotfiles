@@ -1,0 +1,26 @@
+{
+        "Frozen String Literal": {
+                "prefix": "frozen",
+                "body": [
+                        "# frozen_string_literal: true"
+                ]
+        },
+        "Typed True": {
+                "prefix": "typed",
+                "body": [
+                        "# typed: true"
+                ]
+        },
+        "Test": {
+                "prefix": "test",
+                "body": [
+                        "require 'test_helper'",
+                        "",
+                        "class ${1:ClassName}Test < ActiveSupport::TestCase",
+                        "  # test \"the truth\" do",
+                        "  #   assert true",
+                        "  # end",
+                        "end"
+                ]
+        }
+}

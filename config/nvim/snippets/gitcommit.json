@@ -1,0 +1,9 @@
+{
+  "coauthor": {
+    "prefix": "coauth",
+    "body": [
+      "Co-authored-by: $1 <$2@$3.com>",
+      "Co-authored-by: $4 <$5@$3.com>"
+    ]
+  }
+}

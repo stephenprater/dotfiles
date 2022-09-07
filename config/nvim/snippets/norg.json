@@ -1,0 +1,12 @@
+{
+        "Five Ls": {
+                "prefix": "five",
+                "body": [
+                        "🚀 ${1:launched}",
+                        "📕 ${2:learned}",
+                        "👍 ${3:liked}",
+                        "👎 ${4:lacked}",
+                        "🎉 ${5:laud}"
+                ]
+        }
+}
