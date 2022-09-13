@@ -51,9 +51,9 @@ fi
 tldr -u
 
 nvim --headless -u $DOTHOME/config/nvim/bootstrap.vim -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
-nvim --headless -c 'LspInstall --sync sorbet' -c q
-nvim --headless -c 'LspInstall --sync solargraph' -c q
-nvim --headless -c 'LspInstall --sync tsserver' -c q
+nvim --headless -c 'MasonInstall sorbet' -c q
+nvim --headless -c 'MasonInstall solargraph' -c q
+nvim --headless -c 'MasonInstall typescript-language-server' -c q
 nvim --headless -c 'TSInstallSync typescript' -c q
 nvim --headless -c 'TSInstallSync tsx' -c q
 nvim --headless -c 'TSInstallSync ruby' -c q
