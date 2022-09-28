@@ -236,41 +236,43 @@ function _G.fzf_files()
   })
 end
 
-local neorg = require('neorg')
-neorg.setup({
-  load = {
-    ["core.gtd.base"] = {
-      config = {
-        workspace = "log"
-      }
-    },
-    ["core.defaults"] = {},
-    ["core.norg.concealer"] = {
-      config = {
-        icons = {
-          todo = {
-            undone = {
-              icon = " "
+if not os.getenv("SPIN") then
+  local neorg = require('neorg')
+  neorg.setup({
+    load = {
+      ["core.gtd.base"] = {
+        config = {
+          workspace = "log"
+        }
+      },
+      ["core.defaults"] = {},
+      ["core.norg.concealer"] = {
+        config = {
+          icons = {
+            todo = {
+              undone = {
+                icon = " "
+              }
             }
           }
         }
-      }
-    },
-    ["core.norg.completion"] = {
-      config = {
-        engine = "nvim-cmp"
-      }
-    },
-    ["core.norg.dirman"] = {
-      config = {
-        workspaces = {
-          log = "~/log"
-        },
-        index = "prater.norg"
-      }
-    },
-  }
-})
+      },
+      ["core.norg.completion"] = {
+        config = {
+          engine = "nvim-cmp"
+        }
+      },
+      ["core.norg.dirman"] = {
+        config = {
+          workspaces = {
+            log = "~/log"
+          },
+          index = "prater.norg"
+        }
+      },
+    }
+  })
+end
 
 require('nvim-treesitter.configs').setup({
   rainbow = {

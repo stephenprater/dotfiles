@@ -19,7 +19,7 @@ return require('packer').startup(function()
   use 'jose-elias-alvarez/nvim-lsp-ts-utils'
 
   -- Debugger
-  use 'hkupty/iron.nvim'
+  use { 'stephenprater/iron.nvim', branch = "attach-and-no-deprecation" }
   use 'mfussenegger/nvim-dap'
   use 'theHamsta/nvim-dap-virtual-text'
   use 'rcarriga/nvim-dap-ui'
