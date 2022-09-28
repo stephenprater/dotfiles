@@ -15,44 +15,34 @@ require('lualine').setup({
   }
 })
 
-require("iron").setup = {
-  repl_definition = {
-    ruby = {
-      pry = {
+require("iron.core").setup({
+  config = {
+    should_map_plug = true,
+    repl_definition = {
+      ruby = {
         command = { "pry" }
       },
-      bundle = {
-        command = { "bundle", "console" }
+      js = {
+        node = {
+          command = { "node" }
+        },
+      },
+      elixir = {
+        mix = {
+          command = { "iex", "-S", "mix" }
+        }
+      },
+      sql = {
+        pg = {
+          command = { "pgcli", "-h", "0.0.0.0", "-U", "postgres" }
+        },
+        my = {
+          command = { "mycli", "-u", "root", "-h", "0.0.0.0" }
+        },
       }
     },
-    js = {
-      node = {
-        command = { "node" }
-      },
-    },
-    elixir = {
-      mix = {
-        command = { "iex", "-S", "mix" }
-      }
-    },
-    sql = {
-      pg = {
-        command = { "pgcli", "-h", "0.0.0.0", "-U", "postgres" }
-      },
-      my = {
-        command = { "mycli", "-u", "root", "-h", "0.0.0.0" }
-      },
-    }
-  },
-  config = {
-    preferred = {
-      ruby = "pry",
-      elixir = "mix",
-      sql = "my",
-      js = "node",
-    }
   }
-}
+})
 
 local dap = require('dap')
 
@@ -249,6 +239,11 @@ end
 local neorg = require('neorg')
 neorg.setup({
   load = {
+    ["core.gtd.base"] = {
+      config = {
+        workspace = "log"
+      }
+    },
     ["core.defaults"] = {},
     ["core.norg.concealer"] = {
       config = {
@@ -270,7 +265,8 @@ neorg.setup({
       config = {
         workspaces = {
           log = "~/log"
-        }
+        },
+        index = "prater.norg"
       }
     },
   }

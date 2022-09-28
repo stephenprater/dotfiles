@@ -94,8 +94,8 @@ return require('packer').startup(function()
   use 'tpope/vim-commentary'
   use 'tpope/vim-speeddating'
 
-  -- use 'tpope/vim-fugitive'
-  use 'TimUntersberger/neogit'
+  use 'tpope/vim-fugitive'
+  -- use 'TimUntersberger/neogit'
   use 'lewis6991/gitsigns.nvim'
   use 'tpope/vim-git'
   use 'tpope/vim-repeat'

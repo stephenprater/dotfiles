@@ -74,7 +74,7 @@ do
   source $file
 done
 
-if [ type spin >/dev/null 2>&1 ]; then
+if [ -x "$(command -v spin)" ]; then
   eval "$(spin completion)"
 fi
 
@@ -95,7 +95,6 @@ autoload -U colors
 zle -N edit-command-line
 bindkey -M vicmd 'e' edit-command-line
 bindkey -M vicmd ':' executed-named-command
-
 
 # Configure the Prompt
 setopt prompt_subst

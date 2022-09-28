@@ -399,7 +399,7 @@ nmap <leader>m :MarkologyToggle<CR>
 
 nmap <silent> <leader>bc :silent .!bc<CR>
 noremap <silent> <leader>da :.!date<CR>
-nmap <silent> <leader>di :edit ~/log/prater.norg<CR>
+nmap <silent> <leader>di :Neorg workspace log<CR>
 
 iunmap \|
 
@@ -417,10 +417,6 @@ au FileType elixir ab bpry require IEx; IEx.pry
 ab recieve receive
 "}}}
 "
-noremap <silent> el <Plug>(Luadev-RunLine)
-noremap <silent> e :set opfunc=Luadev_run_operator<CR>g@
-vnoremap <silent> e :call Luadev_run_operator(v:true)<CR>
-
 " thanks to @xolox on stackoverflow
 function! Luadev_run_operator(is_op)
     let [lnum1, col1] = getpos(a:is_op ? "'<" : "'[")[1:2]
@@ -534,6 +530,7 @@ nmap ,yr :YanksBefore<CR>
 
 function! s:EnableLuaCommands()
   echomsg "Enabling Lua Commands"
+
   nmap <buffer> <leader>e <Plug>(Luadev-RunLine)
   omap <buffer> <leader>e <Plug>(Luadev-Run)
   nmap <buffer> <leader>w <Plug>(Luadev-RunWord)

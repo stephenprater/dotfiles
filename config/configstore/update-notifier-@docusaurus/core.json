@@ -1,10 +1,4 @@
 {
 	"optOut": false,
-	"lastUpdateCheck": 1642634878254,
-	"update": {
-		"latest": "2.0.0-beta.14",
-		"current": "2.0.0-beta.9",
-		"type": "prerelease",
-		"name": "@docusaurus/core"
-	}
+	"lastUpdateCheck": 1663684606143
 }

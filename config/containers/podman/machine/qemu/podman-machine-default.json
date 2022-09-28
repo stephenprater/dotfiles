@@ -69,6 +69,9 @@
  "PidFilePath": {
   "Path": "/var/folders/tf/q4f74ghn0nn8_chvw6r7wg280000gn/T/podman/podman-machine-default.pid"
  },
+ "VMPidFilePath": {
+  "Path": ""
+ },
  "QMPMonitor": {
   "Address": {
    "Path": "/var/folders/tf/q4f74ghn0nn8_chvw6r7wg280000gn/T/podman/qmp_podman-machine-default.sock"
