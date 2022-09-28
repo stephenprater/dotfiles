@@ -26,17 +26,20 @@ ln -sf $DOTHOME/config/ruby/pryrc $HOME/.pryrc
 ln -sf $DOTHOME/zsh/zprofile $HOME/.zprofile
 ln -sf $DOTHOME/zsh/zshrc $HOME/.zshrc
 
+ln -sf $DOTHOME/config/git/config $HOME/.gitconfig
+
 
 if [[ $(uname -a | grep "Darwin") ]]; then
   brew bundle
 fi
 
 if [ $SPIN ]; then
-  sudo apt purge -y neovim
-  sudo add-apt-repository -y ppa:neovim-ppa/unstable
-  sudo apt update && sudo apt install neovim -y
+  curl -L0 https://github.com/neovim/neovim/releases/download/nightly/nvim-linux64.deb
+  sudo apt install ./nvim-linux64.deb
 
   xargs sudo apt-get -y install < packages.txt
+
+  git config core.editor /usr/bin/nvim
 
   if [ -f "${HOME}/.nix-profile/etc/profile.d/nix.sh" ]; then
     source "${HOME}/.nix-profile/etc/profile.d/nix.sh"

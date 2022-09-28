@@ -9,6 +9,10 @@ tf_workspace() {
   fi
 }
 
+target_log() {
+  systemctl list-dependencies $1 --plain | grep "service" | xargs -I@ echo "-u @" | xargs journalctl -f
+}
+
 related_specs () {
   local regex
   regex="$(echo "$1" | bundle exec ruby -rubygems -rbundler/setup -ractive_support\/core_ext\/string -n -e '$_.chomp!; puts "(#{$_}|#{$_.pluralize})"')"

@@ -116,8 +116,8 @@ let g:utl_cfg_hdl_scm_http = "silent !open -a chrome '%u#%f'"
 let g:fzf_common_lists = [
       \ ['files', {'args': '', 'name': 'Files'}],
       \ ['buffers', { 'args': '',  'name': 'Buffers'}],
-      \ ['symbols', { 'args': '', 'name': 'WorkspaceSymbols'}],
       \ ['rg', { 'args': '', 'name': 'FzfGrep'}],
+      \ ['symbols', { 'args': '', 'name': 'WorkspaceSymbols'}],
       \ ['history-files', { 'args': '-A', 'name': 'History' }],
       \]
 
