@@ -34,7 +34,8 @@ if [[ $(uname -a | grep "Darwin") ]]; then
 fi
 
 if [ $SPIN ]; then
-  wget https://github.com/neovim/neovim/releases/download/nightly/nvim-linux64.deb
+  [ ! -f "./nvim-linux64.deb" ] && wget https://github.com/neovim/neovim/releases/download/nightly/nvim-linux64.deb
+
   sudo apt install ./nvim-linux64.deb
 
   xargs sudo apt-get -y install < packages.txt
@@ -57,9 +58,6 @@ nvim --headless -u $DOTHOME/config/nvim/bootstrap.vim -c 'autocmd User PackerCom
 nvim --headless -c 'MasonInstall sorbet' -c q
 nvim --headless -c 'MasonInstall solargraph' -c q
 nvim --headless -c 'MasonInstall typescript-language-server' -c q
-nvim --headless -c 'TSInstallSync typescript' -c q
-nvim --headless -c 'TSInstallSync tsx' -c q
-nvim --headless -c 'TSInstallSync ruby' -c q
-
-
-
+nvim --headless -c 'TSInstallSync! typescript' -c q
+nvim --headless -c 'TSInstallSync! tsx' -c q
+nvim --headless -c 'TSInstallSync! ruby' -c q
