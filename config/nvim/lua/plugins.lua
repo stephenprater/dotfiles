@@ -1,4 +1,18 @@
-return require('packer').startup(function()
+local status_ok, packer = pcall(require, 'packer')
+if not status_ok then
+  return
+end
+
+packer.init {
+  max_jobs = 5,
+  display = {
+    open_fn = function()
+      return require("packer.util").float { border = "rounded" }
+    end
+  }
+}
+
+packer.startup(function()
   use 'wbthomason/packer.nvim'
   use 'nvim-lua/plenary.nvim'
 
@@ -30,6 +44,7 @@ return require('packer').startup(function()
   use 'hrsh7th/cmp-buffer'
   use 'hrsh7th/cmp-path'
   use 'hrsh7th/cmp-cmdline'
+  use 'hrsh7th/cmp-vsnip'
   use 'hrsh7th/nvim-cmp'
   use 'onsails/lspkind-nvim'
   use 'github/copilot.vim'
@@ -50,9 +65,8 @@ return require('packer').startup(function()
 
   -- File Navigation
   use {
-    'kyazdani42/nvim-tree.lua',
-    requires = 'kyazdani42/nvim-web-devicons',
-    config = function() require('nvim-tree').setup {} end
+    'nvim-tree/nvim-tree.lua',
+    requires = 'nvim-tree/nvim-web-devicons'
   }
   use 'tpope/vim-projectionist'
 
@@ -80,6 +94,7 @@ return require('packer').startup(function()
 
   -- UI Affordances
   use 'mg979/vim-visual-multi'
+  use 'triglav/vim-visual-increment'
   use 'machakann/vim-swap'
   use 'mbbill/undotree'
   use 'jeetsukumaran/vim-markology'
@@ -95,7 +110,6 @@ return require('packer').startup(function()
   use 'tpope/vim-speeddating'
 
   use 'tpope/vim-fugitive'
-  -- use 'TimUntersberger/neogit'
   use 'lewis6991/gitsigns.nvim'
   use 'tpope/vim-git'
   use 'tpope/vim-repeat'
@@ -109,6 +123,9 @@ return require('packer').startup(function()
 
   -- Colorscheme
   use 'arcticicestudio/nord-vim'
+
+  -- Frontend
+  use 'mattn/emmet-vim'
 
   -- Elixir
   -- use 'elixir-editors/vim-elixir'

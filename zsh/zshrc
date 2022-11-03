@@ -17,6 +17,10 @@ if [ -f "/opt/dev/sh/chruby/chruby.sh" ]; then
   source /opt/dev/sh/chruby/chruby.sh;
 fi
 
+if [ -s "/opt/homebrew/opt/nvm/nvm.sh" ]; then
+  source /opt/homebrew/opt/nvm/nvm.sh
+fi
+
 if [ -f "/opt/dev/dev.sh" ]; then
   source /opt/dev/dev.sh
 fi
@@ -68,6 +72,9 @@ zstyle ':completion:*:approximate:*' prompt 'Approximate to: %e'
 
 setopt menucomplete
 
+# Bash completions!
+autoload -U +X bashcompinit && bashcompinit
+
 # load every completion after autocomplete loads
 for file in ${(M)config_files:#*/completion.zsh}
 do
@@ -78,10 +85,9 @@ if [ -x "$(command -v spin)" ]; then
   eval "$(spin completion)"
 fi
 
-# unset config_files
-
-# Bash completions!
-autoload -U +X bashcompinit && bashcompinit
+if [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ]; then
+  source "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
+fi
 
 # set cd autocompletion to commonly visited directories
 setopt auto_cd

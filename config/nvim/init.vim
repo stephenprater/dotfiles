@@ -60,15 +60,16 @@ colorscheme detailed_ruby
 colorscheme detailed_js
 
 highlight Pmenu guifg=#D8DEE9 guibg=#333333
+hi link Attribute Macro
 hi Italic cterm=italic gui=italic
 
 runtime macros/matchit.vim
 
 "{{{ PLUGINS
 
-
 luafile ~/.config/nvim/lua/plugins.lua
 luafile ~/.config/nvim/lua/settings.lua
+luafile ~/.config/nvim/lua/ts_migrate.lua
 
 "{{{ CONFIGURE PLUGINS
 "
