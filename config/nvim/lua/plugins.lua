@@ -1,18 +1,29 @@
-local status_ok, packer = pcall(require, 'packer')
-if not status_ok then
-  return
+local ensure_packer = function()
+  local install_path = vim.fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
+  if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
+    fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+    vim.cmd [[packadd packer.nvim]]
+    return true
+  end
+  return false
 end
 
-packer.init {
-  max_jobs = 5,
-  display = {
-    open_fn = function()
-      return require("packer.util").float { border = "rounded" }
-    end
-  }
-}
+local packer_bootstrap = ensure_packer()
 
-packer.startup(function()
+local packer = require('packer')
+
+if not vim.api.nvim_list_uis() == {} then
+  packer.init {
+    max_jobs = 5,
+    display = {
+      open_fn = function()
+        return require("packer.util").float { border = "rounded" }
+      end
+    }
+  }
+end
+
+packer.startup(function(use)
   use 'wbthomason/packer.nvim'
   use 'nvim-lua/plenary.nvim'
 
@@ -138,5 +149,8 @@ packer.startup(function()
   use 'janko-m/vim-test'
   use 'tpope/vim-dispatch'
   use 'roxma/vim-tmux-clipboard'
-
 end)
+
+if packer_bootstrap then
+  packer.sync()
+end
