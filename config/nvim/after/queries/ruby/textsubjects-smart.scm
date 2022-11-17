@@ -1,3 +1,4 @@
+;extends
 (([
   (hash)
   (parenthesized_pattern)
