@@ -7,13 +7,42 @@ local function lsp_status_segment()
   lsp_status.status()
 end
 
+local custom_nord = require('lualine.themes.nord')
+custom_nord.normal.c.bg = "#161616"
+custom_nord.normal.b.bg = "#161616"
+custom_nord.normal.a.bg = "#161616"
+
 require('lualine').setup({
-  theme = 'nord',
+  options = { theme = custom_nord },
   lualine_y = {
     'progress',
     lsp_status_segment
   }
 })
+
+local sts = require('syntax-tree-surfer')
+local sts_opts = { noremap = true, silent = true }
+
+-- Swapping Nodes in Visual Mode
+vim.keymap.set("n", "vx", "<cmd>STSSelectMasterNode<cr>", sts_opts)
+vim.keymap.set("n", "vn", "<cmd>STSSelectCurrentNode<cr>", sts_opts)
+vim.keymap.set("x", "J", '<cmd>STSSelectNextSiblingNode<cr>', sts_opts)
+vim.keymap.set("x", "K", '<cmd>STSSelectPrevSiblingNode<cr>', sts_opts)
+vim.keymap.set("x", "H", '<cmd>STSSelectParentNode<cr>', sts_opts)
+vim.keymap.set("x", "L", '<cmd>STSSelectChildNode<cr>', sts_opts)
+vim.keymap.set("x", "<A-j>", '<cmd>STSSwapNextVisual<cr>', sts_opts)
+vim.keymap.set("x", "<A-k>", '<cmd>STSSwapPrevVisual<cr>', sts_opts)
+
+vim.keymap.set("n", "gt", function()
+  sts.targeted_jump({
+    "module",
+    "class",
+    "method",
+    "if",
+    "do_block",
+    "block"
+  })
+end)
 
 require("iron.core").setup({
   config = {
@@ -21,6 +50,9 @@ require("iron.core").setup({
     repl_definition = {
       ruby = {
         command = { "pry" }
+      },
+      rails = {
+        command = { "bundle", "exec", "rails", "console" }
       },
       js = {
         node = {
@@ -121,7 +153,7 @@ cmp.setup({
     ['<C-f>'] = cmp.mapping.scroll_docs(4),
     ['<C-Space>'] = cmp.mapping.complete(),
     ['<C-e>'] = cmp.mapping.close(),
-    ['<CR>'] = cmp.mapping.confirm({
+    ['<C-y>'] = cmp.mapping.confirm({
       behavior = cmp.ConfirmBehavior.Replace,
       select = true,
     })
@@ -202,7 +234,7 @@ require("mason-lspconfig").setup_handlers({
 
   ["sorbet"] = function()
     require("lspconfig")["sorbet"].setup({
-      cmd = { "srb", "tc", "--lsp", "--no-config", "--dir", "." }
+      cmd = { "bundle", "exec", "srb", "tc", "--lsp", "--no-config", "--dir", "." }
     })
   end,
 })
@@ -213,8 +245,6 @@ null_ls.setup({
     null_ls.builtins.diagnostics.eslint,
     null_ls.builtins.code_actions.eslint,
     null_ls.builtins.formatting.prettier,
-    null_ls.builtins.formatting.rubocop,
-    null_ls.builtins.diagnostics.rubocop,
     null_ls.builtins.code_actions.gitsigns,
   },
 })
@@ -240,11 +270,6 @@ if not os.getenv("SPIN") then
   local neorg = require('neorg')
   neorg.setup({
     load = {
-      ["core.gtd.base"] = {
-        config = {
-          workspace = "log"
-        }
-      },
       ["core.defaults"] = {},
       ["core.norg.concealer"] = {
         config = {
@@ -255,6 +280,11 @@ if not os.getenv("SPIN") then
               }
             }
           }
+        }
+      },
+      ["core.export"] = {
+        config = {
+          export_dir = "~/log/"
         }
       },
       ["core.norg.completion"] = {
@@ -344,3 +374,7 @@ require('nvim-treesitter.configs').setup({
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 require('nvim-tree').setup({})
+
+require("indent_blankline").setup({
+  show_end_of_line = true
+})

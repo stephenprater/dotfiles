@@ -29,7 +29,7 @@ set expandtab
 set hidden
 set inccommand=nosplit
 set incsearch
-set laststatus=2    " Always show status line
+set laststatus=3    " Always show status line
 set list            " show trailing whitespace and tabs
 set listchars=tab:\|\ ,eol:¬,extends:❯,precedes:❮
 set modelines=5
@@ -60,6 +60,9 @@ colorscheme detailed_ruby
 colorscheme detailed_js
 
 highlight Pmenu guifg=#D8DEE9 guibg=#333333
+highlight clear VertSplit
+highlight VertSplit ctermfg=8 guifg=#434c5e
+highlight NotifyBackground guibg=#161616
 hi link Attribute Macro
 hi Italic cterm=italic gui=italic
 
@@ -114,48 +117,8 @@ let g:test#javascript#karma#file_pattern = '\v(test|spec).*(js|jsx|coffee|ts|tsx
 
 let g:utl_cfg_hdl_scm_http = "silent !open -a chrome '%u#%f'"
 
-let g:fzf_common_lists = [
-      \ ['files', {'args': '', 'name': 'Files'}],
-      \ ['buffers', { 'args': '',  'name': 'Buffers'}],
-      \ ['rg', { 'args': '', 'name': 'FzfGrep'}],
-      \ ['symbols', { 'args': '', 'name': 'WorkspaceSymbols'}],
-      \ ['history-files', { 'args': '-A', 'name': 'History' }],
-      \]
-
-function! FzfNextList()
-  let l:buf = nvim_get_current_buf()
-  let l:name = nvim_buf_get_var(l:buf, "fzf")["name"]
-  execute ":q"
-  execute "sleep 100m"
-  for l:list_idx in range(len(g:fzf_common_lists))
-    if g:fzf_common_lists[l:list_idx][0] == l:name
-      if l:list_idx - 1 > len(g:fzf_common_lists)
-        execute g:fzf_common_lists[0][1]["name"]
-      else
-        execute g:fzf_common_lists[l:list_idx + 1][1]["name"]
-      endif
-    endif
-  endfor
-endfunction
-
-function! FzfPrevList()
-  let l:buf = nvim_get_current_buf()
-  let l:name = nvim_buf_get_var(l:buf, "fzf")["name"]
-  execute ":q"
-  execute "sleep 100m"
-  for l:list_idx in range(len(g:fzf_common_lists))
-    if g:fzf_common_lists[l:list_idx][0] == l:name
-      if l:list_idx < 0
-        execute g:fzf_common_lists[0][1]["name"]
-      else
-        execute g:fzf_common_lists[l:list_idx - 1][1]["name"]
-      endif
-    endif
-  endfor
-endfunction
-
 let g:fzf_lsp_timeout = 1000
-let g:fzf_layout = { 'down': '30%' }
+let g:fzf_layout = { 'window': { 'width': 0.7, 'height': 0.7 }}
 
 let g:ruby_heredoc_syntax_filetypes = {
         \ "jq" : {
@@ -244,22 +207,17 @@ command! -nargs=1 TmuxSend call Send_to_Tmux(<q-args> . '')
 
 command! CreateSpec :execute 'Espec ' . substitute(expand('%:r'), 'app\/', '', '') . '!'
 
-command! -bang -nargs=* Search call fzf#vim#ag(<q-args>, <bang>0)
-
 command! LspDebug lua vim.lsp.set_log_level("debug"); vim.cmd('terminal tail -f ' .. vim.lsp.get_log_path())
+
 command! -bang -nargs=* FzfGrep call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case -- ".shellescape(<q-args>), 1, fzf#vim#with_preview(), <bang>0)
+
 " this needs to call a special function with an on_exit handler that
 " autocloses the window when the process ends
-
 command! Tig vsplit | startinsert | terminal tig
-
-
 command! TSReset write | edit | TSBufEnable highlight
 
 command! -bar -range=% Trim :<line1>,<line2>s/\s\+$//e
 command! -bar -range=% NotRocket :<line1>,<line2>s/:\(\w\+\)\s*=>/\1:/ge
-
-
 
 "}}}
 
@@ -312,10 +270,11 @@ vnoremap <silent> <leader>A :RgVis<CR>
 nmap <silent> <D-CR> :Utl<CR>
 
 nmap <silent> ,tb :TagbarToggle<CR>
-nmap <silent> ,gu :UndotreeToggle<CR>
-nmap <silent> ,bs :Buffers<CR>
+nmap <silent> ,gu :UndotreeShow<CR>
+nmap <silent> ,bs :FzfLua buffers<CR>
+nmap <silent> ,mr :FzfLua oldfiles<CR>
 
-nmap <silent> q: :History:<CR>
+nmap <silent> q: :FzfLua command_history<CR>
 
 nmap <silent> <leader>T :TestNearest<CR>
 nmap <silent> <leader>t :TestFile<CR>
@@ -350,10 +309,10 @@ noremap ]{ :tabprev<CR>
 
 au TermOpen * tnoremap <Esc> <C-\><C-n>
 au FileType fzf tunmap <Esc>
-au FileType fzf tnoremap <buffer> <C-p> <C-\><C-n>:call FzfNextList()<CR>
-au FileType fzf tnoremap <buffer> <C-n> <C-\><C-n>:call FzfPrevList()<CR>
+au FileType fzf tnoremap <buffer> <C-p> <C-\><C-n>:lua require("list_ring").next_list()<CR>
+au FileType fzf tnoremap <buffer> <C-n> <C-\><C-n>:lua require("list_ring").prev_list()<CR>
 
-nmap <C-p> :Files<CR>
+nmap <C-p> :lua require("list_ring").start_list_cycle()<CR>
 
 imap jj <ESC>
 
@@ -387,8 +346,8 @@ nmap <leader>lh :lua vim.lsp.buf.hover()<CR>
 nmap <leader>ld :lua vim.lsp.buf.definition()<CR>
 nmap <leader>lr :lua vim.lsp.buf.rename()<CR>
 nmap <leader>l? :lua vim.lsp.buf.signature_help()<CR>
-nmap <leader>l] :References<CR>
-nmap <leader>la :CodeActions<CR>
+nmap <leader>l] :FzfLua lsp_references<CR>
+nmap <leader>la :FzfLua lsp_code_actions<CR>
 nmap <leader>lx :lua vim.diagnostic.open_float({focusable=false})<CR>
 nmap <leader>ls :lua vim.lsp.buf.document_symbol()<CR>
 
@@ -397,6 +356,7 @@ command! Debugger lua require('dapui').open(); require('dap').continue()
 command! NvimDebug lua require('osv').launch()
 
 nmap <leader>m :MarkologyToggle<CR>
+nmap <leader>n :call ToggleRelativeNumbers()<CR>
 
 nmap <silent> <leader>bc :silent .!bc<CR>
 noremap <silent> <leader>da :.!date<CR>
@@ -410,6 +370,7 @@ iunmap \|
 "{{{ Abbreviations
 au FileType ruby ab edn end
 au FileType ruby ab bpry require 'pry'; binding.pry
+au FileType ruby ab dbg require 'debug'; binding.break
 au FileType python ab bpry breakpoint()
 au FileType python ab rpdb import remote_pdb; remote_pdb.RemotePdb('0.0.0.0', 4444).set_trace()
 au FileType python ab pdb import pdb; pdb.set_trace()
@@ -438,6 +399,16 @@ endfunction
 
 "{{{ Functions
 "
+
+function! ToggleRelativeNumbers()
+  let rel_numbers = &relativenumber
+  if l:rel_numbers
+    set norelativenumber
+  else
+    set relativenumber
+  endif
+endfunction
+
 function! ReplaceMotion(type)
   let sel_save = &selection
   let &selection = "inclusive"
@@ -508,15 +479,6 @@ function! s:fzf_miniyank(put_before, fullscreen) abort
     let l:spec['sink'] = {val -> LocalSink(l:put_action, val)}
     let l:spec['options'] = '--no-sort --prompt="Yanks-'.l:put_action.'> "'
     call fzf#run(fzf#wrap(l:name, l:spec, a:fullscreen))
-endfunction
-
-function! s:fzf_symbols(put_before, fullscreen) abort
-    function! LocalSink(opt, line) abort
-        let l:key = substitute(a:line, ' .*', '', '')
-        if empty(a:line) | return | endif
-        let l:yanks = luaeval("vim.lsp.buf.document_symbol()")
-        call miniyank#drop(l:yanks, a:opt)
-    endfunction
 endfunction
 
 command! -bang YanksBefore call s:fzf_miniyank(1, <bang>0)

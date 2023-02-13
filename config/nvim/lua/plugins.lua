@@ -1,7 +1,7 @@
 local ensure_packer = function()
   local install_path = vim.fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
   if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
-    fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+    vim.fn.system({ 'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path })
     vim.cmd [[packadd packer.nvim]]
     return true
   end
@@ -12,16 +12,14 @@ local packer_bootstrap = ensure_packer()
 
 local packer = require('packer')
 
-if not vim.api.nvim_list_uis() == {} then
-  packer.init {
-    max_jobs = 5,
-    display = {
-      open_fn = function()
-        return require("packer.util").float { border = "rounded" }
-      end
-    }
+packer.init {
+  max_jobs = 5,
+  display = {
+    open_fn = function()
+      return require("packer.util").float({ border = "rounded" })
+    end
   }
-end
+}
 
 packer.startup(function(use)
   use 'wbthomason/packer.nvim'
@@ -35,6 +33,57 @@ packer.startup(function(use)
     'williamboman/mason-lspconfig.nvim',
     'neovim/nvim-lspconfig',
   }
+
+  use({'utilyre/barbecue.nvim',
+    requires = {
+      "SmiteshP/nvim-navic",
+      "nvim-tree/nvim-web-devicons",
+    },
+    after = {
+      "nvim-web-devicons",
+    },
+    config = function ()
+      require("barbecue").setup({
+        symbols = {
+          separator = ""
+        },
+        kinds = {
+          File = "",
+          Module = "",
+          Namespace = "",
+          Package = "",
+          Class = "",
+          Method = "",
+          Property = "",
+          Field = "",
+          Constructor = "",
+          Enum = "練",
+          Interface= "練",
+          Function= "",
+          Variable = "",
+          Constant = "",
+          String = "",
+          Number = "",
+          Boolean = "◩",
+          Array = "",
+          Object = "",
+          Key = "",
+          Null = "ﳠ",
+          EnumMember = "",
+          Struct = "",
+          Event = "",
+          Operator = "",
+          TypeParameter = "",
+          Macro = "",
+        },
+        theme = {
+          separator = { fg = "#63849c" },
+          normal = { fg = "#afafaf", bg = "#161616" },
+        }
+      })
+    end,
+  })
+
   use { 'nvim-treesitter/nvim-treesitter', run = ":TSUpdate" }
   use 'RRethy/nvim-treesitter-textsubjects'
   use 'RRethy/nvim-treesitter-endwise'
@@ -44,13 +93,14 @@ packer.startup(function(use)
   use 'jose-elias-alvarez/nvim-lsp-ts-utils'
 
   -- Debugger
+  use 'ziontee113/syntax-tree-surfer'
   use { 'stephenprater/iron.nvim', branch = "attach-and-no-deprecation" }
   use 'mfussenegger/nvim-dap'
   use 'theHamsta/nvim-dap-virtual-text'
   use 'rcarriga/nvim-dap-ui'
-  use 'jbyuki/one-small-step-for-vimkind'
 
   -- Autocomplete
+  use 'jbyuki/one-small-step-for-vimkind'
   use 'hrsh7th/cmp-nvim-lsp'
   use 'hrsh7th/cmp-buffer'
   use 'hrsh7th/cmp-path'
@@ -58,37 +108,35 @@ packer.startup(function(use)
   use 'hrsh7th/cmp-vsnip'
   use 'hrsh7th/nvim-cmp'
   use 'onsails/lspkind-nvim'
-  use 'github/copilot.vim'
 
   -- Snippets
+  use 'github/copilot.vim'
   use 'hrsh7th/vim-vsnip'
   use 'hrsh7th/vim-vsnip-integ'
-  use 'rafamadriz/friendly-snippets'
 
   -- FZF
-  use {'junegunn/fzf', run = ':call fzf#install(})'}
+  use 'rafamadriz/friendly-snippets'
+  use { 'junegunn/fzf', run = ':call fzf#install(})' }
   use 'junegunn/fzf.vim'
-  use 'vijaymarupudi/nvim-fzf'
-  use 'vijaymarupudi/nvim-fzf-commands'
   use 'gfanto/fzf-lsp.nvim'
+  use 'ibhagwan/fzf-lua'
+
   -- RG
-  use 'jremmen/vim-ripgrep'
 
   -- File Navigation
+  use 'jremmen/vim-ripgrep'
   use {
     'nvim-tree/nvim-tree.lua',
     requires = 'nvim-tree/nvim-web-devicons'
   }
+
+
   use 'tpope/vim-projectionist'
 
   -- YankRing
   use 'bfredl/nvim-miniyank'
 
-  -- Markdown / Diary
-  -- use 'rhysd/vim-gfm-syntax'
-  -- use 'SidOfc/mkdx'
-  -- use 'nelstrom/vim-markdown-folding'
-  -- use 'dkarter/bullets.vim'
+  -- Neorg
   use 'nvim-neorg/neorg'
 
   -- Text Objects / Pairs
@@ -131,16 +179,43 @@ packer.startup(function(use)
   use 'tommcdo/vim-exchange'
 
   use 'stevearc/dressing.nvim'
+  use({ 'rcarriga/nvim-notify',
+    config = function ()
+      local notify = require("notify")
+      notify.setup({
+        background_colour = "#161616",
+      })
+      vim.notify = notify
+    end,
+  })
+
+  use 'lukas-reineke/indent-blankline.nvim'
 
   -- Colorscheme
   use 'arcticicestudio/nord-vim'
+  use({'ziontee113/color-picker.nvim',
+  config = function ()
+    require("color-picker").setup({
+      border = "rounded"
+    })
+
+    vim.keymap.set("i", "<C-c>", "<cmd>PickColorInsert<CR>", { noremap = true, silent = true })
+    vim.keymap.set("n", "<C-c>", "<cmd>PickColorInsert<CR>", { noremap = true, silent = true })
+  end,
+  })
+
+  use({"ziontee113/icon-picker.nvim",
+    config = function ()
+      require("icon-picker").setup({
+        disable_legacy_commands = true
+      })
+
+      vim.keymap.set("i", "<C-e>", "<cmd>IconPickerInsert<CR>", { noremap = true, silent = true })
+    end,
+  })
 
   -- Frontend
   use 'mattn/emmet-vim'
-
-  -- Elixir
-  -- use 'elixir-editors/vim-elixir'
-  -- use 'andyl/vim-textobj-elixir'
 
   -- Tmux
   use 'christoomey/vim-tmux-navigator'
