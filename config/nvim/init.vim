@@ -271,10 +271,10 @@ nmap <silent> <D-CR> :Utl<CR>
 
 nmap <silent> ,tb :TagbarToggle<CR>
 nmap <silent> ,gu :UndotreeShow<CR>
-nmap <silent> ,bs :FzfLua buffers<CR>
-nmap <silent> ,mr :FzfLua oldfiles<CR>
+nmap <silent> ,bs :Buffers<CR>
+nmap <silent> ,mr :History<CR>
 
-nmap <silent> q: :FzfLua command_history<CR>
+nmap <silent> q: :History:<CR>
 
 nmap <silent> <leader>T :TestNearest<CR>
 nmap <silent> <leader>t :TestFile<CR>

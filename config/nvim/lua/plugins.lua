@@ -210,12 +210,13 @@ packer.startup(function(use)
         disable_legacy_commands = true
       })
 
-      vim.keymap.set("i", "<C-e>", "<cmd>IconPickerInsert<CR>", { noremap = true, silent = true })
+      vim.keymap.set("n", "<C-i>", "<cmd>IconPickerNormal<CR>", { noremap = true, silent = true })
     end,
   })
 
   -- Frontend
   use 'mattn/emmet-vim'
+  use 'prisma/vim-prisma'
 
   -- Tmux
   use 'christoomey/vim-tmux-navigator'

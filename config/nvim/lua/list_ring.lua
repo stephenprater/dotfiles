@@ -1,5 +1,5 @@
 local M = {}
-local api = vim.api
+
 
 local Ring = {}
 
@@ -57,23 +57,19 @@ end
 
 local lists = Ring.new({
   {
-    name = "buffers",
-    cmd = "FzfLua",
+    cmd = "Buffers",
   },
   {
-    name ="oldfiles",
-    cmd = "FzfLua",
+    cmd = "History",
   },
   {
-    name = "files",
-    cmd = "FzfLua",
+    cmd = "Files",
   },
   {
-    name = "live_grep",
-    cmd = "FzfLua",
+    cmd = "FzfGrep",
   },
   {
-    name = "lsp_workplace_symbols",
+    args = "lsp_workplace_symbols",
     cmd = "FzfLua",
     cond = function()
       local cap = vim.lsp.get_active_clients()[1].server_capabilities
@@ -99,18 +95,33 @@ end
 
 M.iterate = function (iterator)
  local success = false
+ local msg
   local fail_count = 0
   repeat
-    success = pcall(M.display_list, iterator())
+    success, msg = pcall(M.display_list, iterator())
     if not success then
+      vim.notify(msg)
       fail_count = fail_count + 1
     end
   until success or fail_count > 5
 end
 
 M.display_list = function(list)
+  for _, win in pairs(vim.api.nvim_list_wins()) do
+    local buf = vim.api.nvim_win_get_buf(win)
+    if vim.b[buf]["fzf"] then
+      vim.api.nvim_win_close(win, true)
+    end
+  end
+
+  vim.api.nvim_cmd({ cmd = "sleep", args = { "100m" } }, {})
+
   if not list.cond or (list.cond and list.cond()) then
-    api.nvim_cmd({ cmd = list.cmd, args = {list.name}}, {})
+    if list.args then
+      vim.api.nvim_cmd({ cmd = list.cmd, args = {}}, {})
+    else
+      vim.api.nvim_cmd({ cmd = list.cmd, args = {list.name}}, {})
+    end
   else
     vim.notify(list.cmd .. " is not supported", vim.log.levels.WARN)
     error(list.cmd .. " is not supported")
