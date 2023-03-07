@@ -54,7 +54,7 @@ fi
 
 tldr -u
 
-nvim --headless -u $DOTHOME/confit/bootstrap.vim -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
+nvim --headless -u $DOTHOME/config/nvim/bootstrap.vim -c 'autocmd User PackerComplete quitall' -c 'PackerInstall'
 nvim --headless -c 'MasonInstall sorbet' -c q
 nvim --headless -c 'MasonInstall solargraph' -c q
 nvim --headless -c 'MasonInstall typescript-language-server' -c q
