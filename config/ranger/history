@@ -31,15 +31,17 @@ rename consul.yml
 open_with Pr
 rename chris-chu
 rename jon_griffith
-set show_hidden
 
 shell mv .atom .config/atom
 open_with h
 shell 
 set show_hidden!
-trash
 rename hammerspoon
-delete
 search hammer
 open_with 
 rename .hammerspoon
+rename app
+set show_hidden
+set hidden_filter
+trash
+delete

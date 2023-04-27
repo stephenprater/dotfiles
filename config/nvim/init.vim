@@ -85,6 +85,8 @@ if(!$SPIN)
   let g:python3_host_prog = '/Users/stephenprater/.asdf/installs/python/3.8.10/bin/python'
 endif
 
+let g:copilot_node_command = "~/.nvm/versions/node/v16.13.0/bin/node"
+
 function! NoClearSlime(cmd) abort
   call Send_to_Tmux(a:cmd . "\n")
 endfunction
@@ -107,13 +109,13 @@ let g:test#custom_strategies = {'noclearslime': function('NoClearSlime')}
 let g:test#strategy = 'noclearslime'
 let g:test#custom_transformations = { 'docker': function('DockerTransform') }
 let g:test#transformation = 'docker'
-let g:test#javascript#jest#file_pattern = '\v(test|spec)\.(js|jsx|coffee|ts|tsx)$'
+let g:test#javascript#vitest#file_pattern = '\v.*\.test\.(js|jsx|ts|tsx)$'
+let g:test#javascript#playwrite#file_pattern = '^tests.*\.spec\.(js|ts)$'
+let g:test#javascript#jest#file_pattern = '\v.*\.test\.(js|jsx|ts|tsx)$'
 let g:test#javascript#jest#options = {
   \ 'nearest': '--runInBand --forceExit',
   \ 'file': '--runInBand --forceExit',
   \}
-
-let g:test#javascript#karma#file_pattern = '\v(test|spec).*(js|jsx|coffee|ts|tsx)$'
 
 let g:utl_cfg_hdl_scm_http = "silent !open -a chrome '%u#%f'"
 

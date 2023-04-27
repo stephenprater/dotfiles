@@ -40,7 +40,12 @@ vim.keymap.set("n", "gt", function()
     "method",
     "if",
     "do_block",
-    "block"
+    "block",
+    "function",
+    "object",
+    "arguments",
+    "property",
+    "name"
   })
 end)
 
@@ -82,43 +87,49 @@ require("iron.core").setup({
 local dap = require('dap')
 
 dap.adapters = {
-    nlua = function(callback, config)
-      callback({ type = 'server', host = config.host, port = config.port })
-    end,
-    pwa_node = require('dap-js').connect
+  nlua = function(callback, config)
+    callback({ type = 'server', host = config.host, port = config.port })
+  end,
+  chrome = {
+    type = "executable",
+    command = "node",
+    args = { os.getenv("HOME") .. "/src/github.com/Microsoft/vscode-chrome-debug/out/src/chromeDebug.js" },
   }
+}
 
 dap.configurations = {
-    lua ={
-      {
-        type = 'nlua',
-        request = 'attach',
-        name = "Attach to running Neovim instance",
-        host = function()
-          local value = vim.fn.input('Host [127.0.0.1]: ')
-          if value ~= "" then
-            return value
-          end
-          return '127.0.0.1'
-        end,
-        port = function()
-          local val = tonumber(vim.fn.input('Port: '))
-          assert(val, "Please provide a port number")
-          return val
+  lua = {
+    {
+      type = 'nlua',
+      request = 'attach',
+      name = "Attach to running Neovim instance",
+      host = function()
+        local value = vim.fn.input('Host [127.0.0.1]: ')
+        if value ~= "" then
+          return value
         end
-      }
+        return '127.0.0.1'
+      end,
+      port = function()
+        local val = tonumber(vim.fn.input('Port: '))
+        assert(val, "Please provide a port number")
+        return val
+      end
+    }
+  },
+  typescript = {
+    {
+      type = "chrome",
+      request = "attach",
+      program = "${file}",
+      cwd = vim.fn.getcwd(),
+      sourceMaps = true,
+      protocol = "inspector",
+      webRoot = "${workspaceFolder}",
+      port = 9229
     },
-    typescript = {
-      {
-        type = "pwa-node",
-        request = "attach",
-        name = "Attach",
-        continueOnAttach = true,
-        attachExistingChildren = true,
-        port = 9229
-      },
-    },
-  }
+  },
+}
 
 require('dapui').setup()
 
@@ -180,6 +191,7 @@ require("mason-lspconfig").setup()
 require("mason-lspconfig").setup_handlers({
   function(server_name)
     local opts = {
+      debounce_text_changes = 150,
       capabilities = vim.tbl_extend('keep', cmp_capabilities, lsp_status.capabilities),
       on_attach = function(client, buffer)
         if server_name == "tsserver" then
@@ -383,3 +395,15 @@ require('nvim-tree').setup({})
 require("indent_blankline").setup({
   show_end_of_line = true
 })
+
+_G.CloseAllFloatingWindows = function()
+  local closed_windows = {}
+  for _, win in ipairs(vim.api.nvim_list_wins()) do
+    local config = vim.api.nvim_win_get_config(win)
+    if config.relative ~= "" then -- is_floating_window?
+      vim.api.nvim_win_close(win, false) -- do not force
+      table.insert(closed_windows, win)
+    end
+  end
+  print(string.format('Closed %d windows: %s', #closed_windows, vim.inspect(closed_windows)))
+end

@@ -34,7 +34,7 @@ packer.startup(function(use)
     'neovim/nvim-lspconfig',
   }
 
-  use({'utilyre/barbecue.nvim',
+  use({ 'utilyre/barbecue.nvim',
     requires = {
       "SmiteshP/nvim-navic",
       "nvim-tree/nvim-web-devicons",
@@ -42,7 +42,7 @@ packer.startup(function(use)
     after = {
       "nvim-web-devicons",
     },
-    config = function ()
+    config = function()
       require("barbecue").setup({
         symbols = {
           separator = ""
@@ -58,8 +58,8 @@ packer.startup(function(use)
           Field = "",
           Constructor = "",
           Enum = "練",
-          Interface= "練",
-          Function= "",
+          Interface = "練",
+          Function = "",
           Variable = "",
           Constant = "",
           String = "",
@@ -85,10 +85,10 @@ packer.startup(function(use)
   })
 
   use { 'nvim-treesitter/nvim-treesitter', run = ":TSUpdate" }
-  use 'RRethy/nvim-treesitter-textsubjects'
-  use 'RRethy/nvim-treesitter-endwise'
-  use 'nvim-treesitter/playground'
-  use 'p00f/nvim-ts-rainbow'
+  use { 'RRethy/nvim-treesitter-textsubjects', requires = 'nvim-treesitter' }
+  use { 'RRethy/nvim-treesitter-endwise', requires = 'nvim-treesitter' }
+  use { 'nvim-treesitter/playground', requires = 'nvim-treesitter' }
+  use { 'p00f/nvim-ts-rainbow', requires = 'nvim-treesitter' }
   use 'jose-elias-alvarez/null-ls.nvim'
   use 'jose-elias-alvarez/nvim-lsp-ts-utils'
 
@@ -152,6 +152,14 @@ packer.startup(function(use)
   use 'nvim-lua/lsp-status.nvim'
 
   -- UI Affordances
+  use({ "folke/which-key.nvim",
+    config = function()
+      vim.o.timeout = true
+      vim.o.timeoutlen = 500
+      require("which-key").setup {}
+    end
+  })
+
   use 'mg979/vim-visual-multi'
   use 'triglav/vim-visual-increment'
   use 'machakann/vim-swap'
@@ -180,7 +188,7 @@ packer.startup(function(use)
 
   use 'stevearc/dressing.nvim'
   use({ 'rcarriga/nvim-notify',
-    config = function ()
+    config = function()
       local notify = require("notify")
       notify.setup({
         background_colour = "#161616",
@@ -193,24 +201,24 @@ packer.startup(function(use)
 
   -- Colorscheme
   use 'arcticicestudio/nord-vim'
-  use({'ziontee113/color-picker.nvim',
-  config = function ()
-    require("color-picker").setup({
-      border = "rounded"
-    })
+  use({ 'ziontee113/color-picker.nvim',
+    config = function()
+      require("color-picker").setup({
+        border = "rounded"
+      })
 
-    vim.keymap.set("i", "<C-c>", "<cmd>PickColorInsert<CR>", { noremap = true, silent = true })
-    vim.keymap.set("n", "<C-c>", "<cmd>PickColorInsert<CR>", { noremap = true, silent = true })
-  end,
+      vim.keymap.set("i", "<C-c>", "<cmd>PickColorInsert<CR>", { noremap = true, silent = true })
+      vim.keymap.set("n", "<C-c>", "<cmd>PickColorInsert<CR>", { noremap = true, silent = true })
+    end,
   })
 
-  use({"ziontee113/icon-picker.nvim",
-    config = function ()
+  use({ "ziontee113/icon-picker.nvim",
+    config = function()
       require("icon-picker").setup({
         disable_legacy_commands = true
       })
 
-      vim.keymap.set("n", "<C-i>", "<cmd>IconPickerNormal<CR>", { noremap = true, silent = true })
+      vim.keymap.set("n", "<C-e>", "<cmd>IconPickerNormal<CR>", { noremap = true, silent = true })
     end,
   })
 
