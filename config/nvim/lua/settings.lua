@@ -154,7 +154,6 @@ cmp.setup({
     { name = 'nvim_lsp' },
     { name = 'vsnip' },
     { name = 'buffer' },
-    { name = 'neorg' }
   }),
   completion = {
     completeopt = 'menu,menuone,noinsert',
@@ -197,19 +196,22 @@ require("mason-lspconfig").setup_handlers({
         if server_name == "tsserver" then
           client.server_capabilities["textDocument/formatting"] = false
           client.server_capabilities["documentRange/formatting"] = false
-
-          local ts_utils = require("nvim-lsp-ts-utils")
-          ts_utils.setup({})
-          ts_utils.setup_client(client)
         end
 
         if client.supports_method("textDocument/formatting") then
           vim.api.nvim_clear_autocmds({ group = augroup, buffer = buffer })
-          vim.api.nvim_create_autocmd("BufWritePre", {
+          vim.api.nvim_create_autocmd("BufWritePost", {
             group = augroup,
             buffer = buffer,
             callback = function()
-              vim.lsp.buf.format({ bufnr = buffer, timeout_ms = 2000, async = true })
+              vim.lsp.buf.format({
+                bufnr = buffer,
+                timeout_ms = 2000,
+                async = true,
+                filter = function(lsp_client)
+                  return lsp_client.name == "null-ls"
+                end
+              })
             end,
           })
         end
@@ -221,8 +223,12 @@ require("mason-lspconfig").setup_handlers({
     require("lspconfig")[server_name].setup(opts)
   end,
 
-  ["sumneko_lua"] = function()
-    require("lspconfig")["sumneko_lua"].setup({
+  ["rust_analyzer"] = function()
+    require("lspconfig")["rust_analyzer"].setup({})
+  end,
+
+  ["lua_ls"] = function()
+    require("lspconfig")["lua_ls"].setup({
       settings = {
         Lua = {
           runtime = {
@@ -256,16 +262,6 @@ require("mason-lspconfig").setup_handlers({
   end,
 })
 
-local null_ls = require("null-ls")
-null_ls.setup({
-  sources = {
-    null_ls.builtins.diagnostics.eslint,
-    null_ls.builtins.code_actions.eslint,
-    null_ls.builtins.formatting.prettier,
-    null_ls.builtins.code_actions.gitsigns,
-  },
-})
-
 local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
 for type, icon in pairs(signs) do
   local hl = "DiagnosticSign" .. type
@@ -288,7 +284,7 @@ if not os.getenv("SPIN") then
   neorg.setup({
     load = {
       ["core.defaults"] = {},
-      ["core.norg.concealer"] = {
+      ["core.concealer"] = {
         config = {
           icons = {
             todo = {
@@ -304,12 +300,13 @@ if not os.getenv("SPIN") then
           export_dir = "~/log/"
         }
       },
-      ["core.norg.completion"] = {
+      ["core.completion"] = {
         config = {
-          engine = "nvim-cmp"
+          engine = "nvim-cmp", name = "[Norg]"
         }
       },
-      ["core.norg.dirman"] = {
+      ["core.integrations.nvim-cmp"] = {},
+      ["core.dirman"] = {
         config = {
           workspaces = {
             log = "~/log"

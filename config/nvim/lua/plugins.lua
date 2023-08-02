@@ -89,8 +89,30 @@ packer.startup(function(use)
   use { 'RRethy/nvim-treesitter-endwise', requires = 'nvim-treesitter' }
   use { 'nvim-treesitter/playground', requires = 'nvim-treesitter' }
   use { 'p00f/nvim-ts-rainbow', requires = 'nvim-treesitter' }
-  use 'jose-elias-alvarez/null-ls.nvim'
-  use 'jose-elias-alvarez/nvim-lsp-ts-utils'
+
+  use({'jose-elias-alvarez/null-ls.nvim',
+    config = function()
+      local null_ls = require("null-ls")
+      null_ls.setup({
+        sources = {
+          null_ls.builtins.diagnostics.eslint,
+          null_ls.builtins.code_actions.eslint,
+          null_ls.builtins.formatting.prettier,
+          null_ls.builtins.code_actions.gitsigns,
+          null_ls.builtins.formatting.stylua,
+          require("typescript.extensions.null-ls.code-actions"),
+        },
+      })
+    end
+    })
+
+  use({'jose-elias-alvarez/typescript.nvim',
+      config = function()
+        require('typescript').setup({
+          disable_commands = true
+        })
+      end
+    })
 
   -- Debugger
   use 'ziontee113/syntax-tree-surfer'
@@ -119,7 +141,6 @@ packer.startup(function(use)
   use { 'junegunn/fzf', run = ':call fzf#install(})' }
   use 'junegunn/fzf.vim'
   use 'gfanto/fzf-lsp.nvim'
-  use 'ibhagwan/fzf-lua'
 
   -- RG
 
@@ -186,7 +207,17 @@ packer.startup(function(use)
   use 'whiteinge/diffconflicts'
   use 'tommcdo/vim-exchange'
 
-  use 'stevearc/dressing.nvim'
+  use({ 'stevearc/dressing.nvim',
+    config = function()
+      local dressing = require("dressing")
+      dressing.setup({
+        select = {
+          backend = { "fzf", "fzf_lua", "telescope", "builtin", "nui" }
+        }
+      })
+    end
+  })
+
   use({ 'rcarriga/nvim-notify',
     config = function()
       local notify = require("notify")

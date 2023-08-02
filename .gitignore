@@ -27,3 +27,5 @@ config/github-copilot
 config/pip/pip.conf
 *.un~
 *.pem
+config/dlv/.dbg_history
+config/containers

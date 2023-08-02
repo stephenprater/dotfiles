@@ -290,7 +290,6 @@ nmap ee <Plug>(iron-send-line)
 
 noremap <silent> r :set opfunc=ReplaceMotion<CR>g@
 vnoremap <silent> r :call ReplaceMotion('visual')
-nnoremap <silent> <Leader>ml :call AppendModeline()<CR>
 
 "window controls
 noremap ]- <C-W>-
@@ -348,8 +347,8 @@ nmap <leader>lh :lua vim.lsp.buf.hover()<CR>
 nmap <leader>ld :lua vim.lsp.buf.definition()<CR>
 nmap <leader>lr :lua vim.lsp.buf.rename()<CR>
 nmap <leader>l? :lua vim.lsp.buf.signature_help()<CR>
-nmap <leader>l] :FzfLua lsp_references<CR>
-nmap <leader>la :FzfLua lsp_code_actions<CR>
+nmap <leader>l] :References<CR>
+nmap <leader>la :CodeActions<CR>
 nmap <leader>lx :lua vim.diagnostic.open_float({focusable=false})<CR>
 nmap <leader>ls :lua vim.lsp.buf.document_symbol()<CR>
 

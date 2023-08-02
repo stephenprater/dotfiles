@@ -28,6 +28,8 @@ ln -sf $DOTHOME/zsh/zshrc $HOME/.zshrc
 
 ln -sf $DOTHOME/config/git/config $HOME/.gitconfig
 
+ln -sf $DOTHOME/inputrc $HOME/.inputrc
+
 
 if [ $(uname -a | grep "Darwin") ]; then
   brew bundle

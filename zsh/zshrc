@@ -21,6 +21,10 @@ if [ -s "/opt/homebrew/opt/nvm/nvm.sh" ]; then
   source /opt/homebrew/opt/nvm/nvm.sh
 fi
 
+if [ -s "/opt/homebrew/libexec/asdf.sh" ]; then
+  source /opt/homebrew/libexec/asdf.sh
+fi
+
 if [ -f "/opt/dev/dev.sh" ]; then
   source /opt/dev/dev.sh
 fi
@@ -51,6 +55,8 @@ for file in ${${config_files:#*/path.zsh}:#*/completion.zsh}
 do
   source $file
 done
+
+FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
 
 # initialize autocomplete here, otherwise functions won't be loaded
 autoload -U compinit
@@ -139,3 +145,9 @@ zstyle ':predict' verbose true
 [[ -f /opt/dev/sh/chruby/chruby.sh ]] && { type chruby >/dev/null 2>&1 || chruby () { source /opt/dev/sh/chruby/chruby.sh; chruby "$@"; } }
 
 [[ -x /opt/homebrew/bin/brew ]] && eval $(/opt/homebrew/bin/brew shellenv)
+
+if [[ ! "$(command -v pyenv >/dev/null)" ]]; then
+  export PYENV_ROOT="$HOME/.pyenv"
+  export PATH="$HOME/.local/bin:$PYENV_ROOT/bin:$PATH"
+  eval "$(pyenv init -)"
+fi

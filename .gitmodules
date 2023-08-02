@@ -43,3 +43,6 @@
 [submodule "config/tmux/plugins/tpm"]
 	path = config/tmux/plugins/tpm
 	url = https://github.com/tmux-plugins/tpm
+[submodule "plugins/fzf-git"]
+	path = plugins/fzf-git
+	url = https://github.com/junegunn/fzf-git.sh
