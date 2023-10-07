@@ -21,10 +21,6 @@ if [ -s "/opt/homebrew/opt/nvm/nvm.sh" ]; then
   source /opt/homebrew/opt/nvm/nvm.sh
 fi
 
-if [ -s "/opt/homebrew/libexec/asdf.sh" ]; then
-  source /opt/homebrew/libexec/asdf.sh
-fi
-
 if [ -f "/opt/dev/dev.sh" ]; then
   source /opt/dev/dev.sh
 fi
@@ -51,7 +47,7 @@ do
 done
 
 # load everything but the path and completion files
-for file in ${${config_files:#*/path.zsh}:#*/completion.zsh}
+for file in ${${${config_files:#*/path.zsh}:#*/completion.zsh}:#*completion/*}
 do
   source $file
 done
@@ -82,13 +78,17 @@ setopt menucomplete
 autoload -U +X bashcompinit && bashcompinit
 
 # load every completion after autocomplete loads
-for file in ${(M)config_files:#*/completion.zsh}
+for file in ${(M)config_files:#(*completions/*|*/completion.zsh)}
 do
   source $file
 done
 
 if [ -x "$(command -v spin)" ]; then
   eval "$(spin completion)"
+fi
+
+if [ -x "$(command -v poetry)" ]; then
+  eval $(poetry completions zsh)
 fi
 
 if [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ]; then
@@ -148,6 +148,11 @@ zstyle ':predict' verbose true
 
 if [[ ! "$(command -v pyenv >/dev/null)" ]]; then
   export PYENV_ROOT="$HOME/.pyenv"
-  export PATH="$HOME/.local/bin:$PYENV_ROOT/bin:$PATH"
+  export PATH="$HOME/.local/bin:$PYENV_ROOT/shims:$PATH"
   eval "$(pyenv init -)"
 fi
+
+export POETRY_HOME="$HOME/.local/share/pypoetry"
+
+# cloudplatform: add Shopify clusters to your local kubernetes config
+export KUBECONFIG=${KUBECONFIG:+$KUBECONFIG:}/Users/stephenprater/.kube/config:/Users/stephenprater/.kube/config.shopify.cloudplatform
