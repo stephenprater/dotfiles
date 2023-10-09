@@ -36,13 +36,16 @@ if [ $(uname -a | grep "Darwin") ]; then
 fi
 
 if [ $SPIN ]; then
-  [ ! -f "./nvim-linux64.deb" ] && wget https://github.com/neovim/neovim/releases/download/nightly/nvim-linux64.deb
+  [ ! -f "./nvim.appimage" ] && wget https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage
 
-  sudo apt install ./nvim-linux64.deb
+  chmod u+x ./nvim.appimage
+  ./nvim.appimage --appimage-extract
+
+  export PATH=$DOTHOME/squashfs-root/usr/bin:$PATH
 
   xargs sudo apt-get -y install < packages.txt
 
-  git config core.editor /usr/bin/nvim
+  git config core.editor $DOTHOME/squashfs-root/usr/bin/nvim
 
   if [ -f "${HOME}/.nix-profile/etc/profile.d/nix.sh" ]; then
     source "${HOME}/.nix-profile/etc/profile.d/nix.sh"
@@ -51,15 +54,7 @@ if [ $SPIN ]; then
   ${HOME}/.nix-profile/bin/nix-env -iA nixpkgs.fzf
   ${HOME}/.nix-profile/bin/nix-env -iA nixpkgs.sysz
   ${HOME}/.nix-profile/bin/nix-env -iA nixpkgs.delta
-  ${HOME}/.nix-profile/bin/nix-env -iA nixpkgs.exa
+  ${HOME}/.nix-profile/bin/nix-env -iA nixpkgs.eza
 fi
 
 tldr -u
-
-nvim --headless -u $DOTHOME/config/nvim/bootstrap.vim -c 'autocmd User PackerComplete quitall' -c 'PackerInstall'
-nvim --headless -c 'MasonInstall sorbet' -c q
-nvim --headless -c 'MasonInstall solargraph' -c q
-nvim --headless -c 'MasonInstall typescript-language-server' -c q
-nvim --headless -c 'TSInstallSync! typescript' -c q
-nvim --headless -c 'TSInstallSync! tsx' -c q
-nvim --headless -c 'TSInstallSync! ruby' -c q

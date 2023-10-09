@@ -52,7 +52,11 @@ do
   source $file
 done
 
-FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+if [ ! $SPIN ]; then 
+  FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+else
+  FPATH="/usr/share/zsh/site-functions:${FPATH}"
+fi
 
 # initialize autocomplete here, otherwise functions won't be loaded
 autoload -U compinit
@@ -148,7 +152,7 @@ zstyle ':predict' verbose true
 
 if [[ ! "$(command -v pyenv >/dev/null)" ]]; then
   export PYENV_ROOT="$HOME/.pyenv"
-  export PATH="$HOME/.local/bin:$PYENV_ROOT/shims:$PATH"
+  export PATH="$DOTHOME/squashfs/usr/bin:$HOME/.local/bin:$PYENV_ROOT/shims:$PATH"
   eval "$(pyenv init -)"
 fi
 
