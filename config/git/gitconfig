@@ -35,6 +35,7 @@
 [core]
         editor = /opt/homebrew/bin/nvim
         whitespace = warn
+	trustctime = false
 [pager]
         diff = delta
         log = delta

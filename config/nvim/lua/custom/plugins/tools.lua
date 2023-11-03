@@ -1,4 +1,15 @@
 return {
+  {
+    "Shopify/spin-vim",
+    lazy = true,
+    cond = function ()
+      if os.getenv("SPIN") == "1" then
+        return true
+      else
+        return false
+      end
+    end
+  },
 	{
 	"nvim-neotest/neotest",
 	lazy = true,
@@ -30,5 +41,23 @@ return {
 			},
 		}
 	end
-}
+  },
+  {
+    "dmmulroy/tsc.nvim",
+    config = function ()
+      require('tsc').setup()
+    end,
+  },
+  { "jgdavey/tslime.vim" },
+  {
+    "vim-test/vim-test",
+    dependencies = {
+      "jgdavey/tslime.vim",
+    },
+    config = function ()
+      vim.cmd [[
+        let test#strategy = "tslime"
+      ]]
+    end
+  }
 }

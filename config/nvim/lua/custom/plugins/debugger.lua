@@ -53,13 +53,7 @@ return {
 				end
 			} ,
 			'rcarriga/nvim-dap-ui',
-			{
-				'mxsdev/nvim-dap-vscode-js',
-				opts = {
-					debugger_path = vim.fn.stdpath 'data' .. '/lazy/vscode-js-debug',
-					adapters = { 'pwa-node', 'pwa-chrome', 'pwa-msedge', 'node-terminal', 'pwa-extensionHost' },
-				},
-			},
+			{ 'mxsdev/nvim-dap-vscode-js' },
 			{
 				'microsoft/vscode-js-debug',
 				version = '1.x',
@@ -76,52 +70,73 @@ return {
       local dap = require('dap')
 
       require('dap-python').setup(vim.fn.stdpath 'data' .. '/mason/packages/debugpy/venv/bin/python')
+      require('dap-vscode-js').setup({
+        debugger_path = vim.fn.stdpath 'data' .. '/lazy/vscode-js-debug',
+        adapters = { 'pwa-node', 'pwa-chrome', 'pwa-msedge', 'node-terminal', 'pwa-extensionHost' },
+      })
 
       dap.adapters.nlua = function(callback, config)
-          callback({ type = 'server', host = config.host, port = config.port })
-        end
+        callback({ type = 'server', host = config.host, port = config.port })
+      end
 
-      dap.configurations = {
-        lua = {
+      for _, language in ipairs({ "typescript", "javascript" }) do
+        dap.configurations[language] = {
           {
-            type = 'nlua',
+            type = 'pwa-node',
             request = 'attach',
-            name = "Attach to running Neovim instance",
-            host = function()
-              local value = vim.fn.input('Host [127.0.0.1]: ')
-              if value ~= "" then
-                return value
-              end
-              return '127.0.0.1'
-            end,
-            port = function()
-              local val = tonumber(vim.fn.input('Port: '))
-              assert(val, "Please provide a port number")
-              return val
-            end
-          }
-        },
-				typescript = {
-					{
-						type = 'pwa-node',
-						request = 'attach',
-						processId = require('dap.utils').pick_process,
-						name = 'Attach debugger to existing node process',
-						sourceMaps = true,
-						cwd = '${workspaceFolder}',
-						resolveSourceMapLocations = {
-							'${workspaceFolder}/**',
-							'!**/node_modules/**',
-						},
-						outFiles = {
-							'${workspaceFolder}/**',
-							'!**/node_modules/**',
-						},
-						skipFiles = { '**/node_modules/**' },
-					},
-				},
-      }
+            processId = require('dap.utils').pick_process,
+            name = 'Attach debugger to existing node process',
+            sourceMaps = language == "typescript" and true,
+            cwd = '${workspaceFolder}',
+            resolveSourceMapLocations = {
+              '${workspaceFolder}/**',
+              '!**/node_modules/**',
+            },
+            outFiles = {
+              '${workspaceFolder}/**',
+              '!**/node_modules/**',
+            },
+            skipFiles = { '**/node_modules/**' },
+          },
+          {
+            type = 'pwa-node',
+            request = 'Launch',
+            program = "${file}",
+            name = 'Launch File in Debugger',
+            sourceMaps = language == "typescript" and true,
+            cwd = '${workspaceFolder}',
+            resolveSourceMapLocations = {
+              '${workspaceFolder}/**',
+              '!**/node_modules/**',
+            },
+            outFiles = {
+              '${workspaceFolder}/**',
+              '!**/node_modules/**',
+            },
+            skipFiles = { '**/node_modules/**' },
+          },
+        }
+      end
 
+      dap.configurations['lua'] = {
+        {
+          type = 'nlua',
+          request = 'attach',
+          name = "Attach to running Neovim instance",
+          host = function()
+            local value = vim.fn.input('Host [127.0.0.1]: ')
+            if value ~= "" then
+              return value
+            end
+            return '127.0.0.1'
+          end,
+          port = function()
+            local val = tonumber(vim.fn.input('Port: '))
+            assert(val, "Please provide a port number")
+            return val
+          end
+        }
+      }
     end
   },
 	{ 'jbyuki/one-small-step-for-vimkind' }

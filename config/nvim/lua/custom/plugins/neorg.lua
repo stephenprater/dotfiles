@@ -50,6 +50,12 @@ return {
   'mattn/calendar-vim',
   {
     'toppair/peek.nvim',
-    build = "deno task --quiet build:fast"
+    build = "deno task --quiet build:fast",
+    config = function ()
+      require('peek').setup()
+
+      vim.api.nvim_create_user_command('MarkdownPeekOpen', require('peek').open, {})
+      vim.api.nvim_create_user_command('MarkdownPeekClose', require('peek').close, {})
+    end
   }
 }

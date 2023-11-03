@@ -46,10 +46,7 @@ vim.g.utl_cfg_hdl_scm_http = "silent !open -a chrome '%u#%f'"
 
 vim.g.fzf_lsp_timeout = 1000
 vim.g.fzf_layout = {
-	window = {
-		width = 0.7,
-		height = 0.7,
-	},
+	window = "horizontal above 30new"
 }
 
 require("plugins")
@@ -81,6 +78,7 @@ vim.cmd([[ hi clear SignColumn ]])
 vim.cmd([[ hi link SignColumn LineNr ]])
 vim.cmd([[ hi WinSeparator guifg=#3a3a57 guibg=#1f1f28 ]])
 vim.cmd([[ hi FloatBorder guifg=#54546d guibg=#1f1f28 ]])
+vim.cmd([[ hi IblIndent guifg=#34342d ]])
 
 
 

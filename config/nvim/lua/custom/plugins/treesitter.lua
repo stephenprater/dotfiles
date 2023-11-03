@@ -108,7 +108,19 @@ return {
 	{ "RRethy/nvim-treesitter-textsubjects", dependencies = "nvim-treesitter/nvim-treesitter" },
 	{ "RRethy/nvim-treesitter-endwise", dependencies = "nvim-treesitter/nvim-treesitter" },
 	{ "nvim-treesitter/playground", dependencies = "nvim-treesitter/nvim-treesitter" },
-	{ "p00f/nvim-ts-rainbow", dependencies = "nvim-treesitter/nvim-treesitter" },
+	{
+    "HiPhish/rainbow-delimiters.nvim",
+    dependencies = "nvim-treesitter/nvim-treesitter",
+    config = function()
+      local rainbow_delimters = require("rainbow-delimiters")
+
+      vim.g.rainbow_delimters = {
+        strategy = {
+          [''] = rainbow_delimters.strategy['global']
+        }
+      }
+    end
+  },
   {
     "Wansmer/treesj",
     keys = { '<space>m', '<space>j', '<space>s' },

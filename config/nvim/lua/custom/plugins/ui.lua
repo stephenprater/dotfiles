@@ -157,6 +157,7 @@ return {
 					["rn"] = { ":lua require('functions').toggle_relative_numbers", "Toggle Relative Numbers" },
 					["no"] = { ":Neotest output-panel<CR>", "Neotest Output" },
 					["ns"] = { ":Neotest summary<CR>", "Neotest Summary" },
+          ["nt"] = { ":NvimTreeToggle<CR>", "Toggle NvimTree" },
 					["yr"] = { ":YanksBefore<CR>", "Yank Ring" },
           ["mp"] = { function()
             local preview_open = require("peek").is_open()
@@ -169,10 +170,11 @@ return {
 				},
 				["<leader>"] = {
 					name = "tests",
-          ["n"] = { ":NvimTreeToggle<CR>", "Toggle NvimTree" },
-					["t"] = { function() require("neotest").run.run() end, "Test Nearest" },
-					["T"] = { function() require("neotest").run.run(vim.fn.expand("%")) end, "Test File" },
-					["td"] = { function() require("neotest").run.run({strategy = "dap"}) end, "Debug Test" },
+					["nt"] = { function() require("neotest").run.run() end, "Test Nearest" },
+					["nT"] = { function() require("neotest").run.run(vim.fn.expand("%")) end, "Test File" },
+					["ntd"] = { function() require("neotest").run.run({strategy = "dap"}) end, "Debug Test" },
+          ["t"] = { ":TestNearest<CR>", "Test Nearest" },
+          ["T"] = { ":TestFile<CR>", "Test File" },
 					["g"] = {
 						name = "Git",
 						["a"] = { function() require("gitsigns").stage_hunk() end, "Stage Hunk" },
@@ -206,6 +208,7 @@ return {
 					["n"] = { ":lua require('dap').step_over()<CR>", "Step Over" },
 					["i"] = { ":lua require('dap').step_into()<CR>", "Step Into" },
 					["c"] = { ":lua require('dap').continue()<CR>", "Continue" },
+          ["f"] = { ":lua require('dap').step_out()<CR>", "Step Out" },
 					["<F5>"] = { ":lua require('osv').launch({port=8086})<CR>", "Connect to Lua" },
 					["u"] = { function() require("dapui").toggle({}) end, "Toggle DAP UI" }
 				},
@@ -218,6 +221,7 @@ return {
 			})
 		end,
 	},
+
 
 	{ 'MunifTanjim/nui.nvim' },
 
@@ -277,13 +281,17 @@ return {
 	-- Adds indentation guides to blank lines
 	{
 		"lukas-reineke/indent-blankline.nvim",
+    main = "ibl",
 		config = function()
-			require("indent_blankline").setup({
-				char = "▏",
-				show_end_of_line = true,
-				char_highlight_list = {
-					"NonText",
-				},
+			require("ibl").setup({
+        indent = {
+          char = "│",
+          smart_indent_cap = true,
+          highlight = "NonText",
+        },
+        scope = {
+          enabled = false
+        }
 			})
 		end,
 	},
