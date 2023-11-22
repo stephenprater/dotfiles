@@ -24,6 +24,9 @@ return {
                 command = { "iex", "-S", "mix" }
               }
             },
+            typescript = {
+              command = { "npx", "ts-node" }
+            },
             sql = {
               pg = {
                 command = { "pgcli", "-h", "0.0.0.0", "-U", "postgres" }

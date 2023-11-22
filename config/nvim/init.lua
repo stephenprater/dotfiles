@@ -49,9 +49,10 @@ vim.g.fzf_layout = {
 	window = "horizontal above 30new"
 }
 
-require("plugins")
 
 vim.g.miniyank_maxitems = 100
+
+require("plugins")
 
 vim.cmd.colorscheme("kanagawa-wave")
 -- vim.cmd.colorscheme("detailed_base")
@@ -78,8 +79,6 @@ vim.cmd([[ hi clear SignColumn ]])
 vim.cmd([[ hi link SignColumn LineNr ]])
 vim.cmd([[ hi WinSeparator guifg=#3a3a57 guibg=#1f1f28 ]])
 vim.cmd([[ hi FloatBorder guifg=#54546d guibg=#1f1f28 ]])
-vim.cmd([[ hi IblIndent guifg=#34342d ]])
-
 
 
 vim.keymap.set("n", "<Esc><Esc>", ":nohls<CR>", { noremap = true, silent = true })

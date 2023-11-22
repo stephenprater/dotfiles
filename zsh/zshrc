@@ -52,7 +52,7 @@ do
   source $file
 done
 
-if [ ! $SPIN ]; then 
+if [ ! $SPIN ]; then
   FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
 else
   FPATH="/usr/share/zsh/site-functions:${FPATH}"
@@ -109,7 +109,7 @@ zmodload -i zsh/parameter
 autoload -U edit-command-line
 autoload -U colors
 zle -N edit-command-line
-bindkey -M vicmd 'e' edit-command-line
+bindkey -M vicmd 'v' edit-command-line
 bindkey -M vicmd ':' executed-named-command
 
 # Configure the Prompt
