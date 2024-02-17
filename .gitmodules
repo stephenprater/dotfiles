@@ -16,24 +16,9 @@
 [submodule "plugins/powerlevel9k"]
 	path = plugins/powerlevel9k
 	url = https://github.com/Powerlevel9k/powerlevel9k.git
-[submodule "plugins/spaceship-prompt"]
-	path = plugins/spaceship-prompt
-	url = https://github.com/denysdovhan/spaceship-prompt.git
 [submodule "plugins/powerlevel10k"]
 	path = plugins/powerlevel10k
 	url = https://github.com/romkatv/powerlevel10k.git
-[submodule "config/.emacs.d"]
-	path = config/.emacs.d
-	url = https://github.com/syl20bnr/spacemacs
-[submodule "config/nvim/pack/packer/start/packer.nvim"]
-	path = config/nvim/pack/packer/start/packer.nvim
-	url = https://github.com/wbthomason/packer.nvim
-[submodule "config/emacs.d"]
-	path = config/emacs.d
-	url = https://github.com/syl20bnr/spacemacs
-[submodule "plugins/tmux-powerline"]
-	path = plugins/tmux-powerline
-	url = https://github.com/erikw/tmux-powerline.git
 [submodule "config/tmux/tpm"]
 	path = config/tmux/tpm
 	url = https://github.com/tmux-plugins/tpm

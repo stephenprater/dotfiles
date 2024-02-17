@@ -238,7 +238,7 @@ return {
       },
       cmdline = {
         view = "cmdline"
-      }
+      },
     }
   },
 
@@ -267,12 +267,13 @@ return {
     config = function()
       local notify = require("notify")
       notify.setup({
-        background_colour = "#161616",
+        render = "compact",
+        top_down = false,
       })
       vim.notify = notify
     end,
   },
-
+  { "j-hui/fidget.nvim" },
   {
     "folke/trouble.nvim",
     dependencies = "nvim-tree/nvim-web-devicons",
@@ -283,8 +284,13 @@ return {
     "lukas-reineke/indent-blankline.nvim",
     main = "ibl",
     config = function()
-      vim.api.nvim_set_hl(0, "IblIndent", { fg = "#34342d" })
-      vim.api.nvim_set_hl(0, "IblWhitespace", { fg = "#34342d" })
+      local hooks = require("ibl.hooks")
+
+      hooks.register(hooks.type.HIGHLIGHT_SETUP, function()
+        vim.api.nvim_set_hl(0, "IblIndent", { fg = "#34342d" })
+        vim.api.nvim_set_hl(0, "IblWhitespace", { fg = "#34342d" })
+      end)
+
       require("ibl").setup({
         indent = {
           char = "│",

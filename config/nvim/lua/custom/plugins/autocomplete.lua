@@ -6,24 +6,18 @@ end
 
 return {
 	  { 'github/copilot.vim' },
-    -- {
-    --   'dense-analysis/neural',
-    --   dependencies = {
-    --     'muniftanjim/nui.vim',
-    --     'elpiloto/significant.nvim'
-    --   },
-    --   config = {
-    --     source = {
-
-    -- },
-		{
+  	{
 			'L3MON4D3/LuaSnip',
+      tag = "v2.2.0",
 			build = "make install_jsregexp" ,
 			dependencies = {
 				'rafamadriz/friendly-snippets'
 			},
 			config = function ()
-				require("luasnip.loaders.from_vscode").lazy_load()
+				require("luasnip/loaders/from_vscode").lazy_load()
+        require("luasnip/loaders/from_vscode").lazy_load({
+          paths = vim.fn.stdpath("config") .. "/snippets"
+        })
 			end
 		},
     {
@@ -91,7 +85,6 @@ return {
 							fallback()
 						end
 					end, { "i", "s" }),
-
 					["<C-p>"] = cmp.mapping(function(fallback)
 						if cmp.visible() then
 							cmp.select_prev_item()

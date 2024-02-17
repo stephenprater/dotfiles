@@ -1,10 +1,11 @@
 # Default Theme
 
 if patched_font_in_use; then
-	TMUX_POWERLINE_SEPARATOR_LEFT_BOLD=""
-	TMUX_POWERLINE_SEPARATOR_LEFT_THIN=""
-	TMUX_POWERLINE_SEPARATOR_RIGHT_BOLD=""
-	TMUX_POWERLINE_SEPARATOR_RIGHT_THIN=""
+	TMUX_POWERLINE_SEPARATOR_LEFT_BOLD=""
+	TMUX_POWERLINE_SEPARATOR_LEFT_THIN=""
+	TMUX_POWERLINE_SEPARATOR_RIGHT_BOLD=""
+	TMUX_POWERLINE_SEPARATOR_RIGHT_THIN=""
+  TMUX_POWERLINE_SEPARATOR_LEFT_INTRO=""
 else
 	TMUX_POWERLINE_SEPARATOR_LEFT_BOLD="◀"
 	TMUX_POWERLINE_SEPARATOR_LEFT_THIN="❮"
@@ -12,24 +13,44 @@ else
 	TMUX_POWERLINE_SEPARATOR_RIGHT_THIN="❯"
 fi
 
-TMUX_POWERLINE_DEFAULT_BACKGROUND_COLOR=${TMUX_POWERLINE_DEFAULT_BACKGROUND_COLOR:-'0'}
-TMUX_POWERLINE_DEFAULT_FOREGROUND_COLOR=${TMUX_POWERLINE_DEFAULT_FOREGROUND_COLOR:-'255'}
+white='#dcd7ba'        # fujiWhite
+gray='#2a2a37'         # sumiInk4
+dark_gray='#1a1a22'    # sumiInk2
+light_purple='#363646' # sumiInk5
+dark_purple='#54546D'  # sumiInk6
+cyan='#6a9589'         # wave aqua
+green='#938aa9'        # springViolet1
+orange='#dca561'       # autumn orange
+red='#e46876'          # wave red
+pink='#d27e99'         # sakura pink
+yellow='#ff9e3b'       # roninYellow
+background="#1f1f28"   # background
+
+tmux set -g message-style "bg=${background} fg=${white}"
+tmux set -g status-style bg=#1f1f28
+tmux set -g pane-border-style "fg=${gray}"
+tmux set -g pane-active-border-style "fg=${cyan}"
+
+TMUX_POWERLINE_DEFAULT_BACKGROUND_COLOR=${TMUX_POWERLINE_DEFAULT_BACKGROUND_COLOR:-$background}
+TMUX_POWERLINE_DEFAULT_FOREGROUND_COLOR=${TMUX_POWERLINE_DEFAULT_FOREGROUND_COLOR:-$white}
 
 TMUX_POWERLINE_DEFAULT_LEFTSIDE_SEPARATOR=${TMUX_POWERLINE_DEFAULT_LEFTSIDE_SEPARATOR:-$TMUX_POWERLINE_SEPARATOR_RIGHT_BOLD}
-TMUX_POWERLINE_DEFAULT_RIGHTSIDE_SEPARATOR=${TMUX_POWERLINE_DEFAULT_RIGHTSIDE_SEPARATOR:-$TMUX_POWERLINE_SEPARATOR_LEFT_BOLD}
+TMUX_POWERLINE_DEFAULT_RIGHTSIDE_SEPARATOR=${TMUX_POWERLINE_DEFAULT_RIGHTSIDE_SEPARATOR:-$TMUX_POWERLINE_SEPARATOR_LEFT_INTRO}
 
+TMUX_POWERLINE_STATUS_JUSTIFICATION="left"
 
 # Format: segment_name background_color foreground_color [non_default_separator]
 
 if [ -z $TMUX_POWERLINE_WINDOW_STATUS_CURRENT ]; then
 	TMUX_POWERLINE_WINDOW_STATUS_CURRENT=(
-		"#[$(format inverse)]" \
-		"$TMUX_POWERLINE_DEFAULT_LEFTSIDE_SEPARATOR" \
-		" #I#F " \
-		"$TMUX_POWERLINE_SEPARATOR_RIGHT_THIN" \
+    "#[bg=${background} fg=${orange}]" \
+		"" \
+    "#[bg=${orange} fg=${background}]" \
+		" #I#[fg=${dark_purple}]#{s|\*| |:window_flags} #[fg=${background}]" \
+    "|" \
 		" #W " \
-		"#[$(format regular)]" \
-		"$TMUX_POWERLINE_DEFAULT_LEFTSIDE_SEPARATOR"
+    "#[bg=${background} fg=${orange}]" \
+    ""
 	)
 fi
 
@@ -42,25 +63,28 @@ fi
 if [ -z $TMUX_POWERLINE_WINDOW_STATUS_FORMAT ]; then
 	TMUX_POWERLINE_WINDOW_STATUS_FORMAT=(
 		"#[$(format regular)]" \
-		"  #I#{?window_flags,#F, } " \
-		"$TMUX_POWERLINE_SEPARATOR_RIGHT_THIN" \
+    "#{?window_activity_flag,#[fg=${background} bg=${red}],}" \
+    "  #I#{s/-/ /;s/Z/ /;s/\!/ /;s/#//:window_flags} " \
+    "#{?window_activity_flag, ,}" \
+    "|" \
 		" #W "
 	)
 fi
 
 if [ -z $TMUX_POWERLINE_LEFT_STATUS_SEGMENTS ]; then
 	TMUX_POWERLINE_LEFT_STATUS_SEGMENTS=(
-		"tmux_session_info 8 7" \
-		"spin 18 27"
+		"tmux_session_info ${light_purple} ${white}" \
+    "$TMUX_POWERLINE_SEPARATOR_LEFT_BOLD" \
+		"spin ${gray} ${cyan}"
 	)
 fi
 
 if [ -z $TMUX_POWERLINE_RIGHT_STATUS_SEGMENTS ]; then
 	TMUX_POWERLINE_RIGHT_STATUS_SEGMENTS=(
-		"load 19 148" \
-		"date 8 7 ${TMUX_POWERLINE_SEPARATOR_LEFT_BOLD}" \
-		"time 8 231 ${TMUX_POWERLINE_SEPARATOR_LEFT_THIN}" \
-		"platform 245 0" \
-		"hostname 255 0" \
+		"load ${gray} ${green}" \
+		"date ${dark_gray} ${orange}" \
+		"time ${background} ${cyan}" \
+		"platform 0 ${red}" \
+		"hostname ${background} ${white}" \
 	)
 fi

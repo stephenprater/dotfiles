@@ -1,0 +1,34 @@
+{
+  "name": "prater-snippets",
+  "engines": {
+    "vscode": "^1.11.0"
+  },
+  "contributes": {
+    "snippets": [
+      {
+        "language": "json",
+        "path": "./json.json"
+      },
+      {
+        "language": "gitcommit",
+        "path": "./gitcommit.json"
+      },
+      {
+        "language": "ruby",
+        "path": "./ruby.json"
+      },
+      {
+        "language": "yaml",
+        "path": "./yaml.json"
+      },
+      {
+        "language": "norg",
+        "path": "./norg.json"
+      },
+      {
+        "language": ["typescript", "typescriptreact"],
+        "path": "./typescript.json"
+      }
+    ]
+  }
+}

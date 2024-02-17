@@ -1,5 +1,11 @@
 return {
   {
+    '3rd/image.nvim',
+    config = function()
+      require('image').setup()
+    end
+  },
+  {
     'nvim-neorg/neorg',
 		ft = "norg",
     cond = function()

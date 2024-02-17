@@ -48,9 +48,10 @@
   # last prompt line gets hidden if it would overlap with left prompt.
   typeset -g POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(
     # =========================[ Line #1 ]=========================
+    asdf
     chruby
     nvm                     # node.js version from nvm (https://github.com/nvm-sh/nvm)
-    pyenv
+    # pyenv
     # virtualenv
     gcloud                  # google cloud cli account and project (https://cloud.google.com/)
     context                 # user@hostname

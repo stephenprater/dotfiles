@@ -1,0 +1,14 @@
+{
+  "Gus Schema Field": {
+    "prefix": "gusf",
+    "body": [
+      "6334cb852c793ca7:",
+      "  description: ${1:description}",
+      "  name: ${2:name}",
+      "  pii: false",
+      "  provided_by: GusTestClient",
+      "  type: Gus::Types::${3:String|Float|Integer|Boolean}",
+      "  version: 1"
+    ]
+  }
+}
