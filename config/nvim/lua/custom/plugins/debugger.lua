@@ -49,6 +49,7 @@ return {
     'mfussenegger/nvim-dap',
 		dependencies = {
 			'theHamsta/nvim-dap-virtual-text',
+      'nvim-neotest/nvim-nio',
 			{
 				'rcarriga/nvim-dap-ui',
 				config = function()
@@ -77,6 +78,7 @@ return {
         debugger_path = vim.fn.stdpath 'data' .. '/lazy/vscode-js-debug',
         adapters = { 'pwa-node', 'pwa-chrome', 'pwa-msedge', 'node-terminal', 'pwa-extensionHost' },
       })
+      require('dap-ruby').setup()
 
       dap.adapters.nlua = function(callback, config)
         callback({ type = 'server', host = config.host, port = config.port })

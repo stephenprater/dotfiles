@@ -1,19 +1,19 @@
 if vim.env["SPIN"] then
-	vim.o.shell = "/usr/bin/zsh"
+  vim.o.shell = "/usr/bin/zsh"
 else
-	vim.o.shell = "/opt/homebrew/bin/zsh"
-	vim.g.clipboard = {
-		name = "tmux",
-		copy = {
-			["+"] = { "tmux", "load-buffer", "-" },
-			["*"] = "pbcopy",
-		},
-		paste = {
-			["+"] = { "tmux", "save-buffer", "-" },
-	                ["*"] = "pbpaste",
-		},
-		cache_enabled = 0,
-	}
+  vim.o.shell = "/opt/homebrew/bin/zsh"
+  vim.g.clipboard = {
+    name = "tmux",
+    copy = {
+      ["+"] = { "tmux", "load-buffer", "-" },
+      ["*"] = "pbcopy",
+    },
+    paste = {
+      ["+"] = { "tmux", "save-buffer", "-" },
+      ["*"] = "pbpaste",
+    },
+    cache_enabled = 0,
+  }
 end
 
 vim.opt.backspace = "indent,eol,start"
@@ -46,9 +46,8 @@ vim.g.utl_cfg_hdl_scm_http = "silent !open -a chrome '%u#%f'"
 
 vim.g.fzf_lsp_timeout = 1000
 vim.g.fzf_layout = {
-	window = "horizontal above 30new"
+  window = "horizontal above 30new",
 }
-
 
 vim.g.miniyank_maxitems = 100
 
@@ -84,11 +83,10 @@ vim.cmd([[ hi link SignColumn LineNr ]])
 vim.cmd([[ hi WinSeparator guifg=#3a3a57 guibg=#1f1f28 ]])
 vim.cmd([[ hi FloatBorder guifg=#54546d guibg=#1f1f28 ]])
 
-
 vim.keymap.set("n", "<Esc><Esc>", ":nohls<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "<leader>A", ":Rg<CR>", { noremap = true, silent = true })
 vim.keymap.set("v", "<leader>A", function()
-	require("functions").rg_vis()
+  require("functions").rg_vis()
 end, { noremap = true, silent = true })
 vim.keymap.set("n", "<D-CR>", ":Utl<CR>", { silent = true })
 
@@ -99,6 +97,10 @@ vim.keymap.set({ "t", "n" }, "<M-k>", "<C-\\><C-n><C-w>k", { noremap = true })
 vim.keymap.set({ "t", "n" }, "<M-l>", "<C-\\><C-n><C-w>l", { noremap = true })
 vim.keymap.set("v", "r", ":lua require('functions').replace_motion('visual')", { noremap = true, silent = true })
 
+-- Move visual block up and down a line
+vim.keymap.set("v", "J", ">+1<CR>gv=gv", { noremap = true })
+vim.keymap.set("v", "K", "<-2<CR>gv=gv", { noremap = true })
+
 vim.keymap.set("ia", "recieve", "receive", {})
 
 vim.keymap.set("c", "<C-O>", "<Up>", { noremap = true })
@@ -108,19 +110,19 @@ vim.keymap.set("c", "<C-X><C-A>", "<C-A>", { noremap = true })
 vim.keymap.set("n", "q:", ":History:<CR>", { noremap = true, silent = true })
 
 vim.api.nvim_create_user_command("Trim", "<line1>,<line2>s/\\s\\+$//e", {
-	range = "%",
-	bar = true,
+  range = "%",
+  bar = true,
 })
 
 vim.api.nvim_create_user_command("LspDebug", function()
-	vim.lsp.set_log_level("debug")
-	vim.cmd("terminal tail -f '" .. vim.lsp.get_log_path() .. "'")
+  vim.lsp.set_log_level("debug")
+  vim.cmd("terminal tail -f '" .. vim.lsp.get_log_path() .. "'")
 end, {})
 
 vim.api.nvim_create_user_command(
-	"FzfGrep",
-	'call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case -- ".shellescape(<q-args>), 1, fzf#vim#with_preview(), <bang>0)',
-	{ bang = true, nargs = "*" }
+  "FzfGrep",
+  'call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case -- ".shellescape(<q-args>), 1, fzf#vim#with_preview(), <bang>0)',
+  { bang = true, nargs = "*" }
 )
 
 vim.cmd([[
@@ -146,7 +148,6 @@ command! -bang YanksAfter call s:fzf_miniyank(0, <bang>0)
 map p <Plug>(miniyank-autoput)
 map P <Plug>(miniyank-autoPut)
 ]])
-
 
 vim.api.nvim_create_user_command("TSReset", "write | edit | TSBufEnable highlight", {})
 

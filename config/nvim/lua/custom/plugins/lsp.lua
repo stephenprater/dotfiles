@@ -28,6 +28,8 @@ return {
         "stylua",
         "prettier",
         "debugpy",
+        "tflint",
+        "terraform-ls",
       },
     },
     config = function(_, opts)
@@ -58,7 +60,8 @@ return {
     "williamboman/mason-lspconfig.nvim",
     dependencies = "williamboman/mason.nvim",
     config = function()
-      local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
+      vim.api.nvim_create_augroup("LspFormatting", {})
+
       require("mason-lspconfig").setup()
 
       require("mason-lspconfig").setup_handlers({
@@ -137,19 +140,16 @@ return {
     config = function()
       local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
       local null_ls = require("null-ls")
+      local sources = {
+        null_ls.builtins.code_actions.gitsigns,
+        null_ls.builtins.formatting.black,
+        null_ls.builtins.formatting.isort,
+        null_ls.builtins.formatting.stylua,
+        require("typescript.extensions.null-ls.code-actions"),
+      }
+
       null_ls.setup({
-        sources = {
-          null_ls.builtins.code_actions.gitsigns,
-          null_ls.builtins.diagnostics.eslint_d,
-          null_ls.builtins.code_actions.eslint,
-          null_ls.builtins.formatting.black,
-          null_ls.builtins.formatting.isort,
-          null_ls.builtins.formatting.stylua,
-          null_ls.builtins.formatting.eslint_d.with({
-            prefer_local = "node_modules/.bin",
-          }),
-          require("typescript.extensions.null-ls.code-actions"),
-        },
+        sources = sources,
         on_attach = function(client, bufnr)
           if client.supports_method("textDocument/formatting") then
             vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
@@ -157,7 +157,6 @@ return {
               group = augroup,
               buffer = bufnr,
               callback = function()
-                vim.notify("Formatting...")
                 vim.lsp.buf.format({ aysnc = true })
               end,
             })

@@ -4,7 +4,6 @@ for type, icon in pairs(signs) do
   vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
 end
 
-
 return {
   -- Show the current location in the winbar.
   {
@@ -72,10 +71,10 @@ return {
       local lsp_status = require("lsp-status")
 
       local noice = function()
-        if(require('noice').api.status.mode.has) then
-          local status = require('noice').api.status.mode.get()
+        if require("noice").api.status.mode.has then
+          local status = require("noice").api.status.mode.get()
           local start, stop = status:find("recording ..")
-          if(start ~= nil) then
+          if start ~= nil then
             local add = status:sub(start, stop)
             return "%#NoiceAttr253#" .. add
           end
@@ -84,19 +83,18 @@ return {
         return ""
       end
 
-
       require("lualine").setup({
         options = { theme = custom_nord },
         sections = {
           lualine_a = {
             "mode",
-            noice
+            noice,
           },
           lualine_y = {
             "progress",
             lsp_status.status,
           },
-        }
+        },
       })
     end,
   },
@@ -120,8 +118,8 @@ return {
 
       wk.setup({
         window = {
-          border = "single"
-        }
+          border = "single",
+        },
       })
 
       wk.register({
@@ -144,48 +142,53 @@ return {
         },
         [","] = {
           name = "navigate",
+          ["b"] = { ":Buffers<CR>", "Show Buffers" },
+          ["r"] = { ":History<CR>", "Show History" },
+          ["q"] = { ":History:<CR>", "Show Command History" },
+          ["y"] = { ":YanksBefore<CR>", "Yank Ring" },
+          ["x"] = { ":NvimTreeToggle<CR>", "Toggle NvimTree" },
+          ["u"] = { ":UndotreeShow<CR>", "Show Undotree" },
+          ["m"] = { ":Marks<CR>", "Choose Mark" },
+          ["g"] = { ":TagbarToggle<CR>", "Show Tagbar" },
+          ["n"] = {
+            name = "neotest",
+            ["o"] = { ":Neotest output-panel<CR>", "Neotest Output" },
+            ["s"] = { ":Neotest summary<CR>", "Neotest Summary" },
+          },
           ["cn"] = { ":cn<CR>", "Next Quickfix" },
-          ["cp"] = { ":cp<CR>", "Next Quickfix" },
-          ["tn"] = { ":tn<CR>", "Next Quickfix" },
-          ["tp"] = { ":tp<CR>", "Next Quickfix" },
-          ["tb"] = { ":TagbarToggle<CR>", "Show Tagbar" },
-          ["gu"] = { ":UndotreeShow<CR>", "Show Undotree" },
-          ["bs"] = { ":Buffers<CR>", "Show Buffers" },
-          ["mr"] = { ":History<CR>", "Show History" },
-          ["q:"] = { ":History:<CR>", "Show Command History" },
-          ["mk"] = { ":MarkologyToggle<CR>", "Show Marks" },
-          ["rn"] = { ":lua require('functions').toggle_relative_numbers", "Toggle Relative Numbers" },
-          ["no"] = { ":Neotest output-panel<CR>", "Neotest Output" },
-          ["ns"] = { ":Neotest summary<CR>", "Neotest Summary" },
-          ["nt"] = { ":NvimTreeToggle<CR>", "Toggle NvimTree" },
-          ["yr"] = { ":YanksBefore<CR>", "Yank Ring" },
-          ["mp"] = { function()
-            local preview_open = require("peek").is_open()
-            if(preview_open) then
-              require("peek").close()
-            else
-              require("peek").open()
-            end
-          end, "Markdown Preview" },
+          ["cp"] = { ":cp<CR>", "Previous Quickfix" },
+          ["tn"] = { ":tn<CR>", "Next Tag" },
+          ["tp"] = { ":tp<CR>", "Previous Tag" },
+          ["p"] = {
+            function()
+              local preview_open = require("peek").is_open()
+              if preview_open then
+                require("peek").close()
+              else
+                require("peek").open()
+              end
+            end,
+            "Markdown Preview",
+          },
         },
         ["<leader>"] = {
           name = "tests",
-          ["nt"] = { function() require("neotest").run.run() end, "Test Nearest" },
-          ["nT"] = { function() require("neotest").run.run(vim.fn.expand("%")) end, "Test File" },
-          ["ntd"] = { function() require("neotest").run.run({strategy = "dap"}) end, "Debug Test" },
+          ["nt"] = { ":lua require('neotest').run.run()", "Test Nearest" },
+          ["nT"] = { ":lua require('neotest').run.run(vim.fn.expand('%'))", "Test File" },
+          ["nd"] = { ":lua require('neotest').run.run({ strategy = 'dap' })", "Debug Test" },
           ["t"] = { ":TestNearest<CR>", "Test Nearest" },
           ["T"] = { ":TestFile<CR>", "Test File" },
           ["g"] = {
             name = "Git",
-            ["a"] = { function() require("gitsigns").stage_hunk() end, "Stage Hunk" },
-            ["r"] = { function() require("gitsigns").reset_hunk() end, "Reset Hunk" },
-            ["b"] = { function() require("gitsigns").blame_line() end, "Blame Line" },
-            ["d"] = { function() require("gitsigns").toggle_deleted() end, "Toggle Deleted" },
-            ["p"] = { function() require("gitsigns").preview_hunk() end, "Preview Hunk" },
-            ["s"] = { function() require("gitsigns").select_hunk() end, "Select Hunk" },
-            ["u"] = { function() require("gitsigns").undo_stage_hunk() end, "Undo Stage Hunk" },
-            ["U"] = { function() require("gitsigns").reset_buffer() end, "Reset Buffer" },
-            ["l"] = { function() require("gitsigns").toggle_current_line_blame() end, "Toggle Line Blame" },
+            ["a"] = { ":lua require('gitsigns').stage_hunk()<CR>", "Stage Hunk" },
+            ["r"] = { ":lua require('gitsigns').reset_hunk()<CR>", "Reset Hunk" },
+            ["b"] = { ":lua require('gitsigns').blame_line()<CR>", "Blame Line" },
+            ["d"] = { ":lua require('gitsigns').toggle_deleted()<CR>", "Toggle Deleted" },
+            ["p"] = { ":lua require('gitsigns').preview_hunk()<CR>", "Preview Hunk" },
+            ["s"] = { ":lua require('gitsigns').select_hunk()<CR>", "Select Hunk" },
+            ["u"] = { ":lua require('gitsigns').undo_stage_hunk()<CR>", "Undo Stage Hunk" },
+            ["U"] = { ":lua require('gitsigns').reset_buffer()<CR>", "Reset Buffer" },
+            ["l"] = { ":lua require('gitsigns').toggle_current_line_blame()<CR>", "Toggle Line Blame" },
           },
           ["l"] = {
             name = "LSP",
@@ -195,13 +198,27 @@ return {
             ["?"] = { ":lua vim.lsp.buf.signature_help()<CR>", "Signature Help" },
             ["]"] = { ":References<CR>", "Show References" },
             ["a"] = { ":CodeActions<CR>", "Code Actions" },
-            ["x"] = { ":lua vim.diagnostic.open_float({focusable=false})<CR>", "Open Diagnostic Float" },
+            ["x"] = { ":lua vim.diagnostic.open_float()<CR>", "Open Diagnostic Float" },
+            ["y"] = {
+              function()
+                local row, _ = unpack(vim.api.nvim_win_get_cursor(0))
+                local diags = vim.diagnostic.get(0, { lnum = row - 1 })
+                if #diags > 0 then
+                  local messages = ""
+                  for idx, diag in ipairs(diags) do
+                    messages = messages .. string.format("%d: %s\n", idx, diag["message"])
+                  end
+                  vim.fn.setreg('"', messages)
+                end
+              end,
+              "Copy line diagnostic into unnamed register",
+            },
             ["s"] = { ":lua vim.lsp.buf.document_symbol()<CR>", "Open Document Symbols" },
           },
         },
         ["g<"] = { ":ISwapNodeWithLeft<CR>", "Swap Left" },
         ["g>"] = { ":ISwapNodeWithRight<CR>", "Swap Right" },
-        ["gs"] =  { ":ISwap<CR>", "Interactive Swap" },
+        ["gs"] = { ":ISwap<CR>", "Interactive Swap" },
         ["<leader>d"] = {
           name = "Debugger",
           ["b"] = { ":lua require('dap').toggle_breakpoint()<CR>", "Toggle Breakpoint" },
@@ -210,7 +227,7 @@ return {
           ["c"] = { ":lua require('dap').continue()<CR>", "Continue" },
           ["f"] = { ":lua require('dap').step_out()<CR>", "Step Out" },
           ["<F5>"] = { ":lua require('osv').launch({port=8086})<CR>", "Connect to Lua" },
-          ["u"] = { function() require("dapui").toggle({}) end, "Toggle DAP UI" }
+          ["u"] = { ":lua require('dapui').toggle({})", "Toggle DAP UI" },
         },
         ["<leader><leader>"] = {
           name = "Tools",
@@ -222,24 +239,61 @@ return {
     end,
   },
 
-
-  { 'MunifTanjim/nui.nvim' },
+  { "MunifTanjim/nui.nvim" },
 
   {
-    'folke/noice.nvim',
-    dependencies = { 'MunifTanjim/nui.nvim' },
+    "folke/noice.nvim",
+    dependencies = { "MunifTanjim/nui.nvim" },
     opts = {
-      cmdline_popupmenu = {
-        view = "cmp"
-      },
       presets = {
         command_palette = false,
         lsp_doc_border = true,
+        long_message_to_split = true,
       },
       cmdline = {
-        view = "cmdline"
+        view = "cmdline",
       },
-    }
+      lsp = {
+        ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+        ["vim.lsp.util.stylize_markdown"] = true,
+        ["cmp.entry.get_documentation"] = true,
+        progress = {
+          view = "mini",
+        },
+      },
+      routes = {
+        {
+          filter = {
+            event = "msg_show",
+            kind = "echomsg",
+            find = "Gp:",
+          },
+          view = "mini",
+        },
+        {
+          filter = {
+            event = "msg_show",
+            kind = "echomsg",
+          },
+          view = "split",
+        },
+        {
+          filter = {
+            event = "msg_show",
+            kind = "echoerr",
+          },
+          view = "split",
+        },
+        {
+          filter = {
+            event = "msg_show",
+            kind = "",
+            find = "written",
+          },
+          view = "mini",
+        },
+      },
+    },
   },
 
   -- Multiple cursors
@@ -297,8 +351,8 @@ return {
           smart_indent_cap = true,
         },
         scope = {
-          enabled = false
-        }
+          enabled = false,
+        },
       })
     end,
   },
@@ -306,11 +360,11 @@ return {
   {
     "echasnovski/mini.indentscope",
     opts = {
-      symbol = '┊',
+      symbol = "┊",
       options = {
-        try_as_border = true
-      }
-    }
+        try_as_border = true,
+      },
+    },
   },
 
   -- Navigate TMUX panes with vim window navigation keys
@@ -321,10 +375,10 @@ return {
 
   -- Colorize hex codes, color names, shit like that
   {
-    'norcalli/nvim-colorizer.lua',
-    config = function ()
-      require('colorizer').setup()
-    end
+    "norcalli/nvim-colorizer.lua",
+    config = function()
+      require("colorizer").setup()
+    end,
   },
 
   {

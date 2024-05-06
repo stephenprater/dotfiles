@@ -26,11 +26,6 @@ pink='#d27e99'         # sakura pink
 yellow='#ff9e3b'       # roninYellow
 background="#1f1f28"   # background
 
-tmux set -g message-style "bg=${background} fg=${white}"
-tmux set -g status-style bg=#1f1f28
-tmux set -g pane-border-style "fg=${gray}"
-tmux set -g pane-active-border-style "fg=${cyan}"
-
 TMUX_POWERLINE_DEFAULT_BACKGROUND_COLOR=${TMUX_POWERLINE_DEFAULT_BACKGROUND_COLOR:-$background}
 TMUX_POWERLINE_DEFAULT_FOREGROUND_COLOR=${TMUX_POWERLINE_DEFAULT_FOREGROUND_COLOR:-$white}
 
@@ -75,16 +70,16 @@ if [ -z $TMUX_POWERLINE_LEFT_STATUS_SEGMENTS ]; then
 	TMUX_POWERLINE_LEFT_STATUS_SEGMENTS=(
 		"tmux_session_info ${light_purple} ${white}" \
     "$TMUX_POWERLINE_SEPARATOR_LEFT_BOLD" \
-		"spin ${gray} ${cyan}"
+		# "spin ${gray} ${cyan}"
 	)
 fi
 
 if [ -z $TMUX_POWERLINE_RIGHT_STATUS_SEGMENTS ]; then
 	TMUX_POWERLINE_RIGHT_STATUS_SEGMENTS=(
-		"load ${gray} ${green}" \
-		"date ${dark_gray} ${orange}" \
-		"time ${background} ${cyan}" \
-		"platform 0 ${red}" \
-		"hostname ${background} ${white}" \
+		 "load ${gray} ${green}" \
+		 "date ${dark_gray} ${orange}" \
+		 "time ${background} ${cyan}" \
+		 "platform 0 ${red}" \
+		 "hostname ${background} ${white}" \
 	)
 fi

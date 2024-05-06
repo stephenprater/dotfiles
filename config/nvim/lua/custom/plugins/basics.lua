@@ -1,35 +1,38 @@
 return {
 
-	-- make vim repeat plugin work with surround
-	{ "tpope/vim-repeat" },
+  -- make vim repeat plugin work with surround
+  { "tpope/vim-repeat" },
 
-	-- surround text objects
-	{ "tpope/vim-surround" },
+  -- surround text objects
+  { "tpope/vim-surround" },
 
-	-- like runtime matchit only better - matches parens, brackets, etc
-	{ "andymass/vim-matchup" },
+  -- like runtime matchit only better - matches parens, brackets, etc
+  { "andymass/vim-matchup" },
 
-	-- provide ]q ]e etc - basically anything where things go back and forth
-	{ "tpope/vim-unimpaired" },
+  -- provide ]q ]e etc - basically anything where things go back and forth
+  { "tpope/vim-unimpaired" },
 
-	-- Yank Ring
-	{ "bfredl/nvim-miniyank" },
+  -- Yank Ring
+  { "bfredl/nvim-miniyank" },
 
-	-- Close everything but the current buffer
-	{ "duff/vim-bufonly" },
+  -- Close everything but the current buffer
+  { "duff/vim-bufonly" },
 
-	-- It's basically an inflector
-	{ "tpope/vim-abolish" },
+  -- It's basically an inflector
+  { "tpope/vim-abolish" },
 
-	-- Tabularize
-	{ "godlygeek/tabular" },
+  -- Tabularize
+  { "godlygeek/tabular" },
 
-	-- Commenting
-	{ "tpope/vim-commentary" },
+  -- Commenting
+  { "tpope/vim-commentary" },
 
-	-- Use <C-a> and <C-x> to increment/decrement dates
-	{ "tpope/vim-speeddating" },
+  -- Use <C-a> and <C-x> to increment/decrement dates
+  { "tpope/vim-speeddating" },
 
-	-- Swap treesitter nodes
-	{ "mizlan/iswap.nvim" },
+  -- Swap treesitter nodes
+  { "mizlan/iswap.nvim" },
+
+  -- Custom operator definition in Lua
+  { "zdcthomas/yop.nvim" },
 }

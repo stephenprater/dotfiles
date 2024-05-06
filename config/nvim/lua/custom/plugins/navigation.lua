@@ -3,7 +3,16 @@ return {
   { "mbbill/undotree" },
 
   -- Visualize your marks
-  { "chentoast/marks.nvim" },
+  {
+    "chentoast/marks.nvim",
+    config = function()
+      require("marks").setup({
+        default_mappings = true,
+        signs = true,
+        mappings = {},
+      })
+    end,
+  },
 
   -- Search the highlight word with RipGrep
   { "jremmen/vim-ripgrep" },
