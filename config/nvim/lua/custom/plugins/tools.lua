@@ -72,7 +72,7 @@ return {
 
       vim.keymap.set("i", "<Esc>", function()
         if require("copilot.suggestion").is_visible() then
-          require("copilot.suggestion").cancel()
+          require("copilot.suggestion").dismiss()
           return
         else
           return keys["esc"]

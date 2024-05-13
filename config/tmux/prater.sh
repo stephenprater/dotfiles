@@ -34,7 +34,11 @@ TMUX_POWERLINE_DEFAULT_RIGHTSIDE_SEPARATOR=${TMUX_POWERLINE_DEFAULT_RIGHTSIDE_SE
 
 TMUX_POWERLINE_STATUS_JUSTIFICATION="left"
 
-# Format: segment_name background_color foreground_color [non_default_separator]
+TMUX_POWERLINE_GITSTATUS_RESET=${background}
+TMUX_POWERLINE_GITSTATUS_CLEAN_COLOR=${green}
+TMUX_POWERLINE_GITSTATUS_UNTRACKED_COLOR=${cyan}
+TMUX_POWERLINE_GITSTATUS_MODIFIED_COLOR=${yellow}
+TMUX_POWERLINE_GITSTATUS_CONFLICT_COLOR=${red}
 
 if [ -z $TMUX_POWERLINE_WINDOW_STATUS_CURRENT ]; then
 	TMUX_POWERLINE_WINDOW_STATUS_CURRENT=(
@@ -42,7 +46,7 @@ if [ -z $TMUX_POWERLINE_WINDOW_STATUS_CURRENT ]; then
 		"" \
     "#[bg=${orange} fg=${background}]" \
 		" #I#[fg=${dark_purple}]#{s|\*| |:window_flags} #[fg=${background}]" \
-    "|" \
+    "" \
 		" #W " \
     "#[bg=${background} fg=${orange}]" \
     ""
@@ -61,22 +65,22 @@ if [ -z $TMUX_POWERLINE_WINDOW_STATUS_FORMAT ]; then
     "#{?window_activity_flag,#[fg=${background} bg=${red}],}" \
     "  #I#{s/-/ /;s/Z/ /;s/\!/ /;s/#//:window_flags} " \
     "#{?window_activity_flag, ,}" \
-    "|" \
+    "" \
 		" #W "
 	)
 fi
 
 if [ -z $TMUX_POWERLINE_LEFT_STATUS_SEGMENTS ]; then
 	TMUX_POWERLINE_LEFT_STATUS_SEGMENTS=(
-		"tmux_session_info ${light_purple} ${white}" \
-    "$TMUX_POWERLINE_SEPARATOR_LEFT_BOLD" \
-		# "spin ${gray} ${cyan}"
+		"tmux_session_info ${light_purple} ${white} $TMUX_POWERLINE_SEPARATOR_LEFT_BOLD" \
 	)
 fi
 
 if [ -z $TMUX_POWERLINE_RIGHT_STATUS_SEGMENTS ]; then
 	TMUX_POWERLINE_RIGHT_STATUS_SEGMENTS=(
-		 "load ${gray} ${green}" \
+     "tool_verions ${background} ${green}" \
+     "gitstatus ${background} ${cyan}" \
+		 "load ${gray} ${green}"\
 		 "date ${dark_gray} ${orange}" \
 		 "time ${background} ${cyan}" \
 		 "platform 0 ${red}" \

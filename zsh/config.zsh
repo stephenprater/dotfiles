@@ -47,9 +47,7 @@ bindkey "^P" history-search-backward
 bindkey "^A" beginning-of-line
 bindkey "^E" end-of-line
 
-toggle-prompt() p10k display '1'='hide,show'
-zle -N toggle-prompt
-bindkey '^Y' toggle-prompt
+bindkey '^Y' vi-cmd-mode
 
 # external editor support
 # autoload edit-command-line

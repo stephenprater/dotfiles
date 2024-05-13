@@ -30,6 +30,7 @@ ln -sf $DOTHOME/config/git/config $HOME/.gitconfig
 
 ln -sf $DOTHOME/inputrc $HOME/.inputrc
 
+ln -sf $DOTHOME/config/asdfrc $HOME/.asdfrc
 
 if [ $(uname -a | grep "Darwin") ]; then
   brew bundle

@@ -1,21 +1,12 @@
+source /opt/homebrew/opt/antidote/share/antidote/antidote.zsh
+antidote load $HOME/.dotfiles/zsh/zsh_plugins.txt
+
 if [ -x "/opt/homebrew/bin/brew" ]; then
   eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 
 if [ -x "/usr/local/bin/brew" ]; then
   eval "$(/usr/local/bin/brew shellenv)"
-fi
-
-if [ -f "/opt/dev/sh/chruby/chruby.sh" ]; then
-  source /opt/dev/sh/chruby/chruby.sh;
-fi
-
-if [ -s "/opt/homebrew/opt/nvm/nvm.sh" ]; then
-  source /opt/homebrew/opt/nvm/nvm.sh
-fi
-
-if [ -s "/opt/homebrew/opt/asdf/libexec/asdf.sh" ]; then
-  source /opt/homebrew/opt/asdf/libexec/asdf.sh
 fi
 
 if [ -f "/opt/dev/dev.sh" ]; then
@@ -92,10 +83,6 @@ if [ -x "$(command -v poetry)" ]; then
   eval $(poetry completions zsh)
 fi
 
-if [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ]; then
-  source "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
-fi
-
 # set cd autocompletion to commonly visited directories
 setopt auto_cd
 cdpath=(. ~/src $SOURCE_DIR/github.com/stephenprater $SOURCE_DIR/github.com/Shopify)
@@ -143,20 +130,23 @@ bindkey '' predict-toggle
 zstyle ':predict' toggle true
 zstyle ':predict' verbose true
 
-[[ -f /opt/dev/sh/chruby/chruby.sh ]] && { type chruby >/dev/null 2>&1 || chruby () { source /opt/dev/sh/chruby/chruby.sh; chruby "$@"; } }
+export POETRY_HOME="$HOME/.local/share/pypoetry"
 
 [[ -x /opt/homebrew/bin/brew ]] && eval $(/opt/homebrew/bin/brew shellenv)
-
-
-if [[ ! "$(command -v pyenv >/dev/null)" ]]; then
-  export PYENV_ROOT="$HOME/.pyenv"
-  export PATH="$DOTHOME/squashfs/usr/bin:$HOME/.local/bin:$PYENV_ROOT/shims:$PATH"
-  eval "$(pyenv init -)"
-fi
-
-export POETRY_HOME="$HOME/.local/share/pypoetry"
 
 # cloudplatform: add Shopify clusters to your local kubernetes config
 export KUBECONFIG=${KUBECONFIG:+$KUBECONFIG:}/Users/stephenprater/.kube/config:/Users/stephenprater/.kube/config.shopify.cloudplatform
 
-source $DOTHOME/zsh/powerlevel10k/powerlevel10k.zsh-theme
+MNML_INSERT_CHAR="%{\e[36m%}❯%{\e[0m%}"
+MNML_NORMAL_CHAR="%{\e[36m%}❮%{\e[0m%}"
+MNML_USER_CHAR="❯"
+MNML_BGJOB_MODE=0
+MNML_PROMPT=(job_dots mnml_status 'mnml_cwd 1 0' mnml_keymap)
+MNML_RPROMPT=()
+MNML_INFOLN=(clear_line mnml_ssh tool_versions)
+MNML_MAGICENTER=(mnml_me_dirs git_status)
+source $DOTHOME/plugins/minimal/minimal.zsh
+
+. /opt/homebrew/opt/asdf/libexec/asdf.sh
+
+[[ -f /opt/dev/sh/chruby/chruby.sh ]] && { type chruby >/dev/null 2>&1 || chruby () { source /opt/dev/sh/chruby/chruby.sh; chruby "$@"; } }
