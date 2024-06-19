@@ -16,3 +16,6 @@
 [submodule "plugins/minimal"]
 	path = plugins/minimal
 	url = https://github.com/subnixr/minimal.git
+[submodule "plugins/antidote"]
+	path = plugins/antidote
+	url = https://github.com/mattmc3/antidote.git

@@ -76,7 +76,8 @@ return {
           local start, stop = status:find("recording ..")
           if start ~= nil then
             local add = status:sub(start, stop)
-            return "%#NoiceAttr253#" .. add
+            local with_symbol = add:gsub("recording", "󰻂")
+            return "%#Error#" .. with_symbol
           end
         end
 
@@ -125,8 +126,8 @@ return {
       wk.register({
         ["]"] = {
           name = "window",
-          ["-"] = { "<C-W>-", "Size Down" },
-          ["="] = { "<C-W>+", "Size Up" },
+          ["'"] = { "<C-W>+", "Size Up" },
+          ["/"] = { "<C-W>-", "Size Down" },
           ["."] = { "<C-W>>", "Size Right" },
           [","] = { "<C-W><", "Size Left" },
           ["j"] = { "<C-W>", "Move Down" },
@@ -227,7 +228,7 @@ return {
           ["c"] = { ":lua require('dap').continue()<CR>", "Continue" },
           ["f"] = { ":lua require('dap').step_out()<CR>", "Step Out" },
           ["<F5>"] = { ":lua require('osv').launch({port=8086})<CR>", "Connect to Lua" },
-          ["u"] = { ":lua require('dapui').toggle({})", "Toggle DAP UI" },
+          ["u"] = { ":lua require('dapui').toggle({})<CR>", "Toggle DAP UI" },
         },
         ["<leader><leader>"] = {
           name = "Tools",
@@ -275,7 +276,14 @@ return {
             event = "msg_show",
             kind = "echomsg",
           },
-          view = "split",
+          view = "mini",
+        },
+        {
+          filter = {
+            event = "msg_show",
+            kind = "echo",
+          },
+          view = "mini",
         },
         {
           filter = {

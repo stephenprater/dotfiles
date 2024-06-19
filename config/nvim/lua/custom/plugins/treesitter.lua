@@ -55,40 +55,30 @@ return {
           },
         },
       })
-    end,
-  },
-  {
-    "ziontee113/syntax-tree-surfer",
-    dependencies = "nvim-treesitter/nvim-treesitter",
-    config = function()
-      local sts = require("syntax-tree-surfer")
-      local sts_opts = { noremap = true, silent = true }
 
-      -- Swapping Nodes in Visual Mode
-      vim.keymap.set("n", "vx", "<cmd>STSSelectMasterNode<cr>", sts_opts)
-      vim.keymap.set("n", "vn", "<cmd>STSSelectCurrentNode<cr>", sts_opts)
-      vim.keymap.set("x", "J", "<cmd>STSSelectNextSiblingNode<cr>", sts_opts)
-      vim.keymap.set("x", "K", "<cmd>STSSelectPrevSiblingNode<cr>", sts_opts)
-      vim.keymap.set("x", "H", "<cmd>STSSelectParentNode<cr>", sts_opts)
-      vim.keymap.set("x", "L", "<cmd>STSSelectChildNode<cr>", sts_opts)
-      vim.keymap.set("x", "<A-j>", "<cmd>STSSwapNextVisual<cr>", sts_opts)
-      vim.keymap.set("x", "<A-k>", "<cmd>STSSwapPrevVisual<cr>", sts_opts)
+      local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
+      parser_config.jinja2 = {
+        install_info = {
+          url = "/Users/stephenprater/src/gihub.com/dbt-labs/tree-sitter-jinja2",
+          files = { "src/parser.c" },
+          branch = "main",
+          generate_requires_npm = false,
+          requires_generate_from_grammar = false,
+        },
+        filetype = "jinja2",
+      }
 
-      vim.keymap.set("n", "gt", function()
-        sts.targeted_jump({
-          "module",
-          "class",
-          "method",
-          "if",
-          "do_block",
-          "block",
-          "function",
-          "object",
-          "arguments",
-          "property",
-          "name",
-        })
-      end)
+      parser_config.tree_sitter_query = {
+        install_info = {
+          url = "https://github.com/tree-sitter-grammars/tree-sitter-query",
+          files = { "src/parser.c" },
+          branch = "main",
+          generate_requires_npm = false,
+          requires_generate_from_grammar = false,
+        },
+        filetype = "query",
+      }
+      vim.keymap.set("n", "<leader>q", "<cmd>TSPlaygroundToggle<cr>")
     end,
   },
   { "RRethy/nvim-treesitter-textsubjects", dependencies = "nvim-treesitter/nvim-treesitter" },

@@ -15,6 +15,7 @@
   (paragraph)
   (ranged_tag)
   (ranged_tag_content)
+  (ranged_verbatim_tag_content)
   (generic_list)
 ] @_start @_end)
 (#make-range! "range" @_start @_end)

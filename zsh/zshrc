@@ -1,27 +1,8 @@
-source /opt/homebrew/opt/antidote/share/antidote/antidote.zsh
+source $HOME/.dotfiles/plugins/antidote/antidote.zsh
 antidote load $HOME/.dotfiles/zsh/zsh_plugins.txt
-
-if [ -x "/opt/homebrew/bin/brew" ]; then
-  eval "$(/opt/homebrew/bin/brew shellenv)"
-fi
-
-if [ -x "/usr/local/bin/brew" ]; then
-  eval "$(/usr/local/bin/brew shellenv)"
-fi
-
-if [ -f "/opt/dev/dev.sh" ]; then
-  source /opt/dev/dev.sh
-fi
-
-if [ -f ~/.fzf.zsh ]; then
-  source ~/.fzf.zsh
-fi
 
 # shortcut to this dotfiles path is $DOTHOME
 export DOTHOME=$HOME/dotfiles
-
-# source folder that we can `scd [tab]` into
-export SOURCE_DIR=$HOME/src
 
 # all of our zsh files
 typeset -U config_files
@@ -39,6 +20,8 @@ for file in ${${${config_files:#*/path.zsh}:#*/completion.zsh}:#*completion/*}
 do
   source $file
 done
+
+[[ -x /opt/homebrew/bin/brew ]] && eval "$(/opt/homebrew/bin/brew shellenv)"
 
 if [ ! $SPIN ]; then
   FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
@@ -85,6 +68,7 @@ fi
 
 # set cd autocompletion to commonly visited directories
 setopt auto_cd
+SOURCE_DIR=$HOME/src
 cdpath=(. ~/src $SOURCE_DIR/github.com/stephenprater $SOURCE_DIR/github.com/Shopify)
 
 zmodload -i zsh/parameter
@@ -130,9 +114,9 @@ bindkey '' predict-toggle
 zstyle ':predict' toggle true
 zstyle ':predict' verbose true
 
-export POETRY_HOME="$HOME/.local/share/pypoetry"
+bindkey -M vicmd 'q:' fzf-history-widget
 
-[[ -x /opt/homebrew/bin/brew ]] && eval $(/opt/homebrew/bin/brew shellenv)
+export POETRY_HOME="$HOME/.local/share/pypoetry"
 
 # cloudplatform: add Shopify clusters to your local kubernetes config
 export KUBECONFIG=${KUBECONFIG:+$KUBECONFIG:}/Users/stephenprater/.kube/config:/Users/stephenprater/.kube/config.shopify.cloudplatform
@@ -141,12 +125,22 @@ MNML_INSERT_CHAR="%{\e[36m%}❯%{\e[0m%}"
 MNML_NORMAL_CHAR="%{\e[36m%}❮%{\e[0m%}"
 MNML_USER_CHAR="❯"
 MNML_BGJOB_MODE=0
-MNML_PROMPT=(job_dots mnml_status 'mnml_cwd 1 0' mnml_keymap)
-MNML_RPROMPT=()
+MNML_PROMPT=(job_dots mnml_pyenv_dot 'mnml_cwd 1 0' 'mnml_chrome " "' mnml_status mnml_keymap)
+MNML_RPROMPT=(dirty_graph)
 MNML_INFOLN=(clear_line mnml_ssh tool_versions)
-MNML_MAGICENTER=(mnml_me_dirs git_status)
-source $DOTHOME/plugins/minimal/minimal.zsh
+MNML_MAGICENTER=(mnml_me_dirs git_status mnml_pyenv)
+MNML_JOIN_CHAR="%{\u200b%}"
+source $DOTHOME/zsh/prompt.zsh
 
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
+source /opt/dev/dev.sh
+source ~/.fzf.zsh
+source /opt/homebrew/opt/asdf/libexec/asdf.sh
+source /opt/dev/sh/chruby/chruby.sh;
+
+[[ -x /opt/homebrew/bin/brew ]] && eval "$(/opt/homebrew/bin/brew shellenv)"
+[[ -x /opt/homebrew/bin/shadowenv ]] && eval "$(shadowenv init zsh)"
+typeset -f pyenv > /dev/null && eval "$(pyenv virtualenv-init -)"
 
 [[ -f /opt/dev/sh/chruby/chruby.sh ]] && { type chruby >/dev/null 2>&1 || chruby () { source /opt/dev/sh/chruby/chruby.sh; chruby "$@"; } }
+
+[[ -x /opt/homebrew/bin/brew ]] && eval $(/opt/homebrew/bin/brew shellenv)

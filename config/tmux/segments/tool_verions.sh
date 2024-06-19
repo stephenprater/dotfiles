@@ -36,7 +36,6 @@ local colors=(
   "${violet}"
   "${pink}"
 )
-
 source "${TMUX_POWERLINE_DIR_LIB}/tmux_adapter.sh"
 
 TMUX_POWERLINE_TOOL_COLOR_RUBY=$pink
@@ -48,52 +47,34 @@ TMUX_POWERLINE_TOOL_ICON_NODEJS=""
 TMUX_POWERLINE_TOOL_COLOR_NODEJS=$yellow
 
 run_segment() {
-  local tool_background=$1
-  local tool_foreground=$2
   local tmux_path=$(get_tmux_cwd)
-  local versions=$(cd $tmux_path && asdf current | awk '{ print($1"|"$2"|"$3) }')
-  local tool_string
-  while IFS= read -r version; do
-    IFS='|' read -ra arr <<< "$version"
-    if [[ ${arr[2]} == *"$tmux_path"* ]]; then
-      local lang=$(echo "${arr[0]}" | awk '{print toupper($0)}')
-      local color="$(__tool_color "${arr[0]}" )"
-      local icon="$(__tool_icon "${arr[0]}" )"
-      tool_string+="#[fg=${color}]"
-      tool_string+="${icon} "
-      tool_string+="${arr[1]} #[fg=${tool_foreground}]${TMUX_POWERLINE_TOOL_SEPARATOR} "
-    fi
-  done <<< "$versions"
+  gawk -v OFS=' ' '
+     function color(c, string) {
+       colors["red"] = "#[fg=#C34043]"
+       colors["green"] = "#[fg=#98BB6C]"
+       colors["yellow"] = "#[fg=#DCA561]"
+       colors["blue"]  = "#[fg=#739CD8]"
+       colors["violet"]  = "#[fg=#957FB8]"
+       colors["light_blue"]  = "#[fg=#7FB4CA]"
+       colors["white"] = "#[fg=#DCD7BA]"
+       return colors[c] string
+     }
 
-  echo "${tool_string}"
+    function icons(lang) {
+      _icons["lua"] = color("violet","󰢱")
+      _icons["python"] = color("green","")
+      _icons["ruby"] = color("red","")
+      _icons["nodejs"] = color("yellow","󰎙")
+
+      return _icons[lang]
+    }
+
+    {
+      printf("%s %s  ",icons($1),$2)
+    }
+  ' \
+    <(asdf current 2>&1) \
+    <(shadowenv exec --dir $tmux_path -- ruby --version) \
+    <(shadowenv exec --dir $tmux_path -- node --version | gawk -v OFS=' ' ' { print("nodejs", $1) }') \
+    <(shadowenv exec --dir $tmux_path -- python --version | gawk -v OFS=' ' '{ print("python", $2) }')
 }
-
-__tool_color() {
-  local tool=$1
-  local lang=$(echo "${arr[0]}" | awk '{print toupper($0)}')
-  local explicit_color=$(eval "echo \${TMUX_POWERLINE_TOOL_COLOR_${lang}}")
-  if [ -z "${explicit_color}" ]; then
-    local hash_color_dec=$(echo "$((16#$(echo "nodejs" | md5sum | cut -c1 )))")
-    echo "${colors[$((hash_color_dec % 15))]}"
-  else
-    echo "${explicit_color}"
-  fi
-}
-
-__tool_icon() {
-  local tool=$1
-  local lang=$(echo "${arr[0]}" | awk '{print toupper($0)}')
-  local explicit_icon=$(eval "echo \${TMUX_POWERLINE_TOOL_ICON_${lang}}")
-  if [ -z "${explicit_icon}" ]; then
-    echo "${tool}"
-  else
-    echo "${explicit_icon}"
-  fi
-}
-
-
-__random_color() {
-    echo "${colors[$RANDOM % ${#colors[@]}]}"
-}
-
-

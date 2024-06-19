@@ -32,6 +32,13 @@ return {
     end,
   },
   {
+    "mattn/emmet-vim",
+    config = function()
+      vim.g.user_emmet_install_global = 0
+      vim.g.user_emmet_leader_key = "<C-y>"
+    end,
+  },
+  {
     "dmmulroy/tsc.nvim",
     config = function()
       require("tsc").setup()
@@ -86,45 +93,45 @@ return {
       })
     end,
   },
-  {
-    "robitx/gp.nvim",
-    config = function()
-      if vim.fn.executable("openai_key") == 1 then
-        vim.fn.system("openai_key")
-      else
-        vim.notify("Who are you? You're not running this in Prater's dotfiles.", vim.log.levels.ERROR)
-        return
-      end
+  -- {
+  --   "robitx/gp.nvim",
+  --   config = function()
+  --     if vim.fn.executable("openai_key") == 1 then
+  --       vim.fn.system("openai_key")
+  --     else
+  --       vim.notify("Who are you? You're not running this in Prater's dotfiles.", vim.log.levels.ERROR)
+  --       return
+  --     end
 
-      local file = io.open(os.getenv("HOME") .. "/.oai-proxy-details", "r")
-      if not file then
-        vim.notify("No proxy details found.", vim.log.levels.ERROR)
-        return
-      end
+  --     local file = io.open(os.getenv("HOME") .. "/.oai-proxy-details", "r")
+  --     if not file then
+  --       vim.notify("No proxy details found.", vim.log.levels.ERROR)
+  --       return
+  --     end
 
-      local data = file:read("*a")
-      file:close()
-      local proxy_info = vim.fn.json_decode(data)
+  --     local data = file:read("*a")
+  --     file:close()
+  --     local proxy_info = vim.fn.json_decode(data)
 
-      gp = require("gp")
+  --     gp = require("gp")
 
-      gp.setup({
-        openai_api_key = proxy_info.key,
-        openai_api_endpoint = proxy_info.base .. "/v1/chat/completions",
-        chat_shortcut_respond = { modes = { "n", "i", "v", "x" }, shortcut = "<leader>c<Enter>" },
-        chat_shortcut_delete = { modes = { "n", "i", "v", "x" }, shortcut = "<leader>cx" },
-        chat_shortcut_stop = { modes = { "n", "i", "v", "x" }, shortcut = "<leader>cs" },
-        chat_user_prefix = "👤:",
-      })
+  --     gp.setup({
+  --       openai_api_key = proxy_info.key,
+  --       openai_api_endpoint = proxy_info.base .. "/v1/chat/completions",
+  --       chat_shortcut_respond = { modes = { "n", "i", "v", "x" }, shortcut = "<leader>c<Enter>" },
+  --       chat_shortcut_delete = { modes = { "n", "i", "v", "x" }, shortcut = "<leader>cx" },
+  --       chat_shortcut_stop = { modes = { "n", "i", "v", "x" }, shortcut = "<leader>cs" },
+  --       chat_user_prefix = "👤:",
+  --     })
 
-      vim.keymap.set({ "v", "o", "x" }, "<leader>cr", ":GpImplement<CR>", { noremap = true })
+  --     vim.keymap.set({ "v", "o", "x" }, "<leader>cr", ":GpImplement<CR>", { noremap = true })
 
-      require("which-key").register({
-        ["<leader>"] = {
-          name = "Chat",
-          ["cc"] = { ":GpChatNew", "Chat" },
-        },
-      })
-    end,
-  },
+  --     require("which-key").register({
+  --       ["<leader>"] = {
+  --         name = "Chat",
+  --         ["cc"] = { ":GpChatNew", "Chat" },
+  --       },
+  --     })
+  --   end,
+  -- },
 }

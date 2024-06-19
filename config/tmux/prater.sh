@@ -13,6 +13,8 @@ else
 	TMUX_POWERLINE_SEPARATOR_RIGHT_THIN="❯"
 fi
 
+TMUX_POWERLINE_STATUS_RIGHT_LENGTH=250
+
 white='#dcd7ba'        # fujiWhite
 gray='#2a2a37'         # sumiInk4
 dark_gray='#1a1a22'    # sumiInk2

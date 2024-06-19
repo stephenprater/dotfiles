@@ -31,6 +31,31 @@ load_avg() {
   echo $LA
 }
 
+dirty_dot() {
+  local _r="%{\e[31m%}"
+  local _w="%{\e[0m%}"
+  local dirty=$(expr $(git status --porcelain 2> /dev/null | wc -l))
+  if [ $dirty -gt 0 ]; then
+    printf "%b" "$_r•$_w"
+  fi
+}
+
+
+dirty_graph() {
+  local _r="%{\e[31m%}"
+  local _w="%{\e[0m%}"
+  local graph=("⡀" "⣀" "⣄" "⣤" "⣴" "⣶" "⣾" "⣿")
+  local dirty=$(expr $(git status --porcelain 2> /dev/null | wc -l))
+  if [ $dirty -lt 8 ]; then
+    printf "%b" "$_r${graph[$dirty]}$_w"
+  else
+    local count=$(($dirty / 8))
+    local dirty=$((count % 8))
+    printf -v counts '%*s' $count
+    printf "%b " "$_r${counts// /⣿}${graph[$dirty]}$_w"
+  fi
+}
+
 job_dots() {
     local _w="%{\e[0m%}"
     local _g="%{\e[38;5;244m%}"
@@ -40,7 +65,7 @@ job_dots() {
     if [ "$job_n" -gt 0 ]; then
       printf -v output '%*s' "$job_n"
       output=${output// /$char}
-      echo "$output"
+      echo "$output "
     fi
 }
 
@@ -74,7 +99,10 @@ tool_versions() {
     {
       printf("%s %s %s",icons($1),$2, colors["white"])
     }
-  ' <(asdf current 2>&1)
+  ' <(asdf current 2>&1) \
+    <(shadowenv exec -- ruby --version) \
+    <(shadowenv exec -- node --version | gawk -v OFS=' ' ' { print("nodejs", $1) }') \
+    <(shadowenv exec -- python --version | gawk -v OFS=' ' '{ print("python", $2) }')
 }
 
 git_status() {
@@ -141,10 +169,10 @@ git_status() {
       }
       ($1 == "#") {
         if($2 == "branch.head") {
-          printf("%s  %s", color("light_gray", ""), color("light_gray",$3))
+          printf("%s  %s\n", color("light_gray", ""), color("light_gray",$3))
         }
         if($2 == "branch.upstream") {
-          printf(" → %s ", color("light_blue", $3))
+          printf(" → %s\n", color("light_blue", $3))
         }
         if($2 == "branch.ab") {
           gsub(/+/, color("blue","⇡"), $3)

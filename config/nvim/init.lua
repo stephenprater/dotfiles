@@ -37,9 +37,7 @@ vim.opt.signcolumn = "yes"
 vim.o.number = true
 
 vim.g.leader = "/"
-vim.g.localleader = "//"
 
-vim.g.copilot_node_command = vim.fn.expand("~") .. "/.nvm/versions/node/v16.13.0/bin/node"
 vim.g.vsnip_snippit_dir = vim.fn.expand("~") .. "/.config/nvim/snippets"
 
 vim.g.utl_cfg_hdl_scm_http = "silent !open -a chrome '%u#%f'"
