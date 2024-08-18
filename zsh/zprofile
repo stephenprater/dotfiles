@@ -1,2 +1,5 @@
 export KEYBASE=/keybase/private/stephenprater
 export DOTHOME=~/dotfiles
+
+# Created by `pipx` on 2024-07-13 01:20:44
+export PATH="$PATH:/Users/stephenprater/.local/bin"

@@ -1,0 +1,9 @@
+{
+  "Pretty Print": {
+    "prefix": "ap",
+    "body": [
+      "from IPython.lib.pretty import pprint",
+      "pprint($TM_SELECTED_TEXT)"
+    ]
+  }
+}

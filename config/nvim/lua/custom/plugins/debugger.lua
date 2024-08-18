@@ -6,7 +6,7 @@ return {
         config = {
           repl_definition = {
             ruby = {
-              command = { "pry", "--no-pager" },
+              command = { "bundle", "exec", "irb" },
             },
             rails = {
               command = { "bundle", "exec", "rails", "console" },
@@ -22,6 +22,11 @@ return {
             elixir = {
               mix = {
                 command = { "iex", "-S", "mix" },
+              },
+            },
+            clojure = {
+              lein = {
+                command = { "lein", "repl" },
               },
             },
             typescript = {
@@ -131,6 +136,13 @@ return {
           request = "launch",
           module = "pytest",
           args = { "${file}", "-sv", "--log-cli-level=INFO" },
+          justMyCode = false,
+        },
+        {
+          name = "Launch File",
+          type = "python",
+          request = "launch",
+          program = "${file}",
           justMyCode = false,
         },
         {

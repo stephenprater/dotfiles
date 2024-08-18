@@ -21,6 +21,7 @@ return {
         "gopls",
         "lua-language-server",
         "pyright",
+        "ruff-lsp",
         "ruby-lsp",
         "rust-analyzer",
         "sorbet",
@@ -49,6 +50,7 @@ return {
           end
         end
       end
+
       if mr.refresh then
         mr.refresh(ensure_installed)
       else
@@ -70,7 +72,7 @@ return {
             debounce_text_changes = 150,
             on_attach = function(client, bufnr)
               require("lsp-format").on_attach(client, bufnr)
-              vim.notify("Formatting")
+              print("Formatting...")
             end,
           }
 
@@ -81,15 +83,25 @@ return {
           require("lspconfig")["rust_analyzer"].setup({})
         end,
 
-        ["pyright"] = function()
+        ["basedpyright"] = function()
           require("lspconfig")["pyright"].setup({
             on_new_config = function(config, root_dir)
-              local env =
-                  vim.trim(vim.fn.system('cd "' .. root_dir .. '"; poetry env info -p 2>/dev/null'))
-              if string.len(env) > 0 then
-                config.settings.python.venvPath = env
+              local python_path =
+                  vim.trim(vim.fn.system('cd "' .. root_dir .. '"; poetry env info -e 2>/dev/null'))
+              if string.len(python_path) > 0 then
+                config.settings.python.pythonPath = python_path
               end
             end,
+          })
+        end,
+
+        ["ruff-lsp"] = function()
+          require("lspconfig")["ruff-lsp"].setup({
+            init_options = {
+              settings = {
+                args = { "F", "E", "W", "I001" },
+              },
+            },
           })
         end,
 
@@ -120,12 +132,6 @@ return {
       })
     end,
   },
-  {
-    "karloskar/poetry-nvim",
-    config = function()
-      require("poetry-nvim").setup()
-    end,
-  },
   { "folke/neodev.nvim" },
   {
     "jose-elias-alvarez/typescript.nvim",
@@ -141,10 +147,11 @@ return {
       local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
       local null_ls = require("null-ls")
       local sources = {
+        null_ls.builtins.code_actions.refactoring,
         null_ls.builtins.code_actions.gitsigns,
-        null_ls.builtins.formatting.black,
-        null_ls.builtins.formatting.isort,
+        null_ls.builtins.formatting.prettier,
         null_ls.builtins.formatting.stylua,
+        -- null_ls.builtins.formatting.black,
         require("typescript.extensions.null-ls.code-actions"),
       }
 

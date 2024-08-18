@@ -94,9 +94,7 @@ if [ ! $SPIN ]; then
   export HOST_IP=$(ipconfig getifaddr en0)
 fi
 
-export GOPATH=$HOME/golang
-export GOROOT=/usr/local/opt/go/libexec
-export PATH=$PATH:$GOPATH/bin:$GOROOT/bin:$DOTHOME/script
+export PATH=$PATH:$DOTHOME/script
 export PKG_CONFIG_PATH=/opt/homebrew/lib/pkgconfig:$PKG_CONFIG_PATH
 
 # # Load Environment Credenials from Keybase
@@ -121,15 +119,15 @@ export POETRY_HOME="$HOME/.local/share/pypoetry"
 # cloudplatform: add Shopify clusters to your local kubernetes config
 export KUBECONFIG=${KUBECONFIG:+$KUBECONFIG:}/Users/stephenprater/.kube/config:/Users/stephenprater/.kube/config.shopify.cloudplatform
 
-MNML_INSERT_CHAR="%{\e[36m%}❯%{\e[0m%}"
-MNML_NORMAL_CHAR="%{\e[36m%}❮%{\e[0m%}"
-MNML_USER_CHAR="❯"
-MNML_BGJOB_MODE=0
-MNML_PROMPT=(job_dots mnml_pyenv_dot 'mnml_cwd 1 0' 'mnml_chrome " "' mnml_status mnml_keymap)
-MNML_RPROMPT=(dirty_graph)
-MNML_INFOLN=(clear_line mnml_ssh tool_versions)
-MNML_MAGICENTER=(mnml_me_dirs git_status mnml_pyenv)
-MNML_JOIN_CHAR="%{\u200b%}"
+STRML_INSERT_CHAR="%{\e[36m%}❯%{\e[0m%}"
+STRML_NORMAL_CHAR="%{\e[36m%}❮%{\e[0m%}"
+STRML_USER_CHAR="❯"
+STRML_BGJOB_MODE=0
+STRML_PROMPT=(job_dots strml_pyenv_dot 'strml_cwd 1 0' 'strml_chrome " "' strml_gitstatus_char strml_status strml_keymap)
+STRML_RPROMPT=(dirty_graph)
+STRML_INFOLN=(clear_line strml_ssh tool_versions)
+STRML_MAGICENTER=(strml_me_dirs git_status strml_pyenv)
+STRML_JOIN_CHAR="%{\u200b%}"
 source $DOTHOME/zsh/prompt.zsh
 
 source /opt/dev/dev.sh
@@ -142,5 +140,8 @@ source /opt/dev/sh/chruby/chruby.sh;
 typeset -f pyenv > /dev/null && eval "$(pyenv virtualenv-init -)"
 
 [[ -f /opt/dev/sh/chruby/chruby.sh ]] && { type chruby >/dev/null 2>&1 || chruby () { source /opt/dev/sh/chruby/chruby.sh; chruby "$@"; } }
+
+# Created by `pipx` on 2024-07-13 01:20:44
+export PATH="$PATH:/Users/stephenprater/.local/bin"
 
 [[ -x /opt/homebrew/bin/brew ]] && eval $(/opt/homebrew/bin/brew shellenv)

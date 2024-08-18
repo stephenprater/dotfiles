@@ -80,7 +80,7 @@ fi
 
 if [ -z $TMUX_POWERLINE_RIGHT_STATUS_SEGMENTS ]; then
 	TMUX_POWERLINE_RIGHT_STATUS_SEGMENTS=(
-     "tool_verions ${background} ${green}" \
+     "tool_versions ${background} ${green}" \
      "gitstatus ${background} ${cyan}" \
 		 "load ${gray} ${green}"\
 		 "date ${dark_gray} ${orange}" \

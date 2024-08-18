@@ -59,7 +59,6 @@ return {
     "nvim-lualine/lualine.nvim",
     lazy = false,
     dependencies = {
-      "nvim-lua/lsp-status.nvim",
       "folke/noice.nvim",
     },
     config = function()
@@ -68,7 +67,7 @@ return {
       custom_nord.normal.b.bg = "#1f1f28"
       custom_nord.normal.a.bg = "#1f1f28"
 
-      local lsp_status = require("lsp-status")
+      -- local lsp_status = require("lsp-status")
 
       local noice = function()
         if require("noice").api.status.mode.has then
@@ -91,21 +90,8 @@ return {
             "mode",
             noice,
           },
-          lualine_y = {
-            "progress",
-            lsp_status.status,
-          },
         },
       })
-    end,
-  },
-
-  -- Put the status of the LSP
-  {
-    "nvim-lua/lsp-status.nvim",
-    config = function()
-      local lsp_status = require("lsp-status")
-      lsp_status.register_progress()
     end,
   },
 
@@ -124,6 +110,8 @@ return {
       })
 
       wk.register({
+        ["dm"] = { ":execute 'delmarks '.nr2chart(getchar())<cr>" },
+        [";"] = { ":HopWord<CR>", "Hop Word" },
         ["]"] = {
           name = "window",
           ["'"] = { "<C-W>+", "Size Up" },
@@ -143,14 +131,16 @@ return {
         },
         [","] = {
           name = "navigate",
+          ["f"] = { ":Files<CR>", "Show Files" },
           ["b"] = { ":Buffers<CR>", "Show Buffers" },
           ["r"] = { ":History<CR>", "Show History" },
           ["q"] = { ":History:<CR>", "Show Command History" },
           ["y"] = { ":YanksBefore<CR>", "Yank Ring" },
           ["x"] = { ":NvimTreeToggle<CR>", "Toggle NvimTree" },
-          ["u"] = { ":UndotreeShow<CR>", "Show Undotree" },
+          ["u"] = { ":UndotreeToggle<CR>", "Show Undotree" },
           ["m"] = { ":Marks<CR>", "Choose Mark" },
-          ["g"] = { ":TagbarToggle<CR>", "Show Tagbar" },
+          ["g"] = { ":DocumentSymbols<CR>", "Show DocumentSymbols" },
+          ["t"] = { ":AerialToggle right<CR>", "Show Tagbar" },
           ["n"] = {
             name = "neotest",
             ["o"] = { ":Neotest output-panel<CR>", "Neotest Output" },
@@ -174,9 +164,10 @@ return {
         },
         ["<leader>"] = {
           name = "tests",
-          ["nt"] = { ":lua require('neotest').run.run()", "Test Nearest" },
-          ["nT"] = { ":lua require('neotest').run.run(vim.fn.expand('%'))", "Test File" },
-          ["nd"] = { ":lua require('neotest').run.run({ strategy = 'dap' })", "Debug Test" },
+          ["nt"] = { ":w | lua require('neotest').run.run()<CR>", "Test Nearest" },
+          ["nr"] = { ":lua require('neotest').output.open({ enter = true })<CR>", "Open Results Windows" },
+          ["nT"] = { ":w | lua require('neotest').run.run(vim.fn.expand('%'))<CR>", "Test File" },
+          ["nd"] = { ":w | lua require('neotest').run.run({ strategy = 'dap' })<CR>", "Debug Test" },
           ["t"] = { ":TestNearest<CR>", "Test Nearest" },
           ["T"] = { ":TestFile<CR>", "Test File" },
           ["g"] = {
@@ -227,6 +218,15 @@ return {
           ["i"] = { ":lua require('dap').step_into()<CR>", "Step Into" },
           ["c"] = { ":lua require('dap').continue()<CR>", "Continue" },
           ["f"] = { ":lua require('dap').step_out()<CR>", "Step Out" },
+          ["w"] = {
+            function()
+              local watch = vim.fn.input("Watch Expression: ")
+              return ":lua require('dap').watches.add(" .. watch .. ")<CR>"
+            end,
+            "Add Watch",
+            expr = true,
+          },
+
           ["<F5>"] = { ":lua require('osv').launch({port=8086})<CR>", "Connect to Lua" },
           ["u"] = { ":lua require('dapui').toggle({})<CR>", "Toggle DAP UI" },
         },
@@ -244,7 +244,7 @@ return {
 
   {
     "folke/noice.nvim",
-    dependencies = { "MunifTanjim/nui.nvim" },
+    dependencies = { "MunifTanjim/nui.nvim", "ibhagwan/fzf-lua" },
     opts = {
       presets = {
         command_palette = false,
@@ -259,6 +259,10 @@ return {
         ["vim.lsp.util.stylize_markdown"] = true,
         ["cmp.entry.get_documentation"] = true,
         progress = {
+          enabled = true,
+          format = "lsp_progress",
+          format_done = "lsp_progress_done",
+          -- throttle = 1000 / 30,
           view = "mini",
         },
       },
@@ -302,6 +306,16 @@ return {
         },
       },
     },
+  },
+
+  -- Sneaky snake went dancing
+  {
+    "smoka7/hop.nvim",
+    config = function()
+      require("hop").setup({
+        keys = "etovxqpdygfblzhckisuran",
+      })
+    end,
   },
 
   -- Multiple cursors

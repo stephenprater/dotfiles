@@ -39,4 +39,24 @@ return {
       })
     end,
   },
+  {
+    "stevearc/aerial.nvim",
+    opts = {},
+    config = function()
+      require("aerial").setup({
+        layout = {
+          width = 40,
+          placement = "edge",
+          default_direction = "right",
+          resize_to_content = false,
+        },
+        attach_mode = "global",
+      })
+    end,
+    -- Optional dependencies
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+      "nvim-tree/nvim-web-devicons",
+    },
+  },
 }

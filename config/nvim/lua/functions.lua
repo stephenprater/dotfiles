@@ -103,4 +103,25 @@ M.synstack = function()
   end, vim.fn.synstack(vim.fn.line("."), vim.fn.col(".")))))
 end
 
+M.shopify_proxy_key = function()
+  if vim.fn.executable("openai_key") == 1 then
+    -- make this async
+    vim.fn.system("openai_key")
+  else
+    vim.notify("Who are you? You're not running this in Prater's dotfiles.", vim.log.levels.ERROR)
+    return
+  end
+
+  local file = io.open(os.getenv("HOME") .. "/.oai-proxy-details", "r")
+  if not file then
+    vim.notify("No proxy details found.", vim.log.levels.ERROR)
+    return
+  end
+
+  local data = file:read("*a")
+  file:close()
+  local proxy_info = vim.fn.json_decode(data)
+  return proxy_info
+end
+
 return M

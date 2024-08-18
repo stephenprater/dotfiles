@@ -59,7 +59,7 @@ return {
       local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
       parser_config.jinja2 = {
         install_info = {
-          url = "/Users/stephenprater/src/gihub.com/dbt-labs/tree-sitter-jinja2",
+          url = "/Users/stephenprater/src/github.com/dbt-labs/tree-sitter-jinja2",
           files = { "src/parser.c" },
           branch = "main",
           generate_requires_npm = false,
@@ -67,18 +67,6 @@ return {
         },
         filetype = "jinja2",
       }
-
-      parser_config.tree_sitter_query = {
-        install_info = {
-          url = "https://github.com/tree-sitter-grammars/tree-sitter-query",
-          files = { "src/parser.c" },
-          branch = "main",
-          generate_requires_npm = false,
-          requires_generate_from_grammar = false,
-        },
-        filetype = "query",
-      }
-      vim.keymap.set("n", "<leader>q", "<cmd>TSPlaygroundToggle<cr>")
     end,
   },
   { "RRethy/nvim-treesitter-textsubjects", dependencies = "nvim-treesitter/nvim-treesitter" },

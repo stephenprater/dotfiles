@@ -18,6 +18,10 @@
         "path": "./ruby.json"
       },
       {
+        "language": "python",
+        "path": "./python.json"
+      },
+      {
         "language": "yaml",
         "path": "./yaml.json"
       },
@@ -26,7 +30,10 @@
         "path": "./norg.json"
       },
       {
-        "language": ["typescript", "typescriptreact"],
+        "language": [
+          "typescript",
+          "typescriptreact"
+        ],
         "path": "./typescript.json"
       }
     ]

@@ -17,16 +17,23 @@ return {
     dependencies = {
       "nvim-lua/plenary.nvim",
       "nvim-treesitter/nvim-treesitter",
+      "antoinemadec/FixCursorHold.nvim",
       "zidhuss/neotest-minitest",
       "marilari88/neotest-vitest",
       "nvim-neotest/neotest-python",
     },
     config = function()
       require("neotest").setup({
+        discovery = {
+          enabled = false,
+        },
+        log_level = vim.log.levels.DEBUG,
         adapters = {
           require("neotest-minitest"),
           require("neotest-vitest"),
-          require("neotest-python"),
+          require("neotest-python")({
+            args = { "-vv" },
+          }),
         },
       })
     end,
@@ -93,45 +100,57 @@ return {
       })
     end,
   },
-  -- {
-  --   "robitx/gp.nvim",
-  --   config = function()
-  --     if vim.fn.executable("openai_key") == 1 then
-  --       vim.fn.system("openai_key")
-  --     else
-  --       vim.notify("Who are you? You're not running this in Prater's dotfiles.", vim.log.levels.ERROR)
-  --       return
-  --     end
+  {
+    "yacineMTB/dingllm.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+    },
+    config = function()
+      local system_prompt = [[
+      You should replace the code that you are sent, only following the comments.
+      Do not talk at all.
+      Only output valid code.
+      Do not provide any backticks that surround the code.
+      Never ever output backticks like this ```.
+      Any comment that is asking you for something should be removed after you satisfy them.
+      Other comments should left alone.
+      Do not output backticks
+    ]]
+      local helpful_prompt = [[
+    You are a helpful assistant.
+    What I have sent are my notes so far.
+    You are very curt, yet helpful.
+    ]]
 
-  --     local file = io.open(os.getenv("HOME") .. "/.oai-proxy-details", "r")
-  --     if not file then
-  --       vim.notify("No proxy details found.", vim.log.levels.ERROR)
-  --       return
-  --     end
+      local dingllm = require("dingllm")
+      local proxy_key = require("functions").shopify_proxy_key()
 
-  --     local data = file:read("*a")
-  --     file:close()
-  --     local proxy_info = vim.fn.json_decode(data)
+      if proxy_key == nil then
+        vim.notify("No Shopify Proxy Key found", "error")
+      end
 
-  --     gp = require("gp")
+      local function openai_replace()
+        dingllm.invoke_llm_and_stream_into_editor({
+          url = proxy_key.base .. "/v1/chat/completions",
+          model = "gpt-4o",
+          api_key = proxy_key.key,
+          system_prompt = system_prompt,
+          replace = true,
+        }, dingllm.make_openai_spec_curl_args, dingllm.handle_openai_spec_data)
+      end
 
-  --     gp.setup({
-  --       openai_api_key = proxy_info.key,
-  --       openai_api_endpoint = proxy_info.base .. "/v1/chat/completions",
-  --       chat_shortcut_respond = { modes = { "n", "i", "v", "x" }, shortcut = "<leader>c<Enter>" },
-  --       chat_shortcut_delete = { modes = { "n", "i", "v", "x" }, shortcut = "<leader>cx" },
-  --       chat_shortcut_stop = { modes = { "n", "i", "v", "x" }, shortcut = "<leader>cs" },
-  --       chat_user_prefix = "👤:",
-  --     })
+      local function openai_help()
+        dingllm.invoke_llm_and_stream_into_editor({
+          url = proxy_key.base .. "/v1/chat/completions",
+          model = "gpt-4o",
+          api_key = proxy_key.key,
+          system_prompt = helpful_prompt,
+          replace = false,
+        }, dingllm.make_openai_spec_curl_args, dingllm.handle_openai_spec_data)
+      end
 
-  --     vim.keymap.set({ "v", "o", "x" }, "<leader>cr", ":GpImplement<CR>", { noremap = true })
-
-  --     require("which-key").register({
-  --       ["<leader>"] = {
-  --         name = "Chat",
-  --         ["cc"] = { ":GpChatNew", "Chat" },
-  --       },
-  --     })
-  --   end,
-  -- },
+      vim.keymap.set({ "n", "v" }, "<leader>ar", openai_replace, { desc = "Replace code with Open AI Response" })
+      vim.keymap.set({ "n", "v" }, "<leader>aq", openai_help, { desc = "Replace question with Open AI Response" })
+    end,
+  },
 }

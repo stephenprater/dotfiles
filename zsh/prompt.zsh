@@ -1,48 +1,41 @@
 # Global settings
-MNML_OK_COLOR="${MNML_OK_COLOR:-2}"
-MNML_ERR_COLOR="${MNML_ERR_COLOR:-1}"
+STRML_OK_COLOR="${STRML_OK_COLOR:-2}"
+STRML_ERR_COLOR="${STRML_ERR_COLOR:-1}"
 
-MNML_USER_CHAR="${MNML_USER_CHAR:-λ}"
-MNML_INSERT_CHAR="${MNML_INSERT_CHAR:-›}"
-MNML_NORMAL_CHAR="${MNML_NORMAL_CHAR:-·}"
-MNML_ELLIPSIS_CHAR="${MNML_ELLIPSIS_CHAR:-..}"
-MNML_BGJOB_MODE="${MNML_BGJOB_MODE:-4}"
-MNML_JOIN_CHAR="${+MNML_JOIN_CHAR:- }"
-
-[ "${+MNML_PROMPT}" -eq 0 ] && MNML_PROMPT=(mnml_ssh mnml_pyenv mnml_status mnml_keymap)
-[ "${+MNML_RPROMPT}" -eq 0 ] && MNML_RPROMPT=('mnml_cwd 2 0' mnml_git)
-[ "${+MNML_INFOLN}" -eq 0 ] && MNML_INFOLN=(mnml_err mnml_jobs mnml_uhp mnml_files)
-
-[ "${+MNML_MAGICENTER}" -eq 0 ] && MNML_MAGICENTER=(mnml_me_dirs mnml_me_ls mnml_me_git)
-
+STRML_USER_CHAR="${STRML_USER_CHAR:-λ}"
+STRML_INSERT_CHAR="${STRML_INSERT_CHAR:-›}"
+STRML_NORMAL_CHAR="${STRML_NORMAL_CHAR:-·}"
+STRML_ELLIPSIS_CHAR="${STRML_ELLIPSIS_CHAR:-..}"
+STRML_BGJOB_MODE="${STRML_BGJOB_MODE:-4}"
+STRML_JOIN_CHAR="${+STRML_JOIN_CHAR:- }"
 
 # Components
-function mnml_status {
-    local okc="$MNML_OK_COLOR"
-    local errc="$MNML_ERR_COLOR"
-    local uchar="$MNML_USER_CHAR"
+function strml_status {
+    local okc="$STRML_OK_COLOR"
+    local errc="$STRML_ERR_COLOR"
+    local uchar="$STRML_USER_CHAR"
 
     local job_ansi="0"
     if [ -n "$(jobs | sed -n '$=')" ]; then
-        job_ansi="$MNML_BGJOB_MODE"
+        job_ansi="$STRML_BGJOB_MODE"
     fi
 
-    local err_ansi="$MNML_OK_COLOR"
-    if [ "$MNML_LAST_ERR" != "0" ]; then
-        err_ansi="$MNML_ERR_COLOR"
+    local err_ansi="$STRML_OK_COLOR"
+    if [ "$STRML_LAST_ERR" != "0" ]; then
+        err_ansi="$STRML_ERR_COLOR"
     fi
 
     printf '%b' "%{\e[$job_ansi;3${err_ansi}m%}%(!.#.$uchar)%{\e[0m%}"
 }
 
-function mnml_keymap {
-    local kmstat="$MNML_INSERT_CHAR"
-    [ "$KEYMAP" = 'vicmd' ] && kmstat="$MNML_NORMAL_CHAR"
+function strml_keymap {
+    local kmstat="$STRML_INSERT_CHAR"
+    [ "$KEYMAP" = 'vicmd' ] && kmstat="$STRML_NORMAL_CHAR"
     printf '%b' "$kmstat"
 }
 
-function mnml_cwd {
-    local echar="$MNML_ELLIPSIS_CHAR"
+function strml_cwd {
+    local echar="$STRML_ELLIPSIS_CHAR"
     local segments="${1:-2}"
     local seg_len="${2:-0}"
 
@@ -72,19 +65,19 @@ function mnml_cwd {
     printf '%b' "$_g${(j:/:)cwd//\//$_w/$_g}$_w"
 }
 
-function mnml_git {
-    local statc="%{\e[0;3${MNML_OK_COLOR}m%}" # assume clean
+function strml_git {
+    local statc="%{\e[0;3${STRML_OK_COLOR}m%}" # assume clean
     local bname="$(git rev-parse --abbrev-ref HEAD 2> /dev/null)"
 
     if [ -n "$bname" ]; then
         if [ -n "$(git status --porcelain 2> /dev/null)" ]; then
-            statc="%{\e[0;3${MNML_ERR_COLOR}m%}"
+            statc="%{\e[0;3${STRML_ERR_COLOR}m%}"
         fi
         printf '%b' "$statc$bname%{\e[0m%}"
     fi
 }
 
-function mnml_uhp {
+function strml_uhp {
     local _w="%{\e[0m%}"
     local _g="%{\e[38;5;244m%}"
     local cwd="%~"
@@ -93,13 +86,13 @@ function mnml_uhp {
     printf '%b' "$_g%n$_w@$_g%m$_w:$_g${cwd//\//$_w/$_g}$_w"
 }
 
-function mnml_ssh {
+function strml_ssh {
     if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
         printf '%b' "$(hostname -s)"
     fi
 }
 
-function mnml_pyenv_dot {
+function strml_pyenv_dot {
   local _g="%{\e[32m%}"
   local _w="%{\e[0m%}"
   if [ -n "$VIRTUAL_ENV" ]; then
@@ -107,7 +100,52 @@ function mnml_pyenv_dot {
   fi
 }
 
-function mnml_pyenv {
+function strml_gitstatus_char {
+  local _r="%{\e[31m%}"
+  local _g="%{\e[32m%}"
+  local _y="%{\e[33m%}"
+  local _e="%{\e[30m%}"
+  local _w="%{\e[0m%}"
+
+  if ! $(git rev-parse --is-inside-work-tree > /dev/null 2>&1); then
+    return
+  fi
+
+  # Uncommitted changes show red
+  if [[ -n $(git status --porcelain 2> /dev/null) ]]; then
+    printf '%b' "$_r$STRML_USER_CHAR$_w"
+    return
+  fi
+
+  local ahead;
+  ahead=$(git rev-list --count HEAD "^origin/$(git branch --show-current)" 2>/dev/null)
+
+  # an unpushed branch shows red
+  if [[ $? -ne 0 ]]; then
+    printf '%b' "$_r$STRML_USER_CHAR$_w"
+    return
+  fi
+
+  # being ahead of origin shows yellow
+  if [[ $ahead -gt 0 ]]; then
+    printf '%b' "$_y$STRML_USER_CHAR$_w"
+    return
+  fi
+
+  # being behind origin shows grey
+  local behind=$(git rev-list --count origin/$(git branch --show-current) "^HEAD" 2>/dev/null)
+
+  if [[ $behind -gt 0 || $? -ne 0 ]]; then
+    printf '%b' "$_e$STRML_USER_CHAR$_w"
+    return
+  fi
+
+  # clean shows green
+  printf '%b' "$_g$STRML_USER_CHAR$_w"
+}
+
+
+function strml_pyenv {
   local _g="\e[32m"
   local _w="\e[0m"
     if [ -n "$VIRTUAL_ENV" ]; then
@@ -115,16 +153,16 @@ function mnml_pyenv {
     fi
 }
 
-function mnml_err {
+function strml_err {
     local _w="%{\e[0m%}"
-    local _err="%{\e[3${MNML_ERR_COLOR}m%}"
+    local _err="%{\e[3${STRML_ERR_COLOR}m%}"
 
-    if [ "${MNML_LAST_ERR:-0}" != "0" ]; then
-        printf '%b' "$_err$MNML_LAST_ERR$_w"
+    if [ "${STRML_LAST_ERR:-0}" != "0" ]; then
+        printf '%b' "$_err$STRML_LAST_ERR$_w"
     fi
 }
 
-function mnml_jobs {
+function strml_jobs {
     local _w="%{\e[0m%}"
     local _g="%{\e[38;5;244m%}"
 
@@ -134,7 +172,7 @@ function mnml_jobs {
     fi
 }
 
-function mnml_files {
+function strml_files {
     local _ls="$(env which ls)"
     local _w="%{\e[0m%}"
     local _g="%{\e[38;5;244m%}"
@@ -153,7 +191,7 @@ function mnml_files {
 }
 
 # Magic enter functions
-function mnml_me_dirs {
+function strml_me_dirs {
     local _w="\e[0m"
     local _g="\e[38;5;244m"
 
@@ -163,7 +201,7 @@ function mnml_me_dirs {
     fi
 }
 
-function mnml_me_ls {
+function strml_me_ls {
     if [ "$(uname)" = "Darwin" ] && ! env ls --version &> /dev/null; then
         COLUMNS=$COLUMNS CLICOLOR_FORCE=1 env ls -C -G -F
     else
@@ -171,13 +209,13 @@ function mnml_me_ls {
     fi
 }
 
-function mnml_me_git {
+function strml_me_git {
     git -c color.status=always status -sb 2> /dev/null
 }
 
 # Wrappers & utils
 # join outpus of components
-function _mnml_wrap {
+function _strml_wrap {
     local -a arr
     arr=()
     local cmd_out=""
@@ -189,25 +227,25 @@ function _mnml_wrap {
         fi
     done
 
-    printf '%b' "${(pj:$MNML_JOIN_CHAR:)arr}"
+    printf '%b' "${(pj:$STRML_JOIN_CHAR:)arr}"
 }
 
-function mnml_chrome {
+function strml_chrome {
   printf '%b' "$1"
 }
 
 # expand string as prompt would do
-function _mnml_iline {
+function _strml_iline {
     echo "${(%)1}"
 }
 
 # display magic enter
-function _mnml_me {
+function _strml_me {
     local -a output
     output=()
     local cmd_out=""
     local cmd
-    for cmd in $MNML_MAGICENTER; do
+    for cmd in $STRML_MAGICENTER; do
         cmd_out="$(eval "$cmd")"
         if [ -n "$cmd_out" ]; then
             output+="$cmd_out"
@@ -217,21 +255,21 @@ function _mnml_me {
 }
 
 # capture exit status and reset prompt
-function _mnml_zle-line-init {
-    MNML_LAST_ERR="$?" # I need to capture this ASAP
+function _strml_zle-line-init {
+    STRML_LAST_ERR="$?" # I need to capture this ASAP
     zle reset-prompt
 }
 
 # redraw prompt on keymap select
-function _mnml_zle-keymap-select {
+function _strml_zle-keymap-select {
     zle reset-prompt
 }
 
 # draw infoline if no command is given
-function _mnml_buffer-empty {
+function _strml_buffer-empty {
     if [ -z "$BUFFER" ]; then
-        _mnml_iline "$(_mnml_wrap MNML_INFOLN)"
-        _mnml_me
+        _strml_iline "$(_strml_wrap STRML_INFOLN)"
+        _strml_me
         zle redisplay
     else
         zle accept-line
@@ -240,7 +278,7 @@ function _mnml_buffer-empty {
 
 # properly bind widgets
 # see: https://github.com/zsh-users/zsh-syntax-highlighting/blob/1f1e629290773bd6f9673f364303219d6da11129/zsh-syntax-highlighting.zsh#L292-L356
-function _mnml_bind_widgets() {
+function _strml_bind_widgets() {
     zmodload zsh/zleparameter
 
     local -a to_bind
@@ -252,14 +290,14 @@ function _mnml_bind_widgets() {
     local cur_widget
     for cur_widget in $to_bind; do
         case "${widgets[$cur_widget]:-""}" in
-            user:_mnml_*);;
+            user:_strml_*);;
             user:*)
                 zle -N $zle_wprefix-$cur_widget ${widgets[$cur_widget]#*:}
-                eval "_mnml_ww_${(q)zle_wprefix}-${(q)cur_widget}() { _mnml_${(q)cur_widget}; zle ${(q)zle_wprefix}-${(q)cur_widget} }"
-                zle -N $cur_widget _mnml_ww_$zle_wprefix-$cur_widget
+                eval "_strml_ww_${(q)zle_wprefix}-${(q)cur_widget}() { _strml_${(q)cur_widget}; zle ${(q)zle_wprefix}-${(q)cur_widget} }"
+                zle -N $cur_widget _strml_ww_$zle_wprefix-$cur_widget
                 ;;
             *)
-                zle -N $cur_widget _mnml_$cur_widget
+                zle -N $cur_widget _strml_$cur_widget
                 ;;
         esac
     done
@@ -269,10 +307,10 @@ function _mnml_bind_widgets() {
 autoload -U colors && colors
 setopt prompt_subst
 
-PROMPT='$(_mnml_wrap MNML_PROMPT) '
-RPROMPT='$(_mnml_wrap MNML_RPROMPT)'
+PROMPT='$(_strml_wrap STRML_PROMPT) '
+RPROMPT='$(_strml_wrap STRML_RPROMPT)'
 
-_mnml_bind_widgets
+_strml_bind_widgets
 
 bindkey -M main  "^M" buffer-empty
 bindkey -M vicmd "^M" buffer-empty

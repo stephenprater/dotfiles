@@ -1,3 +1,7 @@
+if vim.g.vscode then
+  return
+end
+
 if vim.env["SPIN"] then
   vim.o.shell = "/usr/bin/zsh"
 else
@@ -152,3 +156,24 @@ vim.api.nvim_create_user_command("TSReset", "write | edit | TSBufEnable highligh
 vim.api.nvim_create_autocmd("TermOpen", { pattern = "fzf", command = "tunmap <Esc>" })
 
 vim.api.nvim_create_autocmd("BufWritePre", { command = "Trim" })
+
+vim.api.nvim_create_autocmd({ "BufEnter" }, {
+  pattern = { "*.py" },
+  callback = function()
+    vim.schedule(function()
+      local poetry_site_package = vim.trim(
+        vim.fn.system(
+          'cd "'
+          .. vim.fn.expand("%:p:h")
+          .. '"; poetry run python -c "import site; print(site.getsitepackages()[0])" 2>/dev/null'
+        )
+      )
+      if vim.fn.getenv("PYTHONPATH") == poetry_site_package then
+        return
+      end
+
+      vim.fn.setenv("PYTHONPATH", poetry_site_package)
+      vim.print("PYTHONPATH set to" .. poetry_site_package, "info")
+    end)
+  end,
+})

@@ -92,6 +92,8 @@ tool_versions() {
       _icons["python"] = color("green","")
       _icons["ruby"] = color("red","")
       _icons["nodejs"] = color("yellow","󰎙")
+      _icons["elixir"] = color("violet","")
+      _icons["clojure"] = color("blue","")
 
       return _icons[lang]
     }
