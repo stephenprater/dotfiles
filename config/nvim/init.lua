@@ -85,14 +85,6 @@ vim.cmd([[ hi link SignColumn LineNr ]])
 vim.cmd([[ hi WinSeparator guifg=#3a3a57 guibg=#1f1f28 ]])
 vim.cmd([[ hi FloatBorder guifg=#54546d guibg=#1f1f28 ]])
 
-vim.keymap.set("n", "<Esc><Esc>", ":nohls<CR>", { noremap = true, silent = true })
-vim.keymap.set("n", "<leader>A", ":Rg<CR>", { noremap = true, silent = true })
-vim.keymap.set("v", "<leader>A", function()
-  require("functions").rg_vis()
-end, { noremap = true, silent = true })
-vim.keymap.set("n", "<D-CR>", ":Utl<CR>", { silent = true })
-
-vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", { noremap = true, silent = true })
 vim.keymap.set({ "t", "n" }, "<M-h>", "<C-\\><C-n><C-w>h", { noremap = true })
 vim.keymap.set({ "t", "n" }, "<M-j>", "<C-\\><C-n><C-w>j", { noremap = true })
 vim.keymap.set({ "t", "n" }, "<M-k>", "<C-\\><C-n><C-w>k", { noremap = true })
@@ -127,6 +119,14 @@ vim.api.nvim_create_user_command(
   { bang = true, nargs = "*" }
 )
 
+vim.api.nvim_create_user_command("EnableTerminalEscape", function()
+  vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", { noremap = true, silent = true, buffer = true })
+end, {})
+
+vim.api.nvim_create_user_command("DisableTerminalEscape", function()
+  vim.keymap.del("t", "<Esc>", { buffer = true })
+end, {})
+
 vim.cmd([[
 function! s:fzf_miniyank(put_before, fullscreen) abort
     function! LocalSink(opt, line) abort
@@ -154,6 +154,7 @@ map P <Plug>(miniyank-autoPut)
 vim.api.nvim_create_user_command("TSReset", "write | edit | TSBufEnable highlight", {})
 
 vim.api.nvim_create_autocmd("TermOpen", { pattern = "fzf", command = "tunmap <Esc>" })
+vim.api.nvim_create_autocmd("TermOpen", { command = ":let b:miniindentscope_disable = v:true" })
 
 vim.api.nvim_create_autocmd("BufWritePre", { command = "Trim" })
 

@@ -26,6 +26,13 @@ require("lazy").setup({
       config = true,
     },
     {
+      "proxy_key",
+      dir = "./.local-plugins/proxy_key",
+      config = function()
+        require("local-plugins.proxy_key").setup()
+      end,
+    },
+    {
       "list_ring",
       dir = "./local-plugins/list_ring",
       config = function()

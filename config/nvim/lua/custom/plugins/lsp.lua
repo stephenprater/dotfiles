@@ -7,12 +7,12 @@ return {
       }
     end,
   },
-  {
-    "lukas-reineke/lsp-format.nvim",
-    config = function()
-      require("lsp-format").setup()
-    end,
-  },
+  -- {
+  --   "lukas-reineke/lsp-format.nvim",
+  --   config = function()
+  --     require("lsp-format").setup()
+  --   end,
+  -- },
   {
     "williamboman/mason.nvim",
     cmd = "Mason",
@@ -62,7 +62,7 @@ return {
     "williamboman/mason-lspconfig.nvim",
     dependencies = "williamboman/mason.nvim",
     config = function()
-      vim.api.nvim_create_augroup("LspFormatting", {})
+      -- vim.api.nvim_create_augroup("LspFormatting", {})
 
       require("mason-lspconfig").setup()
 
@@ -70,10 +70,10 @@ return {
         function(server_name)
           local opts = {
             debounce_text_changes = 150,
-            on_attach = function(client, bufnr)
-              require("lsp-format").on_attach(client, bufnr)
-              print("Formatting...")
-            end,
+            -- on_attach = function(client, bufnr)
+            --   require("lsp-format").on_attach(client, bufnr)
+            --   print("Formatting...")
+            -- end,
           }
 
           require("lspconfig")[server_name].setup(opts)
@@ -83,7 +83,7 @@ return {
           require("lspconfig")["rust_analyzer"].setup({})
         end,
 
-        ["basedpyright"] = function()
+        ["pyright"] = function()
           require("lspconfig")["pyright"].setup({
             on_new_config = function(config, root_dir)
               local python_path =
@@ -95,8 +95,8 @@ return {
           })
         end,
 
-        ["ruff-lsp"] = function()
-          require("lspconfig")["ruff-lsp"].setup({
+        ["ruff"] = function()
+          require("lspconfig")["ruff"].setup({
             init_options = {
               settings = {
                 args = { "F", "E", "W", "I001" },
@@ -151,7 +151,6 @@ return {
         null_ls.builtins.code_actions.gitsigns,
         null_ls.builtins.formatting.prettier,
         null_ls.builtins.formatting.stylua,
-        -- null_ls.builtins.formatting.black,
         require("typescript.extensions.null-ls.code-actions"),
       }
 

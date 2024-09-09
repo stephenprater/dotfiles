@@ -21,6 +21,7 @@ return {
       "zidhuss/neotest-minitest",
       "marilari88/neotest-vitest",
       "nvim-neotest/neotest-python",
+      "jfpedroza/neotest-elixir",
     },
     config = function()
       require("neotest").setup({
@@ -31,6 +32,7 @@ return {
         adapters = {
           require("neotest-minitest"),
           require("neotest-vitest"),
+          require("neotest-elixir"),
           require("neotest-python")({
             args = { "-vv" },
           }),
@@ -101,56 +103,37 @@ return {
     end,
   },
   {
-    "yacineMTB/dingllm.nvim",
+    "yetone/avante.nvim",
     dependencies = {
+      "nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
+      "stevearc/dressing.nvim",
       "nvim-lua/plenary.nvim",
+      "MunifTanjim/nui.nvim",
+      --- The below is optional, make sure to setup it properly if you have lazy=true
+      {
+        "MeanderingProgrammer/render-markdown.nvim",
+        opts = {
+          file_types = { "markdown", "Avante" },
+        },
+        ft = { "markdown", "Avante" },
+      },
     },
     config = function()
-      local system_prompt = [[
-      You should replace the code that you are sent, only following the comments.
-      Do not talk at all.
-      Only output valid code.
-      Do not provide any backticks that surround the code.
-      Never ever output backticks like this ```.
-      Any comment that is asking you for something should be removed after you satisfy them.
-      Other comments should left alone.
-      Do not output backticks
-    ]]
-      local helpful_prompt = [[
-    You are a helpful assistant.
-    What I have sent are my notes so far.
-    You are very curt, yet helpful.
-    ]]
+      local openai = require("avante.providers.openai")
 
-      local dingllm = require("dingllm")
-      local proxy_key = require("functions").shopify_proxy_key()
-
-      if proxy_key == nil then
-        vim.notify("No Shopify Proxy Key found", "error")
-      end
-
-      local function openai_replace()
-        dingllm.invoke_llm_and_stream_into_editor({
-          url = proxy_key.base .. "/v1/chat/completions",
-          model = "gpt-4o",
-          api_key = proxy_key.key,
-          system_prompt = system_prompt,
-          replace = true,
-        }, dingllm.make_openai_spec_curl_args, dingllm.handle_openai_spec_data)
-      end
-
-      local function openai_help()
-        dingllm.invoke_llm_and_stream_into_editor({
-          url = proxy_key.base .. "/v1/chat/completions",
-          model = "gpt-4o",
-          api_key = proxy_key.key,
-          system_prompt = helpful_prompt,
-          replace = false,
-        }, dingllm.make_openai_spec_curl_args, dingllm.handle_openai_spec_data)
-      end
-
-      vim.keymap.set({ "n", "v" }, "<leader>ar", openai_replace, { desc = "Replace code with Open AI Response" })
-      vim.keymap.set({ "n", "v" }, "<leader>aq", openai_help, { desc = "Replace question with Open AI Response" })
+      require("avante").setup({
+        -- @type AvanteProvider
+        provider = "shopify-ai",
+        vendors = {
+          ["shopify-ai"] = {
+            endpoint = "https://proxy.shopify.ai/v3/v1",
+            model = "anthropic:claude-3-5-sonnet",
+            api_key_name = "cmd:openai_key cat",
+            parse_curl_args = openai.parse_curl_args,
+            parse_response_data = openai.parse_response,
+          },
+        },
+      })
     end,
   },
 }

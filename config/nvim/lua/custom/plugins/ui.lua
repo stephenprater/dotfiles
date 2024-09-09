@@ -53,7 +53,6 @@ return {
       })
     end,
   },
-
   -- Status line written in Lua
   {
     "nvim-lualine/lualine.nvim",
@@ -104,138 +103,165 @@ return {
       local wk = require("which-key")
 
       wk.setup({
-        window = {
-          border = "single",
-        },
+        preset = "modern",
+        delay = function(ctx)
+          return ctx.plugin and 0 or 500
+        end,
       })
 
-      wk.register({
-        ["dm"] = { ":execute 'delmarks '.nr2chart(getchar())<cr>" },
-        [";"] = { ":HopWord<CR>", "Hop Word" },
-        ["]"] = {
-          name = "window",
-          ["'"] = { "<C-W>+", "Size Up" },
-          ["/"] = { "<C-W>-", "Size Down" },
-          ["."] = { "<C-W>>", "Size Right" },
-          [","] = { "<C-W><", "Size Left" },
-          ["j"] = { "<C-W>", "Move Down" },
-          ["k"] = { "<C-W>k", "Move Up" },
-          ["h"] = { "<C-W>h", "Move Left" },
-          ["l"] = { "<C-W>l", "Move Right" },
-          ["_"] = { ":split<cr>", "Horizontal Split" },
-          ["|"] = { ":vsplit<cr>", "Vertical Split" },
-          ["o"] = { ":bn<cr>", "Next Buffer" },
-          ["p"] = { ":bp<cr>", "Previous Buffer" },
-          ["}"] = { ":tabnext<cr>", "Next Tab" },
-          ["{"] = { ":tabprev<cr>", "Previous Tab" },
+      wk.add({
+        { "<Esc><Esc", ":nohls<CR>",                hidden = true },
+        { ",",         group = "navigate" },
+        { ",b",        ":Buffers<CR>",              desc = "Show Buffers" },
+        { ",cn",       ":cn<CR>",                   desc = "Next Quickfix" },
+        { ",cp",       ":cp<CR>",                   desc = "Previous Quickfix" },
+        { ",f",        ":Files<CR>",                desc = "Show Files" },
+        { ",g",        ":DocumentSymbols<CR>",      desc = "Show DocumentSymbols" },
+        { ",m",        ":Marks<CR>",                desc = "Choose Mark" },
+        { ",n",        group = "neotest" },
+        { ",no",       ":Neotest output-panel<CR>", desc = "Neotest Output" },
+        { ",ns",       ":Neotest summary<CR>",      desc = "Neotest Summary" },
+        { ",g",        ":Git<CR>",                  desc = "Show Fugitive" },
+        {
+          ",p",
+          function()
+            local preview_open = require("peek").is_open()
+            if preview_open then
+              require("peek").close()
+            else
+              require("peek").open()
+            end
+          end,
+          desc = "Markdown Preview",
         },
-        [","] = {
-          name = "navigate",
-          ["f"] = { ":Files<CR>", "Show Files" },
-          ["b"] = { ":Buffers<CR>", "Show Buffers" },
-          ["r"] = { ":History<CR>", "Show History" },
-          ["q"] = { ":History:<CR>", "Show Command History" },
-          ["y"] = { ":YanksBefore<CR>", "Yank Ring" },
-          ["x"] = { ":NvimTreeToggle<CR>", "Toggle NvimTree" },
-          ["u"] = { ":UndotreeToggle<CR>", "Show Undotree" },
-          ["m"] = { ":Marks<CR>", "Choose Mark" },
-          ["g"] = { ":DocumentSymbols<CR>", "Show DocumentSymbols" },
-          ["t"] = { ":AerialToggle right<CR>", "Show Tagbar" },
-          ["n"] = {
-            name = "neotest",
-            ["o"] = { ":Neotest output-panel<CR>", "Neotest Output" },
-            ["s"] = { ":Neotest summary<CR>", "Neotest Summary" },
-          },
-          ["cn"] = { ":cn<CR>", "Next Quickfix" },
-          ["cp"] = { ":cp<CR>", "Previous Quickfix" },
-          ["tn"] = { ":tn<CR>", "Next Tag" },
-          ["tp"] = { ":tp<CR>", "Previous Tag" },
-          ["p"] = {
-            function()
-              local preview_open = require("peek").is_open()
-              if preview_open then
-                require("peek").close()
-              else
-                require("peek").open()
+        {
+          ",q",
+          ":History:<CR>",
+          desc = "Show Command History",
+        },
+        { ",r", ":History<CR>",            desc = "Show History" },
+        { ",t", ":AerialToggle right<CR>", desc = "Show Tagbar" },
+        { ",u", ":UndotreeToggle<CR>",     desc = "Show Undotree" },
+        {
+          ",x",
+          ":NvimTreeToggle<CR>",
+          desc = "Toggle NvimTree",
+        },
+        { ",X",        ":vsplit | wincmd h | vertical resize 50 | execute 'Oil'<CR>", desc = "Open Oil" },
+        { ",y",        ":YanksBefore<CR>",                                            desc = "Yank Ring" },
+        { ";",         ":HopWord<CR>",                                                desc = "Hop Word" },
+        { "<leader>",  group = "quick commands" },
+        { "<leader>T", ":TestFile<CR>",                                               desc = "Test File" },
+        { "<leader>t", ":TestNearest<CR>",                                            desc = "Test Nearest" },
+        { "<leader>r", ":Other<CR>",                                                  desc = "Other File" },
+        {
+          "<leader>A",
+          ":Rg<CR>",
+          noremap = true,
+          silent = true,
+          mode = "n",
+          desc = "RipGrep",
+        },
+        {
+          "<leader>A",
+          function()
+            require("functions").rg_vis()
+          end,
+          noremap = true,
+          silent = true,
+          mode = "v",
+          desc = "RipGrep Visual Selection",
+        },
+        { "<leader><leader>",   group = "Tools" },
+        { "<leader><leader>bc", ":silent . !bc<CR>",                           desc = "Calculate" },
+        { "<leader><leader>da", ":.!date<CR>",                                 desc = "Today's Date" },
+        { "<leader><leader>l",  ":Neorg workspace log<CR>",                    desc = "Log" },
+        { "<leader>d",          group = "Debugger" },
+        { "<leader>d<F5>",      ":lua require('osv').launch({port=8086})<CR>", desc = "Connect to Lua" },
+        { "<leader>db",         ":lua require('dap').toggle_breakpoint()<CR>", desc = "Toggle Breakpoint" },
+        { "<leader>dc",         ":lua require('dap').continue()<CR>",          desc = "Continue" },
+        { "<leader>df",         ":lua require('dap').step_out()<CR>",          desc = "Step Out" },
+        { "<leader>di",         ":lua require('dap').step_into()<CR>",         desc = "Step Into" },
+        { "<leader>dn",         ":lua require('dap').step_over()<CR>",         desc = "Step Over" },
+        { "<leader>du",         ":lua require('dapui').toggle({})<CR>",        desc = "Toggle DAP UI" },
+        {
+          "<leader>dw",
+          function()
+            local watch = vim.fn.input("Watch Expression: ")
+            return ":lua require('dap').watches.add(" .. watch .. ")<CR>"
+          end,
+          desc = "Add Watch",
+          expr = true,
+          replace_keycodes = false,
+        },
+        { "<leader>g",  group = "Git" },
+        { "<leader>gU", ":lua require('gitsigns').reset_buffer()<CR>",   desc = "Reset Buffer" },
+        { "<leader>ga", ":lua require('gitsigns').stage_hunk()<CR>",     desc = "Stage Hunk" },
+        { "<leader>gb", ":lua require('gitsigns').blame_line()<CR>",     desc = "Blame Line" },
+        { "<leader>gd", ":lua require('gitsigns').toggle_deleted()<CR>", desc = "Toggle Deleted" },
+        {
+          "<leader>gl",
+          ":lua require('gitsigns').toggle_current_line_blame()<CR>",
+          desc = "Toggle Line Blame",
+        },
+        { "<leader>gp", ":lua require('gitsigns').preview_hunk()<CR>",    desc = "Preview Hunk" },
+        { "<leader>gr", ":lua require('gitsigns').reset_hunk()<CR>",      desc = "Reset Hunk" },
+        { "<leader>gs", ":lua require('gitsigns').select_hunk()<CR>",     desc = "Select Hunk" },
+        { "<leader>gu", ":lua require('gitsigns').undo_stage_hunk()<CR>", desc = "Undo Stage Hunk" },
+        { "<leader>l",  group = "LSP" },
+        { "<leader>l?", ":lua vim.lsp.buf.signature_help()<CR>",          desc = "Signature Help" },
+        { "<leader>l]", ":References<CR>",                                desc = "Show References" },
+        { "<leader>la", ":CodeActions<CR>",                               desc = "Code Actions" },
+        { "<leader>ld", ":lua vim.lsp.buf.definition()<CR>",              desc = "Goto Definition" },
+        { "<leader>lh", ":lua vim.lsp.buf.hover()<CR>",                   desc = "Hover" },
+        { "<leader>lr", ":lua vim.lsp.buf.rename()<CR>",                  desc = "Rename" },
+        { "<leader>ls", ":lua vim.lsp.buf.document_symbol()<CR>",         desc = "Open Document Symbols" },
+        { "<leader>lx", ":lua vim.diagnostic.open_float()<CR>",           desc = "Open Diagnostic Float" },
+        {
+          "<leader>ly",
+          function()
+            local row, _ = unpack(vim.api.nvim_win_get_cursor(0))
+            local diags = vim.diagnostic.get(0, { lnum = row - 1 })
+            if #diags > 0 then
+              local messages = ""
+              for idx, diag in ipairs(diags) do
+                messages = messages .. string.format("%d: %s\n", idx, diag["message"])
               end
-            end,
-            "Markdown Preview",
-          },
+              vim.fn.setreg('"', messages)
+            end
+          end,
+          desc = "Copy line diagnostic into unnamed register",
         },
-        ["<leader>"] = {
-          name = "tests",
-          ["nt"] = { ":w | lua require('neotest').run.run()<CR>", "Test Nearest" },
-          ["nr"] = { ":lua require('neotest').output.open({ enter = true })<CR>", "Open Results Windows" },
-          ["nT"] = { ":w | lua require('neotest').run.run(vim.fn.expand('%'))<CR>", "Test File" },
-          ["nd"] = { ":w | lua require('neotest').run.run({ strategy = 'dap' })<CR>", "Debug Test" },
-          ["t"] = { ":TestNearest<CR>", "Test Nearest" },
-          ["T"] = { ":TestFile<CR>", "Test File" },
-          ["g"] = {
-            name = "Git",
-            ["a"] = { ":lua require('gitsigns').stage_hunk()<CR>", "Stage Hunk" },
-            ["r"] = { ":lua require('gitsigns').reset_hunk()<CR>", "Reset Hunk" },
-            ["b"] = { ":lua require('gitsigns').blame_line()<CR>", "Blame Line" },
-            ["d"] = { ":lua require('gitsigns').toggle_deleted()<CR>", "Toggle Deleted" },
-            ["p"] = { ":lua require('gitsigns').preview_hunk()<CR>", "Preview Hunk" },
-            ["s"] = { ":lua require('gitsigns').select_hunk()<CR>", "Select Hunk" },
-            ["u"] = { ":lua require('gitsigns').undo_stage_hunk()<CR>", "Undo Stage Hunk" },
-            ["U"] = { ":lua require('gitsigns').reset_buffer()<CR>", "Reset Buffer" },
-            ["l"] = { ":lua require('gitsigns').toggle_current_line_blame()<CR>", "Toggle Line Blame" },
-          },
-          ["l"] = {
-            name = "LSP",
-            ["h"] = { ":lua vim.lsp.buf.hover()<CR>", "Hover" },
-            ["d"] = { ":lua vim.lsp.buf.definition()<CR>", "Goto Definition" },
-            ["r"] = { ":lua vim.lsp.buf.rename()<CR>", "Rename" },
-            ["?"] = { ":lua vim.lsp.buf.signature_help()<CR>", "Signature Help" },
-            ["]"] = { ":References<CR>", "Show References" },
-            ["a"] = { ":CodeActions<CR>", "Code Actions" },
-            ["x"] = { ":lua vim.diagnostic.open_float()<CR>", "Open Diagnostic Float" },
-            ["y"] = {
-              function()
-                local row, _ = unpack(vim.api.nvim_win_get_cursor(0))
-                local diags = vim.diagnostic.get(0, { lnum = row - 1 })
-                if #diags > 0 then
-                  local messages = ""
-                  for idx, diag in ipairs(diags) do
-                    messages = messages .. string.format("%d: %s\n", idx, diag["message"])
-                  end
-                  vim.fn.setreg('"', messages)
-                end
-              end,
-              "Copy line diagnostic into unnamed register",
-            },
-            ["s"] = { ":lua vim.lsp.buf.document_symbol()<CR>", "Open Document Symbols" },
-          },
+        { "<leader>n",  group = "neotest" },
+        { "<leader>nT", ":w | lua require('neotest').run.run(vim.fn.expand('%'))<CR>",   desc = "Test File" },
+        { "<leader>nd", ":w | lua require('neotest').run.run({ strategy = 'dap' })<CR>", desc = "Debug Test" },
+        {
+          "<leader>nr",
+          ":lua require('neotest').output.open({ enter = true })<CR>",
+          desc = "Open Results Windows",
         },
-        ["g<"] = { ":ISwapNodeWithLeft<CR>", "Swap Left" },
-        ["g>"] = { ":ISwapNodeWithRight<CR>", "Swap Right" },
-        ["gs"] = { ":ISwap<CR>", "Interactive Swap" },
-        ["<leader>d"] = {
-          name = "Debugger",
-          ["b"] = { ":lua require('dap').toggle_breakpoint()<CR>", "Toggle Breakpoint" },
-          ["n"] = { ":lua require('dap').step_over()<CR>", "Step Over" },
-          ["i"] = { ":lua require('dap').step_into()<CR>", "Step Into" },
-          ["c"] = { ":lua require('dap').continue()<CR>", "Continue" },
-          ["f"] = { ":lua require('dap').step_out()<CR>", "Step Out" },
-          ["w"] = {
-            function()
-              local watch = vim.fn.input("Watch Expression: ")
-              return ":lua require('dap').watches.add(" .. watch .. ")<CR>"
-            end,
-            "Add Watch",
-            expr = true,
-          },
-
-          ["<F5>"] = { ":lua require('osv').launch({port=8086})<CR>", "Connect to Lua" },
-          ["u"] = { ":lua require('dapui').toggle({})<CR>", "Toggle DAP UI" },
-        },
-        ["<leader><leader>"] = {
-          name = "Tools",
-          ["bc"] = { ":silent . !bc<CR>", "Calculate" },
-          ["da"] = { ":.!date<CR>", "Today's Date" },
-          ["l"] = { ":Neorg workspace log<CR>", "Log" },
-        },
+        { "<leader>nt", ":w | lua require('neotest').run.run()<CR>",   desc = "Test Nearest" },
+        { "]",          group = "window" },
+        { "]'",         "<C-W>+",                                      desc = "Size Up" },
+        { "],",         "<C-W><",                                      desc = "Size Left" },
+        { "].",         "<C-W>>",                                      desc = "Size Right" },
+        { "]/",         "<C-W>-",                                      desc = "Size Down" },
+        { "]_",         ":split<cr>",                                  desc = "Horizontal Split" },
+        { "]h",         "<C-W>h",                                      desc = "Move Left" },
+        { "]j",         "<C-W>",                                       desc = "Move Down" },
+        { "]k",         "<C-W>k",                                      desc = "Move Up" },
+        { "]l",         "<C-W>l",                                      desc = "Move Right" },
+        { "]o",         ":bn<cr>",                                     desc = "Next Buffer" },
+        { "]p",         ":bp<cr>",                                     desc = "Previous Buffer" },
+        { "]{",         ":tabprev<cr>",                                desc = "Previous Tab" },
+        { "]|",         ":vsplit<cr>",                                 desc = "Vertical Split" },
+        { "]}",         ":tabnext<cr>",                                desc = "Next Tab" },
+        { "dm",         ":execute 'delmarks '.nr2char(getchar())<cr>", desc = "Delete Mark" },
+        { "g<",         ":ISwapNodeWithLeft<CR>",                      desc = "Swap Left" },
+        { "g>",         ":ISwapNodeWithRight<CR>",                     desc = "Swap Right" },
+        { "gS",         ":ISwap<CR>",                                  desc = "Interactive Swap" },
+        { "gj",         ":TSJJoin<CR>",                                desc = "Treesitter Join" },
+        { "gs",         ":TSJSplit<CR>",                               desc = "Treesitter Split" },
       })
     end,
   },
