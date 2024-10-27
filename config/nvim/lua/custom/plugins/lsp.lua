@@ -24,7 +24,6 @@ return {
         "ruff-lsp",
         "ruby-lsp",
         "rust-analyzer",
-        "sorbet",
         "typescript-language-server",
         "stylua",
         "prettier",
@@ -121,12 +120,6 @@ return {
                 },
               },
             },
-          })
-        end,
-
-        ["sorbet"] = function()
-          require("lspconfig")["sorbet"].setup({
-            cmd = { "bundle", "exec", "srb", "tc", "--lsp", "--no-config", "--dir", "." },
           })
         end,
       })

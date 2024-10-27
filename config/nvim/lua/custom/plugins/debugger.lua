@@ -70,7 +70,7 @@ return {
         build = "npm i && npm run compile vsDebugServerBundle && mv dist out",
       },
       {
-        "suketa/nvim-dap-ruby",
+        dir = "~/src/github.com/suketa/nvim-dap-ruby",
       },
       {
         "mfussenegger/nvim-dap-python",

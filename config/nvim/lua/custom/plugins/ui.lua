@@ -116,6 +116,7 @@ return {
         { ",cn",       ":cn<CR>",                   desc = "Next Quickfix" },
         { ",cp",       ":cp<CR>",                   desc = "Previous Quickfix" },
         { ",f",        ":Files<CR>",                desc = "Show Files" },
+        { ",/",        ":FzfGrep<CR>",              desc = "Show Project Search" },
         { ",g",        ":DocumentSymbols<CR>",      desc = "Show DocumentSymbols" },
         { ",m",        ":Marks<CR>",                desc = "Choose Mark" },
         { ",n",        group = "neotest" },

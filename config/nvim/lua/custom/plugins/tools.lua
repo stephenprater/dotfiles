@@ -18,7 +18,7 @@ return {
       "nvim-lua/plenary.nvim",
       "nvim-treesitter/nvim-treesitter",
       "antoinemadec/FixCursorHold.nvim",
-      "zidhuss/neotest-minitest",
+      { dir = "~/src/github.com/zidhuss/neotest-minitest" },
       "marilari88/neotest-vitest",
       "nvim-neotest/neotest-python",
       "jfpedroza/neotest-elixir",
@@ -135,5 +135,8 @@ return {
         },
       })
     end,
+  },
+  {
+    "junegunn/goyo.vim",
   },
 }

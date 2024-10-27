@@ -40,7 +40,8 @@ vim.opt.expandtab = true
 vim.opt.signcolumn = "yes"
 vim.o.number = true
 
-vim.g.leader = "/"
+vim.g.mapleader = "/"
+vim.g.maplocalleader = "//"
 
 vim.g.vsnip_snippit_dir = vim.fn.expand("~") .. "/.config/nvim/snippets"
 
@@ -150,6 +151,8 @@ command! -bang YanksAfter call s:fzf_miniyank(0, <bang>0)
 map p <Plug>(miniyank-autoput)
 map P <Plug>(miniyank-autoPut)
 ]])
+
+vim.api.nvim_create_user_command("RefreshAiProxyKey", ":lua require('local-plugins.proxy_key').get_proxy_key()", {})
 
 vim.api.nvim_create_user_command("TSReset", "write | edit | TSBufEnable highlight", {})
 

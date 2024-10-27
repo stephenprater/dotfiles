@@ -15,6 +15,9 @@ return {
       return not os.getenv("SPIN")
     end,
     config = function()
+      vim.keymap.set("n", "<LocalLeader>td", "<Plug>(neorg.qol.todo-items.todo.task-cycle)")
+      vim.keymap.set("n", "<LocalLeader>tx", "<Plug>(neorg.qol.todo-items.todo.task-done)")
+
       require("neorg").setup({
         load = {
           ["core.defaults"] = {},
@@ -34,11 +37,6 @@ return {
               export_dir = "~/log/",
             },
           },
-          -- ["core.completion"] = {
-          --   config = {
-          --     engine = "nvim-cmp", name = "[Norg]"
-          --   }
-          -- },
           ["core.integrations.nvim-cmp"] = {},
           ["core.dirman"] = {
             config = {

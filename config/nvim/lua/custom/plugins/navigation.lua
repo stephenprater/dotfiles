@@ -75,6 +75,7 @@ return {
           seperator = "│",
         },
         mappings = {
+          "rails",
           {
             -- {repo}/{application}/{module}/{role}.py
             pattern = "(commercial_ai)/(.*)/(.*)/(.*).py$",
