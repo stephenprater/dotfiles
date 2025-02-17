@@ -48,7 +48,7 @@ case $1 in
     check "$2"
     ;;
   cat)
-    check || update
+    check || update > /dev/null
     jq -r .key < "$HOME/$key_file"
     ;;
   *)

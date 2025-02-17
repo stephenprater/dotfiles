@@ -13,7 +13,29 @@ return {
   { "tpope/vim-unimpaired" },
 
   -- Yank Ring
-  { "bfredl/nvim-miniyank" },
+  {
+    "gbprod/yanky.nvim",
+    opts = {},
+    keys = {
+      { "p", "<Plug>(YankyPutAfter)", mode = {"n", "x"} },
+      { "P", "<Plug>(YankyPutBefore)", mode = {"n", "x"} },
+      { "gp", "<Plug>(YankyGPutAfter)", mode = {"n", "x"} },
+      { "gP", "<Plug>(YankyGPutBefore)", mode = {"n", "x"} },
+      { "~p", "<Plug>(YankyPreviousEntry)", mode = {"n" } },
+      { "~P", "<Plug>(YankyNextEntry)", mode = {"n" } },
+    }
+  },
+
+  {
+    "fzf_yankring",
+    dependencies = { "ibhagwan/fzf-lua", "gbprod/yanky.nvim" },
+    dev = true,
+    opts = {},
+    keys = {
+      { ",y", ":lua require('fzf_yankring').yanks()<CR>", mode = {"n"}, desc = "Show Yank History" },
+    }
+
+  },
 
   -- Close everything but the current buffer
   { "duff/vim-bufonly" },

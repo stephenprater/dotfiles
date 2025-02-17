@@ -1,3 +1,11 @@
+PROFILE_STARTUP=false
+if [[ "$PROFILE_STARTUP" == true ]]; then
+    # http://zsh.sourceforge.net/Doc/Release/Prompt-Expansion.html
+    PS4=$'%D{%M%S%.} %N:%i> '
+    exec 3>&2 2>$HOME/tmp/startlog.$$
+    setopt xtrace prompt_subst
+fi
+
 source $HOME/.dotfiles/plugins/antidote/antidote.zsh
 antidote load $HOME/.dotfiles/zsh/zsh_plugins.txt
 
@@ -123,7 +131,7 @@ STRML_INSERT_CHAR="%{\e[36m%}❯%{\e[0m%}"
 STRML_NORMAL_CHAR="%{\e[36m%}❮%{\e[0m%}"
 STRML_USER_CHAR="❯"
 STRML_BGJOB_MODE=0
-STRML_PROMPT=(job_dots strml_pyenv_dot 'strml_cwd 1 0' 'strml_chrome " "' strml_gitstatus_char strml_status strml_keymap)
+STRML_PROMPT=(job_dots strml_pyenv_dot 'strml_cwd 2 0' 'strml_chrome " "' strml_gitstatus_char strml_status strml_keymap)
 STRML_RPROMPT=(dirty_graph)
 STRML_INFOLN=(clear_line strml_ssh tool_versions)
 STRML_MAGICENTER=(strml_me_dirs git_status strml_pyenv)
@@ -145,3 +153,13 @@ typeset -f pyenv > /dev/null && eval "$(pyenv virtualenv-init -)"
 export PATH="$PATH:/Users/stephenprater/.local/bin"
 
 [[ -x /opt/homebrew/bin/brew ]] && eval $(/opt/homebrew/bin/brew shellenv)
+
+for file in $SOURCE_DIR/github.com/Shopify/cloudplatform/workflow-utils/*.bash; do source ${file}; done
+kubectl-short-aliases
+
+# Entirety of my startup file... then
+if [[ "$PROFILE_STARTUP" == true ]]; then
+    unsetopt xtrace
+    exec 2>&3 3>&-
+fi
+

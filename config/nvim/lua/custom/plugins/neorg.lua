@@ -1,12 +1,23 @@
 return {
-  -- {
-  --   "3rd/image.nvim",
-  --   config = function()
-  --     require("image").setup({
-  --       backend = "ueberzug",
-  --     })
-  --   end,
-  -- },
+  {
+    "3rd/image.nvim",
+    opts = {
+      backend = "kitty",
+      tmux_show_only_in_active_window = true,
+      editor_only_render_when_focused = true,
+      integrations = {
+        markdown = {
+          enabled = false
+        }
+      }
+    },
+    keys = {
+      { "<LocalLeader>ci", function()
+          vim.fn.system("zsh -c 'clear_images'")
+        end, desc = "Clear Kitty Images"
+      }
+    }
+  },
   {
     "nvim-neorg/neorg",
     dependencies = { "luarocks.nvim" },
@@ -14,44 +25,59 @@ return {
     cond = function()
       return not os.getenv("SPIN")
     end,
-    config = function()
-      vim.keymap.set("n", "<LocalLeader>td", "<Plug>(neorg.qol.todo-items.todo.task-cycle)")
-      vim.keymap.set("n", "<LocalLeader>tx", "<Plug>(neorg.qol.todo-items.todo.task-done)")
-
-      require("neorg").setup({
-        load = {
-          ["core.defaults"] = {},
-          ["core.concealer"] = {
-            config = {
-              icons = {
-                todo = {
-                  undone = {
-                    icon = " ",
-                  },
+    opts = {
+      load = {
+        ["core.defaults"] = {},
+        ["core.concealer"] = {
+          config = {
+            icons = {
+              todo = {
+                undone = {
+                  icon = " ",
                 },
               },
             },
           },
-          ["core.export"] = {
-            config = {
-              export_dir = "~/log/",
-            },
-          },
-          ["core.integrations.nvim-cmp"] = {},
-          ["core.dirman"] = {
-            config = {
-              workspaces = {
-                log = "~/log",
-              },
-              index = "prater.norg",
-            },
+        },
+        ["core.export"] = {
+          config = {
+            export_dir = "~/log/",
           },
         },
-      })
-
-      vim.cmd([[autocmd FileType norg setlocal foldmethod=expr foldexpr=nvim_treesitter#foldexpr() tw=80 sw=2]])
-      vim.cmd([[autocmd FileType norg Copilot disable]])
-    end,
+        ["core.tangle"] = {},
+        ["core.dirman"] = {
+          config = {
+            workspaces = {
+              log = "~/log",
+            },
+            index = "prater.norg",
+          },
+        },
+        ["core.completion"] = {
+          config = {
+            engine = {
+              module_name = "external.lsp-completion"
+            }
+          }
+        },
+        ["external.interim-ls"] = {
+          config = {
+            completion_provider = {
+              enable = true,
+              documentation = true
+            }
+          }
+        },
+      }
+    },
+    keys = {
+      { "<LocalLeader>td", "<Plug>(neorg.qol.todo-items.todo.task-cycle)", mode = "n", ft = "norg", desc = "Cycle Todo" },
+      { "<LocalLeader>tx", "<Plug>(neorg.qol.todo-items.todo.task-done)", mode = "n", ft = "norg", desc = "Todo Done" },
+    }
+  },
+  {
+    "benlubas/neorg-interim-ls",
+    dependencies = { "nvim-neorg/neorg" }
   },
   {
     "toppair/peek.nvim",

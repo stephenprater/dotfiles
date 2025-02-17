@@ -10,20 +10,24 @@ return {
 
 	{
 		"rebelot/kanagawa.nvim",
-		lazy = true
+    priority = 1000,
 	},
 
   -- A color picker
   {
     'ziontee113/color-picker.nvim',
-    config = function()
-      require("color-picker").setup({
-        border = "rounded"
-      })
-
-      vim.keymap.set("i", "<C-c>", "<cmd>PickColorInsert<CR>", { noremap = true, silent = true })
-      vim.keymap.set("n", "<C-c>", "<cmd>PickColorInsert<CR>", { noremap = true, silent = true })
-    end,
+    lazy = true,
+    cmd = {
+      "PickColorNormal",
+      "PickColorInsert",
+    },
+    opts = {
+      border = "rounded",
+    },
+    keys = {
+      { "<C-c>", "<cmd>PickColorInsert<CR>", mode = {"i"}, desc = "Pick Color"  },
+      { "<C-c>", "<cmd>PickColorNormal<CR>", mode = {"n"}, desc = "Pick Color"  },
+    }
   },
 }
 

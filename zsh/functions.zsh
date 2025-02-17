@@ -102,3 +102,7 @@ reset_routes() {
   repeat 3 sudo route -n flush
   sudo route add default 10.0.1.1
 }
+
+clear_images() {
+ echo -e "\033Ptmux;\033\033_Ga=d,d=A\033\\"
+}

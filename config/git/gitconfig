@@ -78,14 +78,12 @@
         cmd = nvim -c DiffConflicts "$MERGED" "$BASE" "$LOCAL" "$REMOTE"
         trustExitCode = true
         keepBackup = false
-
-[filter "lfs"]
-        process = git-lfs filter-process
-        required = true
-        clean = git-lfs clean -- %f
-        smudge = git-lfs smudge -- %f
-
 [includeIf "gitdir:~/src/github.com/Shopify"]
         path = ~/.devconfig
 [init]
 	defaultBranch = main
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true

@@ -75,7 +75,31 @@ return {
           seperator = "│",
         },
         mappings = {
-          "rails",
+          {
+            -- {repo}/app/{role}/{module}/{role}/{class}.rb
+            pattern = "horton/app/(.*)/(.*).rb$",
+            target = {
+              {
+                target = "horton/test/%1/%2_test.rb",
+                context = "test",
+              },
+            },
+          },
+          {
+            -- {repo}/app/{role}/{module}/{role}/{class}.rb
+            pattern = "horton/lib/(.*)/(.*).rb$",
+            target = {
+              {
+                target = "horton/test/lib/%1/%2_test.rb",
+                context = "test",
+              },
+            },
+          },
+          {
+            pattern = "horton/app/consumers/(.*).rb$",
+            target = "horton/app/consumers/%1.rb",
+            context = "consumer",
+          },
           {
             -- {repo}/{application}/{module}/{role}.py
             pattern = "(commercial_ai)/(.*)/(.*)/(.*).py$",

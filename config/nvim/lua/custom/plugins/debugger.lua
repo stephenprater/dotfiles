@@ -1,55 +1,66 @@
 return {
   {
     "Vigemus/iron.nvim",
-    config = function()
-      require("iron.core").setup({
-        config = {
-          repl_definition = {
-            ruby = {
-              command = { "bundle", "exec", "irb" },
+    lazy = true,
+    command = {
+      "IronRepl",
+      "IronReplHere",
+      "IronRestart",
+      "IronSend",
+      "IronFocus",
+      "IronWatch",
+      "IronAttach"
+    },
+    main = "iron.core",
+    opts = {
+      config = {
+        repl_definition = {
+          ruby = {
+            command = { "bundle", "exec", "irb", "--no-pager" },
+          },
+          rails = {
+            command = { "bundle", "exec", "rails", "console", "--no-pager" },
+          },
+          gem = {
+            command = { "bundle", "exec", "bin/console", "--no-pager" },
+          },
+          js = {
+            node = {
+              command = { "node" },
             },
-            rails = {
-              command = { "bundle", "exec", "rails", "console" },
+          },
+          elixir = {
+            mix = {
+              command = { "iex", "-S", "mix" },
             },
-            gem = {
-              command = { "bundle", "exec", "bin/console" },
+          },
+          clojure = {
+            lein = {
+              command = { "lein", "repl" },
             },
-            js = {
-              node = {
-                command = { "node" },
-              },
+          },
+          typescript = {
+            command = { "npx", "ts-node" },
+          },
+          python = function()
+            return require("iron.fts.python").ipython
+          end,
+          sql = {
+            pg = {
+              command = { "pgcli", "-h", "0.0.0.0", "-U", "postgres" },
             },
-            elixir = {
-              mix = {
-                command = { "iex", "-S", "mix" },
-              },
-            },
-            clojure = {
-              lein = {
-                command = { "lein", "repl" },
-              },
-            },
-            typescript = {
-              command = { "npx", "ts-node" },
-            },
-            python = require("iron.fts.python").ipython,
-            sql = {
-              pg = {
-                command = { "pgcli", "-h", "0.0.0.0", "-U", "postgres" },
-              },
-              my = {
-                command = { "mycli", "-u", "root", "-h", "0.0.0.0" },
-              },
+            my = {
+              command = { "mycli", "-u", "root", "-h", "0.0.0.0" },
             },
           },
         },
-        keymaps = {
-          send_motion = "e",
-          visual_send = "e",
-          send_line = "ee",
-        },
-      })
-    end,
+      },
+      keymaps = {
+        send_motion = "e",
+        visual_send = "e",
+        send_line = "ee",
+      },
+    }
   },
   {
     "mfussenegger/nvim-dap",
@@ -69,9 +80,10 @@ return {
         version = "1.x",
         build = "npm i && npm run compile vsDebugServerBundle && mv dist out",
       },
-      {
-        dir = "~/src/github.com/suketa/nvim-dap-ruby",
-      },
+      -- {
+      --   dir = "~/src/github.com/suketa/nvim-dap-ruby",
+      -- },
+      "suketa/nvim-dap-ruby",
       {
         "mfussenegger/nvim-dap-python",
       },
@@ -151,6 +163,7 @@ return {
           request = "attach",
           port = 5678,
           server = "127.0.0.1",
+          justMyCode = false,
         },
       }
 

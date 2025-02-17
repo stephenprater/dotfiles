@@ -85,6 +85,8 @@ vim.cmd([[ hi clear SignColumn ]])
 vim.cmd([[ hi link SignColumn LineNr ]])
 vim.cmd([[ hi WinSeparator guifg=#3a3a57 guibg=#1f1f28 ]])
 vim.cmd([[ hi FloatBorder guifg=#54546d guibg=#1f1f28 ]])
+vim.cmd([[ hi NavicSeparator guifg=#63748c ]])
+vim.cmd([[ hi NavicText guifg=#afafaf guibg=#1f1f28 ]])
 
 vim.keymap.set({ "t", "n" }, "<M-h>", "<C-\\><C-n><C-w>h", { noremap = true })
 vim.keymap.set({ "t", "n" }, "<M-j>", "<C-\\><C-n><C-w>j", { noremap = true })
@@ -102,7 +104,7 @@ vim.keymap.set("c", "<C-O>", "<Up>", { noremap = true })
 vim.keymap.set("c", "<C-A>", "<Home>", { noremap = true })
 vim.keymap.set("c", "<C-X><C-A>", "<C-A>", { noremap = true })
 
-vim.keymap.set("n", "q:", ":History:<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "q:", ":FzfLua command_history<CR>", { noremap = true, silent = true })
 
 vim.api.nvim_create_user_command("Trim", "<line1>,<line2>s/\\s\\+$//e", {
   range = "%",
@@ -116,7 +118,7 @@ end, {})
 
 vim.api.nvim_create_user_command(
   "FzfGrep",
-  'call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case -- ".shellescape(<q-args>), 1, fzf#vim#with_preview(), <bang>0)',
+  "call fzf#vim#grep(\"rg --glob '!sorbet' --column --line-number --no-heading --color=always --smart-case -- \".shellescape(<q-args>), 1, fzf#vim#with_preview(), <bang>0)",
   { bang = true, nargs = "*" }
 )
 
@@ -128,31 +130,7 @@ vim.api.nvim_create_user_command("DisableTerminalEscape", function()
   vim.keymap.del("t", "<Esc>", { buffer = true })
 end, {})
 
-vim.cmd([[
-function! s:fzf_miniyank(put_before, fullscreen) abort
-    function! LocalSink(opt, line) abort
-        let l:key = substitute(a:line, ' .*', '', '')
-        if empty(a:line) | return | endif
-        let l:yanks = miniyank#read()[l:key]
-        call miniyank#drop(l:yanks, a:opt)
-    endfunction
-
-    let l:put_action = a:put_before ? 'P' : 'p'
-    let l:name = a:put_before ? 'YanksBefore' : 'YanksAfter'
-    let l:spec = {}
-    let l:spec['source'] = map(miniyank#read(), {k,v -> k.' '.join(v[0], '\n')})
-    let l:spec['sink'] = {val -> LocalSink(l:put_action, val)}
-    let l:spec['options'] = '--no-sort --prompt="Yanks-'.l:put_action.'> "'
-    call fzf#run(fzf#wrap(l:name, l:spec, a:fullscreen))
-endfunction
-
-command! -bang YanksBefore call s:fzf_miniyank(1, <bang>0)
-command! -bang YanksAfter call s:fzf_miniyank(0, <bang>0)
-map p <Plug>(miniyank-autoput)
-map P <Plug>(miniyank-autoPut)
-]])
-
-vim.api.nvim_create_user_command("RefreshAiProxyKey", ":lua require('local-plugins.proxy_key').get_proxy_key()", {})
+vim.api.nvim_create_user_command("RefreshAiProxyKey", ":lua require('proxy_key').get_proxy_key()", {})
 
 vim.api.nvim_create_user_command("TSReset", "write | edit | TSBufEnable highlight", {})
 
@@ -180,4 +158,14 @@ vim.api.nvim_create_autocmd({ "BufEnter" }, {
       vim.print("PYTHONPATH set to" .. poetry_site_package, "info")
     end)
   end,
+})
+
+vim.api.nvim_create_autocmd("Filetype", {
+  pattern = "norg",
+  command = "setlocal foldmethod=expr foldexpr=nvim_treesitter#foldexpr() tw=80 sw=2",
+})
+
+vim.api.nvim_create_autocmd("Filetype", {
+  pattern = "norg",
+  command = "Copilot disable"
 })

@@ -96,7 +96,7 @@ M.setup = function(config)
 
 		if not list.cond or (list.cond and list.cond()) then
 			if list.args then
-				vim.api.nvim_cmd({ cmd = list.cmd, args = {} }, {})
+				vim.api.nvim_cmd({ cmd = list.cmd, args = list.args }, {})
 			else
 				vim.api.nvim_cmd({ cmd = list.cmd, args = { list.name } }, {})
 			end

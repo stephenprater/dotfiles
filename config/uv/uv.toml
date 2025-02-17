@@ -1,0 +1,4 @@
+index-url = "https://pypi.python.org/simple"
+extra-index-url = ["https://token:UtA1ODTjPHYIdeR0@pkgs.shopify.io/basic/data/python/simple/"]
+
+index-strategy = "unsafe-best-match"

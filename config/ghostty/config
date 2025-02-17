@@ -1,0 +1,4 @@
+macos-titlebar-style = hidden
+window-decoration = false
+font-family = "MesloLGS NF"
+font-size = 12

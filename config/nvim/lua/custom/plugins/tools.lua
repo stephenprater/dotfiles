@@ -11,14 +11,22 @@ return {
     end,
   },
   {
+    "yochem/jq-playground.nvim",
+    opts = {
+      cmd = { "jq" }
+    }
+  },
+  {
     "nvim-neotest/neotest",
     lazy = true,
     event = "BufAdd */*test*",
     dependencies = {
+      "nvim-neotest/neotest-plenary",
       "nvim-lua/plenary.nvim",
       "nvim-treesitter/nvim-treesitter",
       "antoinemadec/FixCursorHold.nvim",
       { dir = "~/src/github.com/zidhuss/neotest-minitest" },
+      -- "zidhuss/neotest-minitest",
       "marilari88/neotest-vitest",
       "nvim-neotest/neotest-python",
       "jfpedroza/neotest-elixir",
@@ -30,6 +38,7 @@ return {
         },
         log_level = vim.log.levels.DEBUG,
         adapters = {
+          require("neotest-plenary"),
           require("neotest-minitest"),
           require("neotest-vitest"),
           require("neotest-elixir"),
@@ -40,13 +49,13 @@ return {
       })
     end,
   },
-  {
-    "mattn/emmet-vim",
-    config = function()
-      vim.g.user_emmet_install_global = 0
-      vim.g.user_emmet_leader_key = "<C-y>"
-    end,
-  },
+  -- {
+  --   "mattn/emmet-vim",
+  --   config = function()
+  --     vim.g.user_emmet_install_global = 0
+  --     vim.g.user_emmet_leader_key = "<C-y>"
+  --   end,
+  -- },
   {
     "dmmulroy/tsc.nvim",
     config = function()
@@ -103,40 +112,53 @@ return {
     end,
   },
   {
-    "yetone/avante.nvim",
-    dependencies = {
-      "nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
-      "stevearc/dressing.nvim",
-      "nvim-lua/plenary.nvim",
-      "MunifTanjim/nui.nvim",
-      --- The below is optional, make sure to setup it properly if you have lazy=true
-      {
-        "MeanderingProgrammer/render-markdown.nvim",
-        opts = {
-          file_types = { "markdown", "Avante" },
-        },
-        ft = { "markdown", "Avante" },
-      },
-    },
-    config = function()
-      local openai = require("avante.providers.openai")
-
-      require("avante").setup({
-        -- @type AvanteProvider
-        provider = "shopify-ai",
-        vendors = {
-          ["shopify-ai"] = {
-            endpoint = "https://proxy.shopify.ai/v3/v1",
-            model = "anthropic:claude-3-5-sonnet",
-            api_key_name = "cmd:openai_key cat",
-            parse_curl_args = openai.parse_curl_args,
-            parse_response_data = openai.parse_response,
-          },
-        },
-      })
-    end,
+    "proxy_key",
+    dev = true,
+    event = "VimEnter",
+    config = true
   },
   {
-    "junegunn/goyo.vim",
+    "llm_status",
+    dev = true,
+    ft = "codecompanion",
+    config = true
+  },
+  {
+    "olimorris/codecompanion.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-treesitter/nvim-treesitter",
+    },
+    opts ={
+      stratgies = {
+        chat = {
+          adapter = "shopify",
+        },
+        inline = {
+          adapter = "shopify",
+        },
+        slash_commands = {
+          ["buffer"] = {
+            opts = {
+              provider = "fzf_lua"
+            }
+          }
+        },
+      },
+      adapters = {
+        shopify = function()
+          return require("codecompanion.adapters").extend("openai", {
+            url = "https://proxy.shopify.ai/v3/v1",
+            env = {
+              model = "anthropic:claude-3-5-sonnet",
+              api_key = "cmd:openai_key cat",
+            },
+            schema = {
+              model = "anthropic:claude-3-5-sonnet",
+            },
+          })
+        end
+      }
+    }
   },
 }

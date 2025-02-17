@@ -8,16 +8,18 @@ function ProxyKey:check()
 end
 
 function ProxyKey:refresh()
-  vim.system({ "openai_key", "update" }, {
-    on_exit = function(j, return_val)
-      if return_val == 0 then
-        vim.notify("OpenAI proxy-key refreshed", vim.log.levels.INFO)
-        ProxyKey:get()
-      else
-        vim.notify("OpenAI proxy-key refresh failed", vim.log.levels.ERROR)
-      end
-    end,
-  })
+  vim.schedule(function()
+    vim.system({ "openai_key", "update" }, {
+      on_exit = function(j, return_val)
+        if return_val == 0 then
+          vim.notify("OpenAI proxy-key refreshed", vim.log.levels.INFO)
+          ProxyKey:get()
+        else
+          vim.notify("OpenAI proxy-key refresh failed", vim.log.levels.ERROR)
+        end
+      end,
+    })
+  end)
 end
 
 function ProxyKey:refreshSync()
